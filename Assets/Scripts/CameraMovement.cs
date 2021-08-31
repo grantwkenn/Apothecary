@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CameraMovement : MonoBehaviour
 {
-    float height = 1080 /64;
+    float height = 1080.0f /64.0f;
     float width = 1920 / 64;
     float halfWidth;
     float halfHeight;

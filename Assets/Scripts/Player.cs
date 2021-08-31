@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum PlayerState
 {
-    walk, attack, interact, drawn
+    walk, attack, interact, drawn, freeze
 }
 
 
@@ -52,7 +52,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         
-        directionFacing = Vector2.down;
 
         //direction = Vector2.down;
         animator = GetComponent<Animator>();
@@ -60,9 +59,44 @@ public class Player : MonoBehaviour
 
         currentState = PlayerState.walk;
 
-        animator.SetFloat("moveX", 0);
-        animator.SetFloat("moveY", -1);
+        directionFacing = Vector2.down;
+        setIdleAnimation(2);
+    }
 
+    public void freeze()
+    {
+        currentState = PlayerState.freeze;
+        myRigidbody.velocity = zero;
+        animator.SetBool("walking", false);
+    }
+
+    public void unfreeze()
+    {
+        currentState = PlayerState.walk;
+    }
+
+    public void setIdleAnimation(int direction)
+    {
+        if (direction == 0) //UP
+        {
+            animator.SetFloat("moveX", 0);
+            animator.SetFloat("moveY", 1);
+        }
+        if (direction == 1) //RIGHT
+        {
+            animator.SetFloat("moveX", 1);
+            animator.SetFloat("moveY", 0);
+        }
+        if (direction == 2) //DOWN
+        {
+            animator.SetFloat("moveX", 0);
+            animator.SetFloat("moveY", -1);
+        }
+        if (direction == 3) //LEFT
+        {
+            animator.SetFloat("moveX", -1);
+            animator.SetFloat("moveY", 0);
+        }
     }
 
     // Update is called once per frame
@@ -186,14 +220,22 @@ public class Player : MonoBehaviour
 
     private bool canMove()
     {
-        if(drawingBow) return false;
-        return (currentState == PlayerState.walk || currentState == PlayerState.drawn);
+        if (currentState == PlayerState.walk) return true;
+        if (currentState == PlayerState.drawn) return true;
+        else
+            myRigidbody.velocity = Vector2.zero;
+        return false;
+
     }
 
     public void MoveCharacter()
     {
         //myRigidbody.MovePosition(myRigidbody.transform.position + change * speed * Time.fixedDeltaTime * Time.timeScale);
         myRigidbody.velocity = change * speed;
+
+        //update sorting in layer
+
+        this.GetComponent<SpriteRenderer>().sortingOrder = -1* (int)this.transform.position.y;
     }
 
     private void ShootBow()

@@ -10,6 +10,7 @@ TagManager:
   - GameManager
   - Room
   - FPS
+  - Layered
   layers:
   - Default
   - TransparentFX
@@ -46,6 +47,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Trees
+    uniqueID: 4198105393
     locked: 0
   - name: Player
     uniqueID: 2558880219

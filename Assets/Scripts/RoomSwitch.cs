@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class RoomSwitch : MonoBehaviour
 {
-    public Vector3 playerDelta;
+    public Vector3 moveTo;
+
+    public int direction;
 
     private CameraMovement cam;
 
@@ -27,9 +29,10 @@ public class RoomSwitch : MonoBehaviour
         if(collision.CompareTag("Player"))
         {
             //tell the room manager script to switch  to room #X
-            gameManager.GetComponent<RoomManager>().SwitchRoom(Destination);
 
-            collision.transform.position += playerDelta;
+            gameManager.GetComponent<RoomManager>().SwitchRoom(Destination, moveTo, direction);
+
+            //collision.transform.position = moveTo;
         }
     }
 
