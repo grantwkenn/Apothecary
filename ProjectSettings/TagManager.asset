@@ -11,6 +11,7 @@ TagManager:
   - Room
   - FPS
   - Layered
+  - Item
   layers:
   - Default
   - TransparentFX

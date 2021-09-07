@@ -87,7 +87,6 @@ public class RoomManager : MonoBehaviour
         */
 
         Transform playerLocation = player.transform;
-        Debug.Log("x: " + playerLocation.position.x + " , y: "  + playerLocation.position.y);
 
 
         foreach (GameObject rm in allRooms)
@@ -102,7 +101,6 @@ public class RoomManager : MonoBehaviour
             {
                 currentRoomNum = rm.GetComponent<RoomScript>().RoomNumber;
                 allRooms[currentRoomNum].SetActive(true);
-                Debug.Log("currentRoomNum");
             }
         }
 
