@@ -1,0 +1,644 @@
+fileFormatVersion: 2
+guid: 001b1ed670c3e104e9ca56f810b5e3c7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 1894962595533868831
+    second: Health and Mana Bars_0
+  - first:
+      213: 1737583995906913735
+    second: Health and Mana Bars_1
+  - first:
+      213: 5123625627199943947
+    second: Health and Mana Bars_2
+  - first:
+      213: -5014203247099952978
+    second: Health and Mana Bars_3
+  - first:
+      213: -4725960501261321229
+    second: Health and Mana Bars_4
+  - first:
+      213: 5232931444646834413
+    second: Health and Mana Bars_5
+  - first:
+      213: 892112657179794442
+    second: Health and Mana Bars_6
+  - first:
+      213: -2809697560029842171
+    second: Health and Mana Bars_7
+  - first:
+      213: 7561176793470276928
+    second: Health and Mana Bars_8
+  - first:
+      213: 4054840326385227492
+    second: Health and Mana Bars_9
+  - first:
+      213: 1439945896138016062
+    second: Health and Mana Bars_10
+  - first:
+      213: 5347929824889231496
+    second: Health and Mana Bars_11
+  - first:
+      213: 2726703161100504342
+    second: Health and Mana Bars_12
+  - first:
+      213: -201994939658348775
+    second: Health and Mana Bars_13
+  - first:
+      213: -2132221535465224609
+    second: Health and Mana Bars_14
+  - first:
+      213: -5372249094931594404
+    second: Health and Mana Bars_15
+  - first:
+      213: 8733744163435055936
+    second: Health and Mana Bars_16
+  - first:
+      213: 8640943107657257358
+    second: Health and Mana Bars_17
+  - first:
+      213: -1061197729855312696
+    second: Health and Mana Bars_18
+  - first:
+      213: -6480748875157102512
+    second: Health and Mana Bars_19
+  - first:
+      213: -5628912568325335953
+    second: Health and Mana Bars_20
+  - first:
+      213: 3589570399568424023
+    second: Health and Mana Bars_21
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Health and Mana Bars_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 252
+        width: 92
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f1fc271d0724c4a10800000000000000
+      internalID: 1894962595533868831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health and Mana Bars_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 240
+        width: 92
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c57f6b20732d1810800000000000000
+      internalID: 1737583995906913735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health and Mana Bars_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 228
+        width: 92
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b05375f9c56ca1740800000000000000
+      internalID: 5123625627199943947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health and Mana Bars_3
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 216
+        width: 92
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea04ff096b8f96ab0800000000000000
+      internalID: -5014203247099952978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health and Mana Bars_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 204
+        width: 92
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fbbacb96f30a6eb0800000000000000
+      internalID: -4725960501261321229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health and Mana Bars_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 92
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de075247c6b1f9840800000000000000
+      internalID: 5232931444646834413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health and Mana Bars_6
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 180
+        width: 92
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0cd4de2cbb616c00800000000000000
+      internalID: 892112657179794442
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health and Mana Bars_7
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 168
+        width: 92
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 505b320a4f2f109d0800000000000000
+      internalID: -2809697560029842171
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health and Mana Bars_8
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 156
+        width: 92
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04519ba9b32bee860800000000000000
+      internalID: 7561176793470276928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health and Mana Bars_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 144
+        width: 92
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4e6de1b1bcfa54830800000000000000
+      internalID: 4054840326385227492
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health and Mana Bars_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 132
+        width: 92
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e358613d927bbf310800000000000000
+      internalID: 1439945896138016062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health and Mana Bars_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 120
+        width: 92
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8885d3857d9a73a40800000000000000
+      internalID: 5347929824889231496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health and Mana Bars_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 108
+        width: 92
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61d845d041237d520800000000000000
+      internalID: 2726703161100504342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health and Mana Bars_13
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 96
+        width: 92
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 917dc3f2cae523df0800000000000000
+      internalID: -201994939658348775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health and Mana Bars_14
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 84
+        width: 92
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f56482c7fc3d862e0800000000000000
+      internalID: -2132221535465224609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health and Mana Bars_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 72
+        width: 92
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5340bb59efe175b0800000000000000
+      internalID: -5372249094931594404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health and Mana Bars_16
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 60
+        width: 92
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04b00b41b0e743970800000000000000
+      internalID: 8733744163435055936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health and Mana Bars_17
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 48
+        width: 92
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e81554889fbcae770800000000000000
+      internalID: 8640943107657257358
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health and Mana Bars_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 36
+        width: 92
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8cce583894ed541f0800000000000000
+      internalID: -1061197729855312696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health and Mana Bars_19
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 24
+        width: 92
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 050afb90c31cf06a0800000000000000
+      internalID: -6480748875157102512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health and Mana Bars_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 12
+        width: 92
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f649c35a7d512e1b0800000000000000
+      internalID: -5628912568325335953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Health and Mana Bars_21
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 92
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75c68829247b0d130800000000000000
+      internalID: 3589570399568424023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

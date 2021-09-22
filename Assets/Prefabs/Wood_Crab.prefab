@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 1468476060902150892}
   - component: {fileID: 1468476060902150895}
   - component: {fileID: 1468476060902150894}
+  - component: {fileID: 364168318}
+  - component: {fileID: 3731667648027350208}
   m_Layer: 0
   m_Name: Wood_Crab
   m_TagString: Enemy
@@ -91,7 +93,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1736087077
-  m_SortingLayer: 1
+  m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: -1106986077527146661, guid: 9f4d269f05abaa14683c25c655f6a537,
     type: 3}
@@ -118,7 +120,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.125}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -129,8 +131,8 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2, y: 1.75}
-  m_EdgeRadius: 0
+  m_Size: {x: 0.875, y: 0.25}
+  m_EdgeRadius: 0.5
 --- !u!50 &1468476060902150895
 Rigidbody2D:
   serializedVersion: 4
@@ -171,7 +173,46 @@ MonoBehaviour:
   target: {fileID: 0}
   chaseRadius: 10
   attackRadius: 50
-  contactRadius: 1.5
+  contactRadius: 1
   wakeRadius: 4
   homePosition: {fileID: 0}
   currentState: 0
+--- !u!61 &364168318
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468476060902150888}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.09375}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 4, y: 4}
+    newSize: {x: 4, y: 4}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.125, y: 0.9375}
+  m_EdgeRadius: 0.5
+--- !u!114 &3731667648027350208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468476060902150888}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a09ef03af627c43bba3edebbf51fb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dynamic: 1

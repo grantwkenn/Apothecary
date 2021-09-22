@@ -12,6 +12,8 @@ TagManager:
   - FPS
   - Layered
   - Item
+  - Room Trigger
+  - Bed
   layers:
   - Default
   - TransparentFX
@@ -55,6 +57,6 @@ TagManager:
   - name: Player
     uniqueID: 2558880219
     locked: 0
-  - name: overhead
+  - name: Overhead
     uniqueID: 227516587
     locked: 0

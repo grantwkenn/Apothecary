@@ -4,16 +4,29 @@ using UnityEngine;
 
 public enum PlayerState
 {
-    walk, attack, interact, drawn, freeze
+    walk, attack, shovel, interact, drawn, freeze
+}
+
+public enum State
+{
+    idle, run, sword, shovel, interact, freeze, knockBack
 }
 
 
 public class Player : MonoBehaviour
 {
+    public bool startInBed;
+    
     public PlayerState currentState;
+
+    State currState;
+
+    GameObject gm;
 
     [SerializeField]
     protected float baseSpeed;
+    [SerializeField]
+    protected float sprintSpeed;
 
     [SerializeField]
     protected float speed;
@@ -22,202 +35,179 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D myRigidbody;
 
-    protected Vector3 change;
-
-    protected bool isAttacking = false;
+    protected Vector3 movement;
 
     protected bool isWalking = false;
 
     protected Vector3 zero = Vector3.zero;
+    Vector2 zero2 = Vector2.zero;
 
-    public bool knockBack = false;
+    public bool knockBack = false;    
 
+    public Vector2 directionFacing;
 
-    public GameObject arrow;
-    
-    private bool bowReady = false;
-    private bool drawingBow = false;
+    Inventory_Manager invManager;
 
-    private Vector2 directionFacing;
-    private int facing = 0;
+    Vector2 moveInput;
 
-    public float arrowOffsetX =0;
-    public float arrowOffsetY =0;
+    int MAX_HEALTH = 10;
+    int MAX_MANA = 10;
+    int health;
+    int mana;
 
+    int facing;
 
-    public Transform shotPoint;
-    public float bowWeight = 100.0f;
+    public int manaRegen;
+    int manaRegenCounter;
+
+    int manaBurn;
+
+    string[] shovel = { "Shovel_Up", "Shovel_Right", "Shovel_Down", "Shovel_Left" };
+    string[] run = { "run_up", "run_right", "run_down", "run_left" };
+    string[] idle = { "idle_up", "idle_right", "idle_down", "idle_left" };
+    string[] sword = { "sword_up", "sword_right", "sword_down", "sword_left" };
+
+    Vector2 knockImpulse;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gm = GameObject.FindGameObjectWithTag("GameManager");
 
-        //direction = Vector2.down;
+
+        if (startInBed)
+        {
+            this.transform.position = 
+            GameObject.FindGameObjectWithTag("Bed").transform.position;
+        }
+
         animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
 
         currentState = PlayerState.walk;
 
         directionFacing = Vector2.down;
-        setIdleAnimation(2);
+        facing = 2;
+
+        speed = baseSpeed;
+
+        invManager = gm.GetComponent<Inventory_Manager>();
+
+        health = MAX_HEALTH;
+        mana = MAX_MANA;
+        mana = 0;
+        manaRegenCounter = 0;
+
+        currState = State.idle;
+
     }
 
     public void freeze()
     {
-        currentState = PlayerState.freeze;
-        myRigidbody.velocity = zero;
-        animator.SetBool("walking", false);
+        currState = State.freeze;
+        //myRigidbody.velocity = zero;
     }
 
     public void unfreeze()
     {
-        currentState = PlayerState.walk;
+        currState = State.idle;
     }
 
-    public void setIdleAnimation(int direction)
+    public void setDirectionFacing(Vector2 direction)
     {
-        if (direction == 0) //UP
-        {
-            animator.SetFloat("moveX", 0);
-            animator.SetFloat("moveY", 1);
-        }
-        if (direction == 1) //RIGHT
-        {
-            animator.SetFloat("moveX", 1);
-            animator.SetFloat("moveY", 0);
-        }
-        if (direction == 2) //DOWN
-        {
-            animator.SetFloat("moveX", 0);
-            animator.SetFloat("moveY", -1);
-        }
-        if (direction == 3) //LEFT
-        {
-            animator.SetFloat("moveX", -1);
-            animator.SetFloat("moveY", 0);
-        }
+        if (direction == Vector2.up) facing = 0;
+        else if (direction == Vector2.right) facing = 1;
+        else if (direction == Vector2.down) facing = 2;
+        else facing = 3;
     }
 
     // Update is called once per frame
     void Update()
-    {
-        //get movement input
-        change = zero;
-        if(canMove())
-        {
-            change.x = Input.GetAxisRaw("Horizontal"); //* speed * Time.fixedDeltaTime;
-            change.y = Input.GetAxisRaw("Vertical"); //* speed * Time.fixedDeltaTime;
-            if (change.x > 0) facing = 1;
-            else if (change.x < 0) facing = 3;
-            else if (change.y > 0) facing = 2;
-            else if (change.y < 0) facing = 0;
-        }
-
-        if (Input.GetButtonDown("Sprint"))
-        {
-            speed = baseSpeed * 2;
-        }
-
-        if (Input.GetButtonUp("Sprint"))
-        {
-            speed = baseSpeed;
-        }
-
-
-        //get sword input and start coroutine
-        if (Input.GetButtonDown("attack"))
-        {
-            if(!Input.GetButton("Bow"))
-            {
-                StartCoroutine(AttackCo());
-            }
-            
-        }
-
-
-        //get bow input and start coroutine
-        else if (Input.GetButtonDown("Bow") && drawingBow == false)
-        {
-            drawingBow = true;
-            StartCoroutine(DrawBowCo()); 
-        }
-
-        //
-        else if (canMove())
-        {
-            WalkAnimationUpdate();
-        }
-
-        //check bow is released this frame
-        if(Input.GetButtonUp("Bow"))
-        {
-            if (bowReady) ShootBow();
-            bowReady = false;
-            drawingBow = false;
-            
-            if (currentState == PlayerState.drawn) currentState = PlayerState.walk;
-            animator.SetBool("drawingBow", false);
-            animator.SetBool("drawn", false);
-
-        }
-
-
-
+    {       
+        //Layer Sorting
+        this.GetComponent<SpriteRenderer>().sortingOrder = -1 * (int)this.transform.position.y;
     }
 
     private void FixedUpdate()
     {
-        if (canMove() && !drawingBow && !knockBack)
-            MoveCharacter();
+              
+        AnimationUpdate();
+
+        Move2();
+
+        manaUpdate();
+
     }
 
-
-    private IEnumerator AttackCo()
+    void manaUpdate()
     {
-        isAttacking = true;
-        animator.SetBool("attack", isAttacking);
-        currentState = PlayerState.attack;
-        yield return null;
-        isAttacking = false;
-        animator.SetBool("attack", isAttacking);
-        change = zero;
-        yield return new WaitForSeconds(0.3f);
-        currentState = PlayerState.walk;
-    }
-
-    private IEnumerator DrawBowCo()
-    {
-        //isAttacking = true;
-        animator.SetBool("drawingBow", true);
-        yield return null;
-        change = zero;
-        yield return new WaitForSeconds(0.5f);
-        if(drawingBow)
+        if (mana < MAX_MANA)
         {
-            currentState = PlayerState.drawn;
-            bowReady = true;
-            drawingBow = false;
-            animator.SetBool("drawn", true);
-            animator.SetBool("drawingBow", false);
+            manaRegenCounter += 1;
+            if (manaRegenCounter >= manaRegen)
+            {
+                mana += 1;
+                if (mana > MAX_MANA) mana = MAX_MANA;
+                manaRegenCounter = 0;
+            }
         }
-
+        else
+            manaRegenCounter = 0;
     }
 
+    public void Use()
+    {
+        string itemName = invManager.getSelectedItem().itemName;
+
+        if (itemName == "Sword")
+            Sword();
+        else if (itemName == "Shovel")
+            Shovel();
+
+        else if (itemName == "Red Potion" && health < MAX_HEALTH)
+        {
+            heal(3);
+            invManager.discardSelection();
+        }
+    }
+    
+    void Sword()
+    {
+        if (!interruptibleState()) return;
+        
+        currState = State.sword;
+        
+    }
+
+    void Shovel()
+    {
+        if(interruptibleState())
+        {
+            currState = State.shovel;
+        }
+    }
+
+
+    /*
     private void WalkAnimationUpdate()
     {
-        if (change != zero)
+        if (moveInput != zero2) //input present
         {
-            animator.SetFloat("moveX", change.x);
-            animator.SetFloat("moveY", change.y);
-            animator.SetBool("walking", true);                     
+            animator.SetFloat("moveX", moveInput.x);
+            animator.SetFloat("moveY", moveInput.y);
+            animator.SetBool("walking", true);
         }
         else
         {
             animator.SetBool("walking", false);
         }
-    }
+        //???
+        directionFacing.x = animator.GetFloat("moveX");
+        directionFacing.y = animator.GetFloat("moveY");
+        ///
+    }*/
 
+    /*
     private bool canMove()
     {
         if (currentState == PlayerState.walk) return true;
@@ -226,81 +216,128 @@ public class Player : MonoBehaviour
             myRigidbody.velocity = Vector2.zero;
         return false;
 
-    }
+    }*/
 
-    public void MoveCharacter()
+    void AnimationUpdate()
     {
-        //myRigidbody.MovePosition(myRigidbody.transform.position + change * speed * Time.fixedDeltaTime * Time.timeScale);
-        myRigidbody.velocity = change * speed;
-
-        //update sorting in layer
-
-        this.GetComponent<SpriteRenderer>().sortingOrder = -1* (int)this.transform.position.y;
+        //check input
+        //load proper animation state
+        if (currState == State.idle || currState == State.freeze)
+        {
+            animator.Play(idle[facing]);
+        }
+        else if (currState == State.run)
+        {
+            animator.Play(run[facing]);
+        }
+        else if (currState == State.shovel)
+        {
+            animator.Play(shovel[facing]);
+        }
+        else if (currState == State.sword) animator.Play(sword[facing]);
     }
 
-    private void ShootBow()
+    public void Move2()
     {
-        Vector2 offset0 = new Vector2(0, 0);
-        Vector2 offset1 = new Vector3(0.0f, 0.3125f);
-        Vector2 offset2 = new Vector2(0, 0);
-        Vector2 offset3 = new Vector3(0.0f, 0.3125f);
-
-        Vector2 offset = new Vector2(0, 0);
-
-        //get directionFacing, and offset
-        if (facing == 0)
+        //simply movement
+        if(currState == State.idle)
         {
-            directionFacing = Vector2.down;
-            offset.y -= arrowOffsetY;
+            myRigidbody.velocity = zero2;
         }
-        else if (facing == 1)
+        if(currState == State.run)
         {
-            directionFacing = Vector2.right;
-            offset.x += arrowOffsetX;
-            //shotPoint.transform.position = new Vector3(transform.position.x + offset1.x, transform.position.y + offset1.y, 0.0f);
+            myRigidbody.velocity = moveInput.normalized * speed;
         }
-        else if (facing == 2)
+        else if(currState == State.knockBack)
         {
-            directionFacing = Vector2.up;
-            offset.y += arrowOffsetY;
+            myRigidbody.velocity = zero2;
+            myRigidbody.AddForce(knockImpulse, ForceMode2D.Impulse);
         }
-        else if (facing == 3)
+        else if(currState != State.run)
         {
-            directionFacing = Vector2.left;
-            offset.x -= arrowOffsetX;
-            //shotPoint.transform.position = new Vector2(transform.position.x + offset3.x, transform.position.y + offset3.y);
+            myRigidbody.velocity = Vector2.zero;
         }
-
-        //update shotPoint rotation based on direction facing
-        float z = facing * 90.0f;
-        shotPoint.eulerAngles = new Vector3(0, 0, z);
-
-        //update shotPoint offset
-
-        //shotPoint.transform.position = new Vector2(shotPoint.transform.position.x + offset.x, shotPoint.transform.position.y + offset.y);
-        Vector2 offsetV = new Vector2(shotPoint.transform.position.x + offset.x, shotPoint.transform.position.y + offset.y);
-
-        GameObject newArrow = Instantiate(arrow, offsetV, shotPoint.rotation);
-        newArrow.GetComponent<Rigidbody2D>().velocity = directionFacing * bowWeight;
-
+            
     }
+
+    /*
+    public void Move()
+    {
+        if (knockBack) return;
+
+        //get movement input
+        movement = zero;
+        //moveInput = zero2;
+
+        if (canMove())
+        {           
+            
+            // Clamp directions to 8 Cardinal directions
+            
+            float angle = Vector2.SignedAngle(moveInput, Vector2.up);
+            
+            if(angle == 0 && moveInput.magnitude != 0)
+            {
+                moveInput = Vector2.up;
+                facing = 0;
+            }
+
+            /////////MAKE THIS NARROWER MORE RESPONSIVE GAMEPLAY AND ONLY SMALL REJECTION IN 4 DIRECTIONS
+            ///D PAD Issues
+            
+            if(angle > 0) //check UR, R, DR, D
+            {
+                if (angle <= 20) { moveInput = Vector2.up; facing = 0; } // UP
+                else if (20 < angle && angle <= 70) { moveInput = new Vector2(1, 1); facing = 1; } //UP-RIGHT
+                else if (70 < angle && angle <= 110) { moveInput = new Vector2(1, 0); facing = 1; } // RIGHT
+                else if (110 < angle && angle <= 160) { moveInput = new Vector2(1, -1); facing = 1; } // DOWN-RIGHT
+                else if (160 < angle) { moveInput = Vector2.down; facing = 2; } //DOWN
+            }
+
+            else if(angle < 0)
+            {
+                angle = 0 - angle;
+                if (angle <= 20) { moveInput = Vector2.up; facing = 0; }
+                else if (20 < angle && angle <= 70) { moveInput = new Vector2(-1, 1); facing = 3; }
+                else if (70 < angle && angle <= 110) { moveInput = new Vector2(-1, 0); facing = 3; }
+                else if (110 < angle && angle <= 160) { moveInput = new Vector2(-1, -1); facing = 3; }
+                else if (160 < angle) { moveInput = Vector2.down; facing = 2; }
+            }
+            
+
+
+            //movement = moveInput;
+
+            /*
+            if (movement.x > 0) facing = 1;
+            else if (movement.x < 0) facing = 3;
+            else if (movement.y > 0) facing = 2;
+            else if (movement.y < 0) facing = 0;
+            
+
+
+            myRigidbody.velocity = moveInput.normalized * speed;
+            //myRigidbody.AddForce(move.normalized * speed);
+
+            
+        }
+    } */
 
     public void KnockBack(Vector3 pos, float thrust)
     {
+        if (currState == State.knockBack) return;
+        currState = State.knockBack;
 
-        if (knockBack) return;
-        
-        Vector2 difference = transform.position - pos;
-        difference = difference.normalized * thrust;
+        knockImpulse = ((transform.position - pos).normalized) * thrust;
 
-        myRigidbody.AddForce(difference, ForceMode2D.Impulse);
-        knockBack = true;
-        StartCoroutine(KnockCo());
-
+        takeDamage(1);
+        StartCoroutine(KnockCo());        
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        if (currState != State.sword) return;
+
         if (other.gameObject.CompareTag("Enemy"))
         {
             //damage enemy, knock back
@@ -313,8 +350,85 @@ public class Player : MonoBehaviour
     private IEnumerator KnockCo()
     {
         yield return new WaitForSeconds(.25f);
-        myRigidbody.velocity = Vector2.zero;
-        knockBack = false;
+        currState = State.idle;
+    }
+
+
+    public int getHealth()
+    {
+        return health;
+    }
+
+    public int getMana()
+    {
+        return mana;
+    }
+
+    public void takeDamage(int damage)
+    {
+        if (damage > health)
+            health = 0;
+        else        
+            health -= damage;
+    }
+
+    void heal(int hp)
+    {
+        health += hp;
+        if (health > MAX_HEALTH)
+            health = MAX_HEALTH;
+    }
+
+    public void toggleSprint(bool input)
+    {
+        if (input)
+            speed = sprintSpeed;
+        else
+            speed = baseSpeed;
+    }
+
+    public Vector2 getDirectionFacing()
+    {
+        return directionFacing;
+    }
+
+
+    public void inputUpdate(Vector2 input)
+    {
+        moveInput = input;
+        if (interruptibleState())
+        {
+            if (input == Vector2.zero)
+                currState = State.idle;
+            else
+            {
+                currState = State.run;
+                directionFacing = moveInput;
+                if (moveInput.x > 0) facing = 1;
+                else if (moveInput.x < 0) facing = 3;
+                else if (moveInput.y > 0) facing = 0;
+                else
+                    facing = 2;
+            }
+                
+        }
+    }
+
+
+
+    bool interruptibleState()
+    {
+        if (currState == State.shovel) return false;
+        if (currState == State.sword) return false;
+        if (currState == State.knockBack) return false;
+        if (currState == State.freeze) return false;
+        
+        return true;
+    }
+
+    public void setAnimationIdle()
+    {
+        currState = State.idle;
     }
 
 }

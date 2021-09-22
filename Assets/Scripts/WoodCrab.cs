@@ -17,6 +17,8 @@ public class WoodCrab : Enemy
 
     private Rigidbody2D rigidBody;
 
+    GameObject player;
+
 
 
     public enum animState
@@ -35,7 +37,7 @@ public class WoodCrab : Enemy
 
         animator.Play(currentState.ToString());
 
-        Debug.Log(currentState.ToString());
+
 
     }
 
@@ -44,9 +46,9 @@ public class WoodCrab : Enemy
     void Start()
     {
         home = transform.position;
-        
+        player = GameObject.FindGameObjectWithTag("Player");
         rigidBody = GetComponent<Rigidbody2D>();
-        target = GameObject.FindWithTag("Player").transform;
+        target = player.transform;
         animator = GetComponent<Animator>();
 
     }
@@ -103,17 +105,27 @@ public class WoodCrab : Enemy
             }
         }
     }
-    
+
+
+    private void OnTriggerEnter2D(Collider2D player)
+    {
+        if(player.CompareTag("Player"))
+        {
+            player.GetComponent<Player>().KnockBack(rigidBody.position, 10);
+        }
+    }
 
     void CheckContact()
     {
-        if (distanceFromTarget <= contactRadius)
+        
+        
+        if (false) //distanceFromTarget <= contactRadius)
         {
             //set to kinematic
             //changeAnimationState(animState.crab_idle);
-            rigidBody.bodyType = RigidbodyType2D.Kinematic;
+            //rigidBody.bodyType = RigidbodyType2D.Kinematic;
 
-            GameObject.FindWithTag("Player").GetComponent<Player>().KnockBack(rigidBody.position, 10);
+            player.GetComponent<Player>().KnockBack(rigidBody.position, 10);
 
         }
         else if (rigidBody.bodyType == RigidbodyType2D.Kinematic)

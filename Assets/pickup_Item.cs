@@ -33,6 +33,7 @@ public class pickup_Item : MonoBehaviour
                 //Add to Inventory
                 gameManager.GetComponent<Inventory_Manager>().addItem(this.item);
 
+
                 //Destroy
                 Destroy(this.gameObject);
             }

@@ -88,21 +88,46 @@ public class RoomManager : MonoBehaviour
 
         Transform playerLocation = player.transform;
 
+        /*
+        foreach (GameObject room in allRooms)
+        {
+            //get all the switches
+            GameObject[] switches = GameObject.FindGameObjectsWithTag("Room Trigger");
+            foreach (GameObject sw in switches)
+            {
+                foreach (GameObject sw2 in switches)
+                {
+                    if (sw2.GetComponent<RoomSwitch>().Destination == room.GetComponent<RoomScript>().RoomNumber)
+                    {
+                        sw.GetComponent<RoomSwitch>().to = sw2.transform.position;
+                    }
+                }
+            }
 
+
+
+        }*/
+
+
+        //Find the current Room Player is in
         foreach (GameObject rm in allRooms)
         {
             rm.SetActive(false);
 
+            Vector2 minPos = rm.GetComponent<RoomScript>().getMinPos();
+            Vector2 maxPos = rm.GetComponent<RoomScript>().getMaxPos();
             //if within x and within y bounds
-            if (playerLocation.position.x <= rm.GetComponent<RoomScript>().maxPos.x
-                && playerLocation.position.x >= rm.GetComponent<RoomScript>().minPos.x
-                && playerLocation.position.y <= rm.GetComponent<RoomScript>().maxPos.y
-                && playerLocation.position.y >= rm.GetComponent<RoomScript>().minPos.y)
+            if (playerLocation.position.x <= maxPos.x
+                && playerLocation.position.x >= minPos.x
+                && playerLocation.position.y <= maxPos.y
+                && playerLocation.position.y >= minPos.y)
             {
                 currentRoomNum = rm.GetComponent<RoomScript>().RoomNumber;
                 allRooms[currentRoomNum].SetActive(true);
             }
         }
+
+
 
 
 
@@ -128,77 +153,76 @@ public class RoomManager : MonoBehaviour
 
     */
 
-    public void SwitchRoom(int destination, Vector3 moveTo, int direction)
+    public void SwitchRoom(int roomTo, Vector3 moveTo, Vector2 directionFacing)
     {
-        //TODO Freeze all players / Physics?
+        //TODO Freeze all players / Physics / Pause Game??
 
         //freeze player
         player.GetComponent<Player>().freeze();
         
-
-        //Fade Screen to Black
-        animator.SetTrigger("Fade Out");
-
-        StartCoroutine(Fade(destination, moveTo, direction));
+        StartCoroutine(FadeOut(roomTo, moveTo, directionFacing));
 
     }
 
-    IEnumerator Fade(int destination, Vector3 moveTo, int direction)
+    IEnumerator FadeOut(int destination, Vector3 moveTo, Vector2 direction)
     {
-        
+        //Fade Screen to Black
+        animator.SetTrigger("Fade Out");
+
+
         //wait for Fade to Black to Complete
         while (!animator.GetBool("Black"))
             yield return null;
 
+        movePlayer(destination, moveTo, direction);
 
+    }
+
+    private void movePlayer(int destination, Vector3 moveTo, Vector2 direction)
+    {
         //move Player
         player.transform.position = moveTo;
+
 
         //inactivate Previous room, activate destination
         allRooms[currentRoomNum].SetActive(false);
         currentRoomNum = destination;
-        allRooms[destination].SetActive(true);
-        
-
-        animator.ResetTrigger("Fade Out");
-        animator.SetTrigger("Fade In");
-        animator.SetBool("Black", false);
+        allRooms[currentRoomNum].SetActive(true);
 
         //set player's facing direction
-        player.GetComponent<Player>().setIdleAnimation(direction);
+        player.GetComponent<Player>().setDirectionFacing(direction);
 
-        player.GetComponent<Player>().unfreeze();
 
         //TODO camera pans in direction of doorway     
         //move camera bounds
-        mainCam.GetComponent<CameraMovement>().setBounds(allRooms[destination].GetComponent<RoomScript>().minPos, allRooms[destination].GetComponent<RoomScript>().maxPos);
+        mainCam.GetComponent<CameraMovement>().setBounds(allRooms[destination].GetComponent<RoomScript>().getMinPos(), allRooms[destination].GetComponent<RoomScript>().getMaxPos());
         moveTo.z = mainCam.transform.position.z;
         mainCam.transform.position = moveTo;
+
+
+        StartCoroutine(FadeIn());
+
     }
-    
+
+    IEnumerator FadeIn()
+    {
+
+        //Fade back in
+        animator.ResetTrigger("Fade Out");
+        animator.SetTrigger("Fade In");
+        //animator.SetBool("Black", false);
+
+        //wait for Fade to Black to Complete
+        while (animator.GetBool("Black"))
+            yield return null;
+
+        player.GetComponent<Player>().unfreeze();
+
+    }
+
 
     public GameObject getCurrentRoom()
     {
-        /*
-        
-        Transform playerLocation = GameObject.FindWithTag("Player").transform;
-
-
-        foreach(GameObject rm in allRooms)
-        {
-            //if within x and within y bounds
-            if (playerLocation.position.x <= rm.GetComponent<RoomScript>().maxPos.x
-                && playerLocation.position.x >= rm.GetComponent<RoomScript>().minPos.x
-                && playerLocation.position.y <= rm.GetComponent<RoomScript>().maxPos.y
-                && playerLocation.position.y >= rm.GetComponent<RoomScript>().minPos.y)
-            {
-                currentRoomNum = rm.GetComponent<RoomScript>().RoomNumber;
-                allRooms[currentRoomNum].SetActive(true);
-            }
-        }
-
-        */
-
         return allRooms[currentRoomNum];
     }
 

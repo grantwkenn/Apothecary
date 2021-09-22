@@ -4,23 +4,25 @@ using UnityEngine;
 
 public class RoomSwitch : MonoBehaviour
 {
-    public Vector3 moveTo;
-
-    public int direction;
-
     private CameraMovement cam;
-
-    //reference to Game Manager
     private GameObject gameManager;
 
-    public int Destination;
+    int roomTo;
+    public Vector2 directionFacing;
+    public GameObject DestTrigger;
+    private Vector2 moveTo;
 
-    
+    //TODO phase out roomTo and get it directly from the DestTrigger object parent
+
     // Start is called before the first frame update
     void Start()
     {
         cam = Camera.main.GetComponent<CameraMovement>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
+
+        //position right in "front" of the target door trigger based on direction facing
+        moveTo = new Vector2(DestTrigger.transform.position.x + (directionFacing.x), DestTrigger.transform.position.y + (directionFacing.y/2));
+        roomTo = DestTrigger.GetComponentInParent<RoomScript>().RoomNumber;
     }
 
 
@@ -30,7 +32,11 @@ public class RoomSwitch : MonoBehaviour
         {
             //tell the room manager script to switch  to room #X
 
-            gameManager.GetComponent<RoomManager>().SwitchRoom(Destination, moveTo, direction);
+            //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// TODO
+            //adjust destination from room switch by direction to bypass the trigger.
+            //change direction to be vector 2 all the way to player setIdleAnimation in Room Manager
+
+            gameManager.GetComponent<RoomManager>().SwitchRoom(roomTo, moveTo, directionFacing);
 
             //collision.transform.position = moveTo;
         }
