@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 
 public class RoomManager : MonoBehaviour
 {
@@ -11,9 +13,15 @@ public class RoomManager : MonoBehaviour
 
     Camera mainCam;
 
-    public Animator animator;
 
     GameObject player;
+
+    public RectTransform fadeOut;
+    public Image fadeImage;
+
+    float fadeSeconds = 0.3f;
+    int fadeSteps = 30;
+
 
     struct CameraBoundary
     {
@@ -31,7 +39,7 @@ public class RoomManager : MonoBehaviour
     {
         player = GameObject.FindWithTag("Player");
 
-        animator = GetComponentInChildren<Animator>();  
+        fadeImage = fadeOut.GetComponent<Image>();
 
         currentRoomNum = startingRoomNum;
         
@@ -142,7 +150,7 @@ public class RoomManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       
+
     }
 
 
@@ -166,14 +174,16 @@ public class RoomManager : MonoBehaviour
 
     IEnumerator FadeOut(int destination, Vector3 moveTo, Vector2 direction)
     {
-        //Fade Screen to Black
-        animator.SetTrigger("Fade Out");
+        fadeImage.enabled = true;
+        
+        while(fadeImage.color.a < 1)
+        {
+            fadeImage.color = new Color(0, 0, 0, fadeImage.color.a + (1f/fadeSteps));
+            yield return new WaitForSeconds(fadeSeconds / fadeSteps);
+            //yield return null;
+        }
 
-
-        //wait for Fade to Black to Complete
-        while (!animator.GetBool("Black"))
-            yield return null;
-
+        fadeImage.color = new Color(0, 0, 0, 1);
         movePlayer(destination, moveTo, direction);
 
     }
@@ -208,14 +218,17 @@ public class RoomManager : MonoBehaviour
     {
 
         //Fade back in
-        animator.ResetTrigger("Fade Out");
-        animator.SetTrigger("Fade In");
-        //animator.SetBool("Black", false);
 
         //wait for Fade to Black to Complete
-        while (animator.GetBool("Black"))
-            yield return null;
+        while (fadeImage.color.a > 0)
+        {
+            fadeImage.color = new Color(0, 0, 0, fadeImage.color.a - (1f/ fadeSteps));
+            yield return new WaitForSeconds(fadeSeconds / fadeSteps);
+            //yield return null;
+        }
 
+        fadeImage.color = new Color(0, 0, 0, 0);
+        fadeImage.enabled = false;
         player.GetComponent<Player>().unfreeze();
 
     }

@@ -36,9 +36,19 @@ public class Inventory_Bar : MonoBehaviour
         
         images = new Image[11];
 
+
+        for (int i = 0; i < 11; i++)
+        {
+            //Find the transform "Slot0 ..."
+            string s = "Slot" + i;
+            Transform slot = this.transform.Find(s);
+            //Get Image Component from each Slot
+            images[i] = slot.GetComponentInChildren<Image>();
+        }
+
         //items = new Item[11];
 
-   
+
         selector = this.transform.Find("Selection");
 
         //calculate slot positions on bar
@@ -49,6 +59,8 @@ public class Inventory_Bar : MonoBehaviour
         }
 
         barPosition = new Vector3(-103, 4, 0);
+
+
 
     }
 
@@ -88,18 +100,9 @@ public class Inventory_Bar : MonoBehaviour
         selector.transform.localPosition = slotPositions[inventoryManager.getSelectionNumber()];
         ////////////////////////////////////////////////////////////////////////////////
         
-
-        for (int i = 0; i < 11; i++)
-        {
-            //Find the transform "Slot0 ..."
-            string s = "Slot" + i;
-            Transform slot = this.transform.Find(s);
-            //Get Image Component from each Slot
-            images[i] = slot.GetComponentInChildren<Image>();
-        }
-
-
-        items = inventoryManager.getItems();
+        /// WASTEFUL / REDUNDENT??
+        items = inventoryManager.getSelectedRow();
+        // ONLY NEED TO UPDATE ITEM LIST IF AQUIRE OR REMOVE ITEMS FROM INV MANAGER
 
 
         for (int i=0; i< items.Length; i++)

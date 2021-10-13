@@ -2,13 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum PlayerState
-{
-    walk, attack, shovel, interact, drawn, freeze
-}
-
 public enum State
 {
+    //does shovel and sword need their own animation? can it be shared as uninteruptible?
     idle, run, sword, shovel, interact, freeze, knockBack
 }
 
@@ -17,11 +13,12 @@ public class Player : MonoBehaviour
 {
     public bool startInBed;
     
-    public PlayerState currentState;
 
-    State currState;
+    State currentState;
 
     GameObject gm;
+    Pause_Manager pm;
+    Tile_Manager tm;
 
     [SerializeField]
     protected float baseSpeed;
@@ -35,8 +32,6 @@ public class Player : MonoBehaviour
 
     private Rigidbody2D myRigidbody;
 
-    protected Vector3 movement;
-
     protected bool isWalking = false;
 
     protected Vector3 zero = Vector3.zero;
@@ -48,7 +43,9 @@ public class Player : MonoBehaviour
 
     Inventory_Manager invManager;
 
-    Vector2 moveInput;
+    SpriteRenderer spriteRenderer;
+
+    public Vector2 moveInput;
 
     int MAX_HEALTH = 10;
     int MAX_MANA = 10;
@@ -69,11 +66,14 @@ public class Player : MonoBehaviour
 
     Vector2 knockImpulse;
 
+    Vector2 pausedVelocity;
+
     // Start is called before the first frame update
     void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GameManager");
-
+        pm = gm.GetComponent<Pause_Manager>();
+        tm = gm.GetComponent<Tile_Manager>();
 
         if (startInBed)
         {
@@ -83,8 +83,6 @@ public class Player : MonoBehaviour
 
         animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
-
-        currentState = PlayerState.walk;
 
         directionFacing = Vector2.down;
         facing = 2;
@@ -98,19 +96,20 @@ public class Player : MonoBehaviour
         mana = 0;
         manaRegenCounter = 0;
 
-        currState = State.idle;
+        currentState = State.idle;
+
+        spriteRenderer = this.GetComponent<SpriteRenderer>();
 
     }
 
     public void freeze()
-    {
-        currState = State.freeze;
-        //myRigidbody.velocity = zero;
+    {       
+        currentState = State.freeze;
     }
 
     public void unfreeze()
     {
-        currState = State.idle;
+        currentState = State.idle;
     }
 
     public void setDirectionFacing(Vector2 direction)
@@ -123,20 +122,15 @@ public class Player : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {       
-        //Layer Sorting
-        this.GetComponent<SpriteRenderer>().sortingOrder = -1 * (int)this.transform.position.y;
+    {
+        AnimationUpdate();
     }
 
     private void FixedUpdate()
-    {
-              
-        AnimationUpdate();
-
-        Move2();
-
+    {         
+        Move();
+        
         manaUpdate();
-
     }
 
     void manaUpdate()
@@ -167,6 +161,7 @@ public class Player : MonoBehaviour
         else if (itemName == "Red Potion" && health < MAX_HEALTH)
         {
             heal(3);
+
             invManager.discardSelection();
         }
     }
@@ -174,161 +169,70 @@ public class Player : MonoBehaviour
     void Sword()
     {
         if (!interruptibleState()) return;
-        
-        currState = State.sword;
+
+        currentState = State.sword;
         
     }
 
     void Shovel()
     {
-        if(interruptibleState())
-        {
-            currState = State.shovel;
-        }
+        if (!interruptibleState()) return;
+        
+        currentState = State.shovel;
     }
-
-
-    /*
-    private void WalkAnimationUpdate()
-    {
-        if (moveInput != zero2) //input present
-        {
-            animator.SetFloat("moveX", moveInput.x);
-            animator.SetFloat("moveY", moveInput.y);
-            animator.SetBool("walking", true);
-        }
-        else
-        {
-            animator.SetBool("walking", false);
-        }
-        //???
-        directionFacing.x = animator.GetFloat("moveX");
-        directionFacing.y = animator.GetFloat("moveY");
-        ///
-    }*/
-
-    /*
-    private bool canMove()
-    {
-        if (currentState == PlayerState.walk) return true;
-        if (currentState == PlayerState.drawn) return true;
-        else
-            myRigidbody.velocity = Vector2.zero;
-        return false;
-
-    }*/
 
     void AnimationUpdate()
     {
         //check input
         //load proper animation state
-        if (currState == State.idle || currState == State.freeze)
+
+        if (currentState == State.idle || currentState == State.freeze)
         {
             animator.Play(idle[facing]);
         }
-        else if (currState == State.run)
+        else if (currentState == State.run)
         {
             animator.Play(run[facing]);
         }
-        else if (currState == State.shovel)
+        else if (currentState == State.shovel)
         {
             animator.Play(shovel[facing]);
         }
-        else if (currState == State.sword) animator.Play(sword[facing]);
+        else if (currentState == State.sword) animator.Play(sword[facing]);
+        
     }
 
-    public void Move2()
+    public void Move()
     {
+
         //simply movement
-        if(currState == State.idle)
+        if (currentState == State.idle)
         {
             myRigidbody.velocity = zero2;
         }
-        if(currState == State.run)
+        else if (currentState == State.run)
         {
             myRigidbody.velocity = moveInput.normalized * speed;
         }
-        else if(currState == State.knockBack)
-        {
-            myRigidbody.velocity = zero2;
-            myRigidbody.AddForce(knockImpulse, ForceMode2D.Impulse);
-        }
-        else if(currState != State.run)
+        else if (currentState == State.knockBack) { }
+        else if (currentState != State.run)
         {
             myRigidbody.velocity = Vector2.zero;
         }
-            
+
+        //layer sort
+        spriteRenderer.sortingOrder = 0 - (int)this.transform.position.y;
     }
-
-    /*
-    public void Move()
-    {
-        if (knockBack) return;
-
-        //get movement input
-        movement = zero;
-        //moveInput = zero2;
-
-        if (canMove())
-        {           
-            
-            // Clamp directions to 8 Cardinal directions
-            
-            float angle = Vector2.SignedAngle(moveInput, Vector2.up);
-            
-            if(angle == 0 && moveInput.magnitude != 0)
-            {
-                moveInput = Vector2.up;
-                facing = 0;
-            }
-
-            /////////MAKE THIS NARROWER MORE RESPONSIVE GAMEPLAY AND ONLY SMALL REJECTION IN 4 DIRECTIONS
-            ///D PAD Issues
-            
-            if(angle > 0) //check UR, R, DR, D
-            {
-                if (angle <= 20) { moveInput = Vector2.up; facing = 0; } // UP
-                else if (20 < angle && angle <= 70) { moveInput = new Vector2(1, 1); facing = 1; } //UP-RIGHT
-                else if (70 < angle && angle <= 110) { moveInput = new Vector2(1, 0); facing = 1; } // RIGHT
-                else if (110 < angle && angle <= 160) { moveInput = new Vector2(1, -1); facing = 1; } // DOWN-RIGHT
-                else if (160 < angle) { moveInput = Vector2.down; facing = 2; } //DOWN
-            }
-
-            else if(angle < 0)
-            {
-                angle = 0 - angle;
-                if (angle <= 20) { moveInput = Vector2.up; facing = 0; }
-                else if (20 < angle && angle <= 70) { moveInput = new Vector2(-1, 1); facing = 3; }
-                else if (70 < angle && angle <= 110) { moveInput = new Vector2(-1, 0); facing = 3; }
-                else if (110 < angle && angle <= 160) { moveInput = new Vector2(-1, -1); facing = 3; }
-                else if (160 < angle) { moveInput = Vector2.down; facing = 2; }
-            }
-            
-
-
-            //movement = moveInput;
-
-            /*
-            if (movement.x > 0) facing = 1;
-            else if (movement.x < 0) facing = 3;
-            else if (movement.y > 0) facing = 2;
-            else if (movement.y < 0) facing = 0;
-            
-
-
-            myRigidbody.velocity = moveInput.normalized * speed;
-            //myRigidbody.AddForce(move.normalized * speed);
-
-            
-        }
-    } */
 
     public void KnockBack(Vector3 pos, float thrust)
     {
-        if (currState == State.knockBack) return;
-        currState = State.knockBack;
+        if (currentState == State.knockBack) return;
+        currentState = State.knockBack;
 
         knockImpulse = ((transform.position - pos).normalized) * thrust;
+
+        myRigidbody.velocity = zero2;
+        myRigidbody.AddForce(knockImpulse, ForceMode2D.Impulse);
 
         takeDamage(1);
         StartCoroutine(KnockCo());        
@@ -336,7 +240,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (currState != State.sword) return;
+        if (currentState != State.sword) return;
 
         if (other.gameObject.CompareTag("Enemy"))
         {
@@ -350,9 +254,8 @@ public class Player : MonoBehaviour
     private IEnumerator KnockCo()
     {
         yield return new WaitForSeconds(.25f);
-        currState = State.idle;
+        currentState = State.idle;
     }
-
 
     public int getHealth()
     {
@@ -392,6 +295,11 @@ public class Player : MonoBehaviour
         return directionFacing;
     }
 
+    public int getFacing()
+    {
+        return facing;
+    }
+
 
     public void inputUpdate(Vector2 input)
     {
@@ -399,36 +307,40 @@ public class Player : MonoBehaviour
         if (interruptibleState())
         {
             if (input == Vector2.zero)
-                currState = State.idle;
+                currentState = State.idle;
             else
             {
-                currState = State.run;
+                currentState = State.run;
                 directionFacing = moveInput;
-                if (moveInput.x > 0) facing = 1;
-                else if (moveInput.x < 0) facing = 3;
-                else if (moveInput.y > 0) facing = 0;
-                else
-                    facing = 2;
+                if (moveInput.x > 0.9) facing = 1;
+                else if (moveInput.x < -0.9) facing = 3;
+                else if (moveInput.y > 0.9) facing = 0;
+                else if (moveInput.y <-0.9) facing = 2;
             }
                 
         }
     }
 
-
-
     bool interruptibleState()
     {
-        if (currState == State.shovel) return false;
-        if (currState == State.sword) return false;
-        if (currState == State.knockBack) return false;
-        if (currState == State.freeze) return false;
+        if (currentState == State.shovel) return false;
+        if (currentState == State.sword) return false;
+        if (currentState == State.knockBack) return false;
+        if (currentState == State.freeze) return false;
         
         return true;
     }
 
     public void setAnimationIdle()
     {
-        currState = State.idle;
+        currentState = State.idle;
+    }
+
+    public float getVelocity() { return myRigidbody.velocity.magnitude; }
+
+    void exposeDirt()
+    {
+        tm.exposeDirt();
     }
 
 }

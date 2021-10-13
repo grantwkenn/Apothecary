@@ -57,7 +57,7 @@ public class WoodCrab : Enemy
     void Update()
     {
         CheckDistance();
-        CheckContact();
+        //CheckContact();
 
         //FIXED UPDATE
 
@@ -97,7 +97,7 @@ public class WoodCrab : Enemy
                 if (currentState == animState.crab_charge)
                 {
                     changeAnimationState(animState.crab_idle);
-                    rigidBody.bodyType = RigidbodyType2D.Kinematic;
+                    //rigidBody.bodyType = RigidbodyType2D.Kinematic;
                     
                 }
                     

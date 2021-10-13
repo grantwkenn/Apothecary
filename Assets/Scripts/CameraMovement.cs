@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
+using UnityEngine.Experimental.Rendering.LWRP;
 
 
 //TODO: when new resolution detected, move the camera to recenter on room. IE: from 1080p to 900p
@@ -54,6 +55,7 @@ public class CameraMovement : MonoBehaviour
 
         //get whole integer scale
         //EXAMPLE: 900p / 360 ref --> (int) 2.5 --> 2
+        /*
         scale = (pixelHeight /
             (this.GetComponent<PixelPerfectCamera>().refResolutionY));
         if (scale == 0) scale = 1;
@@ -62,7 +64,15 @@ public class CameraMovement : MonoBehaviour
             (2 * scale * this.GetComponent<PixelPerfectCamera>().assetsPPU);
 
         widthOffset = pixelWidth /
-            (2 * scale * this.GetComponent<PixelPerfectCamera>().assetsPPU);
+            (2 * scale * this.GetComponent<PixelPerfectCamera>().assetsPPU); */
+
+        scale = pixelHeight / 360;
+        if (scale == 0) scale = 1;
+
+        heightOffset = pixelHeight / (2 * scale * 16);
+
+        widthOffset = pixelWidth / (2 * scale * 16); 
+
     }
 
     private void Update()
@@ -83,7 +93,7 @@ public class CameraMovement : MonoBehaviour
         {
             targetPosition.x = target.position.x;
             targetPosition.y = target.position.y;
-            transform.position = Vector3.Lerp(transform.position, targetPosition, smoothingSpeed * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, targetPosition, smoothingSpeed * Time.unscaledDeltaTime);
         }
 
         checkBounds();

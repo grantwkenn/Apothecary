@@ -9,6 +9,8 @@ public class FPSCounter : MonoBehaviour
 
     public Input_Manager ip;
 
+    Player player;
+
     int framerate;
 
     int rates = 0;
@@ -23,7 +25,7 @@ public class FPSCounter : MonoBehaviour
     {
         ip = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Input_Manager>();
 
-        
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
 
         framerate = (int)(1f / Time.unscaledDeltaTime);
