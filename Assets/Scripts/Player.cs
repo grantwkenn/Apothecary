@@ -11,14 +11,18 @@ public enum State
 
 public class Player : MonoBehaviour
 {
+
+    public static Player Instance { get; private set; }
+
     public bool startInBed;
-    
 
     State currentState;
 
     GameObject gm;
     Pause_Manager pm;
     Tile_Manager tm;
+    Text_Manager textManager;
+    Scene_Manager sm;
 
     [SerializeField]
     protected float baseSpeed;
@@ -47,6 +51,9 @@ public class Player : MonoBehaviour
 
     public Vector2 moveInput;
 
+    AudioSource audioSource;
+
+
     int MAX_HEALTH = 10;
     int MAX_MANA = 10;
     int health;
@@ -68,12 +75,27 @@ public class Player : MonoBehaviour
 
     Vector2 pausedVelocity;
 
+
+    public AudioClip swordClip;
+
+    public AudioClip[] footstepClips;
+    int footStepClip = 0;
+
+    private void Awake()
+    {
+        if (Instance != null && Instance != this) Destroy(gameObject);
+        else Instance = this;
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         gm = GameObject.FindGameObjectWithTag("GameManager");
         pm = gm.GetComponent<Pause_Manager>();
         tm = gm.GetComponent<Tile_Manager>();
+        textManager = gm.GetComponent<Text_Manager>();
+        sm = gm.GetComponent<Scene_Manager>();
 
         if (startInBed)
         {
@@ -91,7 +113,7 @@ public class Player : MonoBehaviour
 
         invManager = gm.GetComponent<Inventory_Manager>();
 
-        health = MAX_HEALTH;
+        health = sm.scenePersistence.health;
         mana = MAX_MANA;
         mana = 0;
         manaRegenCounter = 0;
@@ -100,7 +122,13 @@ public class Player : MonoBehaviour
 
         spriteRenderer = this.GetComponent<SpriteRenderer>();
 
+        audioSource = this.GetComponent<AudioSource>();
+
+
+
     }
+
+
 
     public void freeze()
     {       
@@ -171,6 +199,8 @@ public class Player : MonoBehaviour
         if (!interruptibleState()) return;
 
         currentState = State.sword;
+
+        swordSound();
         
     }
 
@@ -221,7 +251,7 @@ public class Player : MonoBehaviour
         }
 
         //layer sort
-        spriteRenderer.sortingOrder = 0 - (int)this.transform.position.y;
+        //spriteRenderer.sortingOrder = 0 - (int)this.transform.position.y;
     }
 
     public void KnockBack(Vector3 pos, float thrust)
@@ -338,9 +368,34 @@ public class Player : MonoBehaviour
 
     public float getVelocity() { return myRigidbody.velocity.magnitude; }
 
-    void exposeDirt()
+    public void exposeDirt()
     {
         tm.exposeDirt();
     }
+
+
+    public bool isFacing(Transform transform)
+    {
+        Vector2 delta = (Vector2)transform.position - myRigidbody.position;
+        return NPC.cardinalToInt(NPC.cardinal(delta)) == facing;
+    }
+
+
+    public void footStep()
+    {
+        audioSource.clip = footstepClips[footStepClip];
+        
+        audioSource.Play();
+
+        footStepClip = Random.Range(0, footstepClips.Length);
+    }
+
+    public void swordSound()
+    {
+        
+        audioSource.clip = swordClip;
+        audioSource.Play();
+    }
+
 
 }

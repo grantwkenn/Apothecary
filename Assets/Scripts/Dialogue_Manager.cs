@@ -1,0 +1,204 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class Dialogue_Manager : MonoBehaviour
+{
+
+    //Keeps track of dialogue progression,
+    //manipulates each NPC messager to load correct message in the progression
+
+    //Reference to all (active) NPCs
+
+    Inventory_Manager inventoryManager;
+    Quest_Manager questManager;
+    Text_Manager textManager;
+
+    List<Item> itemsToReceive;
+
+    [SerializeField]
+    Messager currentMessager;
+
+    Dictionary<int, Messager> activeMessagersByNPCID;
+
+    [SerializeField]
+    Sprite[] questSymbols;
+
+
+    private void OnEnable()
+    {
+        //When is the best time to do these?
+        
+        inventoryManager = GetComponentInParent<Inventory_Manager>();
+
+        questManager = GetComponentInParent<Quest_Manager>();
+
+        textManager = GetComponentInParent<Text_Manager>();
+
+        activeMessagersByNPCID = new Dictionary<int, Messager>();
+
+        questSymbols = new Sprite[6];
+        questSymbols = Resources.LoadAll<Sprite>("Quest_Indicators");
+    }
+
+    private void Start()
+    {
+
+    }
+
+
+    public void displayText()
+    {
+
+        if (!currentMessager.hasNextSegment())
+        {
+            textManager.deactivateTextBox();
+            messageTerminated();           
+        }
+        
+        else
+        {
+            textManager.activateTextBox();
+            textManager.setText(currentMessager.nextSegment());
+            textManager.setArrow(currentMessager.hasNextSegment());
+        }
+    }
+
+    public void messagerRefresh(Messager messager)
+    {
+        messager.setMessage(nextMessage(messager));
+    }
+
+    public void allMessagerRefresh()
+    {
+        //force all messagers active to re-evaluate current message
+        foreach(Messager messager in activeMessagersByNPCID.Values)
+        {
+            messager.setMessage(nextMessage(messager));
+        }
+    }
+
+    public void messagerEnable(Messager messager)
+    {
+        if (!activeMessagersByNPCID.ContainsKey(messager.getID()))
+            activeMessagersByNPCID.Add(messager.getID(), messager);
+    }
+
+    public void messagerDisable(Messager messager)
+    {
+        if (activeMessagersByNPCID.ContainsKey(messager.getID()))
+            activeMessagersByNPCID.Remove(messager.getID());
+    }
+
+    public void messageTerminated()
+    {        
+
+
+        //what is this for?
+        //Message currentMessage = currentMessager.getMessage();
+
+
+        questManager.checkDialogueProgression(currentMessager);
+
+
+
+        //Quest_Giver QG = currentMessager.GetComponentInParent<Quest_Giver>();
+        //if (QG != null && QG.getState() == QuestGiverState.available)
+        //{
+        //    if (itemsWithheld)
+        //        QG.setState(QuestGiverState.availableFull);
+        //    else
+        //    {
+        //        //try to accept this quest
+
+        //        questManager.accept(QG);
+
+
+        //        QG.setState(QuestGiverState.active);
+        //    }
+
+
+        //}
+
+        //not needed because setMessage does this
+        //currentMessager.resetMessageIndex();
+
+        currentMessager.setMessage(nextMessage(currentMessager));
+
+        //check for and prompt comeback message such as full inventory or quest log full
+        if(currentMessager.isQuestGiver())
+        {
+            QuestGiverState state = currentMessager.GetComponentInParent<Quest_Giver>().getState();
+            if(state == QuestGiverState.availableFull || state == QuestGiverState.turnInFull)
+            {
+                //trigger an interrupting message!
+                if (AwaitingInput()) //may be redundent check
+                    displayText();
+                return;
+            }
+        }
+        ///////////////////////////////////////////////////////////
+
+        //if more messages in this list, increment
+
+        //follow message flag if present
+
+        // if end of list (quest / progression completed)
+        //determine next quest available / progression...
+
+
+    }
+
+
+    public Message nextMessage(Messager messager)
+    {
+        //get Quest Message if aplicaple from this messager
+        Message nextMessage = questManager.getQuestMessage(messager);
+
+
+
+        if (nextMessage != null) return nextMessage;
+        
+        //no quest content, get other message
+
+
+
+        //TODO return its non-quest giver dialogue
+
+        return null;
+
+    }
+
+    public void setCurrentMessager(Messager messager)
+    {
+        //try to set messager but don't overwrite existing
+        //for example if another NPC walks into my path
+        if (currentMessager == null)
+            currentMessager = messager;
+
+    }
+
+    public void clearMessager()
+    {
+        currentMessager = null;
+        textManager.deactivateTextBox();
+    }
+
+    public bool AwaitingInput()
+    {
+        return currentMessager != null 
+            && Player.Instance.isFacing(currentMessager.transform);
+    }
+
+
+    public static bool compareMessages( Message m1, Message m2 )
+    {
+        return m1.messageSegments == m2.messageSegments;
+    }
+
+    public Sprite getQuestSymbol(int index)
+    {
+        return questSymbols[index+3];
+    }
+
+}

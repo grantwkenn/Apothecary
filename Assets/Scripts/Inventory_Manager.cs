@@ -6,6 +6,9 @@ using System;
 
 public class Inventory_Manager : MonoBehaviour
 {
+    Quest_Manager qm;
+    Scene_Persistence persistenceData;
+    
     public Item emptyItem;
 
     public RectTransform inv;
@@ -14,6 +17,7 @@ public class Inventory_Manager : MonoBehaviour
     Transform barSelector;
     Transform menuSelector;
     
+    [SerializeField]
     Item[] items;
     Image[] menuImages;
     Image[] barImages;
@@ -23,6 +27,7 @@ public class Inventory_Manager : MonoBehaviour
 
 
     int itemCount = 0;
+    int emptyCount;
     int barSelection = 0;
     public int menuSelection = 0;
 
@@ -36,13 +41,28 @@ public class Inventory_Manager : MonoBehaviour
     Vector3[] barPositions;
     Vector3[] menuPositions;
 
+
+    public Item_List itemList;
+
+    AudioSource gmAudioSource;
+
     // Start is called before the first frame update
     void Start()
     {
+        qm = GetComponentInParent<Quest_Manager>();
+        persistenceData = this.GetComponentInParent<Scene_Manager>().scenePersistence;
+
+        inventorySize = persistenceData.inventorySize;
+
         items = new Item[inventorySize];
+
+
         for(int i=0; i<inventorySize; i++)
         {
-            items[i] = emptyItem;
+            items[i] = persistenceData.inventory[i];  
+            
+            if (items[i] == null)
+                items[i] = emptyItem;
         }
 
         menuImages = new Image[inventorySize];
@@ -98,7 +118,9 @@ public class Inventory_Manager : MonoBehaviour
         barSelector = bar.Find("Selection");
         menuSelector = inv.Find("Selection");
 
+        gmAudioSource = GetComponentInParent<AudioSource>();
 
+        emptyCount = inventorySize - itemCount;
 
     }
 
@@ -135,11 +157,10 @@ public class Inventory_Manager : MonoBehaviour
 
     public bool inventoryFull()
     {
-
         return itemCount == inventorySize;
     }
 
-    public void addItem(Item item)
+    private void addItem(Item item)
     {
         //redundent
         if (inventoryFull()) return;
@@ -158,6 +179,13 @@ public class Inventory_Manager : MonoBehaviour
             }
         }
         itemCount++;
+        emptyCount = inventorySize - itemCount;
+
+        playSound();
+
+        //notify the Quest Manager
+        //qm.itemPickedUp(item.itemNo);
+        qm.itemAddedOrRemoved(item.itemNo, 1);
               
     }
 
@@ -236,6 +264,114 @@ public class Inventory_Manager : MonoBehaviour
     {       
         items[barSelection] = emptyItem;
         itemCount--;
+    }
+
+
+    void playSound()
+    {
+        gmAudioSource.Play();
+    }
+
+    public bool enoughSpace(int number)
+    {
+        return emptyCount >= number;
+    }
+
+    //will need to fix for stackables...
+    public bool offerItems(List<Item> items)
+    {
+        if (!enoughSpace(items.Count)) return false;
+
+        foreach(Item i in items)
+        {
+            addItem(i);
+        }
+
+
+        return true;
+    }
+
+    public bool offerItem(Item item)
+    {
+        if (!enoughSpace(1)) return false;
+        addItem(item);
+        return true;
+    }
+
+    public bool removeObjectives(List<Gather_Objective> gathers)
+    {
+        bool result = true;
+        
+        foreach(Gather_Objective ob in gathers)
+        {
+            if (!removeItem(ob.getData().itemID, ob.getData().quantity)) result = false;
+        }
+               
+        return result;
+    }
+    
+
+    public bool removeItem(int itemID, int quantity)
+    {
+        //check each item and remove until quantity has been discarded.
+        //if insufficient quantity, item will be converted to empty
+
+        int quantityToRemove = quantity;
+            
+        //search every item for match, then subtract amount
+
+        for(int i=0; i<items.Length; i++)
+        {
+            Item item = items[i];
+            
+            if (item.itemNo != itemID) continue;
+
+            int itemQuantity = item.quantity;
+
+            if (itemQuantity <= quantityToRemove)
+            {
+                quantityToRemove -= itemQuantity;
+
+                qm.itemAddedOrRemoved(item.itemNo, 0 - itemQuantity);
+
+                items[i] = emptyItem;
+                Debug.Log("emptied");
+            }
+            else
+            {
+                quantityToRemove -= itemQuantity;
+                
+            }
+
+            if (quantityToRemove == 0) return true;
+        }
+
+        qm.itemAddedOrRemoved(itemID, 0 - quantity);
+
+
+        return quantityToRemove == 0;
+
+     
+    }
+
+    public Item[] getItems()
+    {
+        return items;
+    }
+
+    //count of an ItemID on hand
+    public int countItem(int itemID)
+    {
+        int count = 0;
+        foreach(Item item in items)
+        {
+            if (item == null || item.itemNo != itemID) continue;
+
+            count += item.quantity;
+
+        }
+
+        return count;
     }
 
 }

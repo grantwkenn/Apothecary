@@ -41,7 +41,7 @@ public class WoodCrab : Enemy
 
     }
 
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -54,7 +54,7 @@ public class WoodCrab : Enemy
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         CheckDistance();
         //CheckContact();
@@ -69,13 +69,26 @@ public class WoodCrab : Enemy
             
     }
 
+
+    void charge()
+    {
+        //transform position if far enough
+        if (distanceFromTarget > contactRadius)
+        {
+            Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.fixedDeltaTime);
+
+            rigidBody.MovePosition(temp);
+        }
+
+    }
+
+
+
     void CheckDistance()
     {
         distanceFromTarget = Vector3.Distance(target.position, transform.position);
 
 
-        //wakeup
-        //TODO: set to dynamic from here
         if (currentState == animState.crab_hide && distanceFromTarget <= wakeRadius)
         {
             changeAnimationState(animState.crab_emerge);
@@ -97,14 +110,17 @@ public class WoodCrab : Enemy
                 if (currentState == animState.crab_charge)
                 {
                     changeAnimationState(animState.crab_idle);
-                    //rigidBody.bodyType = RigidbodyType2D.Kinematic;
-                    
                 }
-                    
-
             }
         }
     }
+
+
+
+
+
+
+
 
 
     private void OnTriggerEnter2D(Collider2D player)
@@ -113,35 +129,6 @@ public class WoodCrab : Enemy
         {
             player.GetComponent<Player>().KnockBack(rigidBody.position, 10);
         }
-    }
-
-    void CheckContact()
-    {
-        
-        
-        if (false) //distanceFromTarget <= contactRadius)
-        {
-            //set to kinematic
-            //changeAnimationState(animState.crab_idle);
-            //rigidBody.bodyType = RigidbodyType2D.Kinematic;
-
-            player.GetComponent<Player>().KnockBack(rigidBody.position, 10);
-
-        }
-        else if (rigidBody.bodyType == RigidbodyType2D.Kinematic)
-            rigidBody.bodyType = RigidbodyType2D.Dynamic;
-    }
-
-    void charge()
-    {        
-        //transform position if far enough
-        if(distanceFromTarget > contactRadius)
-        {
-            Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.fixedDeltaTime);
-
-            rigidBody.MovePosition(temp);      
-        }
-
     }
 
 
@@ -166,6 +153,17 @@ public class WoodCrab : Enemy
         rigidBody.velocity = Vector2.zero;
         knockBack = false;
     }
+
+
+
+
+
+
+
+
+
+
+
 
     private void OnDisable()
     {

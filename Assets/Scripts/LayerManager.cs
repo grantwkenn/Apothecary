@@ -7,23 +7,30 @@ public class LayerManager : MonoBehaviour
     //reference the parent Room's position
 
     public bool dynamic;
-
+    Vector2 lastPosition;
 
     void Start()
     {
-        float parentY = this.GetComponentInParent<Transform>().position.y;
-
-        GetComponentInChildren<SpriteRenderer>().sortingOrder = -1-(int)parentY;
+        updateLayer();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if(dynamic)
+        if(dynamic && lastPosition != (Vector2) this.transform.position)
         {
-            float parentY = this.GetComponentInParent<Transform>().position.y;
-
-            GetComponentInChildren<SpriteRenderer>().sortingOrder = -1 - (int)parentY;
+            updateLayer();
+            lastPosition = (Vector2) this.transform.position;
         }
+    }
+
+    void updateLayer()
+    {
+        float pivotY = this.GetComponentInParent<Transform>().position.y;
+        float colliderOffset = this.GetComponent<BoxCollider2D>().offset.y;
+        float colliderHalfHeight = this.GetComponent<BoxCollider2D>().size.y / 2.0f;
+        float colliderBottomY = pivotY + colliderOffset - colliderHalfHeight;
+
+        GetComponentInChildren<SpriteRenderer>().sortingOrder = 0-(int)(colliderBottomY*4);
     }
 
 }

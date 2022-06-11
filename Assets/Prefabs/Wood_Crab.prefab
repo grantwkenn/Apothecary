@@ -71,10 +71,11 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: 2e883a835c7be5343ad17beb9316be26, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -92,11 +93,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1736087077
-  m_SortingLayer: 2
+  m_SortingLayerID: 1567393443
+  m_SortingLayer: 1
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1106986077527146661, guid: 9f4d269f05abaa14683c25c655f6a537,
-    type: 3}
+  m_Sprite: {fileID: -1106986077527146661, guid: 9f4d269f05abaa14683c25c655f6a537, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -4,16 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - breakable
-  - wall
-  - Enemy
-  - GameManager
   - Room
-  - FPS
-  - Layered
+  - Bed
+  - wall
+  - GameManager
+  - Enemy
   - Item
   - Room Trigger
-  - Bed
   layers:
   - Default
   - TransparentFX
@@ -51,12 +48,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Trees
-    uniqueID: 4198105393
-    locked: 0
   - name: Player
-    uniqueID: 2558880219
+    uniqueID: 1567393443
     locked: 0
   - name: Overhead
-    uniqueID: 227516587
+    uniqueID: 727065489
     locked: 0

@@ -13,7 +13,7 @@ public class Input_Manager : MonoBehaviour
     PlayerControls controls;
 
     Inventory_Manager invManager;
-    Text_Manager txtManager;
+    Dialogue_Manager dialogueManager;
     Pause_Manager pauseManager;
 
     InputState inputState;
@@ -23,7 +23,6 @@ public class Input_Manager : MonoBehaviour
     int inventoryTimer;
 
     int barSelection = 0;
-    int barSize = 11;
 
     Vector2 moveInput;
     Vector2 direction;
@@ -45,7 +44,7 @@ public class Input_Manager : MonoBehaviour
     {
         GameObject gm = GameObject.FindGameObjectWithTag("GameManager");
         invManager = gm.GetComponent<Inventory_Manager>();
-        txtManager = gm.GetComponent<Text_Manager>();
+        dialogueManager = gm.GetComponent<Dialogue_Manager>();
         pauseManager = gm.GetComponent<Pause_Manager>();
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -104,10 +103,8 @@ public class Input_Manager : MonoBehaviour
     {
         if (inputState == InputState.inGame)
         {
-            if (txtManager.getMessageTrigger() && player.getDirectionFacing() == Vector2.up)
-            {
-                txtManager.displayMessage();
-            }
+            if (dialogueManager.AwaitingInput())
+                dialogueManager.displayText();
             else
                 player.Use();
         }
@@ -159,6 +156,9 @@ public class Input_Manager : MonoBehaviour
         if (moveInput == Vector2.zero)
             direction = Vector2.zero;
 
+        
+        
+        
         else if (0 <= angle && angle < 0 + tolerance) direction = Vector2.up;
         else if (0 + tolerance <= angle && angle < 90 - tolerance) { direction.x = 1; direction.y = 1; }
         else if (90 - tolerance <= angle && angle < 90 + tolerance) { direction = Vector2.right; }
@@ -266,4 +266,5 @@ public class Input_Manager : MonoBehaviour
     }
 
     public Vector2 readInput() { return moveInput; }
+
 }

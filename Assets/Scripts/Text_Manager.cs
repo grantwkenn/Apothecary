@@ -8,11 +8,10 @@ public class Text_Manager : MonoBehaviour
     public Text textObj;
     public GameObject dialogueContainer;
 
+    //public GameObject allDialogue;
+    Inventory_Manager invMan;
+    Dialogue_Manager dialogueManager;
 
-    List<string> parsedMessage;
-
-    int messageIndex = 0;
-    bool messageTrigger = false;
 
     Transform arrow;
     Vector3 arrowRefPos;
@@ -24,10 +23,16 @@ public class Text_Manager : MonoBehaviour
     byte frameTime = 4;
     byte arrowAnimationIndex = 0;
 
+    Image arrowImage;
+
 
     // Start is called before the first frame update
     void Start()
     {
+        invMan = GetComponentInParent<Inventory_Manager>();
+
+        dialogueManager = GetComponentInParent<Dialogue_Manager>();
+
         dialogueContainer.SetActive(false);
 
         arrow = dialogueContainer.transform.Find("Arrow");
@@ -35,22 +40,17 @@ public class Text_Manager : MonoBehaviour
         arrowRefPos = arrow.transform.localPosition;
         
         arrowAnimationHeights = new byte[8] { 0,1,2,4,2,1,0,0 };
-        
 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        arrowImage = arrow.GetComponent<Image>();
         
     }
+
 
     private void FixedUpdate()
     {
         if (animateArrow)
         {
-            arrow.GetComponent<Image>().enabled = true;
+            if (!arrowImage.IsActive()) arrowImage.enabled = true;
             if (animationTimer == frameTime)
             {
                 arrowAnimationIndex++;
@@ -64,80 +64,40 @@ public class Text_Manager : MonoBehaviour
                 animationTimer++;
 
         }
-        else
-        {
-            arrow.GetComponent<Image>().enabled = false;
-        }
+        else if (arrowImage.IsActive()) arrowImage.enabled = false;
 
     }
 
-    public void displayMessage()
+
+    public void activateTextBox()
     {
-
-        //if past all pages of text
-        if (messageIndex >= parsedMessage.Count)
-        {
-            messageIndex = 0;
-            dialogueContainer.SetActive(false);
-        }
-        else
-        {
-            textObj.text = parsedMessage[messageIndex];
-            messageIndex++;
-
-            dialogueContainer.SetActive(true);
-
-            if (parsedMessage.Count > 1)
-            {
-                animateArrow = true;
-            } 
-
-            //last page of message
-            if (messageIndex == parsedMessage.Count)
-            {
-                animateArrow = false;
-            }
-                
-        }
-
+        if (dialogueContainer.activeSelf) return;
+        
         animationTimer = 0;
         arrowAnimationIndex = 0;
-        
+
+        dialogueContainer.SetActive(true);
     }
 
-
-
-
-    public void loadMessage(List<string> parsedMsg)
+    public void deactivateTextBox()
     {
-        parsedMessage = parsedMsg;
-        
-        messageTrigger = true;
-        messageIndex = 0;
-
-        if (parsedMessage.Count > 1)
-        {
-            arrow.GetComponent<Image>().enabled = true;
-            animateArrow = true;
-        }
-            
-        else
-        {
-            arrow.GetComponent<Image>().enabled = false;
-            animateArrow = false;
-        }
-            
-    }
-
-    public void clearMessage()
-    {
-        dialogueContainer.SetActive(false);
-        messageTrigger = false;
-        messageIndex = 0;
-        parsedMessage = null;
-
         animateArrow = false;
+        animationTimer = 0;
+        arrowAnimationIndex = 0;
+        dialogueContainer.SetActive(false);
+
     }
 
-    public bool getMessageTrigger() { return messageTrigger; }
+    public void setArrow(bool value)
+    {
+        animateArrow = value;
+    }
+
+
+    public void setText(string text)
+    {
+        textObj.text = text;
+    }
+
+
 }
