@@ -66,7 +66,7 @@ public class Dialogue_Manager : MonoBehaviour
 
     public void messagerRefresh(Messager messager)
     {
-        messager.setMessage(nextMessage(messager));
+        messager.nextMessage();
     }
 
     public void allMessagerRefresh()
@@ -74,7 +74,7 @@ public class Dialogue_Manager : MonoBehaviour
         //force all messagers active to re-evaluate current message
         foreach(Messager messager in activeMessagersByNPCID.Values)
         {
-            messager.setMessage(nextMessage(messager));
+            messager.nextMessage();
         }
     }
 
@@ -123,7 +123,8 @@ public class Dialogue_Manager : MonoBehaviour
         //not needed because setMessage does this
         //currentMessager.resetMessageIndex();
 
-        currentMessager.setMessage(nextMessage(currentMessager));
+        //currentMessager.setMessage(nextMessage(currentMessager));
+        currentMessager.nextMessage();
 
         //check for and prompt comeback message such as full inventory or quest log full
         if(currentMessager.isQuestGiver())

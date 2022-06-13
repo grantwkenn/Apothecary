@@ -205,8 +205,8 @@ public class Quest_Manager : MonoBehaviour
                 }
                     
             }
-        }    
-        
+        }
+
 
         //Next check if this messager is a Quest Giver with active state
         Quest_Giver QG = messager.GetComponentInParent<Quest_Giver>();
@@ -459,11 +459,13 @@ public class Quest_Manager : MonoBehaviour
 
                 //QG.setState(QuestGiverState.none);
                 //if (starterID != QG.QGID)
-                    //activeQG_By_ID[starterID].setState(QuestGiverState.none);
+                //activeQG_By_ID[starterID].setState(QuestGiverState.none);
+
+                Debug.Log("State: " + QG.getState());
 
                 //re-evaluate state of turn In QG and original QG
                 QG.setState(evaluateQuestGiverState(QG.QGID));
-                    
+                
 
 
                 //remove quest Items
@@ -624,11 +626,18 @@ public class Quest_Manager : MonoBehaviour
     {
         if (questLog.Count == 0) return null;
 
-        for(int index = 0; index < questLog.Count; index++)
+        foreach(Quest quest in questLog)
         {
-            //check if this quest in the log is one of QG's
-            if (questLog[index].getData().getQuestGiverID() == QGID) return questLog[index];
+            if (quest.getData().getQuestGiverID() == QGID)
+                return quest;
+
+            foreach(Talk_Objective to in quest.talk_objectives)
+            {
+                if (to.data.NPC_ID == QGID)
+                    return quest;
+            }
         }
+        
 
         return null;
     }
@@ -689,7 +698,8 @@ public class Quest_Manager : MonoBehaviour
                             
                             QG.setState(evaluateQuestGiverState(turnInQGID));
                             Messager messager = QG.GetComponentInParent<Messager>();
-                            messager.setMessage(dialogueManager.nextMessage(QG.GetComponentInParent<Messager>()));
+                            messager.nextMessage();
+                            //messager.setMessage(dialogueManager.nextMessage(QG.GetComponentInParent<Messager>()));
                         }
                             
                     }

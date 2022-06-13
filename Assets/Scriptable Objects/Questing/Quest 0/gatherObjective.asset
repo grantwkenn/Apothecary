@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: gatherObjective
   m_EditorClassIdentifier: 
   itemID: 13
-  quantity: 2
+  quantity: 3
   retroactive: 0

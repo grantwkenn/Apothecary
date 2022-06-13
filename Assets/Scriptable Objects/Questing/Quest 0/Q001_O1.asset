@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Q001_O1
   m_EditorClassIdentifier: 
   itemID: 2
-  quantity: 1
+  quantity: 3
   retroactive: 1

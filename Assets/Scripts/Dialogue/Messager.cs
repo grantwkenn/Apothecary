@@ -42,8 +42,7 @@ public class Messager : MonoBehaviour
         //will automate at some time with Scr Objects / Database etc.
         NPC npc = this.GetComponentInParent<NPC>();
         if (npc != null) messagerID = npc.getNPCID();
-        
-        
+
         dialogueManager.messagerEnable(this);
     }
 
@@ -60,7 +59,7 @@ public class Messager : MonoBehaviour
         //after dialogueManager and Quest Giver
         if (message == null)
         {
-            setMessage(dialogueManager.nextMessage(this));
+            nextMessage();
         }
         else
             setMessage(message);
@@ -111,7 +110,7 @@ public class Messager : MonoBehaviour
     }
 
 
-    public void setMessage(Message msg)
+   void setMessage(Message msg)
     {
         //workaround for now due to DM limitation
         if (msg == null)
@@ -153,15 +152,24 @@ public class Messager : MonoBehaviour
         }
         else
         {
-            Debug.Log("called: " + index);
-            quest_indicator.sprite = dialogueManager.getQuestSymbol(index);
             quest_indicator.enabled = true;
+            quest_indicator.sprite = dialogueManager.getQuestSymbol(index);
+            
         }
     }
 
     public void nextMessage()
     {
         this.message = dialogueManager.nextMessage(this);
+        if(this.message == null)
+        {
+            numSegments = 0;
+        }
+        else
+        {
+            numSegments = message.messageSegments.Length;
+        }
+        segmentIndex = 0;
     }
     
 }
