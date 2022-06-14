@@ -108,10 +108,10 @@ public class Inventory_Bar : MonoBehaviour
         for (int i=0; i< items.Length; i++)
         {
             
-            if (items[i].sprite != null)
+            if (items[i].getSprite() != null)
             {
                 images[i].enabled = true;
-                images[i].sprite = items[i].sprite;
+                images[i].sprite = items[i].getSprite();
             }
             else
                 images[i].enabled = false;

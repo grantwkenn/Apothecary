@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: 
   description: 
-  sprite: {fileID: 0}
+  itemNo: 0
   value: 0
+  stackable: 0
+  sprite: {fileID: 0}

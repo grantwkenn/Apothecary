@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Empty Jar
   description: This Jar is Empty
-  sprite: {fileID: -2693009140137883590, guid: 10fe57014834daa4282c6bbc9d8fee94, type: 3}
+  itemNo: 9
   value: 1
+  stackable: 0
+  sprite: {fileID: -2693009140137883590, guid: 10fe57014834daa4282c6bbc9d8fee94, type: 3}

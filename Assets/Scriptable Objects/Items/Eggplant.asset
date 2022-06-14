@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Eggplant
   description: Looks Tasty!
-  sprite: {fileID: 980155311395259703, guid: 10fe57014834daa4282c6bbc9d8fee94, type: 3}
+  itemNo: 8
   value: 0
+  stackable: 0
+  sprite: {fileID: 980155311395259703, guid: 10fe57014834daa4282c6bbc9d8fee94, type: 3}

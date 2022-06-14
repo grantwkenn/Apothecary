@@ -8,12 +8,20 @@ public class Scene_Persistence : ScriptableObject
 
     public int health;
 
-    public Item[] inventory;
+    public Item[] items;
+    
     public int inventorySize;
 
 
     private void OnEnable()
     {
-        inventorySize = inventory.Length;
+        if(items == null)
+        {
+            items = new Item[inventorySize];
+        }
     }
+
+    public void setInventorySize(int num) { this.inventorySize = num; }
 }
+
+

@@ -177,9 +177,10 @@ public class Player : MonoBehaviour
             manaRegenCounter = 0;
     }
 
+    //TODO move this functionality entirely to the inventory manager
     public void Use()
     {
-        string itemName = invManager.getSelectedItem().itemName;
+        string itemName = invManager.getSelectedItem().getData().getName();
 
         if (itemName == "Sword")
             Sword();

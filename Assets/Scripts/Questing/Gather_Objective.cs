@@ -21,7 +21,7 @@ public class Gather_Objective : Quest_Objective
     public void countUpdate(int Quantity)
     {
         count += Quantity;
-        if (count >= data.quantity) complete = true;
+        if (count >= data.getNumToGather()) complete = true;
         else complete = false;
 
     }
@@ -30,12 +30,13 @@ public class Gather_Objective : Quest_Objective
     {
         this.data = god;
         count = 0;
-        retroactive = god.retroactive;
+        retroactive = god.isRetroactive();
     }
 
     public Gather_Objective_Data getData()
     {
         return data;
     }
+
 
 }

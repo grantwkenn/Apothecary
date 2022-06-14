@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9314cfa957c88449947c271dd3df2ba, type: 3}
   m_Name: gatherObjective
   m_EditorClassIdentifier: 
-  itemID: 13
-  quantity: 3
+  item_data: {fileID: 11400000, guid: afc1b3cc455dff94e9030751cdbc5fff, type: 2}
+  numToGather: 1
   retroactive: 0

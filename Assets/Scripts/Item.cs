@@ -1,17 +1,31 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Item",menuName = "Item/New Item")]
-public class Item : ScriptableObject
+
+[System.Serializable]
+public class Item
 {
-    public string itemName;
-    public int itemNo;
-    public string description;
-    public Sprite sprite;
+    Item_Data data;
+    int stackQuantity;
 
-    public int value;
+    public Item_Data getData()
+    {
+        return this.data;
+    }
 
-    public int quantity;
+    public Item(Item_Data data, int quant)
+    {
+        this.data = data;
+        this.stackQuantity = quant;
+    }
+
+    public int getItemNo() { return data.getItemNo(); }
+
+    public Sprite getSprite() { return data.getSprite(); }
+
+    public int getQuantity() { return stackQuantity; }
+
+    public string getName() { return data.getName(); }
 
 }

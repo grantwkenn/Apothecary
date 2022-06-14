@@ -28,7 +28,7 @@ public class Scene_Teleport : MonoBehaviour
             so.health = player.getHealth();
 
             //store inventory
-            so.inventory = im.getItems();
+            so.items = im.getItems();
             
             SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
         }

@@ -17,4 +17,6 @@ public class Talk_Objective : Quest_Objective
         this.data = tod;
     }
 
+
+
 }

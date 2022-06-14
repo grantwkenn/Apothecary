@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Cauldron
   description: 
-  sprite: {fileID: -732356172534689064, guid: 10fe57014834daa4282c6bbc9d8fee94, type: 3}
+  itemNo: 10
   value: 0
+  stackable: 0
+  sprite: {fileID: -732356172534689064, guid: 10fe57014834daa4282c6bbc9d8fee94, type: 3}

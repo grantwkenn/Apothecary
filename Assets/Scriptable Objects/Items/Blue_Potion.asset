@@ -14,5 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemName: Blue Potion
   description: 
-  sprite: {fileID: 8132948862792318974, guid: 10fe57014834daa4282c6bbc9d8fee94, type: 3}
+  itemNo: 7
   value: 0
+  stackable: 0
+  sprite: {fileID: 8132948862792318974, guid: 10fe57014834daa4282c6bbc9d8fee94, type: 3}

@@ -297,7 +297,7 @@ public class Quest_Manager : MonoBehaviour
         //check if this messager's previous message (still saved) is equal to
         //the response stored in the talk objective.
         
-        //check if this messager was a talk objective
+        //check if this message was a talk objective
         //for all quests in log
         foreach(Quest quest in questLog)
         {
@@ -313,24 +313,26 @@ public class Quest_Manager : MonoBehaviour
                     to.dialogueComplete();
 
                     //check if quest is complete
-                    if(objectivesComplete(quest))
-                    {
-                        int turnInQGID = quest.getData().getTurnInQGID();
+                    //if(objectivesComplete(quest))
+                    //{
+                    //    int turnInQGID = quest.getData().getTurnInQGID();
 
-                        if (activeQG_By_ID.ContainsKey(turnInQGID))
-                        {
-                            Quest_Giver qg = activeQG_By_ID[turnInQGID];
+                    //    if (activeQG_By_ID.ContainsKey(turnInQGID))
+                    //    {
+                    //        Quest_Giver qg = activeQG_By_ID[turnInQGID];
 
-                            qg.setState(evaluateQuestGiverState(qg.QGID));
+                    //        qg.setState(evaluateQuestGiverState(qg.QGID));
 
-                            //currentQuest_by_QGID[qg.QGID] = quest.getData().getQuestID();
+                    //        //currentQuest_by_QGID[qg.QGID] = quest.getData().getQuestID();
 
-                            //qg.setState(QuestGiverState.turnIn);
-                            dialogueManager.messagerRefresh(qg.GetComponentInParent<Messager>());
-                        }
-                            
+                    //        //qg.setState(QuestGiverState.turnIn);
+                    //        dialogueManager.messagerRefresh(qg.GetComponentInParent<Messager>());
+                    //    }
 
-                    }
+
+                    //}
+
+                    checkObjectivesComplete(quest);
                         
 
                     //do not evaluate any other quest progression in this call
@@ -382,20 +384,34 @@ public class Quest_Manager : MonoBehaviour
 
 
                 //check if this quest has no objectives (just turn into someone else)
-                if(objectivesComplete(addedQuest))
-                {
-                    int qgid = addedQuest.getData().getTurnInQGID();
+                //if(objectivesComplete(addedQuest))
+                //{
+                //    int qgid = addedQuest.getData().getTurnInQGID();
 
-                    Quest_Giver qg;
-                    if (activeQG_By_ID.TryGetValue(qgid, out qg))
-                    {
-                        qg.setState(evaluateQuestGiverState(addedQuest.getData().getTurnInQGID()));
-                    }
-                    
+                //    Quest_Giver qg;
+                //    if (activeQG_By_ID.TryGetValue(qgid, out qg))
+                //    {
+                //        qg.setState(evaluateQuestGiverState(addedQuest.getData().getTurnInQGID()));
+                //    }
+
+                //}
+
+                checkObjectivesComplete(addedQuest);
+
+                foreach(Talk_Objective to in addedQuest.talk_objectives)
+                {
+                    if (!activeQG_By_ID.ContainsKey(to.data.NPC_ID)) continue;
+
+                    Quest_Giver QG2 = activeQG_By_ID[to.data.NPC_ID];
+                    QG2.setState(evaluateQuestGiverState(to.data.NPC_ID));
+                    Messager msgr = QG2.GetComponentInParent<Messager>();
+                    msgr.nextMessage();
                 }
 
+                    //TODO: check all talk objective NPCs for their refreshes. Only the active ones!
+
                 //now refresh all messagers in the scene
-                dialogueManager.allMessagerRefresh();
+                //dialogueManager.allMessagerRefresh();
             }
             return;
         }
@@ -421,8 +437,10 @@ public class Quest_Manager : MonoBehaviour
             }
 
             List<Item> rewards = quest.getData().getRewards();
-            
+
             //check if inventory is full
+            int spaceNeeded;
+
             if(!inventory_Manager.enoughSpace(quest.getData().numRewards()))
             {
                 //set full state
@@ -669,44 +687,66 @@ public class Quest_Manager : MonoBehaviour
         //search each quest in log
         foreach (Quest quest in questLog)
         {
-            
+            //TODO when objective was complete before discarding, need to re evaluate to incomplete.
             foreach(Gather_Objective obj in quest.gather_objectives)
             {
-                if (obj.getData().itemID != itemID) 
-                    continue;
+                if (obj.getData().getItemID() != itemID)  continue;
                 
                 obj.countUpdate(Quantity);
 
                 if (obj.isComplete())
                 {
                     //check quest is complete
-                    bool questComplete = objectivesComplete(quest);
+                    //bool questComplete = objectivesComplete(quest);
 
-                    if (questComplete)
-                    {
-                        
-                        
-                        int turnInQGID = quest.getData().getTurnInQGID();
-                        
-                        //attempt to change the QG's (or Turn In's) state / notify them
-                        //NOTE: need to support turn in quest givers as separate from starters
-                        if (activeQG_By_ID.ContainsKey(turnInQGID))
-                        {
-                            //get the turning in QG
-                            Quest_Giver QG = activeQG_By_ID[turnInQGID];
+                    //if (questComplete)
+                    //{
 
-                            
-                            QG.setState(evaluateQuestGiverState(turnInQGID));
-                            Messager messager = QG.GetComponentInParent<Messager>();
-                            messager.nextMessage();
-                            //messager.setMessage(dialogueManager.nextMessage(QG.GetComponentInParent<Messager>()));
-                        }
-                            
-                    }
+
+                    //    int turnInQGID = quest.getData().getTurnInQGID();
+
+                    //    //attempt to change the QG's (or Turn In's) state / notify them
+                    //    //NOTE: need to support turn in quest givers as separate from starters
+                    //    if (activeQG_By_ID.ContainsKey(turnInQGID))
+                    //    {
+                    //        //get the turning in QG
+                    //        Quest_Giver QG = activeQG_By_ID[turnInQGID];
+
+
+                    //        QG.setState(evaluateQuestGiverState(turnInQGID));
+                    //        Messager messager = QG.GetComponentInParent<Messager>();
+                    //        messager.nextMessage();
+                    //        //messager.setMessage(dialogueManager.nextMessage(QG.GetComponentInParent<Messager>()));
+                    //    }
+
+                    //}
+
+                    checkObjectivesComplete(quest);
                 }
+
             }
         }
         
+    }
+
+    public bool checkObjectivesComplete(Quest quest)
+    {
+        if (!objectivesComplete(quest)) return false;
+
+        int turnInQGID = quest.getData().getTurnInQGID();
+
+        if (activeQG_By_ID.ContainsKey(turnInQGID))
+        {
+            Quest_Giver QG = activeQG_By_ID[turnInQGID];
+
+            QG.setState(evaluateQuestGiverState(turnInQGID));
+
+
+            QG.GetComponentInParent<Messager>().nextMessage();
+
+        }
+
+        return true;
     }
 
     //helper
@@ -753,10 +793,15 @@ public class Quest_Manager : MonoBehaviour
         //do for each gather objective in this quest
         foreach(Gather_Objective ob in quest.gather_objectives)
         {
-            if (!ob.getData().retroactive) continue;
+            if (!ob.getData().isRetroactive()) continue;
             //check inventory for counts of any retroactive gather objectives
-            int count = inventory_Manager.countItem(ob.getData().itemID);
+            int count = inventory_Manager.countItem(ob.getData().getItemID());
             ob.countUpdate(count);
+            if(ob.isComplete())
+            {
+                Debug.Log("Testing");
+                checkObjectivesComplete(quest);
+            }
         }
 
         return quest;
@@ -873,3 +918,4 @@ public enum QuestGiverState
 //    return null;
 
 //}
+

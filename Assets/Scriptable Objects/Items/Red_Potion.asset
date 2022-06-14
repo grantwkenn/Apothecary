@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Red_Potion
   m_EditorClassIdentifier: 
   itemName: Red Potion
-  itemNo: 2
   description: 
-  sprite: {fileID: 2614870373251885436, guid: 10fe57014834daa4282c6bbc9d8fee94, type: 3}
+  itemNo: 5
   value: 0
-  quantity: 1
+  stackable: 0
+  sprite: {fileID: 2614870373251885436, guid: 10fe57014834daa4282c6bbc9d8fee94, type: 3}

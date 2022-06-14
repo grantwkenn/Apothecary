@@ -5,7 +5,18 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "gatherObjective", menuName = "Questing/Objectives/Gather")]
 public class Gather_Objective_Data : Quest_Objective_Data
 {
-    public int itemID;
-    public int quantity;
-    public bool retroactive;
+    [SerializeField]
+    private Item_Data item_data;
+
+    [SerializeField]
+    private int numToGather;
+
+    [SerializeField]
+    private bool retroactive;
+
+    public int getItemID() { return item_data.getItemNo(); }
+
+    public int getNumToGather() { return numToGather; }
+
+    public bool isRetroactive() { return retroactive; }
 }
