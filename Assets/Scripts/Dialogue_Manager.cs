@@ -25,6 +25,11 @@ public class Dialogue_Manager : MonoBehaviour
     Sprite[] questSymbols;
 
 
+    private void Awake()
+    {
+        activeMessagersByNPCID = new Dictionary<int, Messager>();
+    }
+
     private void OnEnable()
     {
         //When is the best time to do these?
@@ -35,10 +40,11 @@ public class Dialogue_Manager : MonoBehaviour
 
         textManager = GetComponentInParent<Text_Manager>();
 
-        activeMessagersByNPCID = new Dictionary<int, Messager>();
+
 
         questSymbols = new Sprite[6];
         questSymbols = Resources.LoadAll<Sprite>("Quest_Indicators");
+
     }
 
     private void Start()
@@ -80,6 +86,8 @@ public class Dialogue_Manager : MonoBehaviour
 
     public void messagerEnable(Messager messager)
     {
+        if (activeMessagersByNPCID == null) Debug.Log("BAD");
+        
         if (!activeMessagersByNPCID.ContainsKey(messager.getID()))
             activeMessagersByNPCID.Add(messager.getID(), messager);
     }

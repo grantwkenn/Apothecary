@@ -331,8 +331,8 @@ public class Quest_Manager : MonoBehaviour
 
 
                     //}
-
-                    checkObjectivesComplete(quest);
+                    if(objectivesComplete(quest))
+                        setActiveQGTurnIn(quest);
                         
 
                     //do not evaluate any other quest progression in this call
@@ -395,8 +395,8 @@ public class Quest_Manager : MonoBehaviour
                 //    }
 
                 //}
-
-                checkObjectivesComplete(addedQuest);
+                if(objectivesComplete(addedQuest))
+                    setActiveQGTurnIn(addedQuest);
 
                 foreach(Talk_Objective to in addedQuest.talk_objectives)
                 {
@@ -404,8 +404,7 @@ public class Quest_Manager : MonoBehaviour
 
                     Quest_Giver QG2 = activeQG_By_ID[to.data.NPC_ID];
                     QG2.setState(evaluateQuestGiverState(to.data.NPC_ID));
-                    Messager msgr = QG2.GetComponentInParent<Messager>();
-                    msgr.nextMessage();
+                    QG2.nextMessage();
                 }
 
                     //TODO: check all talk objective NPCs for their refreshes. Only the active ones!
@@ -676,9 +675,42 @@ public class Quest_Manager : MonoBehaviour
         
         return true;
     }
+
+
+    public void itemRemoved(int itemID, int Quantity)
+    {
+        foreach(Quest quest in questLog)
+        {
+            foreach(Gather_Objective go in quest.gather_objectives)
+            {
+                if (itemID != go.getData().getItemID()) continue;
+
+                //this item matches this gather objective
+                bool wasComplete = go.isComplete() && objectivesComplete(quest);
+
+                go.countUpdate(0 - Quantity);
+
+                //if no longer complete
+                if(wasComplete && !go.isComplete())
+                {
+                    //need to re-evaluate this quest
+                    //find quest Giver
+                    if(activeQG_By_ID.ContainsKey(quest.getData().getTurnInQGID()))
+                    {
+                        Quest_Giver QG = activeQG_By_ID[quest.getData().getTurnInQGID()];
+                        //re-evaluate state
+                        QG.setState(evaluateQuestGiverState(QG.QGID));
+                        QG.nextMessage();
+
+                    }
+                    
+                }
+            }
+        }
+    }
     
     
-    public void itemAddedOrRemoved(int itemID, int Quantity)
+    public void itemAdded(int itemID, int Quantity)
     {
 
         //optimally we would only search quests that have gather objectives.. but only n<=20
@@ -720,8 +752,8 @@ public class Quest_Manager : MonoBehaviour
                     //    }
 
                     //}
-
-                    checkObjectivesComplete(quest);
+                    if(objectivesComplete(quest))
+                        setActiveQGTurnIn(quest);
                 }
 
             }
@@ -729,9 +761,8 @@ public class Quest_Manager : MonoBehaviour
         
     }
 
-    public bool checkObjectivesComplete(Quest quest)
+    public void setActiveQGTurnIn(Quest quest)
     {
-        if (!objectivesComplete(quest)) return false;
 
         int turnInQGID = quest.getData().getTurnInQGID();
 
@@ -746,7 +777,6 @@ public class Quest_Manager : MonoBehaviour
 
         }
 
-        return true;
     }
 
     //helper
@@ -800,7 +830,8 @@ public class Quest_Manager : MonoBehaviour
             if(ob.isComplete())
             {
                 Debug.Log("Testing");
-                checkObjectivesComplete(quest);
+                if(objectivesComplete(quest))
+                    setActiveQGTurnIn(quest);
             }
         }
 

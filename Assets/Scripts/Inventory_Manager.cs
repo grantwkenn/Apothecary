@@ -209,7 +209,7 @@ public class Inventory_Manager : MonoBehaviour
 
         //notify the Quest Manager
         //qm.itemPickedUp(item.itemNo);
-        qm.itemAddedOrRemoved(item.getData().getItemNo(), 1);
+        qm.itemAdded(item.getData().getItemNo(), 1);
               
     }
 
@@ -286,7 +286,7 @@ public class Inventory_Manager : MonoBehaviour
 
     public void discardSelection()
     {
-        qm.itemAddedOrRemoved(inventory[barSelection].getItemNo(), 0-inventory[barSelection].getQuantity());
+        qm.itemRemoved(inventory[barSelection].getItemNo(), inventory[barSelection].getQuantity());
         inventory[barSelection] = emptyItem;
         itemCount--;
         
@@ -358,7 +358,7 @@ public class Inventory_Manager : MonoBehaviour
             {
                 quantityToRemove -= itemQuantity;
 
-                qm.itemAddedOrRemoved(item.getData().getItemNo(), 0 - itemQuantity);
+                qm.itemRemoved(item.getData().getItemNo(), itemQuantity);
 
                 inventory[i] = emptyItem;
                 Debug.Log("emptied");
@@ -372,7 +372,7 @@ public class Inventory_Manager : MonoBehaviour
             if (quantityToRemove == 0) return true;
         }
 
-        qm.itemAddedOrRemoved(itemID, 0 - quantity);
+        qm.itemRemoved(itemID, quantity);
 
 
         return quantityToRemove == 0;

@@ -14,6 +14,7 @@ using UnityEngine;
 
 
 
+
 public class Quest_Giver : MonoBehaviour
 {
     //public int currentQuestID;
@@ -80,6 +81,8 @@ public class Quest_Giver : MonoBehaviour
     {
         return state;
     }
+
+    public void nextMessage() { messager.nextMessage(); }
 
 
 }
