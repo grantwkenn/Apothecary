@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
 using UnityEngine.Experimental.Rendering.LWRP;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.Experimental.Rendering.Universal;
 
 
 //TODO: when new resolution detected, move the camera to recenter on room. IE: from 1080p to 900p
@@ -24,7 +26,17 @@ public class CameraMovement : MonoBehaviour
     public Vector2 minPos;
 
     private Vector3 targetPosition;
-    
+
+    [SerializeField]
+    UnityEngine.Experimental.Rendering.Universal.PixelPerfectCamera ppc;
+
+    bool zoomIn;
+
+
+    private void OnEnable()
+    {
+        
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +57,8 @@ public class CameraMovement : MonoBehaviour
         calculateOffsets();
 
         setBounds(currentRoom.GetComponent<RoomScript>().getMinPos(), currentRoom.GetComponent<RoomScript>().getMaxPos());
+
+        ppc = this.GetComponentInParent<UnityEngine.Experimental.Rendering.Universal.PixelPerfectCamera>();
     }
 
     void calculateOffsets()
@@ -77,6 +91,11 @@ public class CameraMovement : MonoBehaviour
 
     private void Update()
     {
+        if (zoomIn)
+            cameraZoomIn();
+        else
+            cameraZoomOut();
+        
         //check for resolution change
         if(pixelHeight != Camera.main.pixelHeight || pixelWidth != Camera.main.pixelWidth)
         {
@@ -125,4 +144,26 @@ public class CameraMovement : MonoBehaviour
         }
 
     }
+
+
+    void cameraZoomIn()
+    {
+        if (ppc.assetsPPU < 32)
+            ppc.assetsPPU += 1;
+    }
+
+    void cameraZoomOut()
+    {
+        if (ppc.assetsPPU > 16)
+            ppc.assetsPPU -= 1;
+    }
+
+    public void toggleZoom()
+    {
+        if (zoomIn)
+            zoomIn = false;
+        else zoomIn = true;
+    }
+
+
 }
