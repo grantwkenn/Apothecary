@@ -630,7 +630,7 @@ public class Quest_Manager : MonoBehaviour
         
     }
 
-    public void setActiveQGTurnIn(Quest quest)
+    void setActiveQGTurnIn(Quest quest)
     {
 
         int turnInQGID = quest.getData().getTurnInQGID();
