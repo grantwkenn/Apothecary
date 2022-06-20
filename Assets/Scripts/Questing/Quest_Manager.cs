@@ -3,6 +3,13 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+public enum QuestGiverState
+{
+    none, available, availableFull, active, turnIn, turnInFull
+}
+
+
 public class Quest_Manager : MonoBehaviour
 {
     //Reference
@@ -40,20 +47,7 @@ public class Quest_Manager : MonoBehaviour
     [SerializeField]
     List<Quest> questLog;
 
-    //These are not going to work 6/7/22
-    //List<Talk_Objective> talkObjectives;
-    //List<Slay_Objective> slayObjectives;
-    //List<Gather_Objective> gatherObjectives;
-
     const int LOG_CAPACITY = 20;
-    //[SerializeField]
-    //int questsInLog;
-
-    //not to be used? 6/7/22
-    //List<int> MainPendingTurnIn;
-    //List<int> PendingTurnIn;
-    //////////////////////////////////////////////
-
 
 
     private void OnEnable()
@@ -96,30 +90,14 @@ public class Quest_Manager : MonoBehaviour
 
             list.Add(QID);
             Quests_by_QGID.Add(QGID, list);
-            /////////////////////////////////////////////////////////////
-            ///
-            /*
-            //map turnIn QG by QID
-            list = new List<int>();
 
-            if (Quests_turnedIn_by_QGID.TryGetValue(QGID, out list))
-                Quests_turnedIn_by_QGID.Remove(QGID);
-            else
-                list = new List<int>();
-
-            list.Add(QID);
-            Quests_turnedIn_by_QGID.Add(QGID, list); */
-            /////////////////////////////////////////////////////////////
-            ///
         }
 
-
-        //???sort all Quests_by_QGID lists by priority
-        //!!!!!!!! This is not a proper priority sorting, main quests are not in front, simply by qid
+        //sort all Quests_by_QGID lists by priority
+        //This is not a proper priority sorting, main quests are not in front, simply by qid
         foreach (KeyValuePair<int, List<int>> questList in Quests_by_QGID)
         {
             questList.Value.Sort();
-            //should sort is ascending order
         }
 
     }
@@ -131,40 +109,13 @@ public class Quest_Manager : MonoBehaviour
 
         //instantiate the quest log, fill with current quests from disk
         questLog = new List<Quest>();
-        //questsInLog = 0;
-
-        //populate quest Log with quest objects
-        // .............
-
 
         //populate all objective Lists from Quest Log
         foreach (Quest quest in questLog)
         {
-            if (quest == null) continue;
+            //TODO: this is where quest log will populate quests from disk
             
-            //bool allComplete = true;
-            
-            //track all objectives
-            /*
-            foreach(Quest_Objective ob in quest.objectives)
-            {
-                if (!ob.isComplete()) allComplete = false;
-                
-                if(ob is Gather_Objective)
-                {
-                    gatherObjectives.Add(ob as Gather_Objective);
-                }
-                else if(ob is Slay_Objective)
-                {
-                    slayObjectives.Add(ob as Slay_Objective);
-                }
-                else if(ob is Talk_Objective)
-                {
-                    talkObjectives.Add(ob as Talk_Objective);
-                }
-            }
-            */
-            
+            if (quest == null) continue;           
         }
 
     }
@@ -312,35 +263,13 @@ public class Quest_Manager : MonoBehaviour
                     //set this talk objective completed
                     to.dialogueComplete();
 
-                    //check if quest is complete
-                    //if(objectivesComplete(quest))
-                    //{
-                    //    int turnInQGID = quest.getData().getTurnInQGID();
-
-                    //    if (activeQG_By_ID.ContainsKey(turnInQGID))
-                    //    {
-                    //        Quest_Giver qg = activeQG_By_ID[turnInQGID];
-
-                    //        qg.setState(evaluateQuestGiverState(qg.QGID));
-
-                    //        //currentQuest_by_QGID[qg.QGID] = quest.getData().getQuestID();
-
-                    //        //qg.setState(QuestGiverState.turnIn);
-                    //        dialogueManager.messagerRefresh(qg.GetComponentInParent<Messager>());
-                    //    }
-
-
-                    //}
                     if(objectivesComplete(quest))
                         setActiveQGTurnIn(quest);
                         
-
                     //do not evaluate any other quest progression in this call
                     return;
-                }
-                
+                }               
             }
-
         }
         
         //verify this messager is quest giver
@@ -382,19 +311,6 @@ public class Quest_Manager : MonoBehaviour
                 Quest addedQuest = addtoLog(QID);
                 QG.setState(QuestGiverState.active);
 
-
-                //check if this quest has no objectives (just turn into someone else)
-                //if(objectivesComplete(addedQuest))
-                //{
-                //    int qgid = addedQuest.getData().getTurnInQGID();
-
-                //    Quest_Giver qg;
-                //    if (activeQG_By_ID.TryGetValue(qgid, out qg))
-                //    {
-                //        qg.setState(evaluateQuestGiverState(addedQuest.getData().getTurnInQGID()));
-                //    }
-
-                //}
                 if(objectivesComplete(addedQuest))
                     setActiveQGTurnIn(addedQuest);
 
@@ -407,10 +323,6 @@ public class Quest_Manager : MonoBehaviour
                     QG2.nextMessage();
                 }
 
-                    //TODO: check all talk objective NPCs for their refreshes. Only the active ones!
-
-                //now refresh all messagers in the scene
-                //dialogueManager.allMessagerRefresh();
             }
             return;
         }
@@ -437,8 +349,6 @@ public class Quest_Manager : MonoBehaviour
 
             List<Item> rewards = quest.getData().getRewards();
 
-            //check if inventory is full
-            int spaceNeeded;
 
             if(!inventory_Manager.enoughSpace(quest.getData().numRewards()))
             {
@@ -452,12 +362,8 @@ public class Quest_Manager : MonoBehaviour
 
                 removeFromLog(quest);
 
-
                 
                 questsCompletionbyQID[qd.getQuestID()] = true;
-
-
-                //Quest_Giver starter = activeQG_By_ID[qd.getQuestGiverID()];
 
                 int starterID = quest.getData().getQuestGiverID();
 
@@ -474,17 +380,26 @@ public class Quest_Manager : MonoBehaviour
                 }
 
 
-                //QG.setState(QuestGiverState.none);
-                //if (starterID != QG.QGID)
-                //activeQG_By_ID[starterID].setState(QuestGiverState.none);
+                List<Talk_Objective_Data> toList = qd.getTalkObjectives();
+                foreach(Talk_Objective_Data tod in toList)
+                {
+                    if(activeQG_By_ID.ContainsKey(tod.NPC_ID))
+                    {
+                        Quest_Giver qg = activeQG_By_ID[tod.NPC_ID];
+                        qg.setState(evaluateQuestGiverState(qg.QGID));
+                        Messager msgr = qg.GetComponentInParent<Messager>();
+                        msgr.nextMessage();
+
+                    }
+                }
+
+
 
                 Debug.Log("State: " + QG.getState());
 
                 //re-evaluate state of turn In QG and original QG
                 QG.setState(evaluateQuestGiverState(QG.QGID));
                 
-
-
                 //remove quest Items
                 inventory_Manager.removeObjectives(quest.gather_objectives);
                 
@@ -492,12 +407,7 @@ public class Quest_Manager : MonoBehaviour
                 inventory_Manager.offerItems(rewards);
             }
 
-
-
-
         }
-
-
     }
 
 
@@ -517,13 +427,11 @@ public class Quest_Manager : MonoBehaviour
 
         if(pending != null)
         {
-
             currentQuest_by_QGID.Add(QGID, pending.getData().getQuestID());
 
             //NOTE: turn in full will be checked later, 
             //just set to turn in once done with objectives
             return QuestGiverState.turnIn;
-
         }
 
         //Check for active quest
@@ -587,7 +495,6 @@ public class Quest_Manager : MonoBehaviour
     //return the index in the quest log of the first match
 
 
-    //TODO: need to account for when the turn in NPC is not the same as QG!
     Quest checkForPending(int QGID)
     {
         if (questLog.Count == 0) return null;
@@ -618,24 +525,10 @@ public class Quest_Manager : MonoBehaviour
         {
             qg.setState(QuestGiverState.turnIn);
             Messager messager = qg.GetComponentInParent<Messager>();
-            //caused exception
-            //messager.setMessage(getQuestMessage(messager));
+
         }
 
-
-        return pending;
-        
-        //for(int index = 0; index< questLog.Count; index++)
-        //{
-        //    //find the first quest that matches quest giver and is pending completion
-        //    //questLog is already sorted on priority??
-        //    if (questLog[index].getTurnInQGID() == QGID && objectivesComplete(questLog[index]))
-        //    {
-        //        return questLog[index];
-        //    }
-        //}
-
-        //return null;
+        return pending;      
     }
 
     //check quest log for quest from this Giver
@@ -728,30 +621,6 @@ public class Quest_Manager : MonoBehaviour
 
                 if (obj.isComplete())
                 {
-                    //check quest is complete
-                    //bool questComplete = objectivesComplete(quest);
-
-                    //if (questComplete)
-                    //{
-
-
-                    //    int turnInQGID = quest.getData().getTurnInQGID();
-
-                    //    //attempt to change the QG's (or Turn In's) state / notify them
-                    //    //NOTE: need to support turn in quest givers as separate from starters
-                    //    if (activeQG_By_ID.ContainsKey(turnInQGID))
-                    //    {
-                    //        //get the turning in QG
-                    //        Quest_Giver QG = activeQG_By_ID[turnInQGID];
-
-
-                    //        QG.setState(evaluateQuestGiverState(turnInQGID));
-                    //        Messager messager = QG.GetComponentInParent<Messager>();
-                    //        messager.nextMessage();
-                    //        //messager.setMessage(dialogueManager.nextMessage(QG.GetComponentInParent<Messager>()));
-                    //    }
-
-                    //}
                     if(objectivesComplete(quest))
                         setActiveQGTurnIn(quest);
                 }
@@ -771,7 +640,6 @@ public class Quest_Manager : MonoBehaviour
             Quest_Giver QG = activeQG_By_ID[turnInQGID];
 
             QG.setState(evaluateQuestGiverState(turnInQGID));
-
 
             QG.GetComponentInParent<Messager>().nextMessage();
 
@@ -846,107 +714,7 @@ public class Quest_Manager : MonoBehaviour
 
 }
 
-public enum QuestGiverState
-{
-    none, available, availableFull, active, turnIn, turnInFull
-}
 
 
 
-
-//public class QuestSort : IComparer<Quest>
-//{
-//    public int Compare(Quest q1, Quest q2)
-//    {
-//        if (q1.isMainQuest && !q2.isMainQuest) return -1;
-
-//        if (q2.isMainQuest && !q1.isMainQuest) return 1;
-
-//        if (q1.QID < q2.QID) return -1;
-
-//        return 1;
-//    }
-//}
-
-//used by Dialogue Manager to retrieve quest dialogue
-
-//public Quest_Dialogue_Data setQuestMessage(int QGID)
-//{
-
-//    //Check for Turn In Quest
-//    Quest pending = checkForPending(QGID);
-//    if(pending != null)
-//    {    
-//        //there is a pending quest for this QG!
-//        //return the turn in message
-//        Quest_Dialogue_Data dialogue_data = questDataByQID[pending.QID].dialogue_data;
-
-//        //check inventory full
-
-//        //num items to receive:
-//        int rewards = questDataByQID[pending.QID].numRewards();
-//        if(rewards == 0 || inventory_Manager.enoughSpace(rewards))
-//        {
-//            activeQG_By_ID[QGID].setState(QuestGiverState.turnIn);
-//            //return the turn in message
-//            return dialogue_data;
-//        }
-//        else
-//        {
-//            activeQG_By_ID[QGID].setState(QuestGiverState.turnInFull);
-//            return dialogue_data;
-//        }
-//    }
-
-//    //Check for active quest
-//    Quest activeQuest = checkForActive(QGID);
-//    if(activeQuest != null)
-//    {
-//        Quest_Dialogue_Data dialogue_data = questDataByQID[activeQuest.QID].dialogue_data;
-//        activeQG_By_ID[QGID].setState(QuestGiverState.active);
-//        return dialogue_data;
-//    }
-
-//    //check for available quest
-//    List<int> questsGiven = null;
-//    Quests_by_QGID.TryGetValue(QGID, out questsGiven);
-//    if(questsGiven != null && questsGiven.Count > 0)
-//    {
-//        int priorityQID = -1;
-
-//        foreach(int qid in questsGiven)
-//        {
-//            if (!isAvailable(qid)) continue;
-
-//            //return first main quest
-//            if(questDataByQID[qid].isMainQuest)
-//            {
-//                //check if availableFull:
-
-
-
-//                activeQG_By_ID[QGID].setState(QuestGiverState.available);
-//                return questDataByQID[qid].dialogue_data;
-//            }
-
-//            //track the first non-main quest in this sorted list
-//            if(priorityQID == -1)
-//            {
-//                priorityQID = qid;
-//            }
-//        }
-
-//        //returning the highest priority non-main quest
-//        if (priorityQID != -1)
-//        {
-//            activeQG_By_ID[QGID].setState(QuestGiverState.available);
-//            return questDataByQID[priorityQID].dialogue_data;
-//        }
-//    }
-
-//    Debug.Log("qgid: " + QGID + " null");
-
-//    return null;
-
-//}
 

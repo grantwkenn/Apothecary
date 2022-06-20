@@ -16,6 +16,10 @@ public class Input_Manager : MonoBehaviour
     Dialogue_Manager dialogueManager;
     Pause_Manager pauseManager;
 
+    [SerializeField]
+    Camera mainCamera;
+    CameraMovement cm;
+
     InputState inputState;
 
     //get reference to the quick bar
@@ -47,6 +51,8 @@ public class Input_Manager : MonoBehaviour
         dialogueManager = gm.GetComponent<Dialogue_Manager>();
         pauseManager = gm.GetComponent<Pause_Manager>();
 
+        cm = mainCamera.GetComponent<CameraMovement>();
+
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
         controls = new PlayerControls();
@@ -68,6 +74,9 @@ public class Input_Manager : MonoBehaviour
 
         //ENTER / START Button
         controls.Gameplay.Pause.performed += context => togglePause();
+
+        //Z Key
+        controls.Gameplay.Zoom.performed += context => toggleZoom();
 
         direction = new Vector2();
 
@@ -140,6 +149,13 @@ public class Input_Manager : MonoBehaviour
         scrollingDown = false;
         scrollingUp = false;
 
+    }
+
+
+    //Z Zoom
+    void toggleZoom()
+    {
+        cm.toggleZoom();
     }
 
 

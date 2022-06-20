@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe3bf8bc5b253ee45ab943d9b6896a14, type: 3}
+  m_Name: david DD
+  m_EditorClassIdentifier: 
+  pitch: {fileID: 11400000, guid: 9363ea0ac1ac5e44d87b295de78a715c, type: 2}
+  pitchInvFull: {fileID: 11400000, guid: 7534f41ebd428ed43923f0f13a17e22d, type: 2}
+  questLogFull: {fileID: 11400000, guid: 271158eb5dd61444da61f649bb6cefc7, type: 2}
+  ongoing:
+  - {fileID: 11400000, guid: e4be849cf0f0cb249a7cef56b4302ed9, type: 2}
+  - {fileID: 11400000, guid: 8b511c7bd19bcf74fb7853162c0a4f2b, type: 2}
+  hints: []
+  turnIn: {fileID: 11400000, guid: 062c5606ce9c2724db85752896523812, type: 2}
+  turnInFull: {fileID: 11400000, guid: 271d65e419f4fc540a7f6358a84bc8c5, type: 2}
+  turnInComplete: {fileID: 11400000, guid: dd547f6e95447d64e9018615f8952606, type: 2}
