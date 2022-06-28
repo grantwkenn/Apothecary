@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Active
   m_EditorClassIdentifier: 
   messageSegments:
-  - Hmm
+  - Just go talk to him!
   nextMessage: []
   itemsToDeliver: []
