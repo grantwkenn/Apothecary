@@ -7,6 +7,8 @@ using UnityEngine.Rendering.Universal;
 using UnityEngine.Experimental.Rendering.Universal;
 
 
+//REFACTOR: name this the Camera Manager
+
 //TODO: when new resolution detected, move the camera to recenter on room. IE: from 1080p to 900p
 
 public class CameraMovement : MonoBehaviour
@@ -89,12 +91,17 @@ public class CameraMovement : MonoBehaviour
 
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (zoomIn)
             cameraZoomIn();
         else
             cameraZoomOut();
+    }
+
+    private void Update()
+    {
+        
         
         //check for resolution change
         if(pixelHeight != Camera.main.pixelHeight || pixelWidth != Camera.main.pixelWidth)

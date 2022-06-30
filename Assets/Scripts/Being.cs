@@ -20,6 +20,8 @@ public class Being : MonoBehaviour
 
     Rigidbody2D rb;
 
+    BoxCollider2D bc;
+
     ushort directionIndex;
 
     Vector2 target;
@@ -49,23 +51,29 @@ public class Being : MonoBehaviour
     [SerializeField]
     CritterState prevState;
 
-    int chanceEatAgain = 30;
+    int chanceEatAgain = 50;
     int waitRangeMin = 3;
     int waitRangeMax = 5;
-    int chanceToMove = 60;
+    int chanceToMove = 50;
 
     Vector2 prevTarget;
+
+    Vector2 horzBox;
+    Vector2 vertBox;
 
 
     private void OnEnable()
     {
         this.animator = this.GetComponent<Animator>();
         this.rb = this.GetComponent<Rigidbody2D>();
+        this.bc = this.GetComponent<BoxCollider2D>();
 
         this.directionIndex = 2;
 
         this.state = CritterState.idle;
         this.prevState = CritterState.idle;
+
+
 
     }
 
@@ -81,6 +89,17 @@ public class Being : MonoBehaviour
         }
 
         prevTarget = targets[0];
+
+        if(bc.size.y < bc.size.x) // horizontal
+        {
+            horzBox = bc.size;
+            vertBox = new Vector2(bc.size.y, bc.size.x);
+        }
+        else
+        {
+            vertBox = bc.size;
+            horzBox = new Vector2(bc.size.y, bc.size.x);
+        }
         
         
         animate();
@@ -97,7 +116,7 @@ public class Being : MonoBehaviour
         if (state == CritterState.walking) move();
 
 
-        if(state == CritterState.idle)
+        else if(state == CritterState.idle)
         {
             //Decide next behavior
 
@@ -107,8 +126,6 @@ public class Being : MonoBehaviour
             {
                 if(rand < chanceEatAgain)
                 {
-                    prevState = state;
-                    state = CritterState.eating;
                     eat();
                     return;
                 }
@@ -116,8 +133,6 @@ public class Being : MonoBehaviour
 
             if(prevState == CritterState.walking)
             {
-                prevState = state;
-                state = CritterState.eating;
                 eat();
                 return;
             }
@@ -141,13 +156,15 @@ public class Being : MonoBehaviour
                     targetIndex = (targetIndex + 1) % targets.Length;
                     target = (Vector2)targets[targetIndex];
                 }
+
+                animator.Play(walkAnimations[directionIndex].name);
+                //StartCoroutine(playAnimation(walkAnimations[directionIndex]));
+
                 return;
             }
 
             else
             {
-                prevState = state;
-                this.state = CritterState.wait;
                 Debug.Log("wait started");
                 StartCoroutine(wait());
             }
@@ -173,9 +190,9 @@ public class Being : MonoBehaviour
         }
         
         
-        if(state == CritterState.idle || state == CritterState.wait)
+        else if(state == CritterState.idle || state == CritterState.wait)
         {
-           
+            animator.Play(idleAnimations[directionIndex].name);
 
         }
 
@@ -184,9 +201,6 @@ public class Being : MonoBehaviour
 
     public void move()
     {
-        if (target == (Vector2) this.transform.position) return;
-        
-        
 
         rb.MovePosition(Vector2.MoveTowards(rb.position, target, walkSpeed * Time.fixedDeltaTime));
         directionUpdate();
@@ -197,6 +211,7 @@ public class Being : MonoBehaviour
             rb.MovePosition(target);
             prevState = state;
             state = CritterState.idle;
+            animate();
         }
     }
 
@@ -211,16 +226,34 @@ public class Being : MonoBehaviour
     {
         prevState = state;
         state = CritterState.eating;
-        animator.Play(eatAnimations[directionIndex].name);
+        //animator.Play(eatAnimations[directionIndex].name);
+
+
+
+        StartCoroutine(playAnimation(eatAnimations[directionIndex]));
+
     }
 
     IEnumerator wait()
     {
+        prevState = state;
+        this.state = CritterState.wait;
+        
         float waitTime = Random.Range(waitRangeMin, waitRangeMax);
         yield return new WaitForSeconds(waitTime);
-        Debug.Log("wait finished");
         this.prevState = state;
         this.state = CritterState.idle;
+    }
+
+    IEnumerator playAnimation(AnimationClip clip)
+    {
+        animator.Play(clip.name);
+
+        yield return new WaitForSeconds(clip.length);
+
+        prevState = state;
+        state = CritterState.idle;
+
     }
 
     void directionUpdate()
@@ -242,9 +275,13 @@ public class Being : MonoBehaviour
 
         else directionIndex = 0;
 
+        bc.size = (directionIndex == 0 || directionIndex == 2) ? bc.size = vertBox : bc.size = horzBox;
 
+
+        //If moving in a new direction
         if(prevDirection != directionIndex)
         {
+            
             animator.Play(walkAnimations[directionIndex].name);
         }
     }

@@ -20,11 +20,15 @@ public class Tile_Manager : MonoBehaviour
 
     public TileBase dirt;
 
+    [SerializeField]
+    Tilemap[] grassTiles;
+
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
     }
 
 
@@ -40,7 +44,7 @@ public class Tile_Manager : MonoBehaviour
 
         currentTile = bgMap.GetTile(playerLocation);
 
-        //bgMap.SetTile(playerLocation, dirt);
+        
 
     }
 
@@ -80,5 +84,59 @@ public class Tile_Manager : MonoBehaviour
         Debug.Log("target:" + targ);
 
     }
+
+
+    void renderTallGrass()
+    {
+        Tilemap grass0 = grassTiles[0];
+
+        Vector3Int playerLocation = new Vector3Int((int)player.transform.position.x, (int)player.transform.position.y, (int)player.transform.position.z);
+
+        playerLocation = grass0.WorldToCell(playerLocation);
+
+        if (!grass0.HasTile(playerLocation)) return;
+
+
+        //Render the tall grass section if player is more than 6 tiles from the top..
+        
+        //get the tile we are standing on.
+        TileBase grass0Tile = grass0.GetTile(playerLocation);
+
+        //how many pixels above the top of this cell?
+        double colliderBottom = player.transform.position.y - (player.GetComponent<BoxCollider2D>().size.y / 2f) - (player.GetComponent<BoxCollider2D>().offset.y/2f);
+
+        double difference = colliderBottom % (int) colliderBottom;
+
+        int pixelsAbove = (int)difference * 16;
+
+
+        if(pixelsAbove < 10)
+        {
+            //render tall grass
+            if(grassTiles[1].HasTile(playerLocation))
+            {
+                //
+            }
+        }
+
+
+
+        TileBase grass1Tile = grassTiles[1].GetTile(playerLocation);
+        TileBase grass2Tile = grassTiles[2].GetTile(playerLocation);
+        
+        
+        if (currentTile.name.Substring(0, 12) != "Grass_Tiles2")
+            return;
+
+
+        
+        
+        Vector2 position = player.transform.position;
+
+
+
+
+    }
+
 
 }
