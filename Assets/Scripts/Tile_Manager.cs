@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System;
 
 
 //TODO:
@@ -9,42 +10,144 @@ using UnityEngine.Tilemaps;
 
 public class Tile_Manager : MonoBehaviour
 {
+    Player player;
+    RoomManager rm;
+
+    /// USED FOR DIRT ///////////////////////
+
     [SerializeField]
     private Tilemap bgMap;
+
     [SerializeField]
     private Tilemap dirtMap;
 
-    Player player;
+    TileBase currentTile;
 
-    public TileBase currentTile;
+    TileBase dirt;
 
-    public TileBase dirt;
+    ////////////////////////////////////
+
+    //USED FOR GRASS OBJECTS
 
     [SerializeField]
-    Tilemap[] grassTiles;
+    Tilemap grassTileMap;
+       
 
+    [SerializeField]
+    GameObject grassPreFab;
+
+
+    /// ///////////////////////////////////
+
+    //USED FOR GRASS ANIMATION
+
+    [SerializeField]
+    Sprite defaultGrassSprite;
+
+    [SerializeField]
+    AnimationClip grassLeft;
+
+    [SerializeField]
+    AnimationClip grassRight;
+
+    Dictionary<String, byte> grassDict;
+
+    ////////////////////////////////////////
+
+
+    private void OnEnable()
+    {
+        rm = this.GetComponent<RoomManager>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
+        populateGrassDict();
+
+        //grid = rm.getCurrentGrid();
+
+        //bgMap = grid.transform.Find("Background").GetComponent<Tilemap>();
+
+        setRoom();
+
+
+
+        //grassTest();
     }
+
+
+    void instantiateGrass()
+    {
+        Vector3Int index = new Vector3Int(0,0,0);
+        Quaternion q = new Quaternion(0, 0, 0, 0);
+
+        GameObject room = rm.getCurrentRoom();
+        Transform parent = room.transform.Find("Grass Container");
+
+        if (parent != null) return;
+
+        GameObject container = new GameObject("Grass Container");
+        container.transform.parent = room.transform;
+
+        parent = container.transform;
+
+
+        foreach(Vector3Int position in grassTileMap.cellBounds.allPositionsWithin)
+        {
+            if (!grassTileMap.HasTile(position)) continue;
+
+
+            Vector2 loc = grassTileMap.CellToWorld(position);
+            loc.x += 0.5f;
+            loc.y += 0.5f;
+
+            Sprite sprite = grassTileMap.GetSprite(position);
+            if (sprite == null) continue;
+            string name = grassTileMap.GetSprite(position).name;
+            if (!grassDict.ContainsKey(name)) continue;
+
+            byte mode = grassDict[name];
+
+            if (mode == 1)
+            {
+                Instantiate(grassPreFab, loc, q, parent);
+            }
+
+            else if (mode == 2)
+            {
+                loc.x += 0.5f;
+                loc.y -= 0.5f;
+                Instantiate(grassPreFab, loc, q, parent);
+            }
+
+            else if (mode == 3)
+            {
+                Instantiate(grassPreFab, loc, q, parent);
+                loc.x += 0.5f;
+                loc.y -= 0.5f;
+                Instantiate(grassPreFab, loc, q, parent);
+            }
+        }
+
+
+
+        grassTileMap.gameObject.SetActive(false);
+
+
+    }
+
+
+
 
 
     // Update is called once per frame
     void Update()
     {
-        Vector3Int playerLocation = new Vector3Int((int)player.transform.position.x, (int)player.transform.position.y, (int)player.transform.position.z);
-
-        Vector3Int roundedLocation = new Vector3Int(Mathf.RoundToInt(player.transform.position.x), Mathf.RoundToInt(player.transform.position.y), 0);
-
-        playerLocation = bgMap.WorldToCell(roundedLocation);
-
-
-        currentTile = bgMap.GetTile(playerLocation);
-
-        
+        //TODO Re impolement expose dirt
+        //playerLocation = bgMap.WorldToCell(playerLocation);
 
     }
 
@@ -86,57 +189,93 @@ public class Tile_Manager : MonoBehaviour
     }
 
 
-    void renderTallGrass()
+    void populateGrassDict()
     {
-        Tilemap grass0 = grassTiles[0];
-
-        Vector3Int playerLocation = new Vector3Int((int)player.transform.position.x, (int)player.transform.position.y, (int)player.transform.position.z);
-
-        playerLocation = grass0.WorldToCell(playerLocation);
-
-        if (!grass0.HasTile(playerLocation)) return;
-
-
-        //Render the tall grass section if player is more than 6 tiles from the top..
+        grassDict = new Dictionary<string, byte>();
         
-        //get the tile we are standing on.
-        TileBase grass0Tile = grass0.GetTile(playerLocation);
+        grassDict.Add("Grass_Rule_Tile_0", 2);
+        grassDict.Add("Grass_Rule_Tile_1", 3);
+        grassDict.Add("Grass_Rule_Tile_2", 1);
+        grassDict.Add("Grass_Rule_Tile_3", 1);
+        grassDict.Add("Grass_Rule_Tile_4", 1);
+        grassDict.Add("Grass_Rule_Tile_5", 2);
+        grassDict.Add("Grass_Rule_Tile_6", 3);
+        grassDict.Add("Grass_Rule_Tile_7", 1);
+        grassDict.Add("Grass_Rule_Tile_8", 3);
+        grassDict.Add("Grass_Rule_Tile_9", 3);
+        grassDict.Add("Grass_Rule_Tile_10", 3);
+        grassDict.Add("Grass_Rule_Tile_12", 1);
+        grassDict.Add("Grass_Rule_Tile_13", 1);
+        grassDict.Add("Grass_Rule_Tile_14", 1);
+        grassDict.Add("Grass_Rule_Tile_15", 3);
+        grassDict.Add("Grass_Rule_Tile_16", 1);
+    }
 
-        //how many pixels above the top of this cell?
-        double colliderBottom = player.transform.position.y - (player.GetComponent<BoxCollider2D>().size.y / 2f) - (player.GetComponent<BoxCollider2D>().offset.y/2f);
-
-        double difference = colliderBottom % (int) colliderBottom;
-
-        int pixelsAbove = (int)difference * 16;
 
 
-        if(pixelsAbove < 10)
+
+
+    public void animateGrass(Animator anim, bool isLeft)
+    {
+        anim.enabled = true;
+        if(isLeft)
         {
-            //render tall grass
-            if(grassTiles[1].HasTile(playerLocation))
-            {
-                //
-            }
+            anim.Play(grassLeft.name);
+            StartCoroutine(grassAnimation(anim, grassLeft.length));
         }
+        else
+        {
+            anim.Play(grassRight.name);
+            StartCoroutine(grassAnimation(anim, grassRight.length));
+        }
+    }
 
+    IEnumerator grassAnimation(Animator anim, float length)
+    {
+        yield return new WaitForSeconds(length);
 
-
-        TileBase grass1Tile = grassTiles[1].GetTile(playerLocation);
-        TileBase grass2Tile = grassTiles[2].GetTile(playerLocation);
-        
-        
-        if (currentTile.name.Substring(0, 12) != "Grass_Tiles2")
-            return;
-
-
-        
-        
-        Vector2 position = player.transform.position;
-
-
+        anim.enabled = false;
+        anim.GetComponent<SpriteRenderer>().sprite = defaultGrassSprite;
 
 
     }
 
+    void grassTest()
+    {
+
+        int height = 60;
+        int length = 60;
+
+        Transform parent = GameObject.Find("Grass Container").transform;
+
+        for (int i = 0; i < length; i++)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                Vector3 place = new Vector3(player.transform.position.x + (i), player.transform.position.y + (j), 0);
+                Instantiate(grassPreFab, place, new Quaternion(0, 0, 0, 0), parent);
+
+                place.x += 0.5f;
+                place.y += 0.5f;
+                Instantiate(grassPreFab, place, new Quaternion(0, 0, 0, 0), parent);
+            }
+        }
+    }
+
+    public void setRoom()
+    {
+        this.grassTileMap = rm.getGrassTilemap();
+
+
+
+
+        if (grassTileMap != null)
+        {
+            instantiateGrass();
+        }
+        else
+            Debug.Log("null");
+
+    }
 
 }

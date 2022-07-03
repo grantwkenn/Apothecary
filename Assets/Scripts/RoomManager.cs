@@ -13,6 +13,7 @@ public class RoomManager : MonoBehaviour
 
     Camera mainCam;
 
+    Tile_Manager tm;
 
     GameObject player;
 
@@ -38,6 +39,8 @@ public class RoomManager : MonoBehaviour
     void Start()
     {
         player = GameObject.FindWithTag("Player");
+
+        tm = this.GetComponent<Tile_Manager>();
 
         fadeImage = fadeOut.GetComponent<Image>();
 
@@ -120,7 +123,7 @@ public class RoomManager : MonoBehaviour
         //Find the current Room Player is in
         foreach (GameObject rm in allRooms)
         {
-            rm.SetActive(false);
+            //rm.SetActive(false);
 
             Vector2 minPos = rm.GetComponent<RoomScript>().getMinPos();
             Vector2 maxPos = rm.GetComponent<RoomScript>().getMaxPos();
@@ -195,9 +198,11 @@ public class RoomManager : MonoBehaviour
 
 
         //inactivate Previous room, activate destination
-        allRooms[currentRoomNum].SetActive(false);
+        //allRooms[currentRoomNum].SetActive(false);
         currentRoomNum = destination;
         allRooms[currentRoomNum].SetActive(true);
+
+        tm.setRoom();
 
         //set player's facing direction
         player.GetComponent<Player>().setDirectionFacing(direction);
@@ -239,8 +244,21 @@ public class RoomManager : MonoBehaviour
         return allRooms[currentRoomNum];
     }
 
+    public Grid getCurrentGrid()
+    {
+        return allRooms[currentRoomNum].transform.Find("Grid").GetComponent<Grid>();
+    }
 
+    public Tilemap getGrassTilemap()
+    {
 
+        Transform grass = allRooms[currentRoomNum].transform.Find("Grid").transform.Find("Grass");
+        if (grass == null) return null;
+
+        return grass.GetComponent<Tilemap>();
+
+        
+    }
 
 
 }

@@ -58,8 +58,8 @@ public class Being : MonoBehaviour
 
     Vector2 prevTarget;
 
-    Vector2 horzBox;
-    Vector2 vertBox;
+    Bounds horzColliderBounds;
+    Vector2 vertColliderBounds;
 
 
     private void OnEnable()
@@ -92,13 +92,14 @@ public class Being : MonoBehaviour
 
         if(bc.size.y < bc.size.x) // horizontal
         {
-            horzBox = bc.size;
-            vertBox = new Vector2(bc.size.y, bc.size.x);
+            //Vector3 center = this.rb
+            //horzColliderBounds = new Bounds()
+            //vertBox = new Vector2(bc.size.y, bc.size.x);
         }
         else
         {
-            vertBox = bc.size;
-            horzBox = new Vector2(bc.size.y, bc.size.x);
+            //vertBox = bc.size;
+            //horzBox = new Vector2(bc.size.y, bc.size.x);
         }
         
         
@@ -108,6 +109,9 @@ public class Being : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        
+        
+        
         doBehavior();
     }
 
@@ -275,7 +279,7 @@ public class Being : MonoBehaviour
 
         else directionIndex = 0;
 
-        bc.size = (directionIndex == 0 || directionIndex == 2) ? bc.size = vertBox : bc.size = horzBox;
+        //bc.size = (directionIndex == 0 || directionIndex == 2) ? bc.size = vertBox : bc.size = horzBox;
 
 
         //If moving in a new direction

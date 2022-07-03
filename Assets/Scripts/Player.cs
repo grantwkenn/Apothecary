@@ -53,6 +53,9 @@ public class Player : MonoBehaviour
 
     AudioSource audioSource;
 
+    Vector2 colliderBottomLeft;
+    Vector2 colliderBottomRight;
+
 
     int MAX_HEALTH = 10;
     int MAX_MANA = 10;
@@ -81,12 +84,19 @@ public class Player : MonoBehaviour
     public AudioClip[] footstepClips;
     int footStepClip = 0;
 
+
+    BoxCollider2D bc;
+
+
     private void Awake()
     {
         if (Instance != null && Instance != this) Destroy(gameObject);
         else Instance = this;
 
     }
+
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -96,6 +106,7 @@ public class Player : MonoBehaviour
         tm = gm.GetComponent<Tile_Manager>();
         textManager = gm.GetComponent<Text_Manager>();
         sm = gm.GetComponent<Scene_Manager>();
+        bc = this.GetComponent<BoxCollider2D>();
 
         if (startInBed)
         {
@@ -397,6 +408,21 @@ public class Player : MonoBehaviour
         audioSource.clip = swordClip;
         audioSource.Play();
     }
+
+    public Vector2 getColliderBottomLeft()
+    {
+        colliderBottomLeft.x = this.transform.position.x - (bc.size.x / 2f) + bc.offset.x;
+        colliderBottomLeft.y = this.transform.position.y - (bc.size.y / 2f) + bc.offset.y;
+        return colliderBottomLeft;
+    }
+
+    public Vector2 getColliderBottomRight()
+    {
+        colliderBottomRight.x = this.transform.position.x + (bc.size.x / 2f) + bc.offset.x;
+        colliderBottomRight.y = this.transform.position.y + (bc.size.y / 2f) + bc.offset.y;
+        return colliderBottomRight;
+    }
+
 
 
 }

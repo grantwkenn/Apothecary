@@ -51,6 +51,8 @@ public class Input_Manager : MonoBehaviour
         dialogueManager = gm.GetComponent<Dialogue_Manager>();
         pauseManager = gm.GetComponent<Pause_Manager>();
 
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+
         cm = mainCamera.GetComponent<CameraMovement>();
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
