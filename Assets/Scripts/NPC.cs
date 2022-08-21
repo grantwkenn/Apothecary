@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[SerializeField]
 public enum NPCState
 {
     idle, walk, run, engage
@@ -22,9 +22,9 @@ public class NPC : MonoBehaviour
 
     public float walkSpeed;
 
-    Vector2 currentTarget;
+    public Vector2 currentTarget;
 
-    NPCState currentState;
+    public NPCState currentState;
     NPCState startingState;
 
     protected Animator animator;
@@ -80,7 +80,11 @@ public class NPC : MonoBehaviour
 
         pathIndex = 3;
 
-        currentTarget = path[pathIndex];
+        //currentTarget = path[pathIndex];
+
+        //currentTarget = path[1];
+
+
         directionFromTarget();
 
         home = rb.position;
@@ -123,7 +127,6 @@ public class NPC : MonoBehaviour
         }
 
     }
-
 
 
 

@@ -79,6 +79,13 @@ public class Tile_Manager : MonoBehaviour
     }
 
 
+    void checkTransparentTile()
+    {
+        //get player location
+        Vector3Int location;
+    }
+
+
     void instantiateGrass()
     {
         Vector3Int index = new Vector3Int(0,0,0);

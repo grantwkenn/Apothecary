@@ -7,7 +7,7 @@ public class LayerManager : MonoBehaviour
     //reference the parent Room's position
 
     public bool dynamic;
-    Vector2 lastPosition;
+    Vector3 lastPosition;
 
     Transform _transform;
     BoxCollider2D bc;
@@ -17,7 +17,7 @@ public class LayerManager : MonoBehaviour
     float colliderOffset;
     float colliderBottomY;
 
-    public float y;
+    float y;
 
 
     void Start()
@@ -34,10 +34,10 @@ public class LayerManager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(dynamic && lastPosition != (Vector2) _transform.position)
+        if(dynamic && lastPosition != _transform.position)
         {
             updateLayer();
-            lastPosition = (Vector2)_transform.position;
+            lastPosition = _transform.position;
         }
     }
 

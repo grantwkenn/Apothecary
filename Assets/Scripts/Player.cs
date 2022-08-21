@@ -69,9 +69,15 @@ public class Player : MonoBehaviour
 
     int manaBurn;
 
+    //string[] shovel = { "Shovel_Up", "Shovel_Right", "Shovel_Down", "Shovel_Left" };
+    //string[] run = { "run_up", "run_right", "run_down", "run_left" };
+    //string[] idle = { "idle_up", "idle_right", "idle_down", "idle_left" };
+    //string[] sword = { "sword_up", "sword_right", "sword_down", "sword_left" };
+
+
     string[] shovel = { "Shovel_Up", "Shovel_Right", "Shovel_Down", "Shovel_Left" };
-    string[] run = { "run_up", "run_right", "run_down", "run_left" };
-    string[] idle = { "idle_up", "idle_right", "idle_down", "idle_left" };
+    string[] run = { "Run_UP_V2", "Run_Right_V2", "Run_Down_V2", "Run_Left_V2" };
+    string[] idle = { "Idle_UP_V2", "Idle_Right_V2", "Idle_Down_V2", "Idle_Left_V2" };
     string[] sword = { "sword_up", "sword_right", "sword_down", "sword_left" };
 
     Vector2 knockImpulse;
