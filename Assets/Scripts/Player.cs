@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
     Text_Manager textManager;
     Scene_Manager sm;
 
-    SpriteRenderer _double;
 
     [SerializeField]
     protected float baseSpeed;
@@ -143,7 +142,6 @@ public class Player : MonoBehaviour
 
         audioSource = this.GetComponent<AudioSource>();
 
-        _double = this.transform.Find("double").GetComponent<SpriteRenderer>();
         
 
     }
@@ -171,14 +169,9 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _double.sprite = this.spriteRenderer.sprite;
         AnimationUpdate();
     }
 
-    private void LateUpdate()
-    {
-        _double.sprite = this.spriteRenderer.sprite;
-    }
 
     private void FixedUpdate()
     {         
