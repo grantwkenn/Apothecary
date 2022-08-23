@@ -58,7 +58,7 @@ public class NPC : MonoBehaviour
 
 
         spriteRenderer = this.GetComponent<SpriteRenderer>();
-        rb = GetComponent<Rigidbody2D>();
+        rb = this.GetComponent<Rigidbody2D>();
 
         //Manually Round location to integer X and Y (5.44, 10.7) --> (5, 11)
         Vector2 floorXY = new Vector2(Mathf.RoundToInt(rb.position.x), Mathf.RoundToInt(rb.position.y));
@@ -78,11 +78,10 @@ public class NPC : MonoBehaviour
         path[2] = new Vector2(rb.transform.position.x-16, rb.transform.position.y);
         path[3] = new Vector2(rb.transform.position.x, rb.transform.position.y);
 
-        pathIndex = 3;
+        pathIndex = 2;
 
-        //currentTarget = path[pathIndex];
+        currentTarget = path[pathIndex];
 
-        //currentTarget = path[1];
 
 
         directionFromTarget();
@@ -149,13 +148,8 @@ public class NPC : MonoBehaviour
 
     void move()
     {
-        
-        rb.MovePosition(Vector2.MoveTowards(rb.position, currentTarget, walkSpeed * Time.fixedDeltaTime));
+        rb.MovePosition(Vector2.MoveTowards(rb.position, currentTarget, Time.fixedDeltaTime * walkSpeed));
 
-        if (Vector2.Distance(rb.position, currentTarget) < (walkSpeed * Time.fixedDeltaTime * 1.5f))
-        {
-            rb.MovePosition(currentTarget);
-        }
     }
 
 
