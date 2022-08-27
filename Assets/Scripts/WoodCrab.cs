@@ -53,10 +53,15 @@ public class WoodCrab : Enemy
 
     }
 
+    private void Update()
+    {
+        CheckDistance();
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
-        CheckDistance();
+
         //CheckContact();
 
         //FIXED UPDATE
@@ -75,9 +80,9 @@ public class WoodCrab : Enemy
         //transform position if far enough
         if (distanceFromTarget > contactRadius)
         {
-            Vector3 temp = Vector3.MoveTowards(transform.position, target.position, moveSpeed * Time.fixedDeltaTime);
+            rigidBody.velocity = (target.position - transform.position).normalized * moveSpeed;
 
-            rigidBody.MovePosition(temp);
+
         }
 
     }
@@ -110,6 +115,7 @@ public class WoodCrab : Enemy
                 if (currentState == animState.crab_charge)
                 {
                     changeAnimationState(animState.crab_idle);
+                    rigidBody.velocity = Vector2.zero;
                 }
             }
         }

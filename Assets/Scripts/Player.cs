@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[SerializeField]
 public enum State
 {
     //does shovel and sword need their own animation? can it be shared as uninteruptible?
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour
 
     public bool startInBed;
 
+    [SerializeField]
     State currentState;
 
     GameObject gm;
@@ -94,6 +96,7 @@ public class Player : MonoBehaviour
 
     BoxCollider2D bc;
 
+    SpriteRenderer silo;
 
     private void Awake()
     {
@@ -142,7 +145,7 @@ public class Player : MonoBehaviour
 
         audioSource = this.GetComponent<AudioSource>();
 
-        
+        silo = this.transform.Find("silhouette").GetComponent<SpriteRenderer>();
 
     }
 
@@ -177,7 +180,7 @@ public class Player : MonoBehaviour
     {         
         Move();
         
-        manaUpdate();
+        //manaUpdate();
     }
 
     void manaUpdate()
@@ -249,7 +252,11 @@ public class Player : MonoBehaviour
             animator.Play(shovel[facing]);
         }
         else if (currentState == State.sword) animator.Play(sword[facing]);
-        
+
+
+        silo.sprite = this.spriteRenderer.sprite;
+
+
     }
 
     public void Move()

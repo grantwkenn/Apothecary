@@ -12,6 +12,7 @@ public class LayerManager : MonoBehaviour
     Transform _transform;
     BoxCollider2D bc;
     SpriteRenderer sr;
+    Rigidbody2D rb;
 
     float colliderHalfHeight;
     float colliderOffset;
@@ -25,27 +26,46 @@ public class LayerManager : MonoBehaviour
         _transform = this.GetComponent<Transform>();
         bc = this.GetComponent<BoxCollider2D>();
         sr = this.GetComponentInChildren<SpriteRenderer>();
+        rb = this.GetComponent<Rigidbody2D>();
         
         updateLayer();
 
+        _transform.position = new Vector3(_transform.position.x, _transform.position.y, _transform.position.y);
+
         if (!dynamic)
             this.enabled = false;
+
     }
+
 
     private void FixedUpdate()
     {
-        if(dynamic && lastPosition != _transform.position)
+
+
+        
+    }
+
+    private void Update()
+    {
+        if (lastPosition != _transform.position)
         {
             updateLayer();
             lastPosition = _transform.position;
+
+            lastPosition.z = lastPosition.y;
+            
+            _transform.position = lastPosition;
+
+
         }
+      
     }
 
     void updateLayer()
     {
         if (bc == null)
         {
-            y = _transform.position.y + sr.sprite.bounds.min.y;
+            y = _transform.position.y;
         }
 
         else

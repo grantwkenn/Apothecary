@@ -12,7 +12,7 @@ public class Enemy : MonoBehaviour
     protected Vector2 home;
 
     protected bool knockBack = false;
-    
+
     
     // Start is called before the first frame update
     void Start()
@@ -23,7 +23,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public virtual void KnockBack(Vector3 pos, float thrust)

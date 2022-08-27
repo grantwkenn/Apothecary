@@ -2,7 +2,8 @@ Shader "Unlit/stest"
 {
     Properties
     {
-        [HideInInspector] [NoScaleOffset] unity_Lightmaps("unity_Lightmaps", 2DArray) = "" {}
+        [NoScaleOffset] _MainTex("_MainTex", 2D) = "white" {}
+        [HideInInspector][NoScaleOffset]unity_Lightmaps("unity_Lightmaps", 2DArray) = "" {}
         [HideInInspector][NoScaleOffset]unity_LightmapsInd("unity_LightmapsInd", 2DArray) = "" {}
         [HideInInspector][NoScaleOffset]unity_ShadowMasks("unity_ShadowMasks", 2DArray) = "" {}
     }
@@ -187,13 +188,13 @@ Shader "Unlit/stest"
 
     // Graph Properties
     CBUFFER_START(UnityPerMaterial)
+float4 _MainTex_TexelSize;
 CBUFFER_END
 
 // Object and Global properties
 SAMPLER(SamplerState_Linear_Repeat);
 TEXTURE2D(_MainTex);
 SAMPLER(sampler_MainTex);
-float4 _MainTex_TexelSize;
 
 // Graph Functions
 
@@ -211,6 +212,12 @@ void Unity_ColorMask_float(float3 In, float3 MaskColor, float Range, out float O
 {
     float Distance = distance(MaskColor, In);
     Out = saturate(1 - (Distance - Range) / max(Fuzziness, 1e-5));
+}
+
+void Unity_ReplaceColor_float(float3 In, float3 From, float3 To, float Range, out float3 Out, float Fuzziness)
+{
+    float Distance = distance(From, In);
+    Out = lerp(To, In, saturate((Distance - Range) / max(Fuzziness, 1e-5f)));
 }
 
 // Graph Vertex
@@ -252,8 +259,10 @@ SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
     float4 _Subtract_47412dec309e4956b88a8a499a267ccc_Out_2;
     Unity_Subtract_float4(_SampleTexture2D_488e0dd6bc69452aa1c0a5ca6cf510cd_RGBA_0, (_OneMinus_b079394320754406973e26e848fe4582_Out_1.xxxx), _Subtract_47412dec309e4956b88a8a499a267ccc_Out_2);
     float _ColorMask_e0fb00d385904e50be846e6acf061d00_Out_3;
-    Unity_ColorMask_float((_Subtract_47412dec309e4956b88a8a499a267ccc_Out_2.xyz), IsGammaSpace() ? float3(1, 0.0235849, 0.0235849) : SRGBToLinear(float3(1, 0.0235849, 0.0235849)), 1.5, _ColorMask_e0fb00d385904e50be846e6acf061d00_Out_3, 0);
-    surface.BaseColor = (_ColorMask_e0fb00d385904e50be846e6acf061d00_Out_3.xxx);
+    Unity_ColorMask_float((_Subtract_47412dec309e4956b88a8a499a267ccc_Out_2.xyz), IsGammaSpace() ? float3(0.5, 0.06839624, 0.06839624) : SRGBToLinear(float3(0.5, 0.06839624, 0.06839624)), 1.5, _ColorMask_e0fb00d385904e50be846e6acf061d00_Out_3, 0);
+    float3 _ReplaceColor_3346ac0b4d764b8db4cdd863d5c932cd_Out_4;
+    Unity_ReplaceColor_float((_ColorMask_e0fb00d385904e50be846e6acf061d00_Out_3.xxx), IsGammaSpace() ? float3(1, 1, 1) : SRGBToLinear(float3(1, 1, 1)), IsGammaSpace() ? float3(0.6117647, 0.6117647, 0.6117647) : SRGBToLinear(float3(0.6117647, 0.6117647, 0.6117647)), 0, _ReplaceColor_3346ac0b4d764b8db4cdd863d5c932cd_Out_4, 0);
+    surface.BaseColor = _ReplaceColor_3346ac0b4d764b8db4cdd863d5c932cd_Out_4;
     surface.Alpha = _SampleTexture2D_488e0dd6bc69452aa1c0a5ca6cf510cd_A_7;
     surface.SpriteMask = IsGammaSpace() ? float4(1, 1, 1, 1) : float4 (SRGBToLinear(float3(1, 1, 1)), 1);
     return surface;
@@ -470,13 +479,13 @@ Pass
 
     // Graph Properties
     CBUFFER_START(UnityPerMaterial)
+float4 _MainTex_TexelSize;
 CBUFFER_END
 
 // Object and Global properties
 SAMPLER(SamplerState_Linear_Repeat);
 TEXTURE2D(_MainTex);
 SAMPLER(sampler_MainTex);
-float4 _MainTex_TexelSize;
 
 // Graph Functions
 
@@ -494,6 +503,12 @@ void Unity_ColorMask_float(float3 In, float3 MaskColor, float Range, out float O
 {
     float Distance = distance(MaskColor, In);
     Out = saturate(1 - (Distance - Range) / max(Fuzziness, 1e-5));
+}
+
+void Unity_ReplaceColor_float(float3 In, float3 From, float3 To, float Range, out float3 Out, float Fuzziness)
+{
+    float Distance = distance(From, In);
+    Out = lerp(To, In, saturate((Distance - Range) / max(Fuzziness, 1e-5f)));
 }
 
 // Graph Vertex
@@ -535,8 +550,10 @@ SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
     float4 _Subtract_47412dec309e4956b88a8a499a267ccc_Out_2;
     Unity_Subtract_float4(_SampleTexture2D_488e0dd6bc69452aa1c0a5ca6cf510cd_RGBA_0, (_OneMinus_b079394320754406973e26e848fe4582_Out_1.xxxx), _Subtract_47412dec309e4956b88a8a499a267ccc_Out_2);
     float _ColorMask_e0fb00d385904e50be846e6acf061d00_Out_3;
-    Unity_ColorMask_float((_Subtract_47412dec309e4956b88a8a499a267ccc_Out_2.xyz), IsGammaSpace() ? float3(1, 0.0235849, 0.0235849) : SRGBToLinear(float3(1, 0.0235849, 0.0235849)), 1.5, _ColorMask_e0fb00d385904e50be846e6acf061d00_Out_3, 0);
-    surface.BaseColor = (_ColorMask_e0fb00d385904e50be846e6acf061d00_Out_3.xxx);
+    Unity_ColorMask_float((_Subtract_47412dec309e4956b88a8a499a267ccc_Out_2.xyz), IsGammaSpace() ? float3(0.5, 0.06839624, 0.06839624) : SRGBToLinear(float3(0.5, 0.06839624, 0.06839624)), 1.5, _ColorMask_e0fb00d385904e50be846e6acf061d00_Out_3, 0);
+    float3 _ReplaceColor_3346ac0b4d764b8db4cdd863d5c932cd_Out_4;
+    Unity_ReplaceColor_float((_ColorMask_e0fb00d385904e50be846e6acf061d00_Out_3.xxx), IsGammaSpace() ? float3(1, 1, 1) : SRGBToLinear(float3(1, 1, 1)), IsGammaSpace() ? float3(0.6117647, 0.6117647, 0.6117647) : SRGBToLinear(float3(0.6117647, 0.6117647, 0.6117647)), 0, _ReplaceColor_3346ac0b4d764b8db4cdd863d5c932cd_Out_4, 0);
+    surface.BaseColor = _ReplaceColor_3346ac0b4d764b8db4cdd863d5c932cd_Out_4;
     surface.Alpha = _SampleTexture2D_488e0dd6bc69452aa1c0a5ca6cf510cd_A_7;
     surface.NormalTS = IN.TangentSpaceNormal;
     return surface;
@@ -750,13 +767,13 @@ Pass
 
     // Graph Properties
     CBUFFER_START(UnityPerMaterial)
+float4 _MainTex_TexelSize;
 CBUFFER_END
 
 // Object and Global properties
 SAMPLER(SamplerState_Linear_Repeat);
 TEXTURE2D(_MainTex);
 SAMPLER(sampler_MainTex);
-float4 _MainTex_TexelSize;
 
 // Graph Functions
 
@@ -774,6 +791,12 @@ void Unity_ColorMask_float(float3 In, float3 MaskColor, float Range, out float O
 {
     float Distance = distance(MaskColor, In);
     Out = saturate(1 - (Distance - Range) / max(Fuzziness, 1e-5));
+}
+
+void Unity_ReplaceColor_float(float3 In, float3 From, float3 To, float Range, out float3 Out, float Fuzziness)
+{
+    float Distance = distance(From, In);
+    Out = lerp(To, In, saturate((Distance - Range) / max(Fuzziness, 1e-5f)));
 }
 
 // Graph Vertex
@@ -815,8 +838,10 @@ SurfaceDescription SurfaceDescriptionFunction(SurfaceDescriptionInputs IN)
     float4 _Subtract_47412dec309e4956b88a8a499a267ccc_Out_2;
     Unity_Subtract_float4(_SampleTexture2D_488e0dd6bc69452aa1c0a5ca6cf510cd_RGBA_0, (_OneMinus_b079394320754406973e26e848fe4582_Out_1.xxxx), _Subtract_47412dec309e4956b88a8a499a267ccc_Out_2);
     float _ColorMask_e0fb00d385904e50be846e6acf061d00_Out_3;
-    Unity_ColorMask_float((_Subtract_47412dec309e4956b88a8a499a267ccc_Out_2.xyz), IsGammaSpace() ? float3(1, 0.0235849, 0.0235849) : SRGBToLinear(float3(1, 0.0235849, 0.0235849)), 1.5, _ColorMask_e0fb00d385904e50be846e6acf061d00_Out_3, 0);
-    surface.BaseColor = (_ColorMask_e0fb00d385904e50be846e6acf061d00_Out_3.xxx);
+    Unity_ColorMask_float((_Subtract_47412dec309e4956b88a8a499a267ccc_Out_2.xyz), IsGammaSpace() ? float3(0.5, 0.06839624, 0.06839624) : SRGBToLinear(float3(0.5, 0.06839624, 0.06839624)), 1.5, _ColorMask_e0fb00d385904e50be846e6acf061d00_Out_3, 0);
+    float3 _ReplaceColor_3346ac0b4d764b8db4cdd863d5c932cd_Out_4;
+    Unity_ReplaceColor_float((_ColorMask_e0fb00d385904e50be846e6acf061d00_Out_3.xxx), IsGammaSpace() ? float3(1, 1, 1) : SRGBToLinear(float3(1, 1, 1)), IsGammaSpace() ? float3(0.6117647, 0.6117647, 0.6117647) : SRGBToLinear(float3(0.6117647, 0.6117647, 0.6117647)), 0, _ReplaceColor_3346ac0b4d764b8db4cdd863d5c932cd_Out_4, 0);
+    surface.BaseColor = _ReplaceColor_3346ac0b4d764b8db4cdd863d5c932cd_Out_4;
     surface.Alpha = _SampleTexture2D_488e0dd6bc69452aa1c0a5ca6cf510cd_A_7;
     surface.NormalTS = IN.TangentSpaceNormal;
     return surface;

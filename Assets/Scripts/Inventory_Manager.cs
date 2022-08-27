@@ -70,8 +70,6 @@ public class Inventory_Manager : MonoBehaviour
 
         allItemData = itemCatalogue.getCatalogue();
 
-
-
         
         inventory = new Item[inventorySize];
 
