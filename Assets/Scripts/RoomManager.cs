@@ -138,23 +138,12 @@ public class RoomManager : MonoBehaviour
             }
         }
 
-
-
-
-
         
 
         //SwitchRoom(startingRoomNum);
 
     }
 
-
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 
 
     /* TODO:
@@ -191,6 +180,7 @@ public class RoomManager : MonoBehaviour
 
     }
 
+    // TO DELETE
     private void movePlayer(int destination, Vector3 moveTo, Vector2 direction)
     {
         //move Player
@@ -202,7 +192,7 @@ public class RoomManager : MonoBehaviour
         currentRoomNum = destination;
         allRooms[currentRoomNum].SetActive(true);
 
-        tm.setRoom();
+        //tm.setRoom();
 
         //set player's facing direction
         player.GetComponent<Player>().setDirectionFacing(direction);
@@ -210,7 +200,7 @@ public class RoomManager : MonoBehaviour
 
         //TODO camera pans in direction of doorway     
         //move camera bounds
-        mainCam.GetComponent<CameraMovement>().setBounds(allRooms[destination].GetComponent<RoomScript>().getMinPos(), allRooms[destination].GetComponent<RoomScript>().getMaxPos());
+        mainCam.GetComponent<CameraMovement>().setBounds();
         moveTo.z = mainCam.transform.position.z;
         mainCam.transform.position = moveTo;
 
@@ -238,27 +228,6 @@ public class RoomManager : MonoBehaviour
 
     }
 
-
-    public GameObject getCurrentRoom()
-    {
-        return allRooms[currentRoomNum];
-    }
-
-    public Grid getCurrentGrid()
-    {
-        return allRooms[currentRoomNum].transform.Find("Grid").GetComponent<Grid>();
-    }
-
-    public Tilemap getGrassTilemap()
-    {
-
-        Transform grass = allRooms[currentRoomNum].transform.Find("Grid").transform.Find("Grass");
-        if (grass == null) return null;
-
-        return grass.GetComponent<Tilemap>();
-
-        
-    }
 
 
 }

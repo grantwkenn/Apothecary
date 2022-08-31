@@ -21,8 +21,11 @@ public class CameraMovement : MonoBehaviour
     int pixelWidth;
 
 
-    public Transform target;
+    Transform player;
+    Transform target;
     public float smoothingSpeed;
+    float halfSpeed;
+    float fullSpeed;
 
     public Vector2 maxPos;
     public Vector2 minPos;
@@ -43,22 +46,29 @@ public class CameraMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+        target = player;
+        
         targetPosition = new Vector3(target.position.x, target.position.y, transform.position.z);
         //heightOffset = height / 2.0f;
         //widthOffset = width / 2.0f;
+
+        fullSpeed = smoothingSpeed;
+        halfSpeed = smoothingSpeed / 4f;
 
         Vector3 startPosition = new Vector3(targetPosition.x, targetPosition.y, transform.position.z);
         transform.position = startPosition;
 
         //THIS FUNCTION MUST BE CALLED AFTER DEFAULT EXECUTION OF ROOM MANAGER.
         //SEE EXECUTION TIME IN PROJECT SETTINGS
-        GameObject currentRoom = GameObject.FindGameObjectWithTag("GameManager").GetComponent<RoomManager>().getCurrentRoom();
+        //GameObject currentRoom = GameObject.FindGameObjectWithTag("GameManager").GetComponent<RoomManager>().getCurrentRoom();
         //minPos = currentRoom.GetComponent<RoomScript>().getMinPos();
         //maxPos = currentRoom.GetComponent<RoomScript>().getMaxPos();
 
         calculateOffsets();
 
-        setBounds(currentRoom.GetComponent<RoomScript>().getMinPos(), currentRoom.GetComponent<RoomScript>().getMaxPos());
+        setBounds();
 
         ppc = this.GetComponentInParent<UnityEngine.Experimental.Rendering.Universal.PixelPerfectCamera>();
     }
@@ -133,21 +143,21 @@ public class CameraMovement : MonoBehaviour
         if (transform.position.y - heightOffset < minPos.y) transform.position = new Vector3(transform.position.x, minPos.y + heightOffset, transform.position.z);
     }
 
-    public void setBounds(Vector2 min, Vector2 max)
+    public void setBounds()
     {
-        maxPos = max;
-        minPos = min;
 
-        float roomWidth = max.x - min.x;
-        float roomHeight = max.y - min.y;
+        maxPos = GameObject.Find("CameraMax").transform.position;
+        minPos = GameObject.Find("CameraMin").transform.position;
+
+
+        float roomWidth = maxPos.x - minPos.x;
+        float roomHeight = maxPos.y - minPos.y;
         
-        if(((max.y-min.y)/2.0) < heightOffset)
+        if(((maxPos.y- minPos.y)/2.0) < heightOffset)
         {
             //must center Y
-            minPos.x = min.x - (widthOffset - (roomWidth / 2));
-            minPos.y = min.y - (heightOffset - (roomHeight / 2));
-
-            maxPos = max;
+            minPos.x = minPos.x - (widthOffset - (roomWidth / 2));
+            minPos.y = minPos.y - (heightOffset - (roomHeight / 2));
         }
 
     }
@@ -170,6 +180,18 @@ public class CameraMovement : MonoBehaviour
         if (zoomIn)
             zoomIn = false;
         else zoomIn = true;
+    }
+
+    public void setTarget(Transform target)
+    {
+        this.target = target;
+        smoothingSpeed = halfSpeed;
+    }
+
+    public void resetCameraTarget()
+    {
+        target = player;
+        smoothingSpeed = halfSpeed;
     }
 
 

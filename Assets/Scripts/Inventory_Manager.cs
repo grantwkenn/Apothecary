@@ -7,7 +7,7 @@ using System;
 public class Inventory_Manager : MonoBehaviour
 {
     Quest_Manager qm;
-    Scene_Persistence persistenceData;
+    //Scene_Persistence persistenceData;
     
     public Item emptyItem;
 
@@ -59,7 +59,7 @@ public class Inventory_Manager : MonoBehaviour
     {
         qm = GetComponentInParent<Quest_Manager>();
 
-        persistenceData = this.GetComponentInParent<Scene_Manager>().scenePersistence;
+        //persistenceData = this.GetComponentInParent<Scene_Manager>().sp;
     }
 
     // Start is called before the first frame update

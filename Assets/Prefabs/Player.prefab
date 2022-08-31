@@ -83,7 +83,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1567393443
   m_SortingLayer: 1
-  m_SortingOrder: 0
+  m_SortingOrder: 862
   m_Sprite: {fileID: -6306320423191127496, guid: be068e0030034b140b23542078b8cd81, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -108,6 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startInBed: 0
+  currentState: 0
   baseSpeed: 6
   sprintSpeed: 12
   speed: 6
@@ -223,7 +224,7 @@ MonoBehaviour:
   - {x: -0.30661774, y: 0.12354851, z: 0}
   m_ShapePathHash: 1198859029
   m_Mesh: {fileID: 0}
-  m_InstanceId: 20472
+  m_InstanceId: -235130
 --- !u!1 &170779730604220785
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,6 +12,7 @@ TagManager:
   - Item
   - Room Trigger
   - HUD
+  - Entrance
   layers:
   - Default
   - TransparentFX

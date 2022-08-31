@@ -169,15 +169,15 @@ public class WoodCrab : Enemy
 
 
 
-
+    //DELETE
 
     private void OnDisable()
     {
         //TODO replenish health
         
-        transform.position = home;
-        rigidBody.velocity = Vector2.zero;
-        currentState = animState.crab_hide;
+        //transform.position = home;
+        //rigidBody.velocity = Vector2.zero;
+        //currentState = animState.crab_hide;
     }
 
 }

@@ -11,7 +11,7 @@ using System;
 public class Tile_Manager : MonoBehaviour
 {
     Player player;
-    RoomManager rm;
+    //RoomManager rm;
 
     /// USED FOR DIRT ///////////////////////
 
@@ -55,10 +55,6 @@ public class Tile_Manager : MonoBehaviour
     ////////////////////////////////////////
 
 
-    private void OnEnable()
-    {
-        rm = this.GetComponent<RoomManager>();
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -67,11 +63,17 @@ public class Tile_Manager : MonoBehaviour
 
         populateGrassDict();
 
+        Transform grassMap = GameObject.Find("Grid").transform.Find("Grass");
+        if (grassMap != null)
+        {
+            grassTileMap = grassMap.GetComponent<Tilemap>();
+            instantiateGrass();
+        }
+
         //grid = rm.getCurrentGrid();
 
         //bgMap = grid.transform.Find("Background").GetComponent<Tilemap>();
 
-        setRoom();
 
 
 
@@ -91,13 +93,12 @@ public class Tile_Manager : MonoBehaviour
         Vector3Int index = new Vector3Int(0,0,0);
         Quaternion q = new Quaternion(0, 0, 0, 0);
 
-        GameObject room = rm.getCurrentRoom();
-        Transform parent = room.transform.Find("Grass Container");
+        Transform parent = transform.Find("Grass Container");
 
         if (parent != null) return;
 
         GameObject container = new GameObject("Grass Container");
-        container.transform.parent = room.transform;
+        container.transform.parent = this.transform.parent;
 
         parent = container.transform;
 
@@ -269,20 +270,5 @@ public class Tile_Manager : MonoBehaviour
         }
     }
 
-    public void setRoom()
-    {
-        this.grassTileMap = rm.getGrassTilemap();
-
-
-
-
-        if (grassTileMap != null)
-        {
-            instantiateGrass();
-        }
-        else
-            Debug.Log("null");
-
-    }
 
 }

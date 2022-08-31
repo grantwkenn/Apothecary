@@ -1,7 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
+[ExecuteInEditMode]
 public class LayerManager : MonoBehaviour
 {
     //reference the parent Room's position
@@ -12,6 +14,8 @@ public class LayerManager : MonoBehaviour
     Transform _transform;
     BoxCollider2D bc;
     SpriteRenderer sr;
+
+    
     Rigidbody2D rb;
 
     float colliderHalfHeight;
@@ -27,8 +31,14 @@ public class LayerManager : MonoBehaviour
         bc = this.GetComponent<BoxCollider2D>();
         sr = this.GetComponentInChildren<SpriteRenderer>();
         rb = this.GetComponent<Rigidbody2D>();
-        
-        updateLayer();
+
+        if(sr == null)
+        {
+            setupTilemap();
+        }
+
+        else
+            updateLayer();
 
         _transform.position = new Vector3(_transform.position.x, _transform.position.y, _transform.position.y);
 
@@ -73,10 +83,21 @@ public class LayerManager : MonoBehaviour
             y = _transform.position.y + bc.offset.y - (bc.size.y / 2.0f);
         }
 
+
+        //// FIX THIS
+        sr.sortingOrder = 900-(int)(y*16);
+
+    }
+
+    void setupTilemap()
+    {
+        TilemapRenderer tr = this.GetComponent<TilemapRenderer>();
         
-        sr.sortingOrder = 0-(int)(y*16);
+        y = _transform.position.y;
 
-
+        
+        //// FIX THIS
+        tr.sortingOrder = 900 - (int)(y * 16);
 
     }
 

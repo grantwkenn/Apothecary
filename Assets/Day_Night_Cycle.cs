@@ -146,14 +146,13 @@ public class Day_Night_Cycle : MonoBehaviour
         int hour = clockInSeconds / 45;
         int minute = (int)(((clockInSeconds % 45f) / 45f) * 60f);
 
-        bool pm = hour >= 12;
 
         string minuteString = "";
         if (minute < 10)
             minuteString += "0";
         minuteString += minute.ToString();
 
-        if(pm)
+        if(PM)
         {
             if(hour == 12)
             {
@@ -177,11 +176,15 @@ public class Day_Night_Cycle : MonoBehaviour
 
         if (PM)
         {
-            if (Hour != 12)
+            //12 PM = 12PM
+            if(Hour != 12)
+            {
                 Hour += 12;
-            else
-                Hour = 0;
+            }
         }
+
+        //12AM = 0AM
+        else if (Hour == 12) Hour = 0;
 
         return Hour * secondsPerGameHour;
     }

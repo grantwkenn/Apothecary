@@ -122,4 +122,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 874a0e34847e41543a0d8078c2c8b742, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Farm
+  targetSceneName: Farm
+  so: {fileID: 0}

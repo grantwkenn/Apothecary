@@ -274,6 +274,14 @@ public class NPC : MonoBehaviour
         return NPC_ID;
     }
 
+    public Vector2 intToCardinal(int URDL)
+    {
+        if (URDL == 1) return Vector2.right;
+        if (URDL == 2) return Vector2.down;
+        if (URDL == 3) return Vector2.left;
+        return Vector2.up;
+    }
+
 
 }
 

@@ -134,12 +134,12 @@ public class Player : MonoBehaviour
 
         invManager = gm.GetComponent<Inventory_Manager>();
 
-        health = sm.scenePersistence.health;
+        health = sm.getHealth();
         mana = MAX_MANA;
         mana = 0;
         manaRegenCounter = 0;
 
-        currentState = State.idle;
+        //currentState = State.idle;
 
         spriteRenderer = this.GetComponent<SpriteRenderer>();
 
@@ -438,6 +438,12 @@ public class Player : MonoBehaviour
         return colliderBottomRight;
     }
 
+    public void sceneInitialize(int health, Vector2 pos, byte URDL)
+    {
+        this.health = health;
+        this.transform.position = pos;
+        this.facing = URDL;
+    }
 
 
 }
