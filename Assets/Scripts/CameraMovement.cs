@@ -37,6 +37,8 @@ public class CameraMovement : MonoBehaviour
 
     bool zoomIn;
 
+    public int Yoffset = 3;
+
 
     private void OnEnable()
     {
@@ -128,7 +130,7 @@ public class CameraMovement : MonoBehaviour
         if (transform.position != target.position)
         {
             targetPosition.x = target.position.x;
-            targetPosition.y = target.position.y;
+            targetPosition.y = target.position.y + Yoffset;
             transform.position = Vector3.Lerp(transform.position, targetPosition, smoothingSpeed * Time.unscaledDeltaTime);
         }
 
@@ -191,7 +193,7 @@ public class CameraMovement : MonoBehaviour
     public void resetCameraTarget()
     {
         target = player;
-        smoothingSpeed = halfSpeed;
+        smoothingSpeed = fullSpeed;
     }
 
 
