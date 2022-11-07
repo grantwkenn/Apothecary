@@ -20,6 +20,15 @@ TextureImporter:
   - first:
       213: 7651041085134703733
     second: newStudSheet_5
+  - first:
+      213: 2905098874228684566
+    second: newStudSheet_6
+  - first:
+      213: 7221302024383813040
+    second: newStudSheet_7
+  - first:
+      213: -7759123710425873884
+    second: newStudSheet_8
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -61,7 +70,7 @@ TextureImporter:
   compressionQuality: 50
   spriteMode: 2
   spriteExtrude: 1
-  spriteMeshType: 1
+  spriteMeshType: 0
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
@@ -125,11 +134,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 2
-        y: 13
+        y: 109
         width: 12
         height: 33
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 1, y: 1, z: 1, w: 7}
       outline: []
       physicsShape: []
@@ -146,11 +155,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 17
-        y: 13
+        y: 109
         width: 12
         height: 33
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
+      alignment: 6
+      pivot: {x: 0, y: 0}
       border: {x: 1, y: 1, z: 1, w: 1}
       outline: []
       physicsShape: []
@@ -167,12 +176,12 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 29
+        y: 125
         width: 32
         height: 17
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 1, y: 1, z: 1, w: 5}
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -188,7 +197,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 66
-        y: 9
+        y: 105
         width: 32
         height: 37
       alignment: 7
@@ -209,7 +218,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 101
-        y: 9
+        y: 105
         width: 32
         height: 37
       alignment: 7
@@ -230,18 +239,81 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 13
+        y: 109
         width: 16
         height: 10
-      alignment: 7
-      pivot: {x: 0.5, y: 0}
-      border: {x: 1, y: 1, z: 1, w: 3}
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 1, z: 0, w: 3}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
       spriteID: 57c8f597455fd2a60800000000000000
       internalID: 7651041085134703733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newStudSheet_6
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 6
+        width: 12
+        height: 96
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 1, y: 81, z: 1, w: 8}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 617b9c3c80cf05820800000000000000
+      internalID: 2905098874228684566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newStudSheet_7
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 22
+        width: 48
+        height: 80
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 12, y: 10, z: 12, w: 19}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b5d43b5ee7373460800000000000000
+      internalID: 7221302024383813040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: newStudSheet_8
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 22
+        width: 48
+        height: 80
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 12, y: 0, z: 12, w: 19}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42241cf481e025490800000000000000
+      internalID: -7759123710425873884
       vertices: []
       indices: 
       edges: []

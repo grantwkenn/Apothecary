@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb1a73ffdc3d19440b37550d68271fb7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothingSpeed: 3.5
+  smoothingSpeed: 8
   maxPos: {x: 19, y: 12}
   minPos: {x: -35, y: -16}
   ppc: {fileID: 0}

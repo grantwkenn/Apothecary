@@ -73,6 +73,7 @@ public class LayerManager : MonoBehaviour
 
     void updateLayer()
     {
+        
         if (bc == null)
         {
             y = _transform.position.y;
@@ -83,9 +84,15 @@ public class LayerManager : MonoBehaviour
             y = _transform.position.y + bc.offset.y - (bc.size.y / 2.0f);
         }
 
-
+        int order = 900 - (int)(y * 16);
         //// FIX THIS
-        sr.sortingOrder = 900-(int)(y*16);
+        sr.sortingOrder = order;
+
+        SpriteRenderer[] children = this.GetComponentsInChildren<SpriteRenderer>();
+        foreach(SpriteRenderer s in children)
+        {
+            s.sortingOrder = order;
+        }
 
     }
 
