@@ -23,6 +23,7 @@ public class Scene_Manager : MonoBehaviour
 
     bool fadingOut = false;
 
+    public bool manageLayers;
 
     // Start is called before the first frame update
     void Start()
@@ -50,6 +51,7 @@ public class Scene_Manager : MonoBehaviour
 
         if (sp.isChangingScenes())
             sceneChangeStart();
+
 
 
         fadeIn();
@@ -91,6 +93,8 @@ public class Scene_Manager : MonoBehaviour
     {
         
     }
+
+
 
 
     public void changeScene(string targetSceneName, byte entranceNo)

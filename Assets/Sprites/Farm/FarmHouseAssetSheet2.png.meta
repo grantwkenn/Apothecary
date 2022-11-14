@@ -1,0 +1,3864 @@
+fileFormatVersion: 2
+guid: 2e050a53d1045b74baffa2de1fb1b59b
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8919636194758280757
+    second: FarmHouseAssetSheet2_0
+  - first:
+      213: -6100334801088284803
+    second: FarmHouseAssetSheet2_1
+  - first:
+      213: 5301824834905510456
+    second: FarmHouseAssetSheet2_2
+  - first:
+      213: 4447480017124014890
+    second: FarmHouseAssetSheet2_3
+  - first:
+      213: 7855224225982884570
+    second: FarmHouseAssetSheet2_4
+  - first:
+      213: -3408254526206361051
+    second: FarmHouseAssetSheet2_5
+  - first:
+      213: -4961107188017960246
+    second: FarmHouseAssetSheet2_6
+  - first:
+      213: 6735758704179333555
+    second: FarmHouseAssetSheet2_7
+  - first:
+      213: -6711103556766755033
+    second: FarmHouseAssetSheet2_8
+  - first:
+      213: -792332382593411077
+    second: FarmHouseAssetSheet2_9
+  - first:
+      213: -4098766187335446091
+    second: FarmHouseAssetSheet2_10
+  - first:
+      213: -2371624829430817608
+    second: FarmHouseAssetSheet2_11
+  - first:
+      213: -2735335882335891360
+    second: FarmHouseAssetSheet2_12
+  - first:
+      213: -6844970600662763044
+    second: FarmHouseAssetSheet2_13
+  - first:
+      213: 8883906929166304089
+    second: FarmHouseAssetSheet2_14
+  - first:
+      213: 7319338987884939916
+    second: FarmHouseAssetSheet2_15
+  - first:
+      213: -442094612115616363
+    second: FarmHouseAssetSheet2_16
+  - first:
+      213: 1258106092975327343
+    second: FarmHouseAssetSheet2_17
+  - first:
+      213: 5487045305791996720
+    second: FarmHouseAssetSheet2_18
+  - first:
+      213: -140388512779691318
+    second: FarmHouseAssetSheet2_19
+  - first:
+      213: -3880868530478067918
+    second: FarmHouseAssetSheet2_20
+  - first:
+      213: 6054356478029794669
+    second: FarmHouseAssetSheet2_21
+  - first:
+      213: -7832667191806272347
+    second: FarmHouseAssetSheet2_22
+  - first:
+      213: 4477561830050905223
+    second: FarmHouseAssetSheet2_23
+  - first:
+      213: -9148198785002087636
+    second: FarmHouseAssetSheet2_24
+  - first:
+      213: -2847080253362641862
+    second: FarmHouseAssetSheet2_25
+  - first:
+      213: 5636352348138992672
+    second: FarmHouseAssetSheet2_26
+  - first:
+      213: -2724063048171116181
+    second: FarmHouseAssetSheet2_27
+  - first:
+      213: 639729083138873047
+    second: FarmHouseAssetSheet2_28
+  - first:
+      213: 5944468910381434242
+    second: FarmHouseAssetSheet2_29
+  - first:
+      213: -7629450515657010756
+    second: FarmHouseAssetSheet2_30
+  - first:
+      213: 475567595389726744
+    second: FarmHouseAssetSheet2_31
+  - first:
+      213: 9093753622293524577
+    second: FarmHouseAssetSheet2_32
+  - first:
+      213: -4846483295418139046
+    second: FarmHouseAssetSheet2_33
+  - first:
+      213: -8235647285967152515
+    second: FarmHouseAssetSheet2_34
+  - first:
+      213: -3032357149690971561
+    second: FarmHouseAssetSheet2_35
+  - first:
+      213: 3932683212701483204
+    second: FarmHouseAssetSheet2_36
+  - first:
+      213: -1293665403327231094
+    second: FarmHouseAssetSheet2_37
+  - first:
+      213: -4625292896566760853
+    second: FarmHouseAssetSheet2_38
+  - first:
+      213: 401416449949760996
+    second: FarmHouseAssetSheet2_39
+  - first:
+      213: -5207657218956440590
+    second: FarmHouseAssetSheet2_40
+  - first:
+      213: -6741721682675671649
+    second: FarmHouseAssetSheet2_41
+  - first:
+      213: 8315053430373718622
+    second: FarmHouseAssetSheet2_42
+  - first:
+      213: 1056147700319952062
+    second: FarmHouseAssetSheet2_43
+  - first:
+      213: -2944565936631777534
+    second: FarmHouseAssetSheet2_44
+  - first:
+      213: -5987481423633907900
+    second: FarmHouseAssetSheet2_45
+  - first:
+      213: -2188184148823257909
+    second: FarmHouseAssetSheet2_46
+  - first:
+      213: -4530349767576010201
+    second: FarmHouseAssetSheet2_47
+  - first:
+      213: -5239081645951834534
+    second: FarmHouseAssetSheet2_48
+  - first:
+      213: -5689428528740705639
+    second: FarmHouseAssetSheet2_49
+  - first:
+      213: 1293474469443804700
+    second: FarmHouseAssetSheet2_50
+  - first:
+      213: -2995314656683035871
+    second: FarmHouseAssetSheet2_51
+  - first:
+      213: -1745576084599534613
+    second: FarmHouseAssetSheet2_52
+  - first:
+      213: -7243405325419908747
+    second: FarmHouseAssetSheet2_53
+  - first:
+      213: 6616148358741975998
+    second: FarmHouseAssetSheet2_54
+  - first:
+      213: -7003794703035533431
+    second: FarmHouseAssetSheet2_55
+  - first:
+      213: 7831059754563300763
+    second: FarmHouseAssetSheet2_56
+  - first:
+      213: -4745839745443237716
+    second: FarmHouseAssetSheet2_57
+  - first:
+      213: -6243103484847046431
+    second: FarmHouseAssetSheet2_58
+  - first:
+      213: -3670133260217461450
+    second: FarmHouseAssetSheet2_59
+  - first:
+      213: 6072869490224126136
+    second: FarmHouseAssetSheet2_60
+  - first:
+      213: -2948417113912882555
+    second: FarmHouseAssetSheet2_61
+  - first:
+      213: -4929547831647520163
+    second: FarmHouseAssetSheet2_62
+  - first:
+      213: 1658199206146291362
+    second: FarmHouseAssetSheet2_63
+  - first:
+      213: 4527789786367723726
+    second: FarmHouseAssetSheet2_64
+  - first:
+      213: 3198822541172969968
+    second: FarmHouseAssetSheet2_65
+  - first:
+      213: -5133958854168886291
+    second: FarmHouseAssetSheet2_66
+  - first:
+      213: 6111869652494749050
+    second: FarmHouseAssetSheet2_67
+  - first:
+      213: -1686118539484180094
+    second: FarmHouseAssetSheet2_68
+  - first:
+      213: -8933805085807586540
+    second: FarmHouseAssetSheet2_69
+  - first:
+      213: 4478231227764827977
+    second: FarmHouseAssetSheet2_70
+  - first:
+      213: -7343181266699937099
+    second: FarmHouseAssetSheet2_71
+  - first:
+      213: 8679551428958509289
+    second: FarmHouseAssetSheet2_72
+  - first:
+      213: -7499229409932294374
+    second: FarmHouseAssetSheet2_73
+  - first:
+      213: 7302585009333269772
+    second: FarmHouseAssetSheet2_74
+  - first:
+      213: 1340908825216508393
+    second: FarmHouseAssetSheet2_75
+  - first:
+      213: 5704181775110694886
+    second: FarmHouseAssetSheet2_76
+  - first:
+      213: 7524452188595710061
+    second: FarmHouseAssetSheet2_77
+  - first:
+      213: -4412848953279837126
+    second: FarmHouseAssetSheet2_78
+  - first:
+      213: -7950580203934265494
+    second: FarmHouseAssetSheet2_79
+  - first:
+      213: -2826566671586948325
+    second: FarmHouseAssetSheet2_80
+  - first:
+      213: -8228448104865900345
+    second: FarmHouseAssetSheet2_81
+  - first:
+      213: -3569411891114019946
+    second: FarmHouseAssetSheet2_82
+  - first:
+      213: -7048719398729117855
+    second: FarmHouseAssetSheet2_83
+  - first:
+      213: -4205941194923418173
+    second: FarmHouseAssetSheet2_84
+  - first:
+      213: 6139256561230375274
+    second: FarmHouseAssetSheet2_85
+  - first:
+      213: 331434329757766464
+    second: FarmHouseAssetSheet2_86
+  - first:
+      213: 6489122133622943429
+    second: FarmHouseAssetSheet2_87
+  - first:
+      213: -8799823131174845067
+    second: FarmHouseAssetSheet2_88
+  - first:
+      213: 380191101308086195
+    second: FarmHouseAssetSheet2_89
+  - first:
+      213: 4107346100677558451
+    second: FarmHouseAssetSheet2_90
+  - first:
+      213: -845909026695978625
+    second: FarmHouseAssetSheet2_91
+  - first:
+      213: -3277470008231430089
+    second: FarmHouseAssetSheet2_92
+  - first:
+      213: 4215675502485667059
+    second: FarmHouseAssetSheet2_93
+  - first:
+      213: 4687112725732172787
+    second: FarmHouseAssetSheet2_94
+  - first:
+      213: -3655921199581830346
+    second: FarmHouseAssetSheet2_95
+  - first:
+      213: 7877188655408054143
+    second: FarmHouseAssetSheet2_96
+  - first:
+      213: -1494670302904460279
+    second: FarmHouseAssetSheet2_97
+  - first:
+      213: -1218497217519369205
+    second: FarmHouseAssetSheet2_98
+  - first:
+      213: -1567683529436032283
+    second: FarmHouseAssetSheet2_99
+  - first:
+      213: 2253422582639080179
+    second: FarmHouseAssetSheet2_100
+  - first:
+      213: 6564236442116486294
+    second: FarmHouseAssetSheet2_101
+  - first:
+      213: 5818544005688760830
+    second: FarmHouseAssetSheet2_102
+  - first:
+      213: -5451546274965050724
+    second: FarmHouseAssetSheet2_103
+  - first:
+      213: 595229907443929189
+    second: FarmHouseAssetSheet2_104
+  - first:
+      213: -8739704514618408501
+    second: FarmHouseAssetSheet2_105
+  - first:
+      213: 2915576280531046099
+    second: FarmHouseAssetSheet2_106
+  - first:
+      213: -6508422433556522224
+    second: FarmHouseAssetSheet2_107
+  - first:
+      213: -8941895862137930969
+    second: FarmHouseAssetSheet2_108
+  - first:
+      213: -6643451081734350132
+    second: FarmHouseAssetSheet2_109
+  - first:
+      213: 6558137496986216080
+    second: FarmHouseAssetSheet2_110
+  - first:
+      213: 258033662310669842
+    second: FarmHouseAssetSheet2_111
+  - first:
+      213: -5233477672008662052
+    second: FarmHouseAssetSheet2_112
+  - first:
+      213: 4119681874162677515
+    second: FarmHouseAssetSheet2_113
+  - first:
+      213: 2817123878816346454
+    second: FarmHouseAssetSheet2_114
+  - first:
+      213: -2112326158876298139
+    second: FarmHouseAssetSheet2_115
+  - first:
+      213: -2595700625645791369
+    second: FarmHouseAssetSheet2_116
+  - first:
+      213: -9157122968425210366
+    second: FarmHouseAssetSheet2_117
+  - first:
+      213: -5878385427655114308
+    second: FarmHouseAssetSheet2_118
+  - first:
+      213: 5681291833934605421
+    second: FarmHouseAssetSheet2_119
+  - first:
+      213: -7381831400918634514
+    second: FarmHouseAssetSheet2_120
+  - first:
+      213: 7983035535889036437
+    second: FarmHouseAssetSheet2_121
+  - first:
+      213: -7657768643201780007
+    second: FarmHouseAssetSheet2_122
+  - first:
+      213: -3932601120617222920
+    second: FarmHouseAssetSheet2_123
+  - first:
+      213: 5598815825328188961
+    second: FarmHouseAssetSheet2_124
+  - first:
+      213: -257239444847456369
+    second: FarmHouseAssetSheet2_125
+  - first:
+      213: 595641271624680218
+    second: FarmHouseAssetSheet2_126
+  - first:
+      213: -2312617100361391984
+    second: FarmHouseAssetSheet2_127
+  - first:
+      213: -783562496896815318
+    second: FarmHouseAssetSheet2_128
+  - first:
+      213: -96290746550325507
+    second: FarmHouseAssetSheet2_129
+  - first:
+      213: 7196790590955376016
+    second: FarmHouseAssetSheet2_130
+  - first:
+      213: 4555248553765318038
+    second: FarmHouseAssetSheet2_131
+  - first:
+      213: -1234114292916341372
+    second: FarmHouseAssetSheet2_132
+  - first:
+      213: -8747155370894705978
+    second: FarmHouseAssetSheet2_133
+  - first:
+      213: 2041009647451774139
+    second: FarmHouseAssetSheet2_134
+  - first:
+      213: 4388248873121559413
+    second: FarmHouseAssetSheet2_135
+  - first:
+      213: -4510811770624901509
+    second: FarmHouseAssetSheet2_136
+  - first:
+      213: -319253882967277507
+    second: FarmHouseAssetSheet2_137
+  - first:
+      213: 7954892766035683359
+    second: FarmHouseAssetSheet2_138
+  - first:
+      213: -5737894271199677401
+    second: FarmHouseAssetSheet2_139
+  - first:
+      213: -3399375691911906093
+    second: FarmHouseAssetSheet2_140
+  - first:
+      213: -1515073767513790345
+    second: FarmHouseAssetSheet2_141
+  - first:
+      213: 1332976758010226808
+    second: FarmHouseAssetSheet2_142
+  - first:
+      213: -8597269173197334567
+    second: FarmHouseAssetSheet2_143
+  - first:
+      213: 7974578758220709568
+    second: FarmHouseAssetSheet2_144
+  - first:
+      213: 5939151427293214827
+    second: FarmHouseAssetSheet2_145
+  - first:
+      213: -6999995814096515728
+    second: FarmHouseAssetSheet2_146
+  - first:
+      213: -7491654997257317865
+    second: FarmHouseAssetSheet2_147
+  - first:
+      213: 1471219473227511270
+    second: FarmHouseAssetSheet2_148
+  - first:
+      213: 8747508491763362961
+    second: FarmHouseAssetSheet2_149
+  - first:
+      213: 2904856268952843134
+    second: FarmHouseAssetSheet2_150
+  - first:
+      213: 7372550921405445660
+    second: FarmHouseAssetSheet2_151
+  - first:
+      213: 2635248990076546381
+    second: FarmHouseAssetSheet2_152
+  - first:
+      213: 1798065908023330379
+    second: FarmHouseAssetSheet2_153
+  - first:
+      213: 8858882246476005567
+    second: FarmHouseAssetSheet2_154
+  - first:
+      213: 4485798264181592815
+    second: FarmHouseAssetSheet2_155
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 931
+        width: 66
+        height: 78
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc937bd9326173480800000000000000
+      internalID: -8919636194758280757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 931
+        width: 64
+        height: 74
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d77fd22c1d1475ba0800000000000000
+      internalID: -6100334801088284803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_2
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 931
+        width: 50
+        height: 78
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 83213e9d89dd39940800000000000000
+      internalID: 5301824834905510456
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_3
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 931
+        width: 50
+        height: 78
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2b3356038f98bd30800000000000000
+      internalID: 4447480017124014890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_4
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 930
+        width: 50
+        height: 78
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adaa0c490dc530d60800000000000000
+      internalID: 7855224225982884570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_5
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 930
+        width: 50
+        height: 78
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5224a5de09273b0d0800000000000000
+      internalID: -3408254526206361051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_6
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 977
+        width: 64
+        height: 42
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aca6d8d2c4b962bb0800000000000000
+      internalID: -4961107188017960246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_7
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 931
+        width: 64
+        height: 69
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b9ca579ad83a7d50800000000000000
+      internalID: 6735758704179333555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_8
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 943
+        width: 64
+        height: 48
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7279e004fde5dd2a0800000000000000
+      internalID: -6711103556766755033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_9
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 953
+        width: 38
+        height: 34
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf71b7f55e11105f0800000000000000
+      internalID: -792332382593411077
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_10
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 955
+        width: 38
+        height: 31
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b11d7a6ed14e17c0800000000000000
+      internalID: -4098766187335446091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_11
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 964
+        width: 48
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bc974578cb461fd0800000000000000
+      internalID: -2371624829430817608
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_12
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 931
+        width: 64
+        height: 42
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0605df7e1822a0ad0800000000000000
+      internalID: -2735335882335891360
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_13
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 907
+        width: 64
+        height: 31
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd9f0814187c101a0800000000000000
+      internalID: -6844970600662763044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_14
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 916
+        width: 38
+        height: 34
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 953c69a784af94b70800000000000000
+      internalID: 8883906929166304089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_15
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 896
+        width: 31
+        height: 37
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8a8c8ba704839560800000000000000
+      internalID: 7319338987884939916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_16
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 853
+        width: 92
+        height: 101
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59d0cb7ea4d5dd9f0800000000000000
+      internalID: -442094612115616363
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_17
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 909
+        width: 30
+        height: 42
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f688c8963d0b57110800000000000000
+      internalID: 1258106092975327343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_18
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 849
+        width: 64
+        height: 79
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 033e43e42a6e52c40800000000000000
+      internalID: 5487045305791996720
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_19
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 849
+        width: 64
+        height: 79
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aca9835346d3d0ef0800000000000000
+      internalID: -140388512779691318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_20
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 849
+        width: 64
+        height: 79
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23fccdc12a2642ac0800000000000000
+      internalID: -3880868530478067918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_21
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 849
+        width: 64
+        height: 79
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6d0d80b325650450800000000000000
+      internalID: 6054356478029794669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_22
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 849
+        width: 64
+        height: 79
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5acd78430b6cc4390800000000000000
+      internalID: -7832667191806272347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_23
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 849
+        width: 64
+        height: 79
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78c3804e2ce732e30800000000000000
+      internalID: 4477561830050905223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_24
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 849
+        width: 48
+        height: 77
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c2b5a4d9ca11b0180800000000000000
+      internalID: -9148198785002087636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_25
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 849
+        width: 48
+        height: 77
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a346a4318932d78d0800000000000000
+      internalID: -2847080253362641862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_26
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 849
+        width: 64
+        height: 54
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02473c31998583e40800000000000000
+      internalID: 5636352348138992672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_27
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 852
+        width: 22
+        height: 61
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b692ef3271f223ad0800000000000000
+      internalID: -2724063048171116181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_28
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 852
+        width: 22
+        height: 61
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d69af03636c0e800800000000000000
+      internalID: 639729083138873047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_29
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 898
+        width: 27
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28583a59afefe7250800000000000000
+      internalID: 5944468910381434242
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_30
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 852
+        width: 30
+        height: 33
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb1d7d6bd2fbe1690800000000000000
+      internalID: -7629450515657010756
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_31
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 852
+        width: 30
+        height: 33
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81034e5553e899600800000000000000
+      internalID: 475567595389726744
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_32
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 859
+        width: 12
+        height: 39
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1603abb1db0833e70800000000000000
+      internalID: 9093753622293524577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_33
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 711
+        width: 56
+        height: 133
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5ebcbede15ddbcb0800000000000000
+      internalID: -4846483295418139046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_34
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 711
+        width: 56
+        height: 133
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7a94808d6a15bd80800000000000000
+      internalID: -8235647285967152515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_35
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 815
+        width: 15
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75abd8c0d37eae5d0800000000000000
+      internalID: -3032357149690971561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_36
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 815
+        width: 15
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c0c633bb82b39630800000000000000
+      internalID: 3932683212701483204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_37
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 815
+        width: 15
+        height: 25
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a8bc7787b2afb0ee0800000000000000
+      internalID: -1293665403327231094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_38
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 815
+        width: 16
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6a200ecd98afcfb0800000000000000
+      internalID: -4625292896566760853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_39
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 815
+        width: 16
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4edf04a622e129500800000000000000
+      internalID: 401416449949760996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_40
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 830
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fb4a18c95faab7b0800000000000000
+      internalID: -5207657218956440590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_41
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 829
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9d519949d79072a0800000000000000
+      internalID: -6741721682675671649
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_42
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 829
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5a91d53a01056370800000000000000
+      internalID: 8315053430373718622
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_43
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 829
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ebc9aebdcb038ae00800000000000000
+      internalID: 1056147700319952062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_44
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 828
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 207f851b1ecc227d0800000000000000
+      internalID: -2944565936631777534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_45
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 828
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44ffc054e5138eca0800000000000000
+      internalID: -5987481423633907900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_46
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 829
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bcccf323c1202a1e0800000000000000
+      internalID: -2188184148823257909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_47
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 828
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 722cb53a3e6f021c0800000000000000
+      internalID: -4530349767576010201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_48
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 828
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a56a5c7300b0b47b0800000000000000
+      internalID: -5239081645951834534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_49
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 817
+        width: 24
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 99adf61a5e61b01b0800000000000000
+      internalID: -5689428528740705639
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_50
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 822
+        width: 15
+        height: 14
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c1e1c354d2853f110800000000000000
+      internalID: 1293474469443804700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_51
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 825
+        width: 15
+        height: 9
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 123f2e980318e66d0800000000000000
+      internalID: -2995314656683035871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_52
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 819
+        width: 18
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: beb070dacc776c7e0800000000000000
+      internalID: -1745576084599534613
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_53
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 785
+        width: 45
+        height: 52
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5717c26db314a7b90800000000000000
+      internalID: -7243405325419908747
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_54
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 785
+        width: 35
+        height: 52
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb36910e0e741db50800000000000000
+      internalID: 6616148358741975998
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_55
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 785
+        width: 34
+        height: 52
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 987fdc543d58dce90800000000000000
+      internalID: -7003794703035533431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_56
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 785
+        width: 34
+        height: 52
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b9d6a952b538dac60800000000000000
+      internalID: 7831059754563300763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_57
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 785
+        width: 34
+        height: 52
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca0fce365e3632eb0800000000000000
+      internalID: -4745839745443237716
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_58
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 785
+        width: 34
+        height: 52
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e040b9357a0c59a0800000000000000
+      internalID: -6243103484847046431
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_59
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 785
+        width: 34
+        height: 52
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 635546abe31111dc0800000000000000
+      internalID: -3670133260217461450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_60
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 785
+        width: 34
+        height: 52
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b8dd1c30aa274450800000000000000
+      internalID: 6072869490224126136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_61
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 785
+        width: 34
+        height: 52
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58a4a8b914e1517d0800000000000000
+      internalID: -2948417113912882555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_62
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 814
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d5a3a5f6d5ab69bb0800000000000000
+      internalID: -4929547831647520163
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_63
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 813
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a63f29746b130710800000000000000
+      internalID: 1658199206146291362
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_64
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 813
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec8071a42d0f5de30800000000000000
+      internalID: 4527789786367723726
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_65
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 814
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f190223720846c20800000000000000
+      internalID: 3198822541172969968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_66
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 813
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de3cacd7f9380c8b0800000000000000
+      internalID: -5133958854168886291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_67
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 813
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a7d807e1119b1d450800000000000000
+      internalID: 6111869652494749050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_68
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 814
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28158dc2f14b998e0800000000000000
+      internalID: -1686118539484180094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_69
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 813
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4135cd79b9fb40480800000000000000
+      internalID: -8933805085807586540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_70
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 813
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 947ebf0339fd52e30800000000000000
+      internalID: 4478231227764827977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_71
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 801
+        width: 16
+        height: 14
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ba1c053b87c71a90800000000000000
+      internalID: -7343181266699937099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_72
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 800
+        width: 19
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e85ec4d906f37870800000000000000
+      internalID: 8679551428958509289
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_73
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 801
+        width: 17
+        height: 15
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a17c2d395926de790800000000000000
+      internalID: -7499229409932294374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_74
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 800
+        width: 19
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c05f66f006ef75560800000000000000
+      internalID: 7302585009333269772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_75
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 802
+        width: 17
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e1673bd87ddb9210800000000000000
+      internalID: 1340908825216508393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_76
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 783
+        width: 15
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e7eab73a13592f40800000000000000
+      internalID: 5704181775110694886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_77
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 783
+        width: 15
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6868a636693c6860800000000000000
+      internalID: 7524452188595710061
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_78
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 783
+        width: 15
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3c0d4cd14962c2c0800000000000000
+      internalID: -4412848953279837126
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_79
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 783
+        width: 16
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6fce32bd6dd9a190800000000000000
+      internalID: -7950580203934265494
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_80
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 783
+        width: 16
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1b0a16869406c8d0800000000000000
+      internalID: -2826566671586948325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_81
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 798
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c85bb87b0eaecd80800000000000000
+      internalID: -8228448104865900345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_82
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 797
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 693f71debc6e67ec0800000000000000
+      internalID: -3569411891114019946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_83
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 797
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16f88557d0bed2e90800000000000000
+      internalID: -7048719398729117855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_84
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 798
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3cd586a64ce71a5c0800000000000000
+      internalID: -4205941194923418173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_85
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 797
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a696f15b055033550800000000000000
+      internalID: 6139256561230375274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_86
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 797
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 043d49354cd799400800000000000000
+      internalID: 331434329757766464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_87
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 798
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5ce68be133efd0a50800000000000000
+      internalID: 6489122133622943429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_88
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 797
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 575ce045c7fb0e580800000000000000
+      internalID: -8799823131174845067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_89
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 797
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b7ab34dac5b64500800000000000000
+      internalID: 380191101308086195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_90
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 800
+        width: 17
+        height: 14
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b0c8745489300930800000000000000
+      internalID: 4107346100677558451
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_91
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 782
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f716d77d83ab244f0800000000000000
+      internalID: -845909026695978625
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_92
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 781
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7387e5d64661482d0800000000000000
+      internalID: -3277470008231430089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_93
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 781
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fc79fda886118a30800000000000000
+      internalID: 4215675502485667059
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_94
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 782
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f3aa7fc038fb0140800000000000000
+      internalID: 4687112725732172787
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_95
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 781
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 633ea14f90f834dc0800000000000000
+      internalID: -3655921199581830346
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_96
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 781
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7f7552d855615d60800000000000000
+      internalID: 7877188655408054143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_97
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 782
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90cdd03574dd14be0800000000000000
+      internalID: -1494670302904460279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_98
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 781
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b04c4fd8c37071fe0800000000000000
+      internalID: -1218497217519369205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_99
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 781
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e21cbbc2287e3ae0800000000000000
+      internalID: -1567683529436032283
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_100
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 757
+        width: 26
+        height: 34
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f2bb0756e3c54f10800000000000000
+      internalID: 2253422582639080179
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_101
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 751
+        width: 15
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 694f60ae34ad81b50800000000000000
+      internalID: 6564236442116486294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_102
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 751
+        width: 15
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef99e09f1fe9fb050800000000000000
+      internalID: 5818544005688760830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_103
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 751
+        width: 15
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c9aaa14eb873854b0800000000000000
+      internalID: -5451546274965050724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_104
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 751
+        width: 16
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56052e8727ea24800800000000000000
+      internalID: 595229907443929189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_105
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 751
+        width: 16
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc1ca448c0556b680800000000000000
+      internalID: -8739704514618408501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_106
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 766
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3de8b940e25367820800000000000000
+      internalID: 2915576280531046099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_107
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 765
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01b1eaf97407da5a0800000000000000
+      internalID: -6508422433556522224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_108
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 765
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72bbbbee61108e380800000000000000
+      internalID: -8941895862137930969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_109
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 766
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cca1a8e8078bdc3a0800000000000000
+      internalID: -6643451081734350132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_110
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 765
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09668089e4f230b50800000000000000
+      internalID: 6558137496986216080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_111
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 765
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 21ede1eaf38b49300800000000000000
+      internalID: 258033662310669842
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_112
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 766
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd34cf319c3fe57b0800000000000000
+      internalID: -5233477672008662052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_113
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 765
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b07f41966dc0c2930800000000000000
+      internalID: 4119681874162677515
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_114
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 765
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6517e15fd3f681720800000000000000
+      internalID: 2817123878816346454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_115
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 729
+        width: 35
+        height: 52
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 564b962dc828fa2e0800000000000000
+      internalID: -2112326158876298139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_116
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 728
+        width: 34
+        height: 52
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7779f1998083afbd0800000000000000
+      internalID: -2595700625645791369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_117
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 729
+        width: 34
+        height: 52
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20ed17e3d2d5be080800000000000000
+      internalID: -9157122968425210366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_118
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 750
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb1c8cb3997cb6ea0800000000000000
+      internalID: -5878385427655114308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_119
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 749
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6ceffa72d008de40800000000000000
+      internalID: 5681291833934605421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_120
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 749
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eefab6493777e8990800000000000000
+      internalID: -7381831400918634514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_121
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 749
+        width: 11
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5947cf1268079ce60800000000000000
+      internalID: 7983035535889036437
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_122
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 748
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d635d9ddf32ab590800000000000000
+      internalID: -7657768643201780007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_123
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 748
+        width: 8
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8fcae4add189c69c0800000000000000
+      internalID: -3932601120617222920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_124
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 750
+        width: 7
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12ea58f445df2bd40800000000000000
+      internalID: 5598815825328188961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_125
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 750
+        width: 7
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8f06ab761a1e6cf0800000000000000
+      internalID: -257239444847456369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_126
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 717
+        width: 26
+        height: 34
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1340c8a494244800800000000000000
+      internalID: 595641271624680218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_127
+      rect:
+        serializedVersion: 2
+        x: 639
+        y: 711
+        width: 64
+        height: 42
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 090277ffffee7efd0800000000000000
+      internalID: -2312617100361391984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_128
+      rect:
+        serializedVersion: 2
+        x: 718
+        y: 692
+        width: 64
+        height: 69
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2fa5218f0a3025f0800000000000000
+      internalID: -783562496896815318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_129
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 719
+        width: 15
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dfee5b08318e9aef0800000000000000
+      internalID: -96290746550325507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_130
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 719
+        width: 15
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09dc4c889e220e360800000000000000
+      internalID: 7196790590955376016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_131
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 719
+        width: 15
+        height: 25
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69d2bc6cc6e773f30800000000000000
+      internalID: 4555248553765318038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_132
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 719
+        width: 16
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4853d76d69b8fdee0800000000000000
+      internalID: -1234114292916341372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_133
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 719
+        width: 16
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cabbaad88cdb9680800000000000000
+      internalID: -8747155370894705978
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_134
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 722
+        width: 16
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbc128be57f135c10800000000000000
+      internalID: 2041009647451774139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_135
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 722
+        width: 16
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5733b64a91136ec30800000000000000
+      internalID: 4388248873121559413
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_136
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 722
+        width: 16
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b7e704b08906661c0800000000000000
+      internalID: -4510811770624901509
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_137
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 722
+        width: 16
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d304290f848c19bf0800000000000000
+      internalID: -319253882967277507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_138
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 722
+        width: 16
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f18a1e9e2d4756e60800000000000000
+      internalID: 7954892766035683359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_139
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 722
+        width: 16
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 724f46e9f87ee50b0800000000000000
+      internalID: -5737894271199677401
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_140
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 722
+        width: 16
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3dc3e71a1ddf2d0d0800000000000000
+      internalID: -3399375691911906093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_141
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 722
+        width: 16
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 778e3d68f6069fae0800000000000000
+      internalID: -1515073767513790345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_142
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 722
+        width: 16
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8782d0b8c4faf7210800000000000000
+      internalID: 1332976758010226808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_143
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 722
+        width: 16
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d7182dbc3d50b880800000000000000
+      internalID: -8597269173197334567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_144
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 574
+        width: 56
+        height: 133
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cefe1521256bae60800000000000000
+      internalID: 7974578758220709568
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_145
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 572
+        width: 56
+        height: 133
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b68f01391ca1c6250800000000000000
+      internalID: 5939151427293214827
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_146
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 572
+        width: 56
+        height: 133
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07d4e8705e40bde90800000000000000
+      internalID: -6999995814096515728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_147
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 572
+        width: 56
+        height: 133
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 71292b4f87b480890800000000000000
+      internalID: -7491654997257317865
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_148
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 643
+        width: 48
+        height: 61
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6e5fc58e052da6410800000000000000
+      internalID: 1471219473227511270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_149
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 648
+        width: 64
+        height: 57
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19ca44180a4656970800000000000000
+      internalID: 8747508491763362961
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_150
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 648
+        width: 64
+        height: 58
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e733082d26f105820800000000000000
+      internalID: 2904856268952843134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_151
+      rect:
+        serializedVersion: 2
+        x: 456
+        y: 648
+        width: 64
+        height: 58
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c16b9d66000905660800000000000000
+      internalID: 7372550921405445660
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_152
+      rect:
+        serializedVersion: 2
+        x: 524
+        y: 648
+        width: 16
+        height: 56
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4d283c8ef8429420800000000000000
+      internalID: 2635248990076546381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_153
+      rect:
+        serializedVersion: 2
+        x: 541
+        y: 648
+        width: 47
+        height: 57
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b468872ba6304f810800000000000000
+      internalID: 1798065908023330379
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_154
+      rect:
+        serializedVersion: 2
+        x: 642
+        y: 644
+        width: 64
+        height: 54
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb08730877211fa70800000000000000
+      internalID: 8858882246476005567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FarmHouseAssetSheet2_155
+      rect:
+        serializedVersion: 2
+        x: 725
+        y: 637
+        width: 64
+        height: 48
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe29b9621c1c04e30800000000000000
+      internalID: 4485798264181592815
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

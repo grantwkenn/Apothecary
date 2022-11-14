@@ -121,11 +121,11 @@ TextureImporter:
       name: barrels_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 1
         y: 0
-        width: 32
-        height: 48
-      alignment: 0
+        width: 30
+        height: 41
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -142,11 +142,11 @@ TextureImporter:
       name: barrels_1
       rect:
         serializedVersion: 2
-        x: 32
+        x: 33
         y: 0
-        width: 32
-        height: 48
-      alignment: 0
+        width: 30
+        height: 41
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -163,11 +163,11 @@ TextureImporter:
       name: barrels_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 65
         y: 0
-        width: 32
-        height: 48
-      alignment: 0
+        width: 30
+        height: 41
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -184,11 +184,11 @@ TextureImporter:
       name: barrels_3
       rect:
         serializedVersion: 2
-        x: 96
+        x: 97
         y: 0
-        width: 32
-        height: 48
-      alignment: 0
+        width: 30
+        height: 41
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
@@ -205,11 +205,11 @@ TextureImporter:
       name: barrels_4
       rect:
         serializedVersion: 2
-        x: 128
+        x: 129
         y: 0
-        width: 32
-        height: 48
-      alignment: 0
+        width: 30
+        height: 41
+      alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []

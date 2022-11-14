@@ -1,111 +1,42 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Tilemaps;
 
 [ExecuteInEditMode]
 public class LayerManager : MonoBehaviour
 {
-    //reference the parent Room's position
-
-    public bool dynamic;
-    Vector3 lastPosition;
-
-    Transform _transform;
-    BoxCollider2D bc;
-    SpriteRenderer sr;
-
+    public bool run;
     
-    Rigidbody2D rb;
-
-    float colliderHalfHeight;
-    float colliderOffset;
-    float colliderBottomY;
-
-    float y;
-
-
+    // Start is called before the first frame update
     void Start()
     {
-        _transform = this.GetComponent<Transform>();
-        bc = this.GetComponent<BoxCollider2D>();
-        sr = this.GetComponentInChildren<SpriteRenderer>();
-        rb = this.GetComponent<Rigidbody2D>();
+        relayer();
+    }
 
-        if(sr == null)
+    void relayer()
+    {
+        //Find every object in scene which is layered
+        Layered[] LayeredObjects = GameObject.FindObjectsOfType<Layered>();
+        
+        foreach(Layered ob in LayeredObjects)
         {
-            setupTilemap();
+            ob.enabled = false;
+            ob.enabled = true;
         }
 
-        else
-            updateLayer();
 
-        _transform.position = new Vector3(_transform.position.x, _transform.position.y, _transform.position.y);
-
-        if (!dynamic)
-            this.enabled = false;
+        //turn its component on to run once
 
     }
 
-
-    private void FixedUpdate()
+    // Update is called once per frame
+    void Update()
     {
-
-
+        if (run)
+        {
+            relayer();
+            run = false;
+        }
         
     }
-
-    private void Update()
-    {
-        if (lastPosition != _transform.position)
-        {
-            updateLayer();
-            lastPosition = _transform.position;
-
-            lastPosition.z = lastPosition.y;
-            
-            _transform.position = lastPosition;
-
-
-        }
-      
-    }
-
-    void updateLayer()
-    {
-        
-        if (bc == null)
-        {
-            y = _transform.position.y;
-        }
-
-        else
-        {
-            y = _transform.position.y + bc.offset.y - (bc.size.y / 2.0f);
-        }
-
-        int order = 900 - (int)(y * 16);
-        //// FIX THIS
-        sr.sortingOrder = order;
-
-        SpriteRenderer[] children = this.GetComponentsInChildren<SpriteRenderer>();
-        foreach(SpriteRenderer s in children)
-        {
-            s.sortingOrder = order;
-        }
-
-    }
-
-    void setupTilemap()
-    {
-        TilemapRenderer tr = this.GetComponent<TilemapRenderer>();
-        
-        y = _transform.position.y;
-
-        
-        //// FIX THIS
-        tr.sortingOrder = 900 - (int)(y * 16);
-
-    }
-
 }
