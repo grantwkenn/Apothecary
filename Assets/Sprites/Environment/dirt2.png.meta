@@ -87,7 +87,7 @@ TextureImporter:
       213: 5598598539125446645
     second: dirt2_27
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -107,6 +107,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -116,8 +118,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -138,10 +140,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -169,6 +175,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -780,6 +798,35 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      dirt2_4: -7593626369557622825
+      dirt2_21: -558772307840100063
+      dirt2_0: 2778571848849872774
+      dirt2_9: -8034231237288527463
+      dirt2_1: 6494650607509068763
+      dirt2_5: 5355935457445290424
+      dirt2_8: 2199833074821030624
+      dirt2_16: 5088155840471853419
+      dirt2_7: 7019285674915434794
+      dirt2_12: 4779809542573538055
+      dirt2_25: -6821558626132231801
+      dirt2_19: 3334271379954697581
+      dirt2_17: -3122804169470590260
+      dirt2_26: 9105237989275095458
+      dirt2_3: 8785991639487724395
+      dirt2_27: 5598598539125446645
+      dirt2_2: -4232097365685025217
+      dirt2_15: -1953314704828885306
+      dirt2_18: -3517587683251055326
+      dirt2_20: 5820187872124176520
+      dirt2_10: -6818761246754999724
+      dirt2_6: 5018446543363951816
+      dirt2_23: 3335479699974414938
+      dirt2_24: -3761951761549057788
+      dirt2_14: -8015671252119261012
+      dirt2_11: -8039037087756923454
+      dirt2_13: 1625459164133877668
+      dirt2_22: -4539580563083320276
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

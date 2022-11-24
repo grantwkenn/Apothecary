@@ -141,7 +141,7 @@ TextureImporter:
       213: 7586743607223613561
     second: fences_45
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -162,6 +162,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -200,6 +201,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -227,6 +229,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1216,6 +1230,53 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      fences_36: 1112422961245756205
+      fences_4: 5317815840914013207
+      fences_11: -7303152075802582012
+      fences_28: 7795625082467504681
+      fences_5: -7961855079783714533
+      fences_6: 7800729191344291593
+      fences_13: -8240231184342265018
+      fences_10: -7455353389480978339
+      fences_3: 3405478928132641723
+      fences_15: -544559456984731816
+      fences_14: 1984666645534484494
+      fences_18: 3380788282976994714
+      fences_37: -5490241177769736775
+      fences_43: -2278521190316461295
+      fences_22: 7622465773818745529
+      fences_39: 7033456370159299929
+      fences_16: -701783697078973935
+      fences_23: 573919101421832008
+      fences_45: 7586743607223613561
+      fences_2: 7139555157472184269
+      fences_7: 4335701660438695877
+      fences_27: -3949147901942966037
+      fences_34: -1579896362298346281
+      fences_38: -6690022533071193087
+      fences_40: -2662256851077668622
+      fences_41: -8254214462167078992
+      fences_31: 2496696851193390975
+      fences_1: -7793352843893472228
+      fences_29: 5991894227082109879
+      fences_0: 1761722066470537003
+      fences_30: -829408033490936118
+      fences_44: -5723291061903895295
+      fences_8: 1283707508987279889
+      fences_12: 7707019540384768253
+      fences_20: 1320298739451130953
+      fences_17: -5233167787342087836
+      fences_25: 8735380585677951595
+      fences_33: -4317362700867524857
+      fences_9: 2103300997238518741
+      fences_24: -5103060638639219799
+      fences_26: -4254161657233203679
+      fences_42: -7930616454820192603
+      fences_35: -5118101241235381611
+      fences_19: -348676083696103822
+      fences_21: 3983407487335105525
+      fences_32: 7165199347708652665
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

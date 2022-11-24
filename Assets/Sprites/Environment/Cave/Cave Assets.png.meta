@@ -267,7 +267,7 @@ TextureImporter:
       213: -8754418670561005843
     second: Cave Assets_87
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -287,6 +287,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -296,8 +298,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -318,10 +320,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -349,6 +355,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -2220,6 +2238,95 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Cave Assets_7: -323805868935009536
+      Cave Assets_55: -6035390029383271710
+      Cave Assets_4: 669263655379596105
+      Cave Assets_86: 4954293938074584037
+      Cave Assets_8: 7369982041263757380
+      Cave Assets_12: 2932936087334914611
+      Cave Assets_23: 3957865491194313547
+      Cave Assets_84: -2690343817271359724
+      Cave Assets_36: -4006549046969783208
+      Cave Assets_22: 4420433208014814056
+      Cave Assets_60: -1791785955624047686
+      Cave Assets_83: -8672575888209300946
+      Cave Assets_24: 7216667199488065826
+      Cave Assets_10: 3454817470054699571
+      Cave Assets_5: -5725896882086984936
+      Cave Assets_31: -5610658912540187536
+      Cave Assets_80: 7719938539098092709
+      Cave Assets_9: 5998472007689088157
+      Cave Assets_16: -5139595320131366982
+      Cave Assets_42: 4751922793656414110
+      Cave Assets_75: -485298595480808305
+      Cave Assets_50: 1727773053924444332
+      Cave Assets_2: -3851261885635998086
+      Cave Assets_81: 3484970072872552933
+      Cave Assets_38: -1221407888612795501
+      Cave Assets_87: -8754418670561005843
+      Cave Assets_39: 4406426257412508973
+      Cave Assets_68: -3080621577508006765
+      Cave Assets_52: 3651107101263246696
+      Cave Assets_40: -4658511152301636001
+      Cave Assets_33: 453376641887928730
+      Cave Assets_14: -1795584944279154484
+      Cave Assets_28: 4511414048157195814
+      Cave Assets_67: -8805512970591499866
+      Cave Assets_76: 1673043639590488888
+      Cave Assets_48: -4583432580859702342
+      Cave Assets_25: -4288658529899846572
+      Cave Assets_56: -7656809196159781003
+      Cave Assets_3: -6755756774790647811
+      Cave Assets_6: 2339556373319202585
+      Cave Assets_15: 36551625210711134
+      Cave Assets_11: -6571039769699285038
+      Cave Assets_43: -6455796242686314313
+      Cave Assets_70: -2719397332974758169
+      Cave Assets_82: -2628713552206622658
+      Cave Assets_64: -6547855273428943311
+      Cave Assets_78: 2922460969886963725
+      Cave Assets_0: 2329951326406061865
+      Cave Assets_45: -7875688916397810080
+      Cave Assets_17: 497318409962050009
+      Cave Assets_72: -3006943964066486890
+      Cave Assets_65: 9147222530215401976
+      Cave Assets_13: 7698258432386530310
+      Cave Assets_79: -4739088701053267912
+      Cave Assets_51: -4591089510961936055
+      Cave Assets_57: 8696748171962271266
+      Cave Assets_58: 5117330164854708754
+      Cave Assets_46: -7521896785232285988
+      Cave Assets_18: 7326615594740220807
+      Cave Assets_63: 3935980985420643801
+      Cave Assets_54: -2852256930576246587
+      Cave Assets_77: 6304909688229647874
+      Cave Assets_34: 6607027357423511692
+      Cave Assets_37: -5608834833649890093
+      Cave Assets_44: 4183097044844978279
+      Cave Assets_61: -8565454726818504714
+      Cave Assets_53: 429751422535645823
+      Cave Assets_85: 5704873442408143768
+      Cave Assets_19: -2885239178668431198
+      Cave Assets_26: 4482184323376515729
+      Cave Assets_59: 3520334561309237909
+      Cave Assets_32: -6107667471174222933
+      Cave Assets_29: -216664882151472951
+      Cave Assets_47: -4753464698358452127
+      Cave Assets_41: -3484404600084979890
+      Cave Assets_20: -7952387435465202266
+      Cave Assets_66: 2356276661719799871
+      Cave Assets_27: 3923665057628571845
+      Cave Assets_1: 744726947609072429
+      Cave Assets_73: -2449848942106909691
+      Cave Assets_74: 4083590414285782992
+      Cave Assets_69: 5788493899147890372
+      Cave Assets_30: -8797817283227496331
+      Cave Assets_71: -7438379026391196686
+      Cave Assets_49: -3706733159676334078
+      Cave Assets_35: 5658385830989376210
+      Cave Assets_62: -4561980220610654781
+      Cave Assets_21: 5305833951909257455
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

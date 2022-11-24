@@ -360,7 +360,7 @@ TextureImporter:
       213: 4764382230335770476
     second: roomSheet_118
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -381,6 +381,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -419,6 +420,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -446,6 +448,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -2968,6 +2982,126 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      roomSheet_105: 415248532224639060
+      roomSheet_44: -5070430169517585710
+      roomSheet_55: 7647574015868146055
+      roomSheet_97: -7753895360586288644
+      roomSheet_1: -3826255007120620475
+      roomSheet_52: 5175853300155190855
+      roomSheet_104: 1031219714002580347
+      roomSheet_117: -9183298890400515139
+      roomSheet_115: 1220165759339777754
+      roomSheet_41: 2263618857501672714
+      roomSheet_76: 8715941466858014850
+      roomSheet_38: 2936523580765349265
+      roomSheet_92: -1131084867740206006
+      roomSheet_48: -3689549878151649932
+      roomSheet_58: -7427399929305347090
+      roomSheet_100: 6125028162092742946
+      roomSheet_103: 1674495106078173132
+      roomSheet_68: 2648924527710055337
+      roomSheet_98: -2521362272807311761
+      roomSheet_79: 8488078568026956336
+      roomSheet_4: 3474506056389346450
+      roomSheet_28: 6737249174416155950
+      roomSheet_118: 4764382230335770476
+      roomSheet_17: 6651247262466820495
+      roomSheet_107: -2209604317615425298
+      roomSheet_80: 1485598506788069238
+      roomSheet_64: 882652177528105377
+      roomSheet_108: -2874058679137070358
+      roomSheet_61: -5039311753807013185
+      roomSheet_15: 2236856117685724328
+      roomSheet_95: -4206356898446888503
+      roomSheet_113: 1239732391524964958
+      roomSheet_19: 2920104437109320874
+      roomSheet_87: 7665424061951776897
+      roomSheet_71: 8394232339633345772
+      roomSheet_12: 8195798833303025416
+      roomSheet_56: -334975825267598352
+      roomSheet_96: -927098907794033847
+      roomSheet_85: 6607519094149463346
+      roomSheet_25: 3897786021037405112
+      roomSheet_65: -2163253308676554889
+      roomSheet_86: -8277132438981810773
+      roomSheet_21: 7722372480250713662
+      roomSheet_66: -4157030165694469919
+      roomSheet_69: -3944928591358472351
+      roomSheet_102: -2906129281076841875
+      roomSheet_7: 1831769235988390445
+      roomSheet_101: -3227993012300937575
+      roomSheet_109: -6970783032245719790
+      roomSheet_8: 1370004657737900160
+      roomSheet_23: 6064332960958214138
+      roomSheet_81: 4376389315088800749
+      roomSheet_116: 8715123642557520329
+      roomSheet_88: -8094229821974701301
+      roomSheet_9: -2289044774016420801
+      roomSheet_30: 9208692329904457780
+      roomSheet_5: 6888875425349129117
+      roomSheet_27: 6012007243262531389
+      roomSheet_84: -3650439634340071056
+      roomSheet_26: 7678825379936757773
+      roomSheet_90: 6274055960463043557
+      roomSheet_82: 6995300302237172366
+      roomSheet_72: 5842126349648568418
+      roomSheet_59: -7154853859635905264
+      roomSheet_106: -2804907093730224999
+      roomSheet_53: 4450152265451649178
+      roomSheet_50: -5666109186370309513
+      roomSheet_63: -8944868119756431276
+      roomSheet_29: 1056219187153122937
+      roomSheet_91: -6291539130299590589
+      roomSheet_13: 4082445629777966711
+      roomSheet_114: 19558209748281018
+      roomSheet_46: -643718452261310318
+      roomSheet_20: -5099295582584049327
+      roomSheet_36: 3970537039222032104
+      roomSheet_40: -6511166008107745575
+      roomSheet_77: -5794147012165455897
+      roomSheet_110: -6619586879360608867
+      roomSheet_75: -3859041896128430392
+      roomSheet_22: 4361776413514844404
+      roomSheet_89: 9178781573800497367
+      roomSheet_45: -7883178805688284345
+      roomSheet_49: -5013332499959346310
+      roomSheet_70: -5038955421313074404
+      roomSheet_57: 2235557535858116022
+      roomSheet_42: -4144444607825139718
+      roomSheet_54: 338047597316588401
+      roomSheet_83: -2959846650307019965
+      roomSheet_32: 7308014309269610777
+      roomSheet_6: -3511175909464046691
+      roomSheet_16: -5782665476833756736
+      roomSheet_51: -901802600278559094
+      roomSheet_34: 3597160380830828283
+      roomSheet_37: -1883840948413065429
+      roomSheet_67: -4315849712304614837
+      roomSheet_93: 4987848058624997150
+      roomSheet_99: -5983404266665038057
+      roomSheet_39: 4393335001273956697
+      roomSheet_3: 4338038327175049615
+      roomSheet_74: -2976694085446535178
+      roomSheet_62: 6109779309331253033
+      roomSheet_2: -5855423168652734921
+      roomSheet_10: 2669278782559518776
+      roomSheet_24: 7019560006955692547
+      roomSheet_18: -1462259189504068295
+      roomSheet_31: -6528110273367746468
+      roomSheet_43: 2323932334151320719
+      roomSheet_60: 2049961576768840249
+      roomSheet_94: 5906216350197754821
+      roomSheet_11: -796658698328044186
+      roomSheet_112: -3988448385882119462
+      roomSheet_33: 330808426160630869
+      roomSheet_73: 6000138666035150765
+      roomSheet_78: 8888323212216815878
+      roomSheet_14: -1206777630638214794
+      roomSheet_47: -4802479825995488054
+      roomSheet_0: 6895340095349142188
+      roomSheet_35: 6298814062442830729
+      roomSheet_111: 6832764679571096747
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

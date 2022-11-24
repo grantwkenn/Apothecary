@@ -267,7 +267,7 @@ TextureImporter:
       213: 4868918998499894432
     second: FarmAssets 1_87
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -288,6 +288,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -326,6 +327,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -353,6 +355,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -2224,6 +2238,95 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      FarmAssets 1_27: 4088578543137666658
+      FarmAssets 1_79: -7727482335003810936
+      FarmAssets 1_32: -2791353261730562320
+      FarmAssets 1_19: -7294368854366856132
+      FarmAssets 1_54: -2982282204713632792
+      FarmAssets 1_60: 4378591549625555005
+      FarmAssets 1_41: -1620610867242320566
+      FarmAssets 1_66: 1130178888698887924
+      FarmAssets 1_77: 1311341474659780250
+      FarmAssets 1_18: -3927392143865584215
+      FarmAssets 1_80: -2119984089093095359
+      FarmAssets 1_52: 4925298676548412025
+      FarmAssets 1_65: 4067826792764726335
+      FarmAssets 1_28: -3585900128311500673
+      FarmAssets 1_4: 8822846879753653873
+      FarmAssets 1_85: 1126730497378265883
+      FarmAssets 1_63: -4757164135305663148
+      FarmAssets 1_44: -5784809000816403617
+      FarmAssets 1_83: -8470172775355717490
+      FarmAssets 1_43: 4772454095488640999
+      FarmAssets 1_12: -873400588233506238
+      FarmAssets 1_61: 7568080994798456060
+      FarmAssets 1_29: 243747397885113152
+      FarmAssets 1_1: -6331178046058814688
+      FarmAssets 1_14: 5741571537895392059
+      FarmAssets 1_70: 8071351873866826253
+      FarmAssets 1_5: -6421982111738909444
+      FarmAssets 1_39: -6935120793109451313
+      FarmAssets 1_55: 4425995591524335019
+      FarmAssets 1_50: 4971906543374233004
+      FarmAssets 1_58: 5438350022355841986
+      FarmAssets 1_69: 8328470825097340950
+      FarmAssets 1_13: 254819959648067554
+      FarmAssets 1_47: -4863062691432326265
+      FarmAssets 1_86: -1777339447058213968
+      FarmAssets 1_75: -2918980537266782243
+      FarmAssets 1_21: 4563219052834944294
+      FarmAssets 1_87: 4868918998499894432
+      FarmAssets 1_67: -7169303276901140227
+      FarmAssets 1_71: -6265051644788833970
+      FarmAssets 1_30: 9019691511957666486
+      FarmAssets 1_16: -1593679227036585420
+      FarmAssets 1_34: -6115610830129833780
+      FarmAssets 1_15: 5472928913692056782
+      FarmAssets 1_17: -9099750057904164389
+      FarmAssets 1_25: 5311201469990826902
+      FarmAssets 1_46: 1939630885168991949
+      FarmAssets 1_8: 8464947525329772896
+      FarmAssets 1_78: -2938208751237179774
+      FarmAssets 1_35: 242734793772509717
+      FarmAssets 1_64: -3233894333106378462
+      FarmAssets 1_10: -8377283101814381927
+      FarmAssets 1_59: 5420112586527660791
+      FarmAssets 1_38: -5037701120050974209
+      FarmAssets 1_37: -2590619170241274377
+      FarmAssets 1_81: -2642745796953210431
+      FarmAssets 1_76: 5405624466773235628
+      FarmAssets 1_22: 5361153076926181970
+      FarmAssets 1_23: 8292673673736301819
+      FarmAssets 1_57: -8260519497897774312
+      FarmAssets 1_31: -1557845368154439779
+      FarmAssets 1_2: 1778099721707716225
+      FarmAssets 1_9: 6255643437873308939
+      FarmAssets 1_72: -4323622630491556303
+      FarmAssets 1_33: -6539033383255975869
+      FarmAssets 1_62: -123014643246702928
+      FarmAssets 1_74: 7853624591370253490
+      FarmAssets 1_48: -8348993272919835301
+      FarmAssets 1_6: -7376605505479846933
+      FarmAssets 1_84: 6717945980441475408
+      FarmAssets 1_73: -5789342338501972512
+      FarmAssets 1_26: 1695889690173284478
+      FarmAssets 1_56: 8836918656350666444
+      FarmAssets 1_40: -5261659672821569374
+      FarmAssets 1_49: -1538468848068544660
+      FarmAssets 1_53: -6257193195191241822
+      FarmAssets 1_20: -2182206923503863508
+      FarmAssets 1_24: -6192166465099749657
+      FarmAssets 1_3: 702819263098546303
+      FarmAssets 1_0: 3770476806891921071
+      FarmAssets 1_45: 1780729643006605719
+      FarmAssets 1_7: 1919866449468671875
+      FarmAssets 1_11: 7473710423983946143
+      FarmAssets 1_51: 4310568044846920914
+      FarmAssets 1_68: 1417962055229261703
+      FarmAssets 1_36: 1987905164244243005
+      FarmAssets 1_42: 6892241025960980735
+      FarmAssets 1_82: -929935086181810865
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

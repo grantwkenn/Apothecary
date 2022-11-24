@@ -63,7 +63,7 @@ TextureImporter:
       213: -7033967138389241608
     second: Grass_Rule_Tile_19
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -84,6 +84,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -122,6 +123,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -149,6 +151,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -592,6 +606,27 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Grass_Rule_Tile_9: 6764768008703331679
+      Grass_Rule_Tile_16: 7903799416787716660
+      Grass_Rule_Tile_5: -7238322646920593306
+      Grass_Rule_Tile_17: 7786668274784664837
+      Grass_Rule_Tile_10: -3251664572429558255
+      Grass_Rule_Tile_7: 2711620051826822429
+      Grass_Rule_Tile_14: 4063481180432058701
+      Grass_Rule_Tile_15: -6274516136182555104
+      Grass_Rule_Tile_6: 3957359135592097115
+      Grass_Rule_Tile_13: 8883493315434969457
+      Grass_Rule_Tile_2: 8112902637124374119
+      Grass_Rule_Tile_4: 937256966870419827
+      Grass_Rule_Tile_19: -7033967138389241608
+      Grass_Rule_Tile_8: 8641616641317644956
+      Grass_Rule_Tile_12: -4977936387342350693
+      Grass_Rule_Tile_3: -4776146301609788052
+      Grass_Rule_Tile_18: -2691634848821977721
+      Grass_Rule_Tile_1: 4762202765379779837
+      Grass_Rule_Tile_0: 7860272503195985680
+      Grass_Rule_Tile_11: 6989935633364074779
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

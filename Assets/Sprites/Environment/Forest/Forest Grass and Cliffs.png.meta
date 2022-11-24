@@ -684,7 +684,7 @@ TextureImporter:
       213: 2194037871019723098
     second: Forest Grass and Cliffs_226
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -704,6 +704,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -713,8 +715,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -735,10 +737,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -766,6 +772,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -5556,6 +5574,234 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Forest Grass and Cliffs_43: 4272843473333398900
+      Forest Grass and Cliffs_0: -4426814919189324217
+      Forest Grass and Cliffs_135: -3385337572893118255
+      Forest Grass and Cliffs_199: 1443916409812527406
+      Forest Grass and Cliffs_8: 3736956391901819144
+      Forest Grass and Cliffs_188: 432979470126293190
+      Forest Grass and Cliffs_13: 1753393203242167501
+      Forest Grass and Cliffs_30: -7806737234065153107
+      Forest Grass and Cliffs_191: 5854374762560055430
+      Forest Grass and Cliffs_87: -1032936282741724917
+      Forest Grass and Cliffs_112: 2219033172280822660
+      Forest Grass and Cliffs_19: -4371313615643400980
+      Forest Grass and Cliffs_111: 6680637296555340117
+      Forest Grass and Cliffs_144: 1055779770986244639
+      Forest Grass and Cliffs_150: 7771661479569308009
+      Forest Grass and Cliffs_105: 7562158849291976354
+      Forest Grass and Cliffs_152: 4023939872132951768
+      Forest Grass and Cliffs_23: -7067026047354239798
+      Forest Grass and Cliffs_63: 7599745608587739676
+      Forest Grass and Cliffs_100: 3500022327311224864
+      Forest Grass and Cliffs_192: -4583783926375453543
+      Forest Grass and Cliffs_96: 5482507061887985773
+      Forest Grass and Cliffs_155: -7411632989775621983
+      Forest Grass and Cliffs_71: -7970395627419614555
+      Forest Grass and Cliffs_36: -2714281922861228073
+      Forest Grass and Cliffs_200: 1372585576766643592
+      Forest Grass and Cliffs_123: 5204127148394839933
+      Forest Grass and Cliffs_124: -6742069490765019023
+      Forest Grass and Cliffs_126: -4215641945318677186
+      Forest Grass and Cliffs_223: -2096234050914283387
+      Forest Grass and Cliffs_210: 3926148468212012074
+      Forest Grass and Cliffs_62: 4302679007712632221
+      Forest Grass and Cliffs_205: -683866522361848051
+      Forest Grass and Cliffs_193: 7449528237537026519
+      Forest Grass and Cliffs_28: 2550429964567961076
+      Forest Grass and Cliffs_72: -2304615654921653567
+      Forest Grass and Cliffs_57: 7710208404262405071
+      Forest Grass and Cliffs_120: 8147055875441884010
+      Forest Grass and Cliffs_53: 7877557084386886703
+      Forest Grass and Cliffs_187: -3356850302999116917
+      Forest Grass and Cliffs_81: 90914925147286480
+      Forest Grass and Cliffs_142: -5680062108420655950
+      Forest Grass and Cliffs_98: 2367068610924663218
+      Forest Grass and Cliffs_127: 7339476994839481890
+      Forest Grass and Cliffs_54: -769446890700545993
+      Forest Grass and Cliffs_125: -1353339551375884386
+      Forest Grass and Cliffs_52: -4705859255430787011
+      Forest Grass and Cliffs_69: -6088892939261479084
+      Forest Grass and Cliffs_4: 8190308588908546351
+      Forest Grass and Cliffs_132: 4478656035999317019
+      Forest Grass and Cliffs_133: -6808309712397858176
+      Forest Grass and Cliffs_17: -1332641627854100489
+      Forest Grass and Cliffs_140: 3529705076404153231
+      Forest Grass and Cliffs_151: 7769928510137214666
+      Forest Grass and Cliffs_117: -3898566496437634966
+      Forest Grass and Cliffs_97: 2208406864481155299
+      Forest Grass and Cliffs_195: 6178955459904243671
+      Forest Grass and Cliffs_106: 6467255892633345725
+      Forest Grass and Cliffs_41: -5796805023066732345
+      Forest Grass and Cliffs_37: -3092970558821356076
+      Forest Grass and Cliffs_15: 4985347811975596786
+      Forest Grass and Cliffs_35: 2123956969418755913
+      Forest Grass and Cliffs_47: 4100571907008167217
+      Forest Grass and Cliffs_38: 5136613934575689752
+      Forest Grass and Cliffs_59: -9031712740622543676
+      Forest Grass and Cliffs_201: -1170677088991895486
+      Forest Grass and Cliffs_154: -7966830895347480987
+      Forest Grass and Cliffs_21: 1069926810707932522
+      Forest Grass and Cliffs_222: -5293135352957740918
+      Forest Grass and Cliffs_31: 4642804818087283095
+      Forest Grass and Cliffs_138: 886712939994898951
+      Forest Grass and Cliffs_130: -2912096652526810468
+      Forest Grass and Cliffs_78: 1491852234051831781
+      Forest Grass and Cliffs_179: -6137945780795784394
+      Forest Grass and Cliffs_99: -8288987465354897268
+      Forest Grass and Cliffs_143: -1683936108576540306
+      Forest Grass and Cliffs_101: 5860873331241555199
+      Forest Grass and Cliffs_216: 1366005642108586803
+      Forest Grass and Cliffs_175: -2460032156835497537
+      Forest Grass and Cliffs_60: 6239373149154701817
+      Forest Grass and Cliffs_108: 5215910024711317622
+      Forest Grass and Cliffs_122: 3597080075245926121
+      Forest Grass and Cliffs_226: 2194037871019723098
+      Forest Grass and Cliffs_169: -922258184632291424
+      Forest Grass and Cliffs_44: -7633814001245534015
+      Forest Grass and Cliffs_136: -6870569650882073694
+      Forest Grass and Cliffs_137: 8501977799652989520
+      Forest Grass and Cliffs_189: 5792287982982997173
+      Forest Grass and Cliffs_153: 4325049002360206904
+      Forest Grass and Cliffs_73: -1490056112387868056
+      Forest Grass and Cliffs_131: 3061313668402675520
+      Forest Grass and Cliffs_76: -4900911148789918213
+      Forest Grass and Cliffs_40: -377457348156084265
+      Forest Grass and Cliffs_65: 3637544073808616029
+      Forest Grass and Cliffs_79: 4474194363566934246
+      Forest Grass and Cliffs_11: 2831909089268462732
+      Forest Grass and Cliffs_75: -978364150173803793
+      Forest Grass and Cliffs_39: 3569021538519335804
+      Forest Grass and Cliffs_83: -4187473151101241415
+      Forest Grass and Cliffs_221: -1477478403143901189
+      Forest Grass and Cliffs_172: -2306264586248970409
+      Forest Grass and Cliffs_2: -4641058293565175086
+      Forest Grass and Cliffs_6: 4123698938313256068
+      Forest Grass and Cliffs_156: -3703405701627113850
+      Forest Grass and Cliffs_196: 4346354048451155810
+      Forest Grass and Cliffs_84: -5268966872610389882
+      Forest Grass and Cliffs_215: 3634190689446097398
+      Forest Grass and Cliffs_118: -3199860006841015525
+      Forest Grass and Cliffs_32: -8616997762387115152
+      Forest Grass and Cliffs_164: -253915897238275238
+      Forest Grass and Cliffs_80: 6896062548849832722
+      Forest Grass and Cliffs_77: 8203151124241745586
+      Forest Grass and Cliffs_177: 1052952522639819803
+      Forest Grass and Cliffs_55: 4983825356804683375
+      Forest Grass and Cliffs_9: -4418948716905338162
+      Forest Grass and Cliffs_103: -1262945638063350074
+      Forest Grass and Cliffs_147: -7210135336135606308
+      Forest Grass and Cliffs_74: -6165144318913147826
+      Forest Grass and Cliffs_114: 4101064147380631104
+      Forest Grass and Cliffs_48: -8051192136557407580
+      Forest Grass and Cliffs_1: -1537437844347802823
+      Forest Grass and Cliffs_121: -8056744150066615594
+      Forest Grass and Cliffs_82: -2480681226192430530
+      Forest Grass and Cliffs_141: 4540684021326558124
+      Forest Grass and Cliffs_203: 3460739678017478229
+      Forest Grass and Cliffs_12: -6893515390769381587
+      Forest Grass and Cliffs_149: 1430372948685600122
+      Forest Grass and Cliffs_157: -2229395633435835783
+      Forest Grass and Cliffs_207: -1668224557547768337
+      Forest Grass and Cliffs_190: -4558392972001025425
+      Forest Grass and Cliffs_90: -4916228026749127624
+      Forest Grass and Cliffs_33: -171596687171917145
+      Forest Grass and Cliffs_109: -8222551452516139791
+      Forest Grass and Cliffs_165: 2677602997062906478
+      Forest Grass and Cliffs_178: 90624321299941311
+      Forest Grass and Cliffs_204: -3267141842558953586
+      Forest Grass and Cliffs_162: 1777810444360008619
+      Forest Grass and Cliffs_219: 4625299471760204516
+      Forest Grass and Cliffs_85: 3978516574690569895
+      Forest Grass and Cliffs_92: 8660642647858541718
+      Forest Grass and Cliffs_113: 389573376842344351
+      Forest Grass and Cliffs_166: -3322258162218804714
+      Forest Grass and Cliffs_68: -7642020541559435110
+      Forest Grass and Cliffs_185: -2995896269537546975
+      Forest Grass and Cliffs_213: 7957159989432316497
+      Forest Grass and Cliffs_218: -391374758335285408
+      Forest Grass and Cliffs_102: -4266909943408269316
+      Forest Grass and Cliffs_168: 7533468319330627153
+      Forest Grass and Cliffs_134: 1904137720974537399
+      Forest Grass and Cliffs_25: 5017096680201913229
+      Forest Grass and Cliffs_34: -4337375265055325575
+      Forest Grass and Cliffs_170: 5168299107940706278
+      Forest Grass and Cliffs_61: -2322728288495090696
+      Forest Grass and Cliffs_212: 8540140596706601942
+      Forest Grass and Cliffs_7: 4761951944186615694
+      Forest Grass and Cliffs_145: -4190050154977466407
+      Forest Grass and Cliffs_176: -4072305776402763674
+      Forest Grass and Cliffs_110: 1509201909214115379
+      Forest Grass and Cliffs_18: 4810256930782023792
+      Forest Grass and Cliffs_86: -629132539359260324
+      Forest Grass and Cliffs_160: -1661111266611114261
+      Forest Grass and Cliffs_129: -2736273935968927813
+      Forest Grass and Cliffs_5: 3817965053073974654
+      Forest Grass and Cliffs_93: -8270432660197353483
+      Forest Grass and Cliffs_217: 586586886621010825
+      Forest Grass and Cliffs_159: 5703898898499260538
+      Forest Grass and Cliffs_139: -5345719099719622667
+      Forest Grass and Cliffs_115: 6460766544825373781
+      Forest Grass and Cliffs_174: 8826577763319416289
+      Forest Grass and Cliffs_95: -7051373794674187988
+      Forest Grass and Cliffs_209: 593315437289196941
+      Forest Grass and Cliffs_67: -8730388532940188385
+      Forest Grass and Cliffs_225: 1442413851425702230
+      Forest Grass and Cliffs_14: -5003748874996072645
+      Forest Grass and Cliffs_45: 8973605775370806647
+      Forest Grass and Cliffs_181: -6841410080214143139
+      Forest Grass and Cliffs_167: 7825895097474224086
+      Forest Grass and Cliffs_158: 5952239009520135303
+      Forest Grass and Cliffs_128: -6635446930397693383
+      Forest Grass and Cliffs_91: -5274378731495693145
+      Forest Grass and Cliffs_29: -7117779453834881217
+      Forest Grass and Cliffs_16: -1719594081681586963
+      Forest Grass and Cliffs_148: 6264408802965437404
+      Forest Grass and Cliffs_206: 4859799000221045541
+      Forest Grass and Cliffs_194: 4489455173079111873
+      Forest Grass and Cliffs_211: -4888400022713282215
+      Forest Grass and Cliffs_46: 3211067507176292582
+      Forest Grass and Cliffs_88: -5780089729056575961
+      Forest Grass and Cliffs_94: -1094520556342557929
+      Forest Grass and Cliffs_186: -5586633744771029912
+      Forest Grass and Cliffs_184: -3479773562586344293
+      Forest Grass and Cliffs_182: -1885177282886818158
+      Forest Grass and Cliffs_64: -5664830844722441945
+      Forest Grass and Cliffs_173: 3921332387622603230
+      Forest Grass and Cliffs_51: 2379904131567229638
+      Forest Grass and Cliffs_56: 5411203553723206011
+      Forest Grass and Cliffs_89: -530005005842631842
+      Forest Grass and Cliffs_66: -7260074506970203591
+      Forest Grass and Cliffs_198: -1908140258918096993
+      Forest Grass and Cliffs_163: 6500878952640633691
+      Forest Grass and Cliffs_119: 1763950850529769717
+      Forest Grass and Cliffs_171: 5702882768856889057
+      Forest Grass and Cliffs_58: 4830057471622603105
+      Forest Grass and Cliffs_50: -7497084206612539240
+      Forest Grass and Cliffs_22: -4011926862127408489
+      Forest Grass and Cliffs_3: -3656699876073914832
+      Forest Grass and Cliffs_183: -2804514970023177110
+      Forest Grass and Cliffs_208: -7844859958049994016
+      Forest Grass and Cliffs_197: 9177398914767157842
+      Forest Grass and Cliffs_214: -6579232300103632394
+      Forest Grass and Cliffs_10: 5718867608595916425
+      Forest Grass and Cliffs_116: 6013476602583962161
+      Forest Grass and Cliffs_161: -4931298599928090210
+      Forest Grass and Cliffs_70: 4096757703505093029
+      Forest Grass and Cliffs_42: 5233934186365408099
+      Forest Grass and Cliffs_49: -853578519055815244
+      Forest Grass and Cliffs_27: -2319758730923559490
+      Forest Grass and Cliffs_220: 8268213780578345483
+      Forest Grass and Cliffs_180: -7990089559233117059
+      Forest Grass and Cliffs_224: -5759878059274565131
+      Forest Grass and Cliffs_104: 7301760666465502396
+      Forest Grass and Cliffs_24: 3093941576123489898
+      Forest Grass and Cliffs_20: -4637830914800981808
+      Forest Grass and Cliffs_107: 7205376358503578662
+      Forest Grass and Cliffs_26: 8594989344970497781
+      Forest Grass and Cliffs_146: 1261419473258759322
+      Forest Grass and Cliffs_202: -541320372670260766
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

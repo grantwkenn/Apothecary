@@ -75,7 +75,7 @@ TextureImporter:
       213: -6671533498278679960
     second: MrsShe_Walking_Sheet_23
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -96,6 +96,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -134,6 +135,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -161,6 +163,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -688,6 +702,31 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      MrsShe_Walking_Sheet_9: -4284211701801518056
+      MrsShe_Walking_Sheet_14: -4889236977016837388
+      MrsShe_Walking_Sheet_17: 1928152519115565412
+      MrsShe_Walking_Sheet_6: 4215288593194562844
+      MrsShe_Walking_Sheet_8: 4497687570628908758
+      MrsShe_Walking_Sheet_23: -6671533498278679960
+      MrsShe_Walking_Sheet_4: 4093572861966566787
+      MrsShe_Walking_Sheet_22: -9117279013489449646
+      MrsShe_Walking_Sheet_1: -7732710516239178594
+      MrsShe_Walking_Sheet_3: -761994891447748567
+      MrsShe_Walking_Sheet_18: 6035282763244301247
+      MrsShe_Walking_Sheet_11: 7266737925056828468
+      MrsShe_Walking_Sheet_5: 8834557617416938054
+      MrsShe_Walking_Sheet_16: 5954972845964470536
+      MrsShe_Walking_Sheet_20: 6171561655648764453
+      MrsShe_Walking_Sheet_19: -3028575370039474738
+      MrsShe_Walking_Sheet_21: -1920128845235723614
+      MrsShe_Walking_Sheet_12: -466692104048467244
+      MrsShe_Walking_Sheet_7: -8212942432496634825
+      MrsShe_Walking_Sheet_2: -5929056992656672199
+      MrsShe_Walking_Sheet_10: 8023204062340347691
+      MrsShe_Walking_Sheet_15: -7834614387042085200
+      MrsShe_Walking_Sheet_0: -5814135286539716865
+      MrsShe_Walking_Sheet_13: 7042228511982310741
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

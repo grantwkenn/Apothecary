@@ -72,7 +72,7 @@ TextureImporter:
       213: -559912754006314142
     second: Tide_22
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -92,6 +92,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -101,8 +103,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -123,10 +125,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -154,6 +160,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -660,6 +678,30 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Tide_19: 4643709647372169950
+      Tide_6: 234373342766892994
+      Tide_8: 608643052223800389
+      Tide_9: 3873791937830957942
+      Tide_15: 7745529559325792984
+      Tide_12: 3113312130025863617
+      Tide_11: -592656331570930455
+      Tide_16: 7356197521314001601
+      Tide_17: -1245945121715650838
+      Tide_21: 6916882413160456473
+      Tide_4: 522170294420055916
+      Tide_0: -2809608536319164180
+      Tide_7: 6021744885779633126
+      Tide_22: -559912754006314142
+      Tide_5: -1338222542906114872
+      Tide_3: 734145851063930985
+      Tide_18: 8969461367416310579
+      Tide_2: -1397646485112536474
+      Tide_20: -8181898231253911792
+      Tide_10: -7733959223228309794
+      Tide_13: 4675986142931464324
+      Tide_14: -4751387237391555999
+      Tide_1: -6296935995428807834
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

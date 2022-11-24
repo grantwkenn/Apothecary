@@ -624,7 +624,7 @@ TextureImporter:
       213: -3890994819657386542
     second: Farm_Assets_Sheet_206
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -645,6 +645,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -683,6 +684,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -710,6 +712,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -5080,6 +5094,214 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Farm_Assets_Sheet_15: -5989754361358337295
+      Farm_Assets_Sheet_1: 4448498759460742826
+      Farm_Assets_Sheet_182: -466747508431061540
+      Farm_Assets_Sheet_55: 8152030435644393823
+      Farm_Assets_Sheet_49: -5303839390754917306
+      Farm_Assets_Sheet_108: -6895055832919812977
+      Farm_Assets_Sheet_157: 7833394742728929945
+      Farm_Assets_Sheet_129: 3139803660706272593
+      Farm_Assets_Sheet_170: 5678842746346537024
+      Farm_Assets_Sheet_65: -7619516320620554229
+      Farm_Assets_Sheet_205: -2756667691729398154
+      Farm_Assets_Sheet_101: -111110852519293646
+      Farm_Assets_Sheet_36: 5088765879316226476
+      Farm_Assets_Sheet_178: 2381347378792680082
+      Farm_Assets_Sheet_16: -7506704610993585354
+      Farm_Assets_Sheet_26: -7636665893946565105
+      Farm_Assets_Sheet_7: -4016132412498296296
+      Farm_Assets_Sheet_167: -5363726377918973191
+      Farm_Assets_Sheet_180: 5061435789062209988
+      Farm_Assets_Sheet_158: 2137613459499191647
+      Farm_Assets_Sheet_88: -6633612063010509564
+      Farm_Assets_Sheet_3: 816056722532834452
+      Farm_Assets_Sheet_8: 122394680231458989
+      Farm_Assets_Sheet_130: -6788469034741350968
+      Farm_Assets_Sheet_94: -58684549536540481
+      Farm_Assets_Sheet_187: -7873105416608464790
+      Farm_Assets_Sheet_105: 6643055667443603622
+      Farm_Assets_Sheet_149: 2421781550798598022
+      Farm_Assets_Sheet_189: 7611952615577879489
+      Farm_Assets_Sheet_9: 7928557763920196274
+      Farm_Assets_Sheet_141: -1783879076376119673
+      Farm_Assets_Sheet_195: 5238136885404094760
+      Farm_Assets_Sheet_38: 881512832153883639
+      Farm_Assets_Sheet_110: 6436911292150490522
+      Farm_Assets_Sheet_169: -3675804526612429821
+      Farm_Assets_Sheet_92: 7751417309856623738
+      Farm_Assets_Sheet_145: 8840591920773542979
+      Farm_Assets_Sheet_126: -4167835409274021857
+      Farm_Assets_Sheet_81: 482644407762539206
+      Farm_Assets_Sheet_181: -1585089511510762321
+      Farm_Assets_Sheet_73: -5022151076259483777
+      Farm_Assets_Sheet_5: -8810825077212321336
+      Farm_Assets_Sheet_78: 8253723374229301170
+      Farm_Assets_Sheet_106: -1642432936316701698
+      Farm_Assets_Sheet_72: 2106944171704752560
+      Farm_Assets_Sheet_154: -4822643747700103340
+      Farm_Assets_Sheet_29: 204384180831660771
+      Farm_Assets_Sheet_152: -1169107123333304124
+      Farm_Assets_Sheet_115: -7649842554024232409
+      Farm_Assets_Sheet_198: 4954556787691210880
+      Farm_Assets_Sheet_31: -9022949468384137801
+      Farm_Assets_Sheet_166: -2909117090352409785
+      Farm_Assets_Sheet_48: 1305579717265785049
+      Farm_Assets_Sheet_87: -8844139067101537167
+      Farm_Assets_Sheet_121: -7310700625905805410
+      Farm_Assets_Sheet_90: 2990155600166568385
+      Farm_Assets_Sheet_134: 6811720164151207356
+      Farm_Assets_Sheet_2: 7159359588331120189
+      Farm_Assets_Sheet_199: -7930191754455407743
+      Farm_Assets_Sheet_117: 6847542997947700744
+      Farm_Assets_Sheet_99: -2208925754118214622
+      Farm_Assets_Sheet_159: 784845417458519866
+      Farm_Assets_Sheet_13: -5221956676641624574
+      Farm_Assets_Sheet_30: -7537787480970638453
+      Farm_Assets_Sheet_172: -96836606225749421
+      Farm_Assets_Sheet_0: 3541124263662668953
+      Farm_Assets_Sheet_28: 7518466416038980183
+      Farm_Assets_Sheet_143: 463191235125274129
+      Farm_Assets_Sheet_185: -6965757804980840352
+      Farm_Assets_Sheet_83: -8286953837250311748
+      Farm_Assets_Sheet_12: -3145721968499500237
+      Farm_Assets_Sheet_171: -43634659412108573
+      Farm_Assets_Sheet_97: 6475702720390897182
+      Farm_Assets_Sheet_24: -2480306376384636689
+      Farm_Assets_Sheet_64: -7305956094324309548
+      Farm_Assets_Sheet_173: -4530473590254697381
+      Farm_Assets_Sheet_188: 5710998631846413974
+      Farm_Assets_Sheet_203: -731168482075301669
+      Farm_Assets_Sheet_177: 8191055340360407809
+      Farm_Assets_Sheet_79: 4916475799545665254
+      Farm_Assets_Sheet_196: -1980647246880532741
+      Farm_Assets_Sheet_200: 1911860600953132092
+      Farm_Assets_Sheet_95: -1036578945959681961
+      Farm_Assets_Sheet_107: -6657812734396245075
+      Farm_Assets_Sheet_123: 5268200690163865901
+      Farm_Assets_Sheet_136: 1744535974609703205
+      Farm_Assets_Sheet_6: -6925776029351318587
+      Farm_Assets_Sheet_67: -827817150313673144
+      Farm_Assets_Sheet_91: -6111439375111451692
+      Farm_Assets_Sheet_194: 1059089236673525841
+      Farm_Assets_Sheet_86: 6306200847171098126
+      Farm_Assets_Sheet_18: -2697687466925768820
+      Farm_Assets_Sheet_57: 2044683910482526234
+      Farm_Assets_Sheet_204: 6709819347805336961
+      Farm_Assets_Sheet_77: -976365642932328470
+      Farm_Assets_Sheet_109: 5180719892750773927
+      Farm_Assets_Sheet_70: -4958044980304694917
+      Farm_Assets_Sheet_206: -3890994819657386542
+      Farm_Assets_Sheet_39: -7172626319813415715
+      Farm_Assets_Sheet_60: 761571461737480080
+      Farm_Assets_Sheet_164: -4050284858522046380
+      Farm_Assets_Sheet_71: -1596106512611978083
+      Farm_Assets_Sheet_51: -3440967485309833353
+      Farm_Assets_Sheet_131: -6771602863373852945
+      Farm_Assets_Sheet_135: 4093828897974044
+      Farm_Assets_Sheet_66: -4839962583833231097
+      Farm_Assets_Sheet_133: 5076335433413484954
+      Farm_Assets_Sheet_127: -685948926480039308
+      Farm_Assets_Sheet_103: 6710697302806195244
+      Farm_Assets_Sheet_144: -410409513870857541
+      Farm_Assets_Sheet_74: 1210695866311279659
+      Farm_Assets_Sheet_201: 7872383537369915442
+      Farm_Assets_Sheet_25: 1249844649315420207
+      Farm_Assets_Sheet_160: 4148860755122711663
+      Farm_Assets_Sheet_68: -1088235862302157739
+      Farm_Assets_Sheet_76: -24287889905919595
+      Farm_Assets_Sheet_82: -4799897033682786611
+      Farm_Assets_Sheet_183: 878815617908637456
+      Farm_Assets_Sheet_120: -1681717157607948151
+      Farm_Assets_Sheet_54: 2321449935150751251
+      Farm_Assets_Sheet_10: 362579370688981825
+      Farm_Assets_Sheet_43: 8161370444254594836
+      Farm_Assets_Sheet_102: 287359631925916595
+      Farm_Assets_Sheet_163: 8254009803554772408
+      Farm_Assets_Sheet_113: -3934265216135109936
+      Farm_Assets_Sheet_147: 942000771422914146
+      Farm_Assets_Sheet_98: -4678568937524636803
+      Farm_Assets_Sheet_59: 2206108494438015483
+      Farm_Assets_Sheet_63: -5880196892659746918
+      Farm_Assets_Sheet_42: 6278424318481970388
+      Farm_Assets_Sheet_125: 9213057488531359822
+      Farm_Assets_Sheet_50: -5525784304258668940
+      Farm_Assets_Sheet_93: 7727807705320722819
+      Farm_Assets_Sheet_186: 8247954383378504156
+      Farm_Assets_Sheet_27: 3020769200450295842
+      Farm_Assets_Sheet_46: -4136797162200556117
+      Farm_Assets_Sheet_111: 378307065274608838
+      Farm_Assets_Sheet_151: 4338886548489774896
+      Farm_Assets_Sheet_137: 30938774146951413
+      Farm_Assets_Sheet_155: 9065808822602209371
+      Farm_Assets_Sheet_156: 5010681661434954838
+      Farm_Assets_Sheet_112: 1223005038238279364
+      Farm_Assets_Sheet_138: -8842203815650120869
+      Farm_Assets_Sheet_150: -1516403704902982561
+      Farm_Assets_Sheet_17: 5567911253020663363
+      Farm_Assets_Sheet_84: 1556178225234814946
+      Farm_Assets_Sheet_80: -2582388044042795927
+      Farm_Assets_Sheet_153: 7542969632096168813
+      Farm_Assets_Sheet_56: 8658957115162773822
+      Farm_Assets_Sheet_162: 7448878161220244019
+      Farm_Assets_Sheet_58: -8378945704590802629
+      Farm_Assets_Sheet_4: -1209864310517754934
+      Farm_Assets_Sheet_14: -6888975892064680307
+      Farm_Assets_Sheet_118: -7751115241401575060
+      Farm_Assets_Sheet_190: 6407502230523952935
+      Farm_Assets_Sheet_47: 2769530130180300756
+      Farm_Assets_Sheet_114: -823481495593271572
+      Farm_Assets_Sheet_11: -8710433436303633833
+      Farm_Assets_Sheet_20: -8486623368102127691
+      Farm_Assets_Sheet_52: -3592938397020777198
+      Farm_Assets_Sheet_142: -200040123273033442
+      Farm_Assets_Sheet_104: -4101959578550599055
+      Farm_Assets_Sheet_148: 5886305701124259538
+      Farm_Assets_Sheet_122: 8102348789068741107
+      Farm_Assets_Sheet_21: -8167321099720146354
+      Farm_Assets_Sheet_19: -4754357800298663398
+      Farm_Assets_Sheet_85: 9167866111015011163
+      Farm_Assets_Sheet_165: 174317028814772990
+      Farm_Assets_Sheet_23: -4053525516583422663
+      Farm_Assets_Sheet_22: -1602771065495765821
+      Farm_Assets_Sheet_75: -603723294854362372
+      Farm_Assets_Sheet_174: 4341634742579324241
+      Farm_Assets_Sheet_132: 6746700693256236205
+      Farm_Assets_Sheet_184: -731028271902035871
+      Farm_Assets_Sheet_32: -6602788214354651663
+      Farm_Assets_Sheet_45: 8729854717808773717
+      Farm_Assets_Sheet_116: -1303721207501514350
+      Farm_Assets_Sheet_139: 3768296116933249917
+      Farm_Assets_Sheet_37: 5722914984114951004
+      Farm_Assets_Sheet_179: 8132196628921783023
+      Farm_Assets_Sheet_89: -1197720283561795543
+      Farm_Assets_Sheet_191: 2129990224976429840
+      Farm_Assets_Sheet_202: -1576943846304051925
+      Farm_Assets_Sheet_41: 6033749952561644780
+      Farm_Assets_Sheet_35: 2368253906257005652
+      Farm_Assets_Sheet_119: 1577807299176259854
+      Farm_Assets_Sheet_96: -7139158124527657072
+      Farm_Assets_Sheet_128: 2017076162918625256
+      Farm_Assets_Sheet_140: -8497367721325465680
+      Farm_Assets_Sheet_197: 7910812671159743644
+      Farm_Assets_Sheet_100: 4165639979498541543
+      Farm_Assets_Sheet_69: 1080115612011525567
+      Farm_Assets_Sheet_161: -8017873165923072283
+      Farm_Assets_Sheet_168: -402948268714003907
+      Farm_Assets_Sheet_176: 3679741400930357118
+      Farm_Assets_Sheet_175: 5997664603598154250
+      Farm_Assets_Sheet_34: -2635119544970487825
+      Farm_Assets_Sheet_193: -5067162335794295415
+      Farm_Assets_Sheet_53: -6831608325973393469
+      Farm_Assets_Sheet_146: -9078715184893167961
+      Farm_Assets_Sheet_192: 3412193302060824215
+      Farm_Assets_Sheet_33: -2857573096334628467
+      Farm_Assets_Sheet_124: 8811609188129159055
+      Farm_Assets_Sheet_40: 6942848264314925584
+      Farm_Assets_Sheet_62: -7735940894739266093
+      Farm_Assets_Sheet_44: -2050592259578404360
+      Farm_Assets_Sheet_61: 3624702959611925782
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

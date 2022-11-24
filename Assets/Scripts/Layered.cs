@@ -19,14 +19,20 @@ public class Layered : MonoBehaviour
 
     SpriteRenderer[] children;
 
+    //public Transform parentObject;
+
+    public float heightOffset;
+
 
     private void OnEnable()
     {
+        
         _transform = this.GetComponent<Transform>();
+
         bc = this.GetComponent<BoxCollider2D>();
 
         if (bc != null)
-            offset = bc.offset.y - (bc.size.y / 2.0f);
+            offset = heightOffset + bc.offset.y - (bc.size.y / 2.0f);
 
         children = this.GetComponentsInChildren<SpriteRenderer>();
 
@@ -83,6 +89,7 @@ public class Layered : MonoBehaviour
         lastPosition.z = lastPosition.y;
         _transform.position = lastPosition;
     }
+
 
     /**
     void setupTilemap()

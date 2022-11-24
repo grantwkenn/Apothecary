@@ -249,7 +249,7 @@ TextureImporter:
       213: -54160408749008630
     second: Barn_81
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -270,6 +270,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -308,6 +309,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -335,6 +337,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -2080,6 +2094,89 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Barn_35: -381560449208510459
+      Barn_30: -3604107108109623357
+      Barn_44: -530298581662419535
+      Barn_59: -1972305426770634655
+      Barn_75: 196819725694323100
+      Barn_42: -2752919976243590501
+      Barn_25: 4228925679832706004
+      Barn_79: -6960270231180184416
+      Barn_64: -4579341853416411508
+      Barn_70: -3531611049979813812
+      Barn_74: 4384415903197992786
+      Barn_3: -1966421764168585459
+      Barn_8: 2709504019783841460
+      Barn_80: 1961008751213489132
+      Barn_18: 6955327387814701522
+      Barn_27: 860358432298997400
+      Barn_39: -5257753258526100759
+      Barn_67: -8528054411503773864
+      Barn_32: 3807394976366069098
+      Barn_37: -4594098417541024273
+      Barn_63: 4836093569348314197
+      Barn_73: -9145901324623335377
+      Barn_41: -8257355990131528432
+      Barn_10: -7282027489900456090
+      Barn_1: -7018476022146280665
+      Barn_14: 5101540297364419812
+      Barn_56: 9442564797667661
+      Barn_11: 6226400266581335913
+      Barn_54: -6714497579524641779
+      Barn_36: 8777128611331050062
+      Barn_4: -3174722383977532735
+      Barn_26: -4992631757330357341
+      Barn_71: -1177256295948340367
+      Barn_60: -7764712754600804415
+      Barn_19: 7831746334986144980
+      Barn_17: 8352169683831584881
+      Barn_52: 5453816265463290909
+      Barn_77: -8065945764122622776
+      Barn_9: -5506008119448710299
+      Barn_40: -7383302019622584936
+      Barn_50: 573201652076107008
+      Barn_66: 7424447435854080173
+      Barn_38: -592731513067117886
+      Barn_24: -4114724477115049300
+      Barn_12: 4811013740823585104
+      Barn_13: -6064809316723863576
+      Barn_53: -3210565749766443447
+      Barn_78: 5368431927508248693
+      Barn_0: -9132518384313571126
+      Barn_46: 2679763980944564815
+      Barn_6: 4401812581640101059
+      Barn_81: -54160408749008630
+      Barn_57: -7119468011895344954
+      Barn_49: -780539933146139554
+      Barn_7: -6060811416138265287
+      Barn_2: 1954861958252974046
+      Barn_76: 1368843408122205459
+      Barn_62: -2875316295123924032
+      Barn_43: -8646259898854355083
+      Barn_31: -2286224052594403840
+      Barn_22: -1027759568044621342
+      Barn_33: -5525791737600734268
+      Barn_47: -4898652510375882674
+      Barn_51: 4919957945894322326
+      Barn_65: -5385971934730297768
+      Barn_58: 203496106298905004
+      Barn_21: 123077653981339840
+      Barn_61: -8622392076415383183
+      Barn_20: -3033420048483334993
+      Barn_72: 7164399548665060470
+      Barn_45: 2214443711235451144
+      Barn_15: 9012941205793926735
+      Barn_29: -8810840943056681736
+      Barn_23: -8097243538748692848
+      Barn_69: 6813282403497261255
+      Barn_68: -197065705613385744
+      Barn_28: -4945168206935250101
+      Barn_5: -243908634983880454
+      Barn_55: 1972095948700318450
+      Barn_34: -8835777917021440273
+      Barn_48: -3754294093215213545
+      Barn_16: 4931293226794658182
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

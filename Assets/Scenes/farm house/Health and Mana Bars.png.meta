@@ -69,7 +69,7 @@ TextureImporter:
       213: 3589570399568424023
     second: Health and Mana Bars_21
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -89,6 +89,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -98,8 +100,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -120,10 +122,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -151,6 +157,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -636,6 +654,29 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Health and Mana Bars_3: -5014203247099952978
+      Health and Mana Bars_11: 5347929824889231496
+      Health and Mana Bars_4: -4725960501261321229
+      Health and Mana Bars_14: -2132221535465224609
+      Health and Mana Bars_6: 892112657179794442
+      Health and Mana Bars_18: -1061197729855312696
+      Health and Mana Bars_17: 8640943107657257358
+      Health and Mana Bars_13: -201994939658348775
+      Health and Mana Bars_7: -2809697560029842171
+      Health and Mana Bars_9: 4054840326385227492
+      Health and Mana Bars_15: -5372249094931594404
+      Health and Mana Bars_1: 1737583995906913735
+      Health and Mana Bars_8: 7561176793470276928
+      Health and Mana Bars_19: -6480748875157102512
+      Health and Mana Bars_10: 1439945896138016062
+      Health and Mana Bars_12: 2726703161100504342
+      Health and Mana Bars_21: 3589570399568424023
+      Health and Mana Bars_0: 1894962595533868831
+      Health and Mana Bars_2: 5123625627199943947
+      Health and Mana Bars_20: -5628912568325335953
+      Health and Mana Bars_5: 5232931444646834413
+      Health and Mana Bars_16: 8733744163435055936
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

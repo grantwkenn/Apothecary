@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
+
 
 public class Fire : MonoBehaviour
 {
-    Light2D light;
+    UnityEngine.Rendering.Universal.Light2D light;
     SpriteRenderer sr;
     
     
@@ -13,7 +13,7 @@ public class Fire : MonoBehaviour
     void Start()
     {
         sr = this.GetComponent<SpriteRenderer>();
-        light = this.GetComponent<Light2D>();
+        light = this.GetComponent<UnityEngine.Rendering.Universal.Light2D>();
     }
 
     // Update is called once per frame

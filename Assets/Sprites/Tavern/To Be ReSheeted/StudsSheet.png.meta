@@ -228,7 +228,7 @@ TextureImporter:
       213: -3583958574939159287
     second: StudsSheet_74
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -249,6 +249,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -287,6 +288,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -314,6 +316,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1912,6 +1926,82 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      StudsSheet_65: -472148815784738385
+      StudsSheet_4: 320720434639742069
+      StudsSheet_52: -8195141832850230760
+      StudsSheet_64: -8389902846468947502
+      StudsSheet_60: -2595254640214083961
+      StudsSheet_42: 554292871343430044
+      StudsSheet_14: -2639468970027971386
+      StudsSheet_69: -1083282824616101772
+      StudsSheet_48: -8239133482612407889
+      StudsSheet_11: -7494192728119692917
+      StudsSheet_8: -377397382244929180
+      StudsSheet_24: -8070244034303159222
+      StudsSheet_29: -8578155761616549170
+      StudsSheet_12: 4211024365164076866
+      StudsSheet_15: -3805303792087412203
+      StudsSheet_31: -6364936125125457318
+      StudsSheet_33: 3475328727106684050
+      StudsSheet_28: 7745755027913372632
+      StudsSheet_20: 5429008770007526090
+      StudsSheet_45: 3529495200127944986
+      StudsSheet_51: 3132364928137634318
+      StudsSheet_56: 9122554927867829935
+      StudsSheet_70: 102551490777968677
+      StudsSheet_10: -4324593043460297914
+      StudsSheet_16: -5536504706489586058
+      StudsSheet_39: 7961862046503839176
+      StudsSheet_37: -2305033821034853188
+      StudsSheet_49: -7961180974786360132
+      StudsSheet_30: -461987256626407909
+      StudsSheet_55: -5473799171632281282
+      StudsSheet_53: -7111444168614585373
+      StudsSheet_7: -1817191243916326356
+      StudsSheet_25: 4297111683632883185
+      StudsSheet_34: -8760311527057988754
+      StudsSheet_73: 2022848784195006314
+      StudsSheet_63: -3950194002452276631
+      StudsSheet_0: -3177561839680751400
+      StudsSheet_59: -6400669333494183103
+      StudsSheet_71: -3397801789557232023
+      StudsSheet_62: 608679819399652363
+      StudsSheet_58: 1483299480649594540
+      StudsSheet_38: -5532984340327004223
+      StudsSheet_17: 3219680479124367869
+      StudsSheet_68: 7150916720369359906
+      StudsSheet_36: 5798666036008898423
+      StudsSheet_32: -4293712605768592533
+      StudsSheet_43: -1854281775806518385
+      StudsSheet_50: 1228946040075115230
+      StudsSheet_1: 7839040423422161764
+      StudsSheet_19: 3746880547604659803
+      StudsSheet_22: -2689871233396660470
+      StudsSheet_40: -2412116722791220802
+      StudsSheet_35: -1184495715754285819
+      StudsSheet_18: -1968685339725531372
+      StudsSheet_54: 5653624632369955208
+      StudsSheet_27: 7118457633229767995
+      StudsSheet_41: -4713508200508551011
+      StudsSheet_9: -8392104042849311326
+      StudsSheet_61: -5942379403453352437
+      StudsSheet_44: 5585042697874761904
+      StudsSheet_47: 3669761526732585514
+      StudsSheet_72: -8169328144083140580
+      StudsSheet_5: 2864021389208328837
+      StudsSheet_2: -2968090875058417695
+      StudsSheet_13: -6311787092685580784
+      StudsSheet_46: 3241306531808154477
+      StudsSheet_26: -155381747692898397
+      StudsSheet_6: -5430782518409207224
+      StudsSheet_66: -6461977676090653396
+      StudsSheet_23: -384538971714059501
+      StudsSheet_74: -3583958574939159287
+      StudsSheet_3: 528279055232811258
+      StudsSheet_21: -4742186854010061755
+      StudsSheet_67: -4830000772800792125
+      StudsSheet_57: -4437091725549016184
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

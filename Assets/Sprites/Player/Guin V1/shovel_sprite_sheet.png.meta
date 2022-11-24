@@ -123,7 +123,7 @@ TextureImporter:
       213: -2149581602203616527
     second: shovel_sprite_sheet_39
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -144,6 +144,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -182,6 +183,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -209,6 +211,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1072,6 +1086,47 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      shovel_sprite_sheet_13: -9001377199340121518
+      shovel_sprite_sheet_7: -109484944543957342
+      shovel_sprite_sheet_20: 232719881036298971
+      shovel_sprite_sheet_14: -3988382547838052523
+      shovel_sprite_sheet_27: -6327251633836285256
+      shovel_sprite_sheet_10: -1495228673557818870
+      shovel_sprite_sheet_15: -1865828897936839170
+      shovel_sprite_sheet_24: -227999614314113856
+      shovel_sprite_sheet_29: -6071497181812502591
+      shovel_sprite_sheet_26: 4231087680843491097
+      shovel_sprite_sheet_4: -7274792252331049404
+      shovel_sprite_sheet_35: 3109501782971929068
+      shovel_sprite_sheet_3: -2275352872831326610
+      shovel_sprite_sheet_17: -7637895985025674903
+      shovel_sprite_sheet_38: -5683646730242140357
+      shovel_sprite_sheet_0: -4424823046428210209
+      shovel_sprite_sheet_8: -1560746465631933173
+      shovel_sprite_sheet_9: -199845478946229131
+      shovel_sprite_sheet_33: 1799573370345261525
+      shovel_sprite_sheet_23: -2976544675090332903
+      shovel_sprite_sheet_11: 6254449840374496252
+      shovel_sprite_sheet_5: 8760520705923217509
+      shovel_sprite_sheet_25: 8403904181829413211
+      shovel_sprite_sheet_21: -5144418488027650024
+      shovel_sprite_sheet_39: -2149581602203616527
+      shovel_sprite_sheet_28: 2213101081552003873
+      shovel_sprite_sheet_34: -8930287040794804609
+      shovel_sprite_sheet_30: 3407878443122301990
+      shovel_sprite_sheet_32: -6402868715859609061
+      shovel_sprite_sheet_36: 8846706296692940512
+      shovel_sprite_sheet_22: 5400025038341592002
+      shovel_sprite_sheet_37: 3049128487234322771
+      shovel_sprite_sheet_16: 4262757232330857246
+      shovel_sprite_sheet_6: 5329643635406742676
+      shovel_sprite_sheet_2: 4005821372718780984
+      shovel_sprite_sheet_18: 1552496045459006269
+      shovel_sprite_sheet_1: 4335044176397831926
+      shovel_sprite_sheet_12: -1179837972042531671
+      shovel_sprite_sheet_19: 1617509499183739543
+      shovel_sprite_sheet_31: -5436152817574612970
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -132,7 +132,7 @@ TextureImporter:
       213: 8521848085737146892
     second: newWallPatterns_42
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -153,6 +153,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -191,6 +192,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -218,6 +220,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1144,6 +1158,50 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      newWallPatterns_2: -4051713521761824159
+      newWallPatterns_8: 8810413356008185433
+      newWallPatterns_36: 1360420536750229783
+      newWallPatterns_27: -706773108901377069
+      newWallPatterns_35: 6037108555873246611
+      newWallPatterns_0: 889597085151018834
+      newWallPatterns_40: -8108562090730666177
+      newWallPatterns_7: 7612797138914363462
+      newWallPatterns_16: 1596341374573050513
+      newWallPatterns_37: -1334380241180572052
+      newWallPatterns_30: -2173284767976287
+      newWallPatterns_20: 2801306583011412394
+      newWallPatterns_25: 5389786069397104788
+      newWallPatterns_41: -1913532185731033958
+      newWallPatterns_32: -3904011038652315141
+      newWallPatterns_29: 4307234574338926342
+      newWallPatterns_14: -4506721757484559626
+      newWallPatterns_23: -4524712583018914581
+      newWallPatterns_28: -628946906726999553
+      newWallPatterns_6: 8031786737216971224
+      newWallPatterns_10: 2459174026049715285
+      newWallPatterns_4: 1109479204183348915
+      newWallPatterns_17: 7636283507368443598
+      newWallPatterns_5: -4699071531151492609
+      newWallPatterns_39: -8159796219501722133
+      newWallPatterns_31: -468622594373915898
+      newWallPatterns_13: -7228752692658219920
+      newWallPatterns_15: -6412664220077758328
+      newWallPatterns_26: -7132058275998032303
+      newWallPatterns_19: 7032556295345843585
+      newWallPatterns_18: -4985197489795166851
+      newWallPatterns_33: 426639604058789257
+      newWallPatterns_38: 636066819975237780
+      newWallPatterns_21: 3192351740330148682
+      newWallPatterns_42: 8521848085737146892
+      newWallPatterns_12: -421161212936151411
+      newWallPatterns_9: 7391986324506132066
+      newWallPatterns_1: 4343350350966351548
+      newWallPatterns_11: -5452471958426175292
+      newWallPatterns_24: -7053305688345337505
+      newWallPatterns_34: -8211397285639830997
+      newWallPatterns_22: -7156787721734067244
+      newWallPatterns_3: -300489100567683917
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

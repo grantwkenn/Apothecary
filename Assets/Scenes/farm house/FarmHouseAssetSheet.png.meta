@@ -936,7 +936,7 @@ TextureImporter:
       213: 2745386853342622043
     second: FarmHouseAssetSheet_310
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -957,6 +957,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -995,6 +996,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -1022,6 +1024,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -4300,6 +4314,162 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      FarmHouseAssetSheet_93: -2284408775203379458
+      FarmHouseAssetSheet_5: -2822143276785900565
+      FarmHouseAssetSheet_46: -3848950939225367731
+      FarmHouseAssetSheet_119: -8000361296258786396
+      FarmHouseAssetSheet_42: 457527308587289544
+      FarmHouseAssetSheet_114: -8388672448483805834
+      FarmHouseAssetSheet_58: 4384006776788563839
+      FarmHouseAssetSheet_61: 7312979335492676001
+      FarmHouseAssetSheet_88: -8474308669885986329
+      FarmHouseAssetSheet_62: -1642374787643917368
+      FarmHouseAssetSheet_89: -5754231810203328974
+      FarmHouseAssetSheet_41: 1792911139645970814
+      FarmHouseAssetSheet_118: 2065450661455777496
+      FarmHouseAssetSheet_97: 8697045721848136645
+      FarmHouseAssetSheet_120: 6644919443510578749
+      FarmHouseAssetSheet_136: -5639846582075681329
+      FarmHouseAssetSheet_0: -3873298514034307673
+      FarmHouseAssetSheet_147: -8362001542153144036
+      FarmHouseAssetSheet_52: 487436870716259279
+      FarmHouseAssetSheet_45: 5068965239760133512
+      FarmHouseAssetSheet_121: 385884036635879178
+      FarmHouseAssetSheet_127: 5679721458309079117
+      FarmHouseAssetSheet_75: 6337717680356147229
+      FarmHouseAssetSheet_139: 2802273592688053314
+      FarmHouseAssetSheet_126: 995999328354736875
+      FarmHouseAssetSheet_16: -3180749922886004767
+      FarmHouseAssetSheet_150: 8332776423328318572
+      FarmHouseAssetSheet_44: -8609288958893470915
+      FarmHouseAssetSheet_148: -7092105855844759821
+      FarmHouseAssetSheet_154: 7249248350509597781
+      FarmHouseAssetSheet_140: 4417688999573048110
+      FarmHouseAssetSheet_25: 3864272855346915978
+      FarmHouseAssetSheet_51: -2697051712992642348
+      FarmHouseAssetSheet_28: -4395060276731495930
+      FarmHouseAssetSheet_30: -4077369433296500624
+      FarmHouseAssetSheet_99: -8610803671709509431
+      FarmHouseAssetSheet_57: 5276082385833139747
+      FarmHouseAssetSheet_84: 7740675185109574386
+      FarmHouseAssetSheet_151: -2050373403044467784
+      FarmHouseAssetSheet_47: 3557389499237221884
+      FarmHouseAssetSheet_105: 1450149888469341520
+      FarmHouseAssetSheet_36: -5110260087031775302
+      FarmHouseAssetSheet_95: -3049083077002567941
+      FarmHouseAssetSheet_122: 6334620430728743021
+      FarmHouseAssetSheet_29: 2022081367164799457
+      FarmHouseAssetSheet_22: 7434917353869450611
+      FarmHouseAssetSheet_102: 4989367672463237924
+      FarmHouseAssetSheet_85: 6165434866342757521
+      FarmHouseAssetSheet_3: 6998694455581098394
+      FarmHouseAssetSheet_91: -3212941060214097634
+      FarmHouseAssetSheet_108: -6693979129152693557
+      FarmHouseAssetSheet_106: -1825357781708637678
+      FarmHouseAssetSheet_128: -6871130213475408790
+      FarmHouseAssetSheet_4: -9048627020166515127
+      FarmHouseAssetSheet_77: 5106895335859515388
+      FarmHouseAssetSheet_1: 1093101355585507482
+      FarmHouseAssetSheet_24: -3111608046113574246
+      FarmHouseAssetSheet_111: -5408900118763088528
+      FarmHouseAssetSheet_124: 3199572700110334945
+      FarmHouseAssetSheet_92: 6828163277765185539
+      FarmHouseAssetSheet_100: -57610979952245682
+      FarmHouseAssetSheet_12: -2269469234776310212
+      FarmHouseAssetSheet_71: -3632784689148917530
+      FarmHouseAssetSheet_101: -2790962388856932464
+      FarmHouseAssetSheet_129: 5307722250166527644
+      FarmHouseAssetSheet_35: 7149152137156118353
+      FarmHouseAssetSheet_17: -2385681710846411046
+      FarmHouseAssetSheet_110: -6157458623226324215
+      FarmHouseAssetSheet_117: -8001824489372649498
+      FarmHouseAssetSheet_149: -8873453847862020750
+      FarmHouseAssetSheet_109: -7058632070904845305
+      FarmHouseAssetSheet_141: 7804132125241603431
+      FarmHouseAssetSheet_73: 1364452271688499158
+      FarmHouseAssetSheet_54: -9058546838229266067
+      FarmHouseAssetSheet_15: -4195364208242467467
+      FarmHouseAssetSheet_81: -6944062975588547682
+      FarmHouseAssetSheet_39: 1453420964216108133
+      FarmHouseAssetSheet_72: -3243232225544931806
+      FarmHouseAssetSheet_78: 7079586949564965999
+      FarmHouseAssetSheet_43: -6147744913965922666
+      FarmHouseAssetSheet_90: -1543785582921784794
+      FarmHouseAssetSheet_65: -5190298221990848840
+      FarmHouseAssetSheet_20: 3623954386396319463
+      FarmHouseAssetSheet_130: 6002044422070101188
+      FarmHouseAssetSheet_70: 897573926785701526
+      FarmHouseAssetSheet_153: 579080619890544283
+      FarmHouseAssetSheet_113: -6863903081988898499
+      FarmHouseAssetSheet_131: -4241066434117474586
+      FarmHouseAssetSheet_38: 565555974872919448
+      FarmHouseAssetSheet_146: -697992027966561957
+      FarmHouseAssetSheet_63: 3657613208711178466
+      FarmHouseAssetSheet_34: 3221745433005493309
+      FarmHouseAssetSheet_7: 6897835824554784167
+      FarmHouseAssetSheet_21: -6932381994139743334
+      FarmHouseAssetSheet_60: 6646480872920104573
+      FarmHouseAssetSheet_55: -8261301320058913285
+      FarmHouseAssetSheet_9: -7586051305426949143
+      FarmHouseAssetSheet_94: -2832199996383700979
+      FarmHouseAssetSheet_19: 4247207968835137357
+      FarmHouseAssetSheet_87: 7044897795157681681
+      FarmHouseAssetSheet_26: -3836027409222193228
+      FarmHouseAssetSheet_115: 66345958450431709
+      FarmHouseAssetSheet_138: 1649124805758611096
+      FarmHouseAssetSheet_143: 7767533429551822491
+      FarmHouseAssetSheet_33: -2441277576514911610
+      FarmHouseAssetSheet_98: 2696444076711815986
+      FarmHouseAssetSheet_145: -7812237870432455001
+      FarmHouseAssetSheet_107: -8395359765725429354
+      FarmHouseAssetSheet_135: -60531123050072295
+      FarmHouseAssetSheet_40: -1928902705743508814
+      FarmHouseAssetSheet_2: 995735622933038763
+      FarmHouseAssetSheet_112: -2028475470288063222
+      FarmHouseAssetSheet_96: 565349251174907779
+      FarmHouseAssetSheet_76: 1554003726201447305
+      FarmHouseAssetSheet_83: -6428230809159975845
+      FarmHouseAssetSheet_8: -5791066968830516395
+      FarmHouseAssetSheet_123: 499622480002964110
+      FarmHouseAssetSheet_14: 7163202440449066749
+      FarmHouseAssetSheet_11: 7830251152812598560
+      FarmHouseAssetSheet_132: -5327293962283707411
+      FarmHouseAssetSheet_74: -6803789773475736945
+      FarmHouseAssetSheet_59: -6293885492702975439
+      FarmHouseAssetSheet_137: -5621632381770788498
+      FarmHouseAssetSheet_56: -3991281268308496241
+      FarmHouseAssetSheet_125: 7482379139999710029
+      FarmHouseAssetSheet_116: 5849173080906602713
+      FarmHouseAssetSheet_144: 7296049091268132686
+      FarmHouseAssetSheet_64: -1738750332046910210
+      FarmHouseAssetSheet_68: 2430398020028654166
+      FarmHouseAssetSheet_79: 5582754991656199240
+      FarmHouseAssetSheet_31: 5624527184987534781
+      FarmHouseAssetSheet_103: -164011194812813276
+      FarmHouseAssetSheet_152: -4180272881890304726
+      FarmHouseAssetSheet_53: 5616063471435692910
+      FarmHouseAssetSheet_142: 3171881849199438814
+      FarmHouseAssetSheet_86: -2376500729449367979
+      FarmHouseAssetSheet_23: 6697751095945273911
+      FarmHouseAssetSheet_48: -1913406209224536667
+      FarmHouseAssetSheet_80: -2318423888687076427
+      FarmHouseAssetSheet_104: 2391515972190300849
+      FarmHouseAssetSheet_18: 8524124191092865314
+      FarmHouseAssetSheet_27: 4114365337448617718
+      FarmHouseAssetSheet_82: 1251133051569077836
+      FarmHouseAssetSheet_49: -2114712376893994378
+      FarmHouseAssetSheet_13: 993242787592316345
+      FarmHouseAssetSheet_6: -6965825340998184485
+      FarmHouseAssetSheet_32: 2785515955146567659
+      FarmHouseAssetSheet_37: -592068527559194868
+      FarmHouseAssetSheet_67: 9079418551498954231
+      FarmHouseAssetSheet_134: 1294148276546538902
+      FarmHouseAssetSheet_10: 8768239564936237317
+      FarmHouseAssetSheet_50: -4413618604680985929
+      FarmHouseAssetSheet_69: 6792498944699584591
+      FarmHouseAssetSheet_133: 275353092675518835
+      FarmHouseAssetSheet_66: 6535439570419291875
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

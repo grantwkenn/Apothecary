@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Experimental.Rendering.Universal;
+
 
 public class Day_Night_Cycle : MonoBehaviour
 {
@@ -58,7 +58,7 @@ public class Day_Night_Cycle : MonoBehaviour
     float B;
 
     [SerializeField]
-    Light2D daylight;
+    UnityEngine.Rendering.Universal.Light2D daylight;
     Color color;
     float intensity;
 

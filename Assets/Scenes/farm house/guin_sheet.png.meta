@@ -231,7 +231,7 @@ TextureImporter:
       213: 9176359691416962590
     second: guin_sheet_75
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -252,6 +252,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -290,6 +291,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -317,6 +319,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -1936,6 +1950,83 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      guin_sheet_19: 296601091018071305
+      guin_sheet_73: -1990538836901779999
+      guin_sheet_39: -5741930956551352455
+      guin_sheet_2: -142438453611543885
+      guin_sheet_43: 2573761131973398912
+      guin_sheet_31: 5876107908736055752
+      guin_sheet_61: -2565832134352550023
+      guin_sheet_38: 1860794308982940616
+      guin_sheet_64: 7645590496279697155
+      guin_sheet_9: -933543547574801476
+      guin_sheet_51: 7170060621411580189
+      guin_sheet_70: 5105799161587621692
+      guin_sheet_8: 1670918246839305866
+      guin_sheet_0: -542580081135889878
+      guin_sheet_12: -6042304281831130997
+      guin_sheet_54: 1831313302963361524
+      guin_sheet_40: 2469438337400990613
+      guin_sheet_1: -3021698741717600911
+      guin_sheet_32: -990498382549478159
+      guin_sheet_46: 48187593908528041
+      guin_sheet_27: -1899789878710450602
+      guin_sheet_55: -3221718799639691212
+      guin_sheet_56: 1484948807104428662
+      guin_sheet_10: -4596672362795321336
+      guin_sheet_4: -6935637155179101213
+      guin_sheet_35: 7695782016435768328
+      guin_sheet_36: -7607099847035616847
+      guin_sheet_26: 353655476114700108
+      guin_sheet_28: -2863005227103955999
+      guin_sheet_69: 1570587629385929078
+      guin_sheet_50: -144865227796926396
+      guin_sheet_52: 1550699266892977094
+      guin_sheet_58: 2014894449189471806
+      guin_sheet_7: 8311219209135705925
+      guin_sheet_11: 3939351050004266064
+      guin_sheet_41: -7521685394355508391
+      guin_sheet_5: -4137309757341537575
+      guin_sheet_59: -9000851298606560745
+      guin_sheet_14: 5491854660796590833
+      guin_sheet_60: -7569014786538175278
+      guin_sheet_42: -3979437853916538410
+      guin_sheet_34: -3942143927924877083
+      guin_sheet_29: 133144602219777605
+      guin_sheet_33: 8461656848642144413
+      guin_sheet_20: -3273174975120596389
+      guin_sheet_3: 6005297828013251083
+      guin_sheet_74: 7429662755209573890
+      guin_sheet_23: 460994837497106639
+      guin_sheet_16: 4248089955317980608
+      guin_sheet_17: 4644682726689231484
+      guin_sheet_68: -6440469633544214544
+      guin_sheet_13: -4173889081709658638
+      guin_sheet_18: 613184275338603735
+      guin_sheet_15: 1439953204352843795
+      guin_sheet_25: -7173879072783593169
+      guin_sheet_37: 5800369889535653527
+      guin_sheet_24: -1648305693533826950
+      guin_sheet_66: -6651409934147459851
+      guin_sheet_57: -7430359969040779154
+      guin_sheet_72: 4524386293092421501
+      guin_sheet_75: 9176359691416962590
+      guin_sheet_53: -6665238457764563771
+      guin_sheet_45: -2804919731266866027
+      guin_sheet_30: 2014568682209896594
+      guin_sheet_44: -6458736585633467744
+      guin_sheet_49: 4873398369013340720
+      guin_sheet_21: 6922590639376702131
+      guin_sheet_67: 1844007585521220397
+      guin_sheet_62: -9010657279670918921
+      guin_sheet_47: -6403441639451236757
+      guin_sheet_65: 4536820176305409831
+      guin_sheet_6: -8132157519966069389
+      guin_sheet_71: -6680729316531573849
+      guin_sheet_22: -8897901167234932277
+      guin_sheet_63: 8829738039190835793
+      guin_sheet_48: 419186807184614969
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
