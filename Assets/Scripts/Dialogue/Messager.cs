@@ -25,6 +25,9 @@ public class Messager : MonoBehaviour
     [SerializeField]
     SpriteRenderer quest_indicator;
 
+    [SerializeField]
+    bool sign;
+
 
     private void Awake()
     {
@@ -160,6 +163,12 @@ public class Messager : MonoBehaviour
 
     public void nextMessage()
     {
+        if(sign)
+        {
+            segmentIndex = 0;
+            return;
+        }
+        
         this.message = dialogueManager.nextMessage(this);
         if(this.message == null)
         {

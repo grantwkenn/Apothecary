@@ -161,6 +161,10 @@ public class Dialogue_Manager : MonoBehaviour
 
     public Message nextMessage(Messager messager)
     {
+        
+        
+        
+        
         //get Quest Message if aplicaple from this messager
         Message nextMessage = questManager.getQuestMessage(messager);
 
