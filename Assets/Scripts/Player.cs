@@ -96,8 +96,6 @@ public class Player : MonoBehaviour
 
     BoxCollider2D bc;
 
-    SpriteRenderer silo;
-
     private void Awake()
     {
         if (Instance != null && Instance != this) Destroy(gameObject);
@@ -145,7 +143,6 @@ public class Player : MonoBehaviour
 
         audioSource = this.GetComponent<AudioSource>();
 
-        silo = this.transform.Find("silhouette").GetComponent<SpriteRenderer>();
 
     }
 
@@ -252,9 +249,6 @@ public class Player : MonoBehaviour
             animator.Play(shovel[facing]);
         }
         else if (currentState == State.sword) animator.Play(sword[facing]);
-
-
-        silo.sprite = this.spriteRenderer.sprite;
 
 
     }
