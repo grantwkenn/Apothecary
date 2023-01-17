@@ -71,11 +71,16 @@ public class Layered : MonoBehaviour
 
     void updateLayer()
     {
+        if (bc == null)
+        {
+            offset = heightOffset;
+        }
+            
 
         y = _transform.position.y + offset;
 
 
-        int order = 900 - (int)(y * 16);
+        int order = 4096 - (int)(y * 16);
         //// FIX THIS
 
         foreach(SpriteRenderer s in children)

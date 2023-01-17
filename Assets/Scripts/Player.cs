@@ -59,6 +59,9 @@ public class Player : MonoBehaviour
     Vector2 colliderBottomLeft;
     Vector2 colliderBottomRight;
 
+    public float stairSlope;
+    Vector2 stairYcomponent;
+
 
     int MAX_HEALTH = 10;
     int MAX_MANA = 10;
@@ -143,6 +146,7 @@ public class Player : MonoBehaviour
 
         audioSource = this.GetComponent<AudioSource>();
 
+        stairYcomponent = new Vector2(0,0);
 
     }
 
@@ -262,8 +266,12 @@ public class Player : MonoBehaviour
             myRigidbody.velocity = zero2;
         }
         else if (currentState == State.run)
-        {
+        {            
             myRigidbody.velocity = moveInput.normalized * speed;
+
+            stairYcomponent.y = myRigidbody.velocity.x * stairSlope;
+
+            myRigidbody.velocity -= stairYcomponent;
         }
         else if (currentState == State.knockBack) { }
         else if (currentState != State.run)
@@ -438,6 +446,8 @@ public class Player : MonoBehaviour
         this.transform.position = pos;
         this.facing = URDL;
     }
+
+    public void setStairSlope(float co) { this.stairSlope = co; }
 
 
 }

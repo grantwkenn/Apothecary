@@ -23,7 +23,9 @@ public class Scene_Manager : MonoBehaviour
 
     bool fadingOut = false;
 
-    public bool manageLayers;
+    string[] sortingLayers;
+
+    //public bool manageLayers;
 
     // Start is called before the first frame update
     void Start()
@@ -34,6 +36,15 @@ public class Scene_Manager : MonoBehaviour
 
         fadeImage = fadeOut.GetComponent<Image>();
 
+
+        sortingLayers = new string[SortingLayer.layers.Length];
+
+        foreach(SortingLayer layer in SortingLayer.layers)
+        {
+            sortingLayers[SortingLayer.GetLayerValueFromID(layer.id)] = layer.name;
+        }
+
+        
        
 
         player.GetComponent<Player>().unfreeze();
@@ -172,4 +183,20 @@ public class Scene_Manager : MonoBehaviour
         StartCoroutine(FadeIn());
 
     }
+
+    public void incrementLayer(GameObject obj, sbyte increment)
+    {
+        SpriteRenderer[] srs = obj.GetComponentsInChildren<SpriteRenderer>();
+
+        foreach(SpriteRenderer sr in srs)
+        {
+            sr.sortingLayerName = sortingLayers[SortingLayer.GetLayerValueFromID(sr.sortingLayerID) + increment*3];
+            
+        }
+    }
+
+
+
+    
+
 }

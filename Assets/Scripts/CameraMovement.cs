@@ -39,6 +39,9 @@ public class CameraMovement : MonoBehaviour
 
     public int Yoffset = 3;
 
+    int[] PPU;
+    byte PPU_index = 0;
+
 
     private void OnEnable()
     {
@@ -48,7 +51,8 @@ public class CameraMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
+
         player = GameObject.FindGameObjectWithTag("Player").transform;
         target = player;
         
@@ -73,6 +77,10 @@ public class CameraMovement : MonoBehaviour
         setBounds();
 
         ppc = this.GetComponentInParent<UnityEngine.Experimental.Rendering.Universal.PixelPerfectCamera>();
+
+        PPU = new int[3];
+        PPU[0] = 16; PPU[1] = 32; PPU[2] = 8;
+
     }
 
     void calculateOffsets()
@@ -105,10 +113,20 @@ public class CameraMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (zoomIn)
-            cameraZoomIn();
-        else
-            cameraZoomOut();
+        if(ppc.assetsPPU < PPU[PPU_index])
+        {
+            ppc.assetsPPU += 1;
+        }
+
+        else if (ppc.assetsPPU > PPU[PPU_index])
+        {
+            ppc.assetsPPU -= 1;
+        }
+
+        //if (zoomIn)
+            //cameraZoomIn();
+        //else
+            //cameraZoomOut();
     }
 
     private void Update()
@@ -179,9 +197,11 @@ public class CameraMovement : MonoBehaviour
 
     public void toggleZoom()
     {
-        if (zoomIn)
-            zoomIn = false;
-        else zoomIn = true;
+        PPU_index = (byte) ((PPU_index + 1) % PPU.Length);
+        
+        //if (zoomIn)
+            //zoomIn = false;
+        //else zoomIn = true;
     }
 
     public void setTarget(Transform target)

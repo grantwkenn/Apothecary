@@ -17,6 +17,9 @@ public class FPSCounter : MonoBehaviour
 
     int counter;
 
+
+    string resolution;
+
     
     // Start is called before the first frame update
     void Start()
@@ -47,9 +50,14 @@ public class FPSCounter : MonoBehaviour
         counter++;
         if (counter >= 5)
         {
+            resolution = "" + Screen.width.ToString() + " x " + Screen.height.ToString();
+
             tx.text = framerate.ToString() + " FPS"; // + " | INPUT: "; // + input.x + ", " + input.y;
+            tx.text = tx.text + "\n" + resolution;
             counter = 0;
         }
+
+        
     }
 
 

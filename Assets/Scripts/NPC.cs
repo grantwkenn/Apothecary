@@ -48,6 +48,8 @@ public class NPC : MonoBehaviour
 
     public bool dontMove;
 
+    public Transform[] targets;
+
 
     // Start is called before the first frame update
     void Start()
@@ -55,10 +57,9 @@ public class NPC : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         DM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Dialogue_Manager>();
         messager = this.GetComponentInParent<Messager>();
-
-
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         rb = this.GetComponent<Rigidbody2D>();
+
 
         //Manually Round location to integer X and Y (5.44, 10.7) --> (5, 11)
         Vector2 floorXY = new Vector2(Mathf.RoundToInt(rb.position.x), Mathf.RoundToInt(rb.position.y));
@@ -77,6 +78,11 @@ public class NPC : MonoBehaviour
         path[1] = new Vector2(rb.transform.position.x-16, rb.transform.position.y - 4);
         path[2] = new Vector2(rb.transform.position.x-16, rb.transform.position.y);
         path[3] = new Vector2(rb.transform.position.x, rb.transform.position.y);
+
+        path[0] = targets[0].position;
+        path[1] = targets[1].position;
+        path[2] = targets[2].position;
+        path[3] = targets[3].position;
 
         pathIndex = 2;
 
@@ -142,7 +148,10 @@ public class NPC : MonoBehaviour
             directionFromTarget();
         }
         else if (currentState == NPCState.walk)
+        {
             move();
+        }
+            
 
     }
 

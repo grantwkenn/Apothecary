@@ -50,12 +50,30 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Player
+  - name: 0 Ground
+    uniqueID: 4006642013
+    locked: 0
+  - name: 0 Object
+    uniqueID: 873441191
+    locked: 0
+  - name: 0 Over
+    uniqueID: 2297489773
+    locked: 0
+  - name: 1 Ground
+    uniqueID: 239644019
+    locked: 0
+  - name: 1 Object
     uniqueID: 1567393443
     locked: 0
-  - name: Overhead
+  - name: 1 Over
     uniqueID: 727065489
     locked: 0
-  - name: Level  2
-    uniqueID: 3559036977
+  - name: 2 Ground
+    uniqueID: 3727967929
+    locked: 0
+  - name: 2 Object
+    uniqueID: 3564045865
+    locked: 0
+  - name: 2 Over
+    uniqueID: 2533672223
     locked: 0
