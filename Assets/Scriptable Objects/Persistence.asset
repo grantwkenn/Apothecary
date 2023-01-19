@@ -12,49 +12,95 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4edf77fa7a6425f499e29cc3dccf1702, type: 3}
   m_Name: Persistence
   m_EditorClassIdentifier: 
-  health: 8
-  inventory:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  health: 4
+  itemNames:
+  - Shovel
+  - Red Potion
+  - Red Potion
+  - Shovel
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  - Empty
+  items:
+  - {fileID: 11400000, guid: f578210848330354f916e240ba6a166c, type: 2}
+  - {fileID: 11400000, guid: 22523e0a22b44c94f8660ce0908ecd8e, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  itemCounts: 0000000000000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000

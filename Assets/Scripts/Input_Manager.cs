@@ -117,7 +117,7 @@ public class Input_Manager : MonoBehaviour
             if (dialogueManager.AwaitingInput())
                 dialogueManager.displayText();
             else
-                player.Use();
+                invManager.useItem();
         }
     }
 

@@ -156,8 +156,7 @@ public class Messager : MonoBehaviour
         else
         {
             quest_indicator.enabled = true;
-            quest_indicator.sprite = dialogueManager.getQuestSymbol(index);
-            
+            quest_indicator.sprite = dialogueManager.getQuestSymbol(index);           
         }
     }
 

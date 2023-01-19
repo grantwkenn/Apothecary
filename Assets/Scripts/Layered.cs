@@ -21,7 +21,8 @@ public class Layered : MonoBehaviour
 
     //public Transform parentObject;
 
-    public float heightOffset;
+    public int pixelOffset;
+    float heightOffset;
 
 
     private void OnEnable()
@@ -30,6 +31,8 @@ public class Layered : MonoBehaviour
         _transform = this.GetComponent<Transform>();
 
         bc = this.GetComponent<BoxCollider2D>();
+
+        heightOffset = pixelOffset / 16.0f;
 
         if (bc != null)
             offset = heightOffset + bc.offset.y - (bc.size.y / 2.0f);

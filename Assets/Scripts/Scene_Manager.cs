@@ -15,8 +15,7 @@ public class Scene_Manager : MonoBehaviour
 
     entrance currentEntrance;
 
-    public RectTransform fadeOut;
-    public Image fadeImage;
+    Image fadeImage;
 
     float fadeSeconds = 0.3f;
     int fadeSteps = 30;
@@ -34,8 +33,7 @@ public class Scene_Manager : MonoBehaviour
 
         im = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Inventory_Manager>();
 
-        fadeImage = fadeOut.GetComponent<Image>();
-
+        fadeImage = GameObject.FindGameObjectWithTag("HUD").transform.Find("Fade").GetComponent<Image>();
 
         sortingLayers = new string[SortingLayer.layers.Length];
 
@@ -44,8 +42,6 @@ public class Scene_Manager : MonoBehaviour
             sortingLayers[SortingLayer.GetLayerValueFromID(layer.id)] = layer.name;
         }
 
-        
-       
 
         player.GetComponent<Player>().unfreeze();
 
@@ -61,20 +57,19 @@ public class Scene_Manager : MonoBehaviour
 
 
         if (sp.isChangingScenes())
-            sceneChangeStart();
+            enterScene();
 
 
 
         fadeIn();
+
     }
 
-    void sceneChangeStart()
+    void enterScene()
     {
-
-
-        //player.GetComponent<Player>().freeze();
         player.GetComponent<Player>().unfreeze();
 
+        //Find the Entrance to this scene which was set by previous scene's exit
         currentEntrance = null;
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Entrance"))
         {
@@ -92,48 +87,47 @@ public class Scene_Manager : MonoBehaviour
 
         player.GetComponent<Player>().unfreeze();
 
+
     }
 
-    void setPlayer()
-    {
-        player.sceneInitialize(sp.health, currentEntrance.transform.position, currentEntrance.getURDL());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-
-
-
-    public void changeScene(string targetSceneName, byte entranceNo)
-    {
+    public void exitScene(string targetSceneName, byte entranceNo)
+    {        
         if (sp.isChangingScenes()) return;
         
         player.GetComponent<Player>().freeze();
 
         sp.setChangingScenes(true);
-        
+
         //store health
-        sp.health = player.getHealth();
+        sp.setHealth(player.getHealth());
+        
 
-        //store inventory
-        sp.items = im.getItems();
+        //Item[] tempItems = im.getItems();
+        //string[] itemNames = new string[tempItems.Length];
 
+        //for(int i = 0; i<tempItems.Length; i++)
+        //{
+            //itemNames[i] = tempItems[i].getName();
+        //}
+
+        sp.setItems(im.getItems());
+
+
+        //set the next scene entrance
         sp.setEntrance(entranceNo);
-
-        //SceneManager.LoadScene(targetSceneName, LoadSceneMode.Single);
 
 
         fadeImage.enabled = true;
         fadingOut = true;
         StartCoroutine(FadeOut(targetSceneName));
 
-
-        
     }
+
+    void setPlayer()
+    {
+        player.sceneInitialize(sp.getHealth(), currentEntrance.transform.position, currentEntrance.getURDL());
+    }
+
 
     public int getHealth()
     {
@@ -195,8 +189,16 @@ public class Scene_Manager : MonoBehaviour
         }
     }
 
+    public string[] getItemNames() { return sp.getItemNames(); }
 
+    public Item_Data[] getItemData()
+    {
+        return sp.getItemData();
+    }
 
-    
+    public int[] getItemCounts()
+    {
+        return sp.getItemCounts();
+    }
 
 }

@@ -200,24 +200,23 @@ public class Player : MonoBehaviour
             manaRegenCounter = 0;
     }
 
-    //TODO move this functionality entirely to the inventory manager
-    public void Use()
-    {
-        string itemName = invManager.getSelectedItem().getData().getName();
-
-        if (itemName == "Sword")
-            Sword();
-        else if (itemName == "Shovel")
-            Shovel();
-
-        else if (itemName == "Red Potion" && health < MAX_HEALTH)
-        {
-            heal(3);
-
-            invManager.discardSelection();
-        }
-    }
     
+
+    public void executePlayerFn(byte code)
+    {
+        if (code == 0) Sword();
+        if (code == 1) Shovel();
+    }
+
+    public void heal(byte hp)
+    {
+        health += hp;
+        if (health > MAX_HEALTH)
+            health = MAX_HEALTH;
+    }
+                
+
+
     void Sword()
     {
         if (!interruptibleState()) return;
@@ -332,13 +331,6 @@ public class Player : MonoBehaviour
             health = 0;
         else        
             health -= damage;
-    }
-
-    void heal(int hp)
-    {
-        health += hp;
-        if (health > MAX_HEALTH)
-            health = MAX_HEALTH;
     }
 
     public void toggleSprint(bool input)

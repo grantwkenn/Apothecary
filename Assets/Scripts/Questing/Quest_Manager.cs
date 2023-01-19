@@ -280,11 +280,11 @@ public class Quest_Manager : MonoBehaviour
 
         //check if no active quests for this QG
         if (!currentQuest_by_QGID.TryGetValue(QG.QGID, out QID)) return;
-        
+
 
         // QID is the current quest for this Giver
-
         QuestGiverState state = QG.getState();
+        Debug.Log(state.ToString());
         
         //check progression from available to active or full
         if(state == QuestGiverState.available)

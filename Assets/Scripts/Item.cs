@@ -28,4 +28,14 @@ public class Item
 
     public string getName() { return data.getName(); }
 
+    public void addQuantity(int value)
+    {
+        this.stackQuantity += value;
+    }
+
+    public void subtractQuantity(int value)
+    {
+        this.stackQuantity -= value;
+    }
+
 }

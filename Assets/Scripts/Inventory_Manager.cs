@@ -7,8 +7,10 @@ using System;
 public class Inventory_Manager : MonoBehaviour
 {
     Quest_Manager qm;
-    //Scene_Persistence persistenceData;
-    
+    Scene_Manager sm;
+    Player player;
+
+
     public Item emptyItem;
 
     [SerializeField]
@@ -16,14 +18,16 @@ public class Inventory_Manager : MonoBehaviour
 
     Item_Data[] allItemData;
 
+    //items may not neccessarilly be in index order in the catalogue collection
     Dictionary<int, Item_Data> itemData_by_ID;
+    Dictionary<string, Item_Data> itemData_by_Name;
 
     public RectTransform inv;
     public RectTransform bar;
 
     Transform barSelector;
     Transform menuSelector;
-    
+
     [SerializeField]
     Item[] inventory;
 
@@ -58,6 +62,8 @@ public class Inventory_Manager : MonoBehaviour
     private void OnEnable()
     {
         qm = GetComponentInParent<Quest_Manager>();
+        sm = GetComponentInParent<Scene_Manager>();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
         //persistenceData = this.GetComponentInParent<Scene_Manager>().sp;
     }
@@ -65,39 +71,57 @@ public class Inventory_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
         //inventorySize = persistenceData.inventorySize;
 
         allItemData = itemCatalogue.getCatalogue();
+        itemData_by_ID = new Dictionary<int, Item_Data>();
+        itemData_by_Name = new Dictionary<string, Item_Data>();
 
-        
+        //populate the mapping of item No to Item_Data
+        foreach (Item_Data item_data in allItemData)
+        {
+            itemData_by_ID.Add(item_data.getItemNo(), item_data);
+            itemData_by_Name.Add(item_data.getName(), item_data);
+        }
+
+
         inventory = new Item[inventorySize];
 
         emptyItem = new Item(allItemData[0], 1);
 
-
-        for(int i=0; i<inventorySize; i++)
+        //string[] itemNames = sm.getItemNames();
+        //Debug.Log(itemNames.Length);
+        Item_Data[] spItemData = sm.getItemData();
+        int[] spItemCounts = sm.getItemCounts();
+        
+        for (int i = 0; i < inventorySize; i++)
         {
-            inventory[i] = emptyItem;
+            //inventory[i] = emptyItem;
+            //Item_Data id = itemData_by_Name[itemNames[i]];
+            //TODO get accurate quantities instead of 1
+            inventory[i] = new Item(spItemData[i], spItemCounts[i]);
         }
+
+
 
         menuImages = new Image[inventorySize];
 
         //Find the Row Transform groups
         Transform[] rows = new RectTransform[4];
-        for(int i=0; i<rows.Length; i++)
+        for (int i = 0; i < rows.Length; i++)
         {
             string s = "row" + i;
             rows[i] = inv.Find(s);
         }
-        
+
         //Find each slot Transform in each row
-        for(int i =0; i< rows.Length; i++)
+        for (int i = 0; i < rows.Length; i++)
         {
             //Find the row
             //string r = "row" + i;
             //Transform row = inv.Find(r);
-            for(int j=0; j< numCols; j++)
+            for (int j = 0; j < numCols; j++)
             {
                 string s = "Slot" + j;
                 Transform slot = rows[i].Find(s);
@@ -108,7 +132,7 @@ public class Inventory_Manager : MonoBehaviour
 
         barImages = new Image[numCols];
         //Find the Inventory Bar Transforms
-        for(int i=0; i< numCols; i++)
+        for (int i = 0; i < numCols; i++)
         {
             string s = "Slot" + i;
             Transform slot = bar.Find(s);
@@ -116,20 +140,20 @@ public class Inventory_Manager : MonoBehaviour
         }
         //placement of Bar Transforms
         barPositions = new Vector3[numCols];
-        for(int i=0; i< numCols; i++)
+        for (int i = 0; i < numCols; i++)
         {
             barPositions[i] = new Vector3(3 + i * 18, 3, 0);
         }
         //Placement of Menu Slots
         menuPositions = new Vector3[numRows * numCols];
-        for(int i=0; i< numRows; i++)
+        for (int i = 0; i < numRows; i++)
         {
-            for(int j=0; j< numCols; j++)
+            for (int j = 0; j < numCols; j++)
             {
                 float x = rows[i].transform.localPosition.x - 2;
                 float y = rows[i].transform.localPosition.y - 2;
-                menuPositions[(numCols * i) + j] = new Vector3(x + 18*j, y, 0);
-             
+                menuPositions[(numCols * i) + j] = new Vector3(x + 18 * j, y, 0);
+
             }
         }
 
@@ -149,8 +173,8 @@ public class Inventory_Manager : MonoBehaviour
         for (int i = 0; i < inventory.Length; i++)
         {
             int itemNo = inventory[i].getData().getItemNo();
-            
-            
+
+
             if (allItemData[itemNo].getSprite() != null)
             {
                 menuImages[i].enabled = true;
@@ -161,7 +185,7 @@ public class Inventory_Manager : MonoBehaviour
         }
 
 
-        for (int i=0; i< numCols; i++)
+        for (int i = 0; i < numCols; i++)
         {
             if (allItemData[inventory[i].getData().getItemNo()].getSprite() != null)
             {
@@ -184,22 +208,27 @@ public class Inventory_Manager : MonoBehaviour
 
     private void addItem(Item item)
     {
+
         //redundent
         if (inventoryFull()) return;
 
-        if (inventory[barSelection] == emptyItem)
+        if (inventory[barSelection].getName() == emptyItem.getName())
+        {
             inventory[barSelection] = item;
+        }
+
         else
         {
             for (int i = 0; i < inventorySize; i++)
             {
-                if (inventory[i] == emptyItem)
+                if (inventory[i].getName() == emptyItem.getName())
                 {
                     inventory[i] = item;
                     break;
                 }
             }
         }
+
         itemCount++;
         emptyCount = inventorySize - itemCount;
 
@@ -208,14 +237,14 @@ public class Inventory_Manager : MonoBehaviour
         //notify the Quest Manager
         //qm.itemPickedUp(item.itemNo);
         qm.itemAdded(item.getData().getItemNo(), 1);
-              
+
     }
 
     public Item[] getSelectedRow()
     {
         Item[] firstRow = new Item[11];
         Array.Copy(inventory, 0, firstRow, 0, 11);
-        
+
         return firstRow;
 
     }
@@ -247,17 +276,17 @@ public class Inventory_Manager : MonoBehaviour
 
         inputBreak = false;
 
-        if(input.x < 0) // Left
+        if (input.x < 0) // Left
         {
-            if(menuCol > 0)
-            menuCol--;
+            if (menuCol > 0)
+                menuCol--;
         }
         else if (input.x > 0) // LEFT
         {
             if (menuCol < numCols - 1)
                 menuCol++;
         }
-            
+
         else if (input.y < 0) // DOWN
         {
             if (menuRow < numRows - 1)
@@ -277,23 +306,20 @@ public class Inventory_Manager : MonoBehaviour
         return barSelection;
     }
 
-    public Item getSelectedItem()
-    {
-        return inventory[barSelection];
-    }
 
     public void discardSelection()
     {
         qm.itemRemoved(inventory[barSelection].getItemNo(), inventory[barSelection].getQuantity());
         inventory[barSelection] = emptyItem;
         itemCount--;
-        
+
     }
 
 
     void playSound()
     {
-        gmAudioSource.Play();
+        //TODO add sound back in
+        //gmAudioSource.Play();
     }
 
     public bool enoughSpace(int number)
@@ -306,7 +332,7 @@ public class Inventory_Manager : MonoBehaviour
     {
         if (!enoughSpace(items.Count)) return false;
 
-        foreach(Item i in items)
+        foreach (Item i in items)
         {
             addItem(i);
         }
@@ -322,66 +348,99 @@ public class Inventory_Manager : MonoBehaviour
         return true;
     }
 
-    public bool removeObjectives(List<Gather_Objective> gathers)
+    public void removeObjectives(List<Gather_Objective> gathers)
     {
-        bool result = true;
-        
-        foreach(Gather_Objective ob in gathers)
+        foreach (Gather_Objective ob in gathers)
         {
-            if (!removeItem(ob.getData().getItemID(), ob.getData().getNumToGather())) result = false;
+            removeItem(ob.getData().getItemID(), ob.getData().getNumToGather());
         }
-               
-        return result;
     }
-    
 
-    public bool removeItem(int itemID, int quantity)
+    public void useItem()
+    {
+        string itemName = inventory[barSelection].getData().getName();
+
+        if (itemName == "Sword") player.executePlayerFn(0);
+        if (itemName == "Shovel") player.executePlayerFn(1);
+
+        if (itemName == "Red Potion")
+        {
+            //TODO add subclass to Item_Data to Consumable, extra fields for healing value
+            // Hard Coded healing HP = 3 for now
+            player.heal(3);
+            consumeSelection();
+        }
+    }
+
+    void consumeSelection()
+    {
+        removeItemHelper(barSelection, 1);
+    }
+
+
+
+    public void removeItem(int itemID, int quantity)
     {
         //check each item and remove until quantity has been discarded.
         //if insufficient quantity, item will be converted to empty
 
         int quantityToRemove = quantity;
-            
-        //search every item for match, then subtract amount
 
-        for(int i=0; i< inventory.Length; i++)
+        //search every item for match, then subtract amount
+        for (int i = 0; i < inventory.Length; i++)
         {
             Item item = inventory[i];
-            
             if (item.getData().getItemNo() != itemID) continue;
 
+            //quantity of this item
             int itemQuantity = item.getQuantity();
 
-            if (itemQuantity <= quantityToRemove)
-            {
-                quantityToRemove -= itemQuantity;
+            int remainder = quantityToRemove - itemQuantity;
 
-                qm.itemRemoved(item.getData().getItemNo(), itemQuantity);
-
-                inventory[i] = emptyItem;
-                Debug.Log("emptied");
-            }
+            if (quantityToRemove < itemQuantity)
+                removeItemHelper(i, quantityToRemove);               
             else
-            {
-                quantityToRemove -= itemQuantity;
-                
-            }
+                removeItemHelper(i, itemQuantity);
+            
 
-            if (quantityToRemove == 0) return true;
+            quantityToRemove -= itemQuantity;
+            if (quantityToRemove <= 0) break;
         }
 
-        qm.itemRemoved(itemID, quantity);
+    }
 
+    void removeItemHelper(int index, int quantity)
+    {        
+        int remainder = inventory[index].getQuantity() - quantity;
 
-        return quantityToRemove == 0;
+        if (remainder < 0) Debug.Log("ERROR: Can't remove more than exists");
 
-     
+        //delete item
+        if (remainder == 0)
+        {
+            inventory[index] = emptyItem;
+        }
+        else if(remainder > 0) //some remains
+        {
+            inventory[index].subtractQuantity(quantity);
+        }
+        qm.itemRemoved(inventory[index].getItemNo(), quantity);
     }
 
     public Item[] getItems()
     {
         return inventory;
     }
+
+    public void setItems(Item[] items)
+    {
+        for(int i=0; i<items.Length; i++)
+        {
+            inventory[i] = new Item(items[i].getData(), items[i].getQuantity());
+        }    
+    }
+
+
 
     //count of an ItemID on hand
     public int countItem(int itemID)
@@ -402,36 +461,6 @@ public class Inventory_Manager : MonoBehaviour
 
 }
 
-
-//[System.Serializable]
-//public struct item
-//{
-//    [SerializeField]
-//    private Item_Data data;
-//    [SerializeField]
-//    private int quantity;
-
-//    public item(Item_Data data, int quantity)
-//    {
-//        this.data = data;
-//        this.quantity = quantity;
-//    }
-
-//    public Item_Data getData() { return this.data; }
-
-//    public int getQuantity() { return quantity; }
-
-//    public static bool operator == (item i1, item i2)
-//    {
-//        return i1.data == i2.data && i1.quantity == i2.quantity;
-//    }
-
-//    public static bool operator != (item i1, item i2)
-//    {
-//        return i1.data != i2.data || i1.quantity != i2.quantity;
-//    }
-
-//}
 
 
 
