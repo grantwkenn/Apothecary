@@ -17,12 +17,20 @@ public class Layered : MonoBehaviour
     float offset = 0;
     float y;
 
+    SpriteRenderer sr;
     SpriteRenderer[] children;
 
     //public Transform parentObject;
 
+    public bool offsetFromY;
+
+    public float heightOffset;
+
     public int pixelOffset;
-    float heightOffset;
+
+    public byte level;
+
+
 
 
     private void OnEnable()
@@ -31,22 +39,32 @@ public class Layered : MonoBehaviour
         _transform = this.GetComponent<Transform>();
 
         bc = this.GetComponent<BoxCollider2D>();
-
-        heightOffset = pixelOffset / 16.0f;
-
-        if (bc != null)
-            offset = heightOffset + bc.offset.y - (bc.size.y / 2.0f);
+        sr = this.GetComponent<SpriteRenderer>();
 
         children = this.GetComponentsInChildren<SpriteRenderer>();
 
-        _transform.position = new Vector3(_transform.position.x, _transform.position.y, _transform.position.y);
+        if(offsetFromY)
+        {
+            heightOffset = this.transform.localPosition.y;
+        }
 
+        pixelOffset = (int) (heightOffset * 16);
+
+        offset = 0 - (pixelOffset / 16.0f);
+        
+        if (bc != null)
+            offset += bc.offset.y - (bc.size.y / 2.0f);
+
+
+        //adjust the z location (layering) according to y + offset
+        //_transform.position = new Vector3(_transform.position.x, _transform.position.y, _transform.position.y + offset);
+
+        setLevel();
         updateLayer();
 
         if (!dynamic)
             this.enabled = false;
     }
-
 
     void Start()
     {
@@ -54,63 +72,52 @@ public class Layered : MonoBehaviour
 
     }
 
-
-    private void FixedUpdate()
-    {
-
-
-        
-    }
-
     private void Update()
     {
         if (lastPosition != _transform.position)
         {
-            updateLayer();
-           
+            updateLayer();          
         }
       
     }
 
-    void updateLayer()
+    void setLevel()
     {
-        if (bc == null)
-        {
-            offset = heightOffset;
-        }
-            
-
-        y = _transform.position.y + offset;
-
-
-        int order = 4096 - (int)(y * 16);
-        //// FIX THIS
-
+               
         foreach(SpriteRenderer s in children)
         {
-            s.sortingOrder = order;
+            s.sortingLayerName = "" + level + " Object";
+
+            //this is a work-around to match the Layered property level with sprite level.
+            //could be better implementation but works for now
+            Layered ly = s.GetComponent<Layered>();
+            if (ly != null) ly.level = level;
+
+            
+        }
+    }
+
+    void updateLayer()
+    {
+        int order = 4096 - (int)(_transform.position.z * 16);
+
+        if(sr != null)
+            sr.sortingOrder = order;
+        
+        foreach(SpriteRenderer s in children)
+        {
+            Layered ly = s.GetComponent<Layered>();
+            if (ly == null) s.sortingOrder = order;
+
+
         }
 
-
+        //USED FOR DYNAMIC OBJECTS
         //update z and previous location
         lastPosition = _transform.position;
-        lastPosition.z = lastPosition.y;
+        lastPosition.z = lastPosition.y + offset;
         _transform.position = lastPosition;
     }
 
-
-    /**
-    void setupTilemap()
-    {
-        TilemapRenderer tr = this.GetComponent<TilemapRenderer>();
-        
-        y = _transform.position.y;
-
-        
-        //// FIX THIS
-        tr.sortingOrder = 900 - (int)(y * 16);
-
-    }
-    **/
 
 }

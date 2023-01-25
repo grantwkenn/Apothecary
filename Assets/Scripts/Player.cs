@@ -12,10 +12,8 @@ public enum State
 
 public class Player : MonoBehaviour
 {
-
     public static Player Instance { get; private set; }
 
-    public bool startInBed;
 
     [SerializeField]
     State currentState;
@@ -119,11 +117,6 @@ public class Player : MonoBehaviour
         sm = gm.GetComponent<Scene_Manager>();
         bc = this.GetComponent<BoxCollider2D>();
 
-        if (startInBed)
-        {
-            this.transform.position = 
-            GameObject.FindGameObjectWithTag("Bed").transform.position;
-        }
 
         animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -412,9 +405,11 @@ public class Player : MonoBehaviour
     }
 
     public void swordSound()
-    {
-        
+    {       
         audioSource.clip = swordClip;
+
+        audioSource.time = audioSource.clip.length * 0.35f;
+
         audioSource.Play();
     }
 

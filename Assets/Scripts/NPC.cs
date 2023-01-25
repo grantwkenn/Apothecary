@@ -36,19 +36,12 @@ public class NPC : MonoBehaviour
     public string[] idle;
     public string[] walk;
 
-
-    Vector2[] path;
-    int pathSize;
-    int pathIndex;
-
-
     Vector2 prevDirection;
 
     Vector2 home;
 
     public bool dontMove;
 
-    public Transform[] targets;
 
 
     // Start is called before the first frame update
@@ -71,24 +64,6 @@ public class NPC : MonoBehaviour
 
         startingState = NPCState.walk;
         currentState = startingState;
-
-        pathSize = 4;
-        path = new Vector2[pathSize];
-        path[0] = new Vector2(rb.transform.position.x, rb.transform.position.y - 4);
-        path[1] = new Vector2(rb.transform.position.x-16, rb.transform.position.y - 4);
-        path[2] = new Vector2(rb.transform.position.x-16, rb.transform.position.y);
-        path[3] = new Vector2(rb.transform.position.x, rb.transform.position.y);
-
-        path[0] = targets[0].position;
-        path[1] = targets[1].position;
-        path[2] = targets[2].position;
-        path[3] = targets[3].position;
-
-        pathIndex = 2;
-
-        currentTarget = path[pathIndex];
-
-
 
         directionFromTarget();
 
@@ -138,27 +113,23 @@ public class NPC : MonoBehaviour
 
     void simpleAI()
     {
-        
+        //TODO redo this function completely
         if (currentTarget == rb.position) //arrived to target
         {            
-            //find new target
-            pathIndex = (pathIndex + 1) % pathSize;
-            currentTarget = path[pathIndex];
+
             //adjust direction
             directionFromTarget();
         }
         else if (currentState == NPCState.walk)
         {
             move();
-        }
-            
+        }            
 
     }
 
     void move()
     {
         rb.MovePosition(Vector2.MoveTowards(rb.position, currentTarget, Time.fixedDeltaTime * walkSpeed));
-
     }
 
 
@@ -264,7 +235,6 @@ public class NPC : MonoBehaviour
         //TODO replenish health
 
         transform.position = home;
-        pathIndex = 3;
         currentState = NPCState.walk;
     }
 

@@ -15,7 +15,7 @@ MonoBehaviour:
   m_Active: 1
   settings:
     passTag: WallsWrite
-    Event: 150
+    Event: 220
     filterSettings:
       RenderQueueType: 1
       LayerMask:
@@ -49,11 +49,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
-  m_Name: playerHidden
+  m_Name: playerShadow
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
-    passTag: playerHidden
+    passTag: playerShadow
     Event: 350
     filterSettings:
       RenderQueueType: 1
@@ -95,8 +95,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -7155156454908545976}
   - {fileID: -3851907404888531692}
-  - {fileID: 7904632770022535350}
-  m_RendererFeatureMap: 4834d5281dc7b39c141dec9f9f468bcab6f01ab19fe5b26d
+  - {fileID: 1652924530240939839}
+  m_RendererFeatureMap: 4834d5281dc7b39c141dec9f9f468bca3f678a491a5ef016
   m_UseNativeRenderPass: 0
   m_TransparencySortMode: 0
   m_TransparencySortAxis: {x: 0, y: 1, z: 0}
@@ -139,7 +139,7 @@ MonoBehaviour:
   m_DefaultLitMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
   m_DefaultUnlitMaterial: {fileID: 2100000, guid: 9dfc825aed78fcd4ba02077103263b40, type: 2}
   m_DefaultMaskMaterial: {fileID: 2100000, guid: 15d0c3709176029428a0da2f8cecf0b5, type: 2}
---- !u!114 &7904632770022535350
+--- !u!114 &1652924530240939839
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,27 +149,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
-  m_Name: RenderObjects
+  m_Name: Over Shadow
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
-    passTag: RenderObjects
-    Event: 300
+    passTag: Over Shadow
+    Event: 350
     filterSettings:
       RenderQueueType: 1
       LayerMask:
         serializedVersion: 2
-        m_Bits: 8
+        m_Bits: 128
       PassNames: []
-    overrideMaterial: {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+    overrideMaterial: {fileID: 0}
     overrideMaterialPassIndex: 0
     overrideDepthState: 0
     depthCompareFunction: 4
-    enableWrite: 0
+    enableWrite: 1
     stencilSettings:
       overrideStencilState: 0
       stencilReference: 0
-      stencilCompareFunction: 5
+      stencilCompareFunction: 8
       passOperation: 0
       failOperation: 0
       zFailOperation: 0

@@ -11,6 +11,7 @@ public class Scene_Trigger : MonoBehaviour
     Inventory_Manager im;
     Scene_Manager sm;
 
+
     // Start is called before the first frame update
     void Start()
     {
