@@ -200,7 +200,7 @@ public class RoomManager : MonoBehaviour
 
         //TODO camera pans in direction of doorway     
         //move camera bounds
-        mainCam.GetComponent<CameraMovement>().setBounds();
+        mainCam.GetComponent<CameraManager>().setBounds();
         moveTo.z = mainCam.transform.position.z;
         mainCam.transform.position = moveTo;
 

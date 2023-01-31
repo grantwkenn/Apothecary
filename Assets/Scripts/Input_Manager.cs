@@ -18,7 +18,7 @@ public class Input_Manager : MonoBehaviour
 
     [SerializeField]
     Camera mainCamera;
-    CameraMovement cm;
+    CameraManager cm;
 
     InputState inputState;
 
@@ -53,7 +53,7 @@ public class Input_Manager : MonoBehaviour
 
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
 
-        cm = mainCamera.GetComponent<CameraMovement>();
+        cm = mainCamera.GetComponent<CameraManager>();
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 

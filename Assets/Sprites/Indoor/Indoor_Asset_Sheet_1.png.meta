@@ -294,7 +294,7 @@ TextureImporter:
         height: 48
       alignment: 6
       pivot: {x: 0, y: 0}
-      border: {x: 4, y: 1, z: 4, w: 15}
+      border: {x: 5, y: 1, z: 4, w: 15}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -1247,7 +1247,7 @@ TextureImporter:
         serializedVersion: 2
         x: 466
         y: 784
-        width: 45
+        width: 44
         height: 53
       alignment: 6
       pivot: {x: 0, y: 0}
@@ -1267,9 +1267,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 519
-        y: 784
-        width: 35
-        height: 53
+        y: 786
+        width: 34
+        height: 35
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1288,9 +1288,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 558
-        y: 784
+        y: 786
         width: 34
-        height: 53
+        height: 35
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1309,9 +1309,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 596
-        y: 784
+        y: 786
         width: 34
-        height: 53
+        height: 35
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1330,9 +1330,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 634
-        y: 784
+        y: 786
         width: 34
-        height: 53
+        height: 35
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1351,9 +1351,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 672
-        y: 784
+        y: 786
         width: 34
-        height: 53
+        height: 35
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1372,9 +1372,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 710
-        y: 784
+        y: 786
         width: 34
-        height: 53
+        height: 35
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -1393,9 +1393,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 747
-        y: 784
+        y: 786
         width: 34
-        height: 53
+        height: 35
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2548,9 +2548,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 471
-        y: 728
-        width: 35
-        height: 53
+        y: 730
+        width: 34
+        height: 34
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2569,9 +2569,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 519
-        y: 727
+        y: 729
         width: 34
-        height: 53
+        height: 35
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -2590,9 +2590,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 558
-        y: 728
+        y: 730
         width: 34
-        height: 53
+        height: 35
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3222,10 +3222,10 @@ TextureImporter:
         x: 134
         y: 572
         width: 56
-        height: 133
+        height: 112
       alignment: 6
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 9, y: 8, z: 9, w: 28}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -3477,7 +3477,7 @@ TextureImporter:
         height: 56
       alignment: 6
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 12, y: 12, z: 13, w: 12}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -3519,7 +3519,7 @@ TextureImporter:
         height: 56
       alignment: 6
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 16, y: 11, z: 22, w: 11}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -3577,9 +3577,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 940
-        y: 752
+        y: 754
         width: 48
-        height: 48
+        height: 46
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -3698,6 +3698,182 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_170
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 1000
+        width: 37
+        height: 21
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8229fc9caabaf04468dcc0f91cc05590
+      internalID: -716617139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_171
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 506
+        width: 56
+        height: 62
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8612c886a97a4174bb898fd1cb2cac43
+      internalID: -25004319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_172
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 506
+        width: 56
+        height: 62
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d89463f05d1ab0847b014efbf985add4
+      internalID: -1099166816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_173
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 506
+        width: 56
+        height: 62
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03432404179748740968a789895b9a39
+      internalID: 810580833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_174
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 850
+        width: 34
+        height: 53
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b98008af9ed2ba4ebd4c6a906dc6d8e
+      internalID: 1083928323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_175
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 760
+        width: 53
+        height: 36
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 8, y: 5, z: 5, w: 9}
+      outline: []
+      physicsShape:
+      - - {x: -26.5, y: -15}
+        - {x: -26.5, y: -18}
+        - {x: 26.5, y: -18}
+        - {x: 26.5, y: -15}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 898b21a3d00c79d459932e6c47816575
+      internalID: 125083040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_176
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 768
+        width: 7
+        height: 23
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 2, y: 0, z: 1, w: 12}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73a6bb7c35e949a48b579b3ae3908a6b
+      internalID: 32555198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_177
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 768
+        width: 7
+        height: 23
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 1, y: 8, z: 1, w: 8}
+      outline: []
+      physicsShape:
+      - - {x: -3.5, y: -3.5}
+        - {x: -3.5, y: -11.5}
+        - {x: 3.5, y: -11.5}
+        - {x: 3.5, y: -3.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3c37dd3527a7574380c52cfe1bc0399
+      internalID: 1137404374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -3714,172 +3890,180 @@ TextureImporter:
       Indoor_Asset_Sheet_1_88: -93116265
       Indoor_Asset_Sheet_1_96: 1433879286
       Indoor_Asset_Sheet_1_152: -102236325
-      Indoor_Asset_Sheet_1_166: -1457575141
+      Indoor_Asset_Sheet_1_171: -25004319
       Indoor_Asset_Sheet_1_36: 170536297
-      Indoor_Asset_Sheet_1_2: 1128702264
       Indoor_Asset_Sheet_1_111: 702534843
       Indoor_Asset_Sheet_1_128: -802140271
       Indoor_Asset_Sheet_1_35: -1929435534
       Indoor_Asset_Sheet_1_165: -353615100
-      Indoor_Asset_Sheet_1_160: 1199952895
-      Indoor_Asset_Sheet_1_89: 991499811
-      Indoor_Asset_Sheet_1_22: 1879773570
       Indoor_Asset_Sheet_1_40: -688747481
-      Indoor_Asset_Sheet_1_83: -838582988
       Indoor_Asset_Sheet_1_71: -1589108641
-      Indoor_Asset_Sheet_1_129: 1821209365
-      Indoor_Asset_Sheet_1_95: 1845452164
       Indoor_Asset_Sheet_1_58: -469046116
-      Indoor_Asset_Sheet_1_154: 416647873
-      Indoor_Asset_Sheet_1_143: 176241635
-      Indoor_Asset_Sheet_1_61: 1424123718
       Indoor_Asset_Sheet_1_169: 1603956796
       Indoor_Asset_Sheet_1_101: 734370094
       Indoor_Asset_Sheet_1_9: 1667230674
       Indoor_Asset_Sheet_1_123: -1633162382
       Indoor_Asset_Sheet_1_107: 826672117
-      Indoor_Asset_Sheet_1_158: -1242547380
-      Indoor_Asset_Sheet_1_14: -9981093
       Indoor_Asset_Sheet_1_168: -2003786545
       Indoor_Asset_Sheet_1_13: -1864294968
       Indoor_Asset_Sheet_1_51: 839692052
       Indoor_Asset_Sheet_1_21: -579240560
       Indoor_Asset_Sheet_1_42: -9342480
       Indoor_Asset_Sheet_1_67: -202927841
-      Indoor_Asset_Sheet_1_153: 657669018
-      Indoor_Asset_Sheet_1_33: -1860256869
-      Indoor_Asset_Sheet_1_90: -1410930882
-      Indoor_Asset_Sheet_1_102: -1260808450
       Indoor_Asset_Sheet_1_141: -912344800
-      Indoor_Asset_Sheet_1_38: 1601255871
+      Indoor_Asset_Sheet_1_172: -1099166816
       Indoor_Asset_Sheet_1_23: -1858524791
-      Indoor_Asset_Sheet_1_121: 120294483
-      Indoor_Asset_Sheet_1_103: 932555345
+      Indoor_Asset_Sheet_1_176: 32555198
       Indoor_Asset_Sheet_1_92: 1704278548
-      Indoor_Asset_Sheet_1_85: -1390221369
       Indoor_Asset_Sheet_1_11: -1667956067
       Indoor_Asset_Sheet_1_39: -1419341415
-      Indoor_Asset_Sheet_1_16: -1294985231
-      Indoor_Asset_Sheet_1_82: 1430535550
       Indoor_Asset_Sheet_1_62: -1118630536
-      Indoor_Asset_Sheet_1_70: 1462010421
-      Indoor_Asset_Sheet_1_142: -909811900
       Indoor_Asset_Sheet_1_113: -512606619
-      Indoor_Asset_Sheet_1_19: -864332221
-      Indoor_Asset_Sheet_1_118: -1085092981
-      Indoor_Asset_Sheet_1_120: -1557292818
+      Indoor_Asset_Sheet_1_170: -716617139
       Indoor_Asset_Sheet_1_140: -1846899822
-      Indoor_Asset_Sheet_1_55: 2085645627
-      Indoor_Asset_Sheet_1_106: 1567374705
-      Indoor_Asset_Sheet_1_144: -1191300602
       Indoor_Asset_Sheet_1_124: 1931259558
       Indoor_Asset_Sheet_1_164: -920401070
+      Indoor_Asset_Sheet_1_106: 1567374705
+      Indoor_Asset_Sheet_1_144: -1191300602
+      Indoor_Asset_Sheet_1_162: -1811728256
       Indoor_Asset_Sheet_1_97: 299745906
       Indoor_Asset_Sheet_1_77: -352781081
-      Indoor_Asset_Sheet_1_79: -418236682
-      Indoor_Asset_Sheet_1_8: 1672473848
-      Indoor_Asset_Sheet_1_156: 1267666255
-      Indoor_Asset_Sheet_1_64: -1187045028
-      Indoor_Asset_Sheet_1_3: 22421812
-      Indoor_Asset_Sheet_1_114: 1379050347
-      Indoor_Asset_Sheet_1_63: 1806978878
-      Indoor_Asset_Sheet_1_162: -1811728256
-      Indoor_Asset_Sheet_1_81: -877082628
       Indoor_Asset_Sheet_1_115: -903042034
+      Indoor_Asset_Sheet_1_8: 1672473848
+      Indoor_Asset_Sheet_1_64: -1187045028
+      Indoor_Asset_Sheet_1_63: 1806978878
+      Indoor_Asset_Sheet_1_81: -877082628
       Indoor_Asset_Sheet_1_145: 1093285832
-      Indoor_Asset_Sheet_1_73: 207006244
-      Indoor_Asset_Sheet_1_135: -1992771381
       Indoor_Asset_Sheet_1_149: 79447693
       Indoor_Asset_Sheet_1_53: 1148986400
       Indoor_Asset_Sheet_1_157: -1775181658
       Indoor_Asset_Sheet_1_130: -1265930205
-      Indoor_Asset_Sheet_1_167: -1020460117
       Indoor_Asset_Sheet_1_1: -197137861
-      Indoor_Asset_Sheet_1_137: -1163625710
-      Indoor_Asset_Sheet_1_52: 875691772
-      Indoor_Asset_Sheet_1_132: -1440236188
       Indoor_Asset_Sheet_1_159: -1827915796
       Indoor_Asset_Sheet_1_17: -709436920
-      Indoor_Asset_Sheet_1_126: 565982836
       Indoor_Asset_Sheet_1_98: 179383802
       Indoor_Asset_Sheet_1_54: -1957151295
       Indoor_Asset_Sheet_1_5: -1271812921
-      Indoor_Asset_Sheet_1_66: 558460895
       Indoor_Asset_Sheet_1_75: -607557416
       Indoor_Asset_Sheet_1_127: 1099164844
+      Indoor_Asset_Sheet_1_175: 125083040
+      Indoor_Asset_Sheet_1_4: 1418019925
+      Indoor_Asset_Sheet_1_150: 149234948
+      Indoor_Asset_Sheet_1_20: 477284352
+      Indoor_Asset_Sheet_1_136: -2084731295
+      Indoor_Asset_Sheet_1_12: 1684840963
+      Indoor_Asset_Sheet_1_76: -1126679345
+      Indoor_Asset_Sheet_1_74: 1086698093
+      Indoor_Asset_Sheet_1_146: -436292987
+      Indoor_Asset_Sheet_1_155: -532991532
+      Indoor_Asset_Sheet_1_86: -1731941004
+      Indoor_Asset_Sheet_1_25: 1376191200
+      Indoor_Asset_Sheet_1_10: 1166660684
+      Indoor_Asset_Sheet_1_46: 1722340454
+      Indoor_Asset_Sheet_1_68: 1089018655
+      Indoor_Asset_Sheet_1_99: -594176375
+      Indoor_Asset_Sheet_1_78: -162801879
+      Indoor_Asset_Sheet_1_24: 1592127036
+      Indoor_Asset_Sheet_1_94: 2019072304
+      Indoor_Asset_Sheet_1_0: 324980860
+      Indoor_Asset_Sheet_1_138: 1935173311
+      Indoor_Asset_Sheet_1_49: -1702734279
+      Indoor_Asset_Sheet_1_104: 1449143177
+      Indoor_Asset_Sheet_1_119: -801032441
+      Indoor_Asset_Sheet_1_43: 1473388453
+      Indoor_Asset_Sheet_1_139: -589796328
+      Indoor_Asset_Sheet_1_15: 1879856174
+      Indoor_Asset_Sheet_1_44: 1052654181
+      Indoor_Asset_Sheet_1_151: 1223281232
+      Indoor_Asset_Sheet_1_69: 1546027408
+      Indoor_Asset_Sheet_1_32: -253674871
+      Indoor_Asset_Sheet_1_56: 67723850
+      Indoor_Asset_Sheet_1_147: -1284262173
+      Indoor_Asset_Sheet_1_116: -184957027
+      Indoor_Asset_Sheet_1_122: -649878715
+      Indoor_Asset_Sheet_1_27: 1039227555
+      Indoor_Asset_Sheet_1_166: -1457575141
+      Indoor_Asset_Sheet_1_174: 1083928323
+      Indoor_Asset_Sheet_1_2: 1128702264
+      Indoor_Asset_Sheet_1_160: 1199952895
+      Indoor_Asset_Sheet_1_89: 991499811
+      Indoor_Asset_Sheet_1_22: 1879773570
+      Indoor_Asset_Sheet_1_129: 1821209365
+      Indoor_Asset_Sheet_1_83: -838582988
+      Indoor_Asset_Sheet_1_154: 416647873
+      Indoor_Asset_Sheet_1_143: 176241635
+      Indoor_Asset_Sheet_1_95: 1845452164
+      Indoor_Asset_Sheet_1_61: 1424123718
+      Indoor_Asset_Sheet_1_177: 1137404374
+      Indoor_Asset_Sheet_1_158: -1242547380
+      Indoor_Asset_Sheet_1_14: -9981093
+      Indoor_Asset_Sheet_1_153: 657669018
+      Indoor_Asset_Sheet_1_33: -1860256869
+      Indoor_Asset_Sheet_1_102: -1260808450
+      Indoor_Asset_Sheet_1_90: -1410930882
+      Indoor_Asset_Sheet_1_70: 1462010421
+      Indoor_Asset_Sheet_1_38: 1601255871
+      Indoor_Asset_Sheet_1_103: 932555345
+      Indoor_Asset_Sheet_1_121: 120294483
+      Indoor_Asset_Sheet_1_173: 810580833
+      Indoor_Asset_Sheet_1_85: -1390221369
+      Indoor_Asset_Sheet_1_82: 1430535550
+      Indoor_Asset_Sheet_1_142: -909811900
+      Indoor_Asset_Sheet_1_16: -1294985231
+      Indoor_Asset_Sheet_1_120: -1557292818
+      Indoor_Asset_Sheet_1_19: -864332221
+      Indoor_Asset_Sheet_1_118: -1085092981
+      Indoor_Asset_Sheet_1_55: 2085645627
+      Indoor_Asset_Sheet_1_114: 1379050347
+      Indoor_Asset_Sheet_1_79: -418236682
+      Indoor_Asset_Sheet_1_156: 1267666255
+      Indoor_Asset_Sheet_1_3: 22421812
+      Indoor_Asset_Sheet_1_73: 207006244
+      Indoor_Asset_Sheet_1_135: -1992771381
+      Indoor_Asset_Sheet_1_167: -1020460117
+      Indoor_Asset_Sheet_1_137: -1163625710
+      Indoor_Asset_Sheet_1_52: 875691772
+      Indoor_Asset_Sheet_1_132: -1440236188
+      Indoor_Asset_Sheet_1_126: 565982836
+      Indoor_Asset_Sheet_1_66: 558460895
       Indoor_Asset_Sheet_1_133: 2021172839
       Indoor_Asset_Sheet_1_125: -192814970
       Indoor_Asset_Sheet_1_57: 481859740
-      Indoor_Asset_Sheet_1_4: 1418019925
       Indoor_Asset_Sheet_1_72: 1449437204
-      Indoor_Asset_Sheet_1_150: 149234948
-      Indoor_Asset_Sheet_1_20: 477284352
       Indoor_Asset_Sheet_1_93: 1825204778
       Indoor_Asset_Sheet_1_161: 87459378
+      Indoor_Asset_Sheet_1_163: 1834246064
       Indoor_Asset_Sheet_1_65: -1420839389
-      Indoor_Asset_Sheet_1_12: 1684840963
-      Indoor_Asset_Sheet_1_76: -1126679345
       Indoor_Asset_Sheet_1_29: 1620990074
-      Indoor_Asset_Sheet_1_74: 1086698093
       Indoor_Asset_Sheet_1_117: -620167779
       Indoor_Asset_Sheet_1_7: 502703757
       Indoor_Asset_Sheet_1_105: -406092923
       Indoor_Asset_Sheet_1_84: 538767177
-      Indoor_Asset_Sheet_1_136: -2084731295
       Indoor_Asset_Sheet_1_45: 1020937570
-      Indoor_Asset_Sheet_1_155: -532991532
-      Indoor_Asset_Sheet_1_68: 1089018655
-      Indoor_Asset_Sheet_1_86: -1731941004
-      Indoor_Asset_Sheet_1_25: 1376191200
-      Indoor_Asset_Sheet_1_10: 1166660684
+      Indoor_Asset_Sheet_1_131: 1874149490
       Indoor_Asset_Sheet_1_37: 1973392884
-      Indoor_Asset_Sheet_1_46: 1722340454
       Indoor_Asset_Sheet_1_47: -175579946
       Indoor_Asset_Sheet_1_59: -2121811344
       Indoor_Asset_Sheet_1_80: -1080508104
-      Indoor_Asset_Sheet_1_78: -162801879
-      Indoor_Asset_Sheet_1_24: 1592127036
       Indoor_Asset_Sheet_1_28: -1018779633
-      Indoor_Asset_Sheet_1_99: -594176375
-      Indoor_Asset_Sheet_1_94: 2019072304
-      Indoor_Asset_Sheet_1_146: -436292987
-      Indoor_Asset_Sheet_1_0: 324980860
       Indoor_Asset_Sheet_1_41: 1957096845
       Indoor_Asset_Sheet_1_31: -834357081
-      Indoor_Asset_Sheet_1_48: -12877728
       Indoor_Asset_Sheet_1_100: 1627912112
+      Indoor_Asset_Sheet_1_48: -12877728
       Indoor_Asset_Sheet_1_91: 173204132
-      Indoor_Asset_Sheet_1_49: -1702734279
-      Indoor_Asset_Sheet_1_131: 1874149490
-      Indoor_Asset_Sheet_1_163: 1834246064
       Indoor_Asset_Sheet_1_50: 1659084218
-      Indoor_Asset_Sheet_1_104: 1449143177
-      Indoor_Asset_Sheet_1_119: -801032441
       Indoor_Asset_Sheet_1_30: 1907629189
       Indoor_Asset_Sheet_1_6: -716694846
-      Indoor_Asset_Sheet_1_43: 1473388453
-      Indoor_Asset_Sheet_1_15: 1879856174
-      Indoor_Asset_Sheet_1_139: -589796328
-      Indoor_Asset_Sheet_1_44: 1052654181
-      Indoor_Asset_Sheet_1_138: 1935173311
       Indoor_Asset_Sheet_1_110: -1472115136
-      Indoor_Asset_Sheet_1_69: 1546027408
-      Indoor_Asset_Sheet_1_32: -253674871
       Indoor_Asset_Sheet_1_108: 1934243480
       Indoor_Asset_Sheet_1_112: -1817422734
-      Indoor_Asset_Sheet_1_56: 67723850
+      Indoor_Asset_Sheet_1_148: -825732689
       Indoor_Asset_Sheet_1_134: -234432542
-      Indoor_Asset_Sheet_1_147: -1284262173
       Indoor_Asset_Sheet_1_18: 1193751491
       Indoor_Asset_Sheet_1_26: 889681029
-      Indoor_Asset_Sheet_1_151: 1223281232
       Indoor_Asset_Sheet_1_60: 640802125
       Indoor_Asset_Sheet_1_109: -1917741695
-      Indoor_Asset_Sheet_1_116: -184957027
       Indoor_Asset_Sheet_1_87: 688134394
-      Indoor_Asset_Sheet_1_122: -649878715
-      Indoor_Asset_Sheet_1_148: -825732689
-      Indoor_Asset_Sheet_1_27: 1039227555
       Indoor_Asset_Sheet_1_34: 1524231529
   spritePackingTag: 
   pSDRemoveMatte: 0

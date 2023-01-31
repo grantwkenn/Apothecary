@@ -7,7 +7,7 @@ using System;
 
 //TODO:
 // update map according to the current room
-
+[ExecuteInEditMode]
 public class Tile_Manager : MonoBehaviour
 {
     Player player;
@@ -52,6 +52,8 @@ public class Tile_Manager : MonoBehaviour
 
     Dictionary<String, byte> grassDict;
 
+    public bool instantiate_Grass;
+
     ////////////////////////////////////////
 
 
@@ -59,16 +61,7 @@ public class Tile_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
-        populateGrassDict();
-
-        Transform grassMap = GameObject.Find("Grid").transform.Find("Grass");
-        if (grassMap != null)
-        {
-            grassTileMap = grassMap.GetComponent<Tilemap>();
-            instantiateGrass();
-        }
 
         //grid = rm.getCurrentGrid();
 
@@ -78,6 +71,25 @@ public class Tile_Manager : MonoBehaviour
 
 
         //grassTest();
+    }
+
+    private void OnEnable()
+    {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        populateGrassDict();
+
+        Transform grassMap = GameObject.Find("Grid").transform.Find("Grass");
+        if (grassMap != null)
+        {
+            grassTileMap = grassMap.GetComponent<Tilemap>();
+            if (instantiate_Grass)
+            {
+                instantiate_Grass = false;
+                instantiateGrass();
+            }
+
+        }
     }
 
 

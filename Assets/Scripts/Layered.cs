@@ -11,6 +11,8 @@ public class Layered : MonoBehaviour
     public bool dynamic;
     Vector3 lastPosition;
 
+    public Transform layerParent;
+
     Transform _transform;
     BoxCollider2D bc; 
 
@@ -30,7 +32,9 @@ public class Layered : MonoBehaviour
 
     public byte level;
 
+    public bool cascadeLevel;
 
+    public bool fromParent;
 
 
     private void OnEnable()
@@ -46,6 +50,11 @@ public class Layered : MonoBehaviour
         if(offsetFromY)
         {
             heightOffset = this.transform.localPosition.y;
+        }
+
+        if(layerParent!= null)
+        {
+            heightOffset = this.transform.position.y - layerParent.transform.position.y;
         }
 
         pixelOffset = (int) (heightOffset * 16);
@@ -83,7 +92,10 @@ public class Layered : MonoBehaviour
 
     void setLevel()
     {
-               
+        sr.sortingLayerName = "" + level + " Object";
+
+        if (!cascadeLevel) return;
+
         foreach(SpriteRenderer s in children)
         {
             s.sortingLayerName = "" + level + " Object";
@@ -99,18 +111,12 @@ public class Layered : MonoBehaviour
 
     void updateLayer()
     {
+        
         int order = 4096 - (int)(_transform.position.z * 16);
 
-        if(sr != null)
+
+        if (sr != null)
             sr.sortingOrder = order;
-        
-        foreach(SpriteRenderer s in children)
-        {
-            Layered ly = s.GetComponent<Layered>();
-            if (ly == null) s.sortingOrder = order;
-
-
-        }
 
         //USED FOR DYNAMIC OBJECTS
         //update z and previous location

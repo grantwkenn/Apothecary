@@ -114,7 +114,7 @@ TextureImporter:
         height: 22
       alignment: 6
       pivot: {x: 0, y: 0}
-      border: {x: 4, y: 4, z: 3, w: 11}
+      border: {x: 19, y: 4, z: 18, w: 11}
       outline: []
       physicsShape:
       - - {x: 99.5, y: -6}
@@ -429,6 +429,132 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Farm_Sheet_W23_4
+      rect:
+        serializedVersion: 2
+        x: 616
+        y: 955
+        width: 104
+        height: 67
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 8, y: 34, z: 8, w: 3}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9437cf34b8d646e44a771b2149f92d0d
+      internalID: 1884745135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farm_Sheet_W23_14
+      rect:
+        serializedVersion: 2
+        x: 724
+        y: 951
+        width: 75
+        height: 72
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 9, y: 18, z: 10, w: 7}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e430e5b28ecb5b498ce2a03a1c9a4e7
+      internalID: -1693656152
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farm_Sheet_W23_15
+      rect:
+        serializedVersion: 2
+        x: 804
+        y: 951
+        width: 75
+        height: 72
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 9, y: 0, z: 10, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 744965eb342a7bd4bb1ef6d7d8c89a83
+      internalID: -1999216662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farm_Sheet_W23_16
+      rect:
+        serializedVersion: 2
+        x: 884
+        y: 951
+        width: 75
+        height: 72
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd456c4361746f14eb7f0e4f2b282d65
+      internalID: 276794123
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farm_Sheet_W23_17
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 831
+        width: 64
+        height: 49
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f39ca1e25971b14ab7c4f77d5889aa1
+      internalID: 540063392
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Farm_Sheet_W23_18
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 883
+        width: 44
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d2c30de14640974ab37c89a86ee16d0
+      internalID: 2019920441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -442,11 +568,14 @@ TextureImporter:
     nameFileIdTable:
       Farm_Sheet_W23_13: 1737250956
       Farm_Sheet_W23_1: -1712872231
+      Farm_Sheet_W23_18: 2019920441
       Farm_Sheet_W23_10: 416667855
       Farm_Sheet_W23_6: -1872414682
       Farm_Sheet_W23_7: 1111928338
       Farm_Sheet_W23_3: -2010508162
       Farm_Sheet_W23_9: 1670179467
+      Farm_Sheet_W23_16: 276794123
+      Farm_Sheet_W23_15: -1999216662
       Farm_Sheet_W23_4: 1884745135
       Farm_Sheet_W23_2: -1491964589
       Farm_Sheet_W23_5: -1471963654
@@ -454,6 +583,7 @@ TextureImporter:
       Farm_Sheet_W23_14: -1693656152
       Farm_Sheet_W23_8: 557269790
       Farm_Sheet_W23_11: -1205646563
+      Farm_Sheet_W23_17: 540063392
       Farm_Sheet_W23_0: 1665391083
   spritePackingTag: 
   pSDRemoveMatte: 0

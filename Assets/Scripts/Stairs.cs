@@ -14,6 +14,8 @@ public class Stairs : MonoBehaviour
 
     bool slopeSet = false;
 
+    public bool vertical;
+
     private void Start()
     {
         pc = this.GetComponent<PolygonCollider2D>();
@@ -26,6 +28,17 @@ public class Stairs : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D _player)
     {
         if (!_player.CompareTag("Player")) return;
+        
+        if(vertical)
+        {
+            //if moving up
+            if(_player.GetComponent<Rigidbody2D>().velocity.y > 0)
+            {
+                sm.incrementLayer(player.gameObject, 1);
+            }
+
+            return;
+        }
         
         //If LH Stair
         if(slope > 0)
@@ -69,6 +82,15 @@ public class Stairs : MonoBehaviour
     {
         if (!_player.CompareTag("Player")) return;
 
+        if(vertical)
+        {
+            //decrement layer if moving down
+            if(_player.GetComponent<Rigidbody2D>().velocity.y < 0)
+                sm.incrementLayer(player.gameObject, -1);
+            return;
+
+        }
+
         //If LH Stair
         if (slope > 0)
         {
@@ -103,6 +125,8 @@ public class Stairs : MonoBehaviour
     private void OnTriggerStay2D(Collider2D _player)
     {
         //check if player center point is in the box
+
+        if (vertical) return;
 
         if (!_player.CompareTag("Player")) return;
 

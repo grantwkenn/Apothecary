@@ -105,8 +105,6 @@ public class Player : MonoBehaviour
     }
 
 
-
-
     // Start is called before the first frame update
     void Start()
     {
@@ -118,11 +116,15 @@ public class Player : MonoBehaviour
         bc = this.GetComponent<BoxCollider2D>();
 
 
+        //this is to ensure the player cannot respond to input until 
+        //the Scene Manager relinquishes and unfreezes player after Fade in
+        freeze();
+
         animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
 
-        directionFacing = Vector2.down;
-        facing = 2;
+        //directionFacing = Vector2.down;
+        //facing = 2;
 
         speed = baseSpeed;
 
@@ -140,6 +142,8 @@ public class Player : MonoBehaviour
         audioSource = this.GetComponent<AudioSource>();
 
         stairYcomponent = new Vector2(0,0);
+
+
 
     }
 
@@ -347,6 +351,8 @@ public class Player : MonoBehaviour
 
     public void inputUpdate(Vector2 input)
     {
+        if (currentState == State.freeze) return;
+        
         moveInput = input;
         if (interruptibleState())
         {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RoomSwitch : MonoBehaviour
 {
-    private CameraMovement cam;
+    private CameraManager cam;
     private GameObject gameManager;
 
     int roomTo;
@@ -17,7 +17,7 @@ public class RoomSwitch : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        cam = Camera.main.GetComponent<CameraMovement>();
+        cam = Camera.main.GetComponent<CameraManager>();
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
 
         //position right in "front" of the target door trigger based on direction facing

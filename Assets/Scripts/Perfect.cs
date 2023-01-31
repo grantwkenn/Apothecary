@@ -5,16 +5,18 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class Perfect : MonoBehaviour
 {
-
+    Transform[] transforms;
     SpriteRenderer[] srs;
     PolygonCollider2D[] pcs;
     BoxCollider2D[] bcs;
 
     public bool dynamic;
 
+    public bool units;
+
     private void OnEnable()
     {
-
+        transforms = GameObject.FindObjectsOfType<Transform>();
         srs = GameObject.FindObjectsOfType<SpriteRenderer>();
         pcs = GameObject.FindObjectsOfType<PolygonCollider2D>();
         bcs = GameObject.FindObjectsOfType<BoxCollider2D>();
@@ -41,6 +43,23 @@ public class Perfect : MonoBehaviour
 
     void run()
     {
+        if(units)
+        {
+            unitAlign();
+            return;
+        }
+        
+        //first align this parent transform to the grid
+        this.transform.position = new Vector3(sixteenths(this.transform.position.x), 
+            sixteenths(this.transform.position.y), this.transform.position.z);
+
+        //align transform to grid
+        foreach (Transform t in transforms)
+        {
+            t.position = new Vector3(sixteenths(t.position.x), sixteenths(t.position.y), t.position.z);
+        }
+        
+        //align sprite size to grid
         foreach(SpriteRenderer sr in srs)
         {
             float width = sixteenths(sr.size.x);
@@ -77,7 +96,7 @@ public class Perfect : MonoBehaviour
             //adjust the center and offsets of the box
             
             bc.offset = new Vector2(thirtiseconds(bc.offset.x), thirtiseconds(bc.offset.y));
-            bc.size = new Vector2(thirtiseconds(bc.size.x), thirtiseconds(bc.size.y));
+            bc.size = new Vector2(sixteenths(bc.size.x), sixteenths(bc.size.y));
         }
 
     }
@@ -98,6 +117,16 @@ public class Perfect : MonoBehaviour
 
 
         return ((int)(input * 32)) / 32.0f;
+    }
+
+    void unitAlign()
+    {
+        int x = (int)Mathf.Round(this.transform.position.x);
+        int y = (int)Mathf.Round(this.transform.position.y);
+        int z = (int)Mathf.Round(this.transform.position.z);
+
+        this.transform.position = new Vector3(x, y, z);
+
     }
         
 }

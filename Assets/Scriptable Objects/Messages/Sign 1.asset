@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Sign 1
   m_EditorClassIdentifier: 
   messageSegments:
-  - Welcome to the Beach!
-  - This sign is now operational!
+  - Check out these cows!
+  - Pretty Neat..
   nextMessage:
   - {fileID: 0}
   itemsToDeliver: []

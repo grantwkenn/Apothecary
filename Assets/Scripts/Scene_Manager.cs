@@ -17,8 +17,9 @@ public class Scene_Manager : MonoBehaviour
 
     Image fadeImage;
 
-    float fadeSeconds = 0.3f;
-    int fadeSteps = 30;
+    float fadeInSeconds = 0.2f;
+    float fadeOutSeconds = 0.2f;
+    int fadeSteps = 12;
 
     bool fadingOut = false;
 
@@ -43,7 +44,7 @@ public class Scene_Manager : MonoBehaviour
         }
 
 
-        player.GetComponent<Player>().unfreeze();
+        //player.GetComponent<Player>().unfreeze();
 
         //set character position from SO
         //if none, use a default spawn point
@@ -67,7 +68,7 @@ public class Scene_Manager : MonoBehaviour
 
     void enterScene()
     {
-        player.GetComponent<Player>().unfreeze();
+        //player.GetComponent<Player>().freeze();
 
         //Find the Entrance to this scene which was set by previous scene's exit
         currentEntrance = null;
@@ -85,7 +86,7 @@ public class Scene_Manager : MonoBehaviour
 
         sp.setChangingScenes(false);
 
-        player.GetComponent<Player>().unfreeze();
+        //player.GetComponent<Player>().unfreeze();
 
 
     }
@@ -140,7 +141,7 @@ public class Scene_Manager : MonoBehaviour
         while (fadeImage.color.a < 1)
         {
             fadeImage.color = new Color(0, 0, 0, fadeImage.color.a + (1f / fadeSteps));
-            yield return new WaitForSeconds(fadeSeconds / fadeSteps);
+            yield return new WaitForSeconds(fadeOutSeconds / fadeSteps);
             //yield return null;
         }
 
@@ -151,15 +152,21 @@ public class Scene_Manager : MonoBehaviour
 
 
     IEnumerator FadeIn()
-    {        
+    {
         //Fade screen back in
+
+
 
         //wait for Fade to Black to Complete
         //If we decide to change scenes (fade out) while still fading in, cancel the fade in
         while (fadeImage.color.a > 0 && !fadingOut)
         {
+            // This allows player to respond to input after the Fade is almost complete, 
+            // Better responsiveness of input
+            if (fadeImage.color.a < 0.75f) player.unfreeze();
+
             fadeImage.color = new Color(0, 0, 0, fadeImage.color.a - (1f / fadeSteps));
-            yield return new WaitForSeconds(fadeSeconds / fadeSteps);
+            yield return new WaitForSeconds(fadeInSeconds / fadeSteps);
             //yield return null;
         }
         if (fadingOut) yield break;
@@ -167,6 +174,8 @@ public class Scene_Manager : MonoBehaviour
 
         fadeImage.color = new Color(0, 0, 0, 0);
         fadeImage.enabled = false;
+
+        player.unfreeze();
         
     }
 

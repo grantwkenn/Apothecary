@@ -514,6 +514,174 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Studs_16
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 144
+        width: 7
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 1, y: 2, z: 1, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd2b62bf2215d374b9cce9ef8839fec3
+      internalID: -455094404
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Studs_17
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 144
+        width: 7
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 2, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 773e1ce0b81a1464991227bd600141da
+      internalID: -479201213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Studs_18
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 144
+        width: 7
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 1, y: 2, z: 1, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c11ffbc22fb51d4ca03857ef9bdc80b
+      internalID: 2063991125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Studs_19
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 144
+        width: 7
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 2, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a753fada30947da418a900417fb60a72
+      internalID: 952251
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Studs_20
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 125
+        width: 7
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 1, y: 2, z: 1, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 687effe2c66722c428f28d9127e8e70b
+      internalID: 248638250
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Studs_21
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 125
+        width: 7
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 2, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d69dbf664690f0846b762a0f03b10334
+      internalID: 2013467651
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Studs_22
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 125
+        width: 7
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 1, y: 2, z: 1, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e451be81a2bb2434dbc96062f8cf3963
+      internalID: 763870034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Studs_23
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 125
+        width: 7
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 2, z: 0, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85b2282606a2c5d45b24fb4334bcf13d
+      internalID: -1009824278
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -525,19 +693,27 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Studs_17: -479201213
       Studs_8: 6708815772871832557
       Studs_6: -4046624358574592520
+      Studs_18: 2063991125
+      Studs_22: 763870034
       Studs_3: 4637810148770867233
       Studs_12: 2106773885
       Studs_15: 1327045042
       Studs_7: -248163326048672016
+      Studs_16: -455094404
       Studs_1: -54467754057435141
+      Studs_20: 248638250
+      Studs_23: -1009824278
       Studs_4: -7205973375816258747
       Studs_13: 798466406
       Studs_0: -8203339881184691605
       Studs_10: 1268881593
+      Studs_19: 952251
       Studs_2: -8600267090025995108
       Studs_5: -1670077605451019161
+      Studs_21: 2013467651
       Studs_11: 1271928682
       Studs_9: 7397233695426057034
       Studs_14: -106598018

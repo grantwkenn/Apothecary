@@ -5,14 +5,14 @@ using UnityEngine;
 public class CameraTrigger : MonoBehaviour
 {
     Transform focus;
-    CameraMovement mainCam;
+    CameraManager mainCam;
     
     
     // Start is called before the first frame update
     void Start()
     {
         focus = transform.Find("Focus");
-        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraMovement>();
+        mainCam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraManager>();
     }   
 
     // Update is called once per frame
