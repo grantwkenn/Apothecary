@@ -5,8 +5,9 @@ using UnityEngine.Tilemaps;
 using System;
 
 
-//TODO:
-// update map according to the current room
+//TODO keep maps of all tilled, watered, etc. dirt tiles
+
+
 [ExecuteInEditMode]
 public class Tile_Manager : MonoBehaviour
 {
@@ -53,6 +54,13 @@ public class Tile_Manager : MonoBehaviour
     Dictionary<String, byte> grassDict;
 
     public bool instantiate_Grass;
+
+    Dictionary<Vector2Int, bool> tilledTiles;
+    Dictionary<Vector2Int, bool> wateredTiles;
+    
+    //TODO
+    //Dictionary of Vector2Int coords to crop object?
+    //Crop object: daysOld, orientation/children, location? 
 
     ////////////////////////////////////////
 
