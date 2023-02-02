@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c2d8180873762a4dad4f5021c08f682, type: 3}
   m_Name: Watermelon
   m_EditorClassIdentifier: 
-  cropName: 
+  cropName: watermelon
   description: 
   cropID: 0
   seedDays: 0

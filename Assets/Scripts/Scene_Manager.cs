@@ -7,6 +7,8 @@ using UnityEngine.UI;
 
 public class Scene_Manager : MonoBehaviour
 {
+    Player_Persistence pp;
+
     [SerializeField]
     Scene_Persistence sp;
 
@@ -32,6 +34,8 @@ public class Scene_Manager : MonoBehaviour
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
+        pp = Resources.Load<Player_Persistence>("Player Persistence");
+
         im = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Inventory_Manager>();
 
         fadeImage = GameObject.FindGameObjectWithTag("HUD").transform.Find("Fade").GetComponent<Image>();
@@ -53,11 +57,11 @@ public class Scene_Manager : MonoBehaviour
 
         if(Time.time < 0.1f)
         {
-            sp.setChangingScenes(false);
+            pp.setChangingScenes(false);
         }
 
 
-        if (sp.isChangingScenes())
+        if (pp.isChangingScenes())
             enterScene();
 
 
@@ -75,7 +79,7 @@ public class Scene_Manager : MonoBehaviour
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Entrance"))
         {
             entrance e = go.GetComponent<entrance>();
-            if (e.getEntranceNo() == sp.getEntranceNo())
+            if (e.getEntranceNo() == pp.getEntranceNo())
             {
                 currentEntrance = e;
             }
@@ -84,7 +88,7 @@ public class Scene_Manager : MonoBehaviour
 
         setPlayer();
 
-        sp.setChangingScenes(false);
+        pp.setChangingScenes(false);
 
         //player.GetComponent<Player>().unfreeze();
 
@@ -93,14 +97,14 @@ public class Scene_Manager : MonoBehaviour
 
     public void exitScene(string targetSceneName, byte entranceNo)
     {        
-        if (sp.isChangingScenes()) return;
+        if (pp.isChangingScenes()) return;
         
         player.GetComponent<Player>().freeze();
 
-        sp.setChangingScenes(true);
+        pp.setChangingScenes(true);
 
         //store health
-        sp.setHealth(player.getHealth());
+        pp.setHealth(player.getHealth());
         
 
         //Item[] tempItems = im.getItems();
@@ -111,11 +115,11 @@ public class Scene_Manager : MonoBehaviour
             //itemNames[i] = tempItems[i].getName();
         //}
 
-        sp.setItems(im.getItems());
+        pp.setItems(im.getItems());
 
 
         //set the next scene entrance
-        sp.setEntrance(entranceNo);
+        pp.setEntrance(entranceNo);
 
 
         fadeImage.enabled = true;
@@ -126,13 +130,13 @@ public class Scene_Manager : MonoBehaviour
 
     void setPlayer()
     {
-        player.sceneInitialize(sp.getHealth(), currentEntrance.transform.position, currentEntrance.getURDL());
+        player.sceneInitialize(pp.getHealth(), currentEntrance.transform.position, currentEntrance.getURDL());
     }
 
 
     public int getHealth()
     {
-        return sp.getHealth();
+        return pp.getHealth();
     }
 
     IEnumerator FadeOut(string sceneName)
@@ -198,16 +202,17 @@ public class Scene_Manager : MonoBehaviour
         }
     }
 
-    public string[] getItemNames() { return sp.getItemNames(); }
 
     public Item_Data[] getItemData()
     {
-        return sp.getItemData();
+        return pp.getItemData();
     }
 
     public int[] getItemCounts()
     {
-        return sp.getItemCounts();
+        return pp.getItemCounts();
     }
+
+    public Scene_Persistence getSP() { return sp; }
 
 }

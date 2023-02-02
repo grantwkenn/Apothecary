@@ -20,41 +20,29 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 3407878443122301990, guid: 71798044bd3b7394ba711cc100ce2ccd,
-        type: 3}
+      value: {fileID: 3407878443122301990, guid: 71798044bd3b7394ba711cc100ce2ccd, type: 3}
     - time: 0.05
-      value: {fileID: -5436152817574612970, guid: 71798044bd3b7394ba711cc100ce2ccd,
-        type: 3}
+      value: {fileID: -5436152817574612970, guid: 71798044bd3b7394ba711cc100ce2ccd, type: 3}
     - time: 0.1
-      value: {fileID: -6402868715859609061, guid: 71798044bd3b7394ba711cc100ce2ccd,
-        type: 3}
+      value: {fileID: -6402868715859609061, guid: 71798044bd3b7394ba711cc100ce2ccd, type: 3}
     - time: 0.15
-      value: {fileID: 1799573370345261525, guid: 71798044bd3b7394ba711cc100ce2ccd,
-        type: 3}
+      value: {fileID: 1799573370345261525, guid: 71798044bd3b7394ba711cc100ce2ccd, type: 3}
     - time: 0.2
-      value: {fileID: 1799573370345261525, guid: 71798044bd3b7394ba711cc100ce2ccd,
-        type: 3}
+      value: {fileID: 1799573370345261525, guid: 71798044bd3b7394ba711cc100ce2ccd, type: 3}
     - time: 0.25
-      value: {fileID: -8930287040794804609, guid: 71798044bd3b7394ba711cc100ce2ccd,
-        type: 3}
+      value: {fileID: -8930287040794804609, guid: 71798044bd3b7394ba711cc100ce2ccd, type: 3}
     - time: 0.3
-      value: {fileID: 3109501782971929068, guid: 71798044bd3b7394ba711cc100ce2ccd,
-        type: 3}
+      value: {fileID: 3109501782971929068, guid: 71798044bd3b7394ba711cc100ce2ccd, type: 3}
     - time: 0.35
-      value: {fileID: 8846706296692940512, guid: 71798044bd3b7394ba711cc100ce2ccd,
-        type: 3}
+      value: {fileID: 8846706296692940512, guid: 71798044bd3b7394ba711cc100ce2ccd, type: 3}
     - time: 0.4
-      value: {fileID: 3049128487234322771, guid: 71798044bd3b7394ba711cc100ce2ccd,
-        type: 3}
+      value: {fileID: 3049128487234322771, guid: 71798044bd3b7394ba711cc100ce2ccd, type: 3}
     - time: 0.45
-      value: {fileID: -5683646730242140357, guid: 71798044bd3b7394ba711cc100ce2ccd,
-        type: 3}
+      value: {fileID: -5683646730242140357, guid: 71798044bd3b7394ba711cc100ce2ccd, type: 3}
     - time: 0.5
-      value: {fileID: -2149581602203616527, guid: 71798044bd3b7394ba711cc100ce2ccd,
-        type: 3}
+      value: {fileID: -2149581602203616527, guid: 71798044bd3b7394ba711cc100ce2ccd, type: 3}
     - time: 0.55
-      value: {fileID: -2149581602203616527, guid: 71798044bd3b7394ba711cc100ce2ccd,
-        type: 3}
+      value: {fileID: -2149581602203616527, guid: 71798044bd3b7394ba711cc100ce2ccd, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -112,7 +100,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.25
-    functionName: exposeDirt
+    functionName: dig
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0

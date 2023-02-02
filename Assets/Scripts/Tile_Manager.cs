@@ -24,6 +24,7 @@ public class Tile_Manager : MonoBehaviour
 
     TileBase currentTile;
 
+    [SerializeField]
     TileBase dirt;
 
     ////////////////////////////////////
@@ -57,33 +58,22 @@ public class Tile_Manager : MonoBehaviour
 
     Dictionary<Vector2Int, bool> tilledTiles;
     Dictionary<Vector2Int, bool> wateredTiles;
-    
+
+    Dictionary<Vector2Int, Crop> crops;
+
+    Scene_Persistence sp;
+
     //TODO
     //Dictionary of Vector2Int coords to crop object?
     //Crop object: daysOld, orientation/children, location? 
 
     ////////////////////////////////////////
 
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-
-        //grid = rm.getCurrentGrid();
-
-        //bgMap = grid.transform.Find("Background").GetComponent<Tilemap>();
-
-
-
-
-        //grassTest();
-    }
-
     private void OnEnable()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        sp = this.GetComponent<Scene_Manager>().getSP();
 
         populateGrassDict();
 
@@ -100,6 +90,31 @@ public class Tile_Manager : MonoBehaviour
         }
     }
 
+    // Start is called before the first frame update
+    void Start()
+    {
+
+        //get crops from Scene Persistence
+        foreach(KeyValuePair<Vector2Int, Crop> pair in sp.getCrops())
+        {
+            this.crops.Add(pair.Key, pair.Value);
+        }
+
+        //grid = rm.getCurrentGrid();
+
+        //bgMap = grid.transform.Find("Background").GetComponent<Tilemap>();
+
+
+
+
+        //grassTest();
+    }
+
+
+    void tileAction()
+    {
+
+    }
 
     void checkTransparentTile()
     {
@@ -179,7 +194,7 @@ public class Tile_Manager : MonoBehaviour
 
     }
 
-    public void exposeDirt()
+    public void dig()
     {
         Vector2 target = player.transform.position;
         

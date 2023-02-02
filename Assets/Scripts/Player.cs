@@ -229,6 +229,8 @@ public class Player : MonoBehaviour
         if (!interruptibleState()) return;
         
         currentState = State.shovel;
+
+        //till the current tile
     }
 
     void AnimationUpdate()
@@ -388,11 +390,7 @@ public class Player : MonoBehaviour
 
     public float getVelocity() { return myRigidbody.velocity.magnitude; }
 
-    public void exposeDirt()
-    {
-        tm.exposeDirt();
-    }
-
+    public void dig() { tm.dig(); }
 
     public bool isFacing(Transform transform)
     {
