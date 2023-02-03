@@ -10,7 +10,7 @@ public class LayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        relayer();
+        //relayer();
     }
 
     void relayer()
