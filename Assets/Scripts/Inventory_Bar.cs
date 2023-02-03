@@ -97,7 +97,7 @@ public class Inventory_Bar : MonoBehaviour
 
 
         //Bar Selector Scrolls with Input//////////////////////////////////////////////
-        selector.transform.localPosition = slotPositions[inventoryManager.getSelectionNumber()];
+        selector.transform.localPosition = slotPositions[inventoryManager.getSelectionIndex()];
         ////////////////////////////////////////////////////////////////////////////////
         
         /// WASTEFUL / REDUNDENT??

@@ -105,17 +105,10 @@ public class Scene_Manager : MonoBehaviour
 
         //store health
         pp.setHealth(player.getHealth());
-        
 
-        //Item[] tempItems = im.getItems();
-        //string[] itemNames = new string[tempItems.Length];
+        //Store Inventory Data
+        im.storePersistenceData();
 
-        //for(int i = 0; i<tempItems.Length; i++)
-        //{
-            //itemNames[i] = tempItems[i].getName();
-        //}
-
-        pp.setItems(im.getItems());
 
 
         //set the next scene entrance
@@ -203,15 +196,8 @@ public class Scene_Manager : MonoBehaviour
     }
 
 
-    public Item_Data[] getItemData()
-    {
-        return pp.getItemData();
-    }
-
-    public int[] getItemCounts()
-    {
-        return pp.getItemCounts();
-    }
+    public Player_Persistence getPlayerPersistence() { return this.pp; }
+    
 
     public Scene_Persistence getSP() { return sp; }
 

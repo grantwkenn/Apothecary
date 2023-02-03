@@ -13,6 +13,8 @@ public class Player_Persistence : ScriptableObject
     [SerializeField]
     Item_Data[] items;
 
+    byte invSelection;
+
     [SerializeField]
     int[] itemCounts;
 
@@ -21,9 +23,6 @@ public class Player_Persistence : ScriptableObject
     byte entranceNo;
 
     bool changingScenes;
-
-
-
 
 
     public void setEntrance(byte entranceNo)
@@ -63,6 +62,10 @@ public class Player_Persistence : ScriptableObject
     {
         return this.itemCounts;
     }
+
+    public void setInvSelection(byte sel) { this.invSelection = sel; }
+
+    public byte getInvSelection() { return this.invSelection; }
 
 }
 

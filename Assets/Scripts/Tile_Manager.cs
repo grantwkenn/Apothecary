@@ -22,6 +22,8 @@ public class Tile_Manager : MonoBehaviour
     [SerializeField]
     private Tilemap dirtMap;
 
+    Tilemap diggableTiles;
+
     TileBase currentTile;
 
     [SerializeField]
@@ -75,6 +77,10 @@ public class Tile_Manager : MonoBehaviour
 
         sp = this.GetComponent<Scene_Manager>().getSP();
 
+        Transform diggableT = GameObject.FindGameObjectWithTag("Grid").transform.Find("Diggable");
+        if(diggableT != null)
+            diggableTiles = GameObject.FindGameObjectWithTag("Grid").transform.Find("Diggable").GetComponent<Tilemap>();
+
         populateGrassDict();
 
         Transform grassMap = GameObject.Find("Grid").transform.Find("Grass");
@@ -94,11 +100,7 @@ public class Tile_Manager : MonoBehaviour
     void Start()
     {
 
-        //get crops from Scene Persistence
-        foreach(KeyValuePair<Vector2Int, Crop> pair in sp.getCrops())
-        {
-            this.crops.Add(pair.Key, pair.Value);
-        }
+        scenePersistence();
 
         //grid = rm.getCurrentGrid();
 
@@ -108,6 +110,18 @@ public class Tile_Manager : MonoBehaviour
 
 
         //grassTest();
+    }
+
+    void scenePersistence()
+    {
+        //get crops from Scene Persistence
+        if (sp == null) return;
+
+        foreach (KeyValuePair<Vector2Int, Crop> pair in sp.getCrops())
+        {
+            this.crops.Add(pair.Key, pair.Value);
+        }
+
     }
 
 
@@ -196,6 +210,9 @@ public class Tile_Manager : MonoBehaviour
 
     public void dig()
     {
+        if (dirtMap == null || diggableTiles == null) return;
+        
+        
         Vector2 target = player.transform.position;
         
         int facing = player.getFacing();
@@ -210,7 +227,7 @@ public class Tile_Manager : MonoBehaviour
         targ.x = (int)target.x;
         targ.y = (int)target.y;
 
-
+        //TODO calculate closest instead of rounding
         if(target.x < 0) //round x up
         {
             targ.x -= 1;
@@ -219,15 +236,13 @@ public class Tile_Manager : MonoBehaviour
         {
             targ.y -= 1;
         }
-        
-        
+               
         targ = dirtMap.WorldToCell(targ);
 
-        dirtMap.SetTile(targ, dirt);
+        //Check if there is a valid tile in the diggable tilemap
+        if(diggableTiles.HasTile(targ))
+            dirtMap.SetTile(targ, dirt);
 
-        Debug.Log("player:" + player.transform.position);
-
-        Debug.Log("target:" + targ);
 
     }
 

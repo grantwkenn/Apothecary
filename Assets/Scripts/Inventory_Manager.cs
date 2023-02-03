@@ -9,7 +9,7 @@ public class Inventory_Manager : MonoBehaviour
     Quest_Manager qm;
     Scene_Manager sm;
     Player player;
-
+    Player_Persistence pp;
 
     public Item emptyItem;
 
@@ -35,13 +35,13 @@ public class Inventory_Manager : MonoBehaviour
     Image[] menuImages;
     Image[] barImages;
 
-    int inventorySize = 44;
-    int rowSize = 11;
+    byte inventorySize = 44;
+    byte rowSize = 11;
 
 
     int itemCount = 0;
     int emptyCount;
-    int barSelection = 0;
+    byte barSelection = 0;
     public int menuSelection = 0;
 
     int menuRow = 0;
@@ -71,9 +71,7 @@ public class Inventory_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        //inventorySize = persistenceData.inventorySize;
-
+        //mappings of item catalogue
         allItemData = itemCatalogue.getCatalogue();
         itemData_by_ID = new Dictionary<int, Item_Data>();
         itemData_by_Name = new Dictionary<string, Item_Data>();
@@ -85,26 +83,17 @@ public class Inventory_Manager : MonoBehaviour
             itemData_by_Name.Add(item_data.getName(), item_data);
         }
 
-
+        //This line may change if we have variable bag size
         inventory = new Item[inventorySize];
 
         emptyItem = new Item(allItemData[0], 1);
 
-        //string[] itemNames = sm.getItemNames();
-        //Debug.Log(itemNames.Length);
-        Item_Data[] spItemData = sm.getItemData();
-        int[] spItemCounts = sm.getItemCounts();
-        
-        for (int i = 0; i < inventorySize; i++)
-        {
-            //inventory[i] = emptyItem;
-            //Item_Data id = itemData_by_Name[itemNames[i]];
-            //TODO get accurate quantities instead of 1
-            inventory[i] = new Item(spItemData[i], spItemCounts[i]);
-        }
+        loadPersistenceData();
 
 
-
+        //TODO SETUP INVENTORY MENU AND QUICK BAR UI ELEMENTS.
+        //THIS SHOULD BE HANDLED BY RESPECTIVE UI ELEMENTS
+        // OR A UI MANAGER, NOT INVENTORY MANAGER!
         menuImages = new Image[inventorySize];
 
         //Find the Row Transform groups
@@ -156,6 +145,7 @@ public class Inventory_Manager : MonoBehaviour
 
             }
         }
+        //////////////////////////////////////////////////////////
 
         //Selector Slot
         barSelector = bar.Find("Selection");
@@ -165,6 +155,30 @@ public class Inventory_Manager : MonoBehaviour
 
         emptyCount = inventorySize - itemCount;
 
+    }
+
+
+    void loadPersistenceData()
+    {
+        pp = sm.getPlayerPersistence();
+
+        Item_Data[] ppItemData = pp.getItemData();
+        int[] spItemCounts = pp.getItemCounts();
+
+        for (int i = 0; i < inventorySize; i++)
+        {
+            inventory[i] = new Item(ppItemData[i], spItemCounts[i]);
+        }
+
+    }
+
+
+
+    //TODO maybe this can be done in real time as each item is updated instead of all on scene exit? 
+    public void storePersistenceData()
+    {
+        pp.setItems(inventory);
+        pp.setInvSelection(barSelection);
     }
 
     // Update is called once per frame
@@ -255,13 +269,15 @@ public class Inventory_Manager : MonoBehaviour
         return emptyItem;
     }
 
-    public void toggleSelection(int val)
+    public void toggleSelection(sbyte val)
     {
-        barSelection += val;
-        if (barSelection >= rowSize)
+        int index = barSelection + val;
+        if (index >= rowSize)
             barSelection = 0;
-        else if (barSelection < 0)
-            barSelection = rowSize - 1;
+        else if (index < 0)
+            barSelection = (byte)(rowSize - 1);
+        else
+            barSelection = (byte) index;
     }
 
     public void inputUpdate(Vector2 input)
@@ -301,7 +317,7 @@ public class Inventory_Manager : MonoBehaviour
         menuSelection = (menuRow * numCols) + menuCol;
     }
 
-    public int getSelectionNumber()
+    public byte getSelectionIndex()
     {
         return barSelection;
     }

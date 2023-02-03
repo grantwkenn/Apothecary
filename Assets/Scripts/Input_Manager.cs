@@ -256,8 +256,8 @@ public class Input_Manager : MonoBehaviour
             scrollTimer++;
             if(scrollTimer == 4)
             {
-                if(scrollingDown) invManager.toggleSelection(-1);
-                else if (scrollingUp) invManager.toggleSelection(1);
+                if(scrollingDown) invManager.toggleSelection((sbyte)-1);
+                else if (scrollingUp) invManager.toggleSelection((sbyte)1);
                 scrollTimer = 0;
             }
         }

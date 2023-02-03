@@ -13,6 +13,7 @@ TagManager:
   - Room Trigger
   - HUD
   - Entrance
+  - Grid
   layers:
   - Default
   - TransparentFX
