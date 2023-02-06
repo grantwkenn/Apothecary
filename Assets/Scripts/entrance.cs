@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class entrance : MonoBehaviour
 {
+    [SerializeField]
+    byte entranceNo;
 
-    public byte entranceNo;
-
-    public byte URDL;
+    [SerializeField]
+    byte URDL;
 
     
     // Start is called before the first frame update

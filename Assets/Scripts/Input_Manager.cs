@@ -71,8 +71,8 @@ public class Input_Manager : MonoBehaviour
         controls.Gameplay.Use.performed += context => aButton();
 
         //SPACE / B Button
-        controls.Gameplay.CancelSprint.performed += context => cancelPress();
-        controls.Gameplay.CancelSprint.canceled += context => cancelRelease();
+        controls.Gameplay.CancelSprint.performed += context => bButton();
+        controls.Gameplay.CancelSprint.canceled += context => bRelease();
 
         //ENTER / START Button
         controls.Gameplay.Pause.performed += context => togglePause();
@@ -89,7 +89,10 @@ public class Input_Manager : MonoBehaviour
     void Start()
     {
         inventoryTimer = 0;
+
+
     }
+
 
 
     ////  CONTROLS  ///////////////////////////////
@@ -122,7 +125,7 @@ public class Input_Manager : MonoBehaviour
     }
 
     ////// B
-    void cancelPress()
+    void bButton()
     {
         if(inputState == InputState.inGame)
         {
@@ -130,7 +133,7 @@ public class Input_Manager : MonoBehaviour
         }
 
     }
-    void cancelRelease()
+    void bRelease()
     {
         if (inputState == InputState.inGame)
         {
@@ -164,6 +167,9 @@ public class Input_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
+        
+        
         //Dead Zone Rejection
         if (moveInput.magnitude < 0.1) moveInput = Vector2.zero;
 
@@ -218,7 +224,13 @@ public class Input_Manager : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(inventoryBarWake == true)
+
+
+
+
+
+
+        if (inventoryBarWake == true)
         {
             inventoryTimer++;
             if(inventoryTimer > 150) // 5 seconds at 30Hz

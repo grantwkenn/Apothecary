@@ -170,6 +170,8 @@ public class Inventory_Manager : MonoBehaviour
             inventory[i] = new Item(ppItemData[i], spItemCounts[i]);
         }
 
+        barSelection = pp.getInvSelection();
+
     }
 
 
@@ -378,6 +380,7 @@ public class Inventory_Manager : MonoBehaviour
 
         if (itemName == "Sword") player.executePlayerFn(0);
         if (itemName == "Shovel") player.executePlayerFn(1);
+        if (itemName == "Watering Can") player.executePlayerFn(2);
 
         if (itemName == "Red Potion")
         {

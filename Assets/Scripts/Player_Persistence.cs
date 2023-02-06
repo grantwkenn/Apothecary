@@ -24,6 +24,9 @@ public class Player_Persistence : ScriptableObject
 
     bool changingScenes;
 
+    bool[] questsComplete;
+    List<Quest> questLog;
+
 
     public void setEntrance(byte entranceNo)
     {
@@ -53,6 +56,7 @@ public class Player_Persistence : ScriptableObject
         }
     }
 
+
     public Item_Data[] getItemData()
     {
         return this.items;
@@ -67,6 +71,35 @@ public class Player_Persistence : ScriptableObject
 
     public byte getInvSelection() { return this.invSelection; }
 
+    public void storeQuestData(bool[] questsComplete, List<Quest> questLog)
+    {
+        this.questLog = new List<Quest>();
+        foreach(Quest q in questLog)
+        {
+            this.questLog.Add(q);
+        }
+        this.questsComplete = new bool[questsComplete.Length];
+        for (int b = 0; b < questsComplete.Length; b++)
+        {
+            this.questsComplete[b] = questsComplete[b];
+        }
+    }
+
+
+    public void loadQuestData(ref bool[] _questsComplete, ref List<Quest> _questLog)
+    {
+        _questsComplete = new bool[questsComplete.Length];
+        for(int b = 0; b< questsComplete.Length; b++)
+        {
+            _questsComplete[b] = this.questsComplete[b];
+        }
+
+        _questLog = new List<Quest>();
+        foreach(Quest q in questLog)
+        {
+            _questLog.Add(q);
+        }
+    }
 }
 
 

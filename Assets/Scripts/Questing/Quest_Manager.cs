@@ -12,9 +12,12 @@ public enum QuestGiverState
 
 public class Quest_Manager : MonoBehaviour
 {
+    public bool debugMode;
+    
     //Reference
     Inventory_Manager inventory_Manager;
     Dialogue_Manager dialogueManager;
+    Player_Persistence pp;
 
     
     //list of all Quest Data Scriptable Objects from Assets
@@ -35,7 +38,7 @@ public class Quest_Manager : MonoBehaviour
 
     //To and From Disk on Save
     [SerializeField]
-    private bool[] questsCompletionbyQID;
+    private bool[] questsComplete;
 
 
     Dictionary<int, Quest_Giver> activeQG_By_ID;
@@ -55,6 +58,7 @@ public class Quest_Manager : MonoBehaviour
         //after Game Manager, Inventory Manager
         inventory_Manager = this.GetComponentInParent<Inventory_Manager>();
         dialogueManager = this.GetComponentInParent<Dialogue_Manager>();
+        
         if (inventory_Manager == null) Debug.Log("Inventory Manager Null");
 
         questCount = allQuests.questList.Count;
@@ -104,11 +108,17 @@ public class Quest_Manager : MonoBehaviour
 
     void Start()
     {
-        questsCompletionbyQID = new bool[questCount];
+        //This must wait until after Scene Manager has OnEnabled
+        pp = this.GetComponent<Scene_Manager>().getPlayerPersistence();
+
+        questsComplete = new bool[questCount];
 
 
         //instantiate the quest log, fill with current quests from disk
         questLog = new List<Quest>();
+
+        if(!debugMode || Time.time > 0.1f)
+            loadPersistenceData();
 
         //populate all objective Lists from Quest Log
         foreach (Quest quest in questLog)
@@ -119,6 +129,17 @@ public class Quest_Manager : MonoBehaviour
         }
 
     }
+
+    public void storePersistenceData()
+    {        
+        pp.storeQuestData(questsComplete, questLog);
+    }
+
+    void loadPersistenceData()
+    {
+        pp.loadQuestData(ref questsComplete, ref questLog);
+    }
+
 
     //when a QG activates
     //add to map of active QGs
@@ -362,8 +383,8 @@ public class Quest_Manager : MonoBehaviour
 
                 removeFromLog(quest);
 
-                
-                questsCompletionbyQID[qd.getQuestID()] = true;
+
+                questsComplete[qd.getQuestID()] = true;
 
                 int starterID = quest.getData().getQuestGiverID();
 
@@ -554,7 +575,7 @@ public class Quest_Manager : MonoBehaviour
 
     bool isAvailable(int QID)
     {
-        if (questsCompletionbyQID[QID]) return false;
+        if (questsComplete[QID]) return false;
         
         Quest_Data data = questDataByQID[QID];
         int[] preQuests = data.getPreQuests();
@@ -563,7 +584,7 @@ public class Quest_Manager : MonoBehaviour
         
         foreach(int preQuest in preQuests)
         {
-            if (!questsCompletionbyQID[preQuest]) return false;
+            if (!questsComplete[preQuest]) return false;
         }
         
         return true;

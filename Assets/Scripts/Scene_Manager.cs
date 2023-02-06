@@ -14,6 +14,7 @@ public class Scene_Manager : MonoBehaviour
 
     Player player;
     Inventory_Manager im;
+    Quest_Manager qm;
 
     entrance currentEntrance;
 
@@ -29,14 +30,21 @@ public class Scene_Manager : MonoBehaviour
 
     //public bool manageLayers;
 
+    private void OnEnable()
+    {
+        pp = Resources.Load<Player_Persistence>("Player Persistence");
+        qm = this.GetComponent<Quest_Manager>();
+        im = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Inventory_Manager>();
+
+        if (sp != null)
+            sp.initialize();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-
-        pp = Resources.Load<Player_Persistence>("Player Persistence");
-
-        im = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Inventory_Manager>();
+       
 
         fadeImage = GameObject.FindGameObjectWithTag("HUD").transform.Find("Fade").GetComponent<Image>();
 
@@ -48,6 +56,8 @@ public class Scene_Manager : MonoBehaviour
         }
 
 
+
+
         //player.GetComponent<Player>().unfreeze();
 
         //set character position from SO
@@ -55,6 +65,7 @@ public class Scene_Manager : MonoBehaviour
 
         //find object of name in entrance SO variable
 
+        //TODO is this needed anymore?
         if(Time.time < 0.1f)
         {
             pp.setChangingScenes(false);
@@ -86,7 +97,11 @@ public class Scene_Manager : MonoBehaviour
         }
         if (currentEntrance == null) Debug.Log("Error: No Scene Entrance Found");
 
-        setPlayer();
+        
+        
+        //setPlayer();
+
+
 
         pp.setChangingScenes(false);
 
@@ -94,6 +109,9 @@ public class Scene_Manager : MonoBehaviour
 
 
     }
+
+
+
 
     public void exitScene(string targetSceneName, byte entranceNo)
     {        
@@ -103,13 +121,18 @@ public class Scene_Manager : MonoBehaviour
 
         pp.setChangingScenes(true);
 
+        
         //store health
         pp.setHealth(player.getHealth());
 
         //Store Inventory Data
         im.storePersistenceData();
 
+        //Store Quest Data
+        qm.storePersistenceData();
 
+        if(sp != null)
+            sp.exitScene();
 
         //set the next scene entrance
         pp.setEntrance(entranceNo);
@@ -121,10 +144,11 @@ public class Scene_Manager : MonoBehaviour
 
     }
 
-    void setPlayer()
+    public entrance getEntrance()
     {
-        player.sceneInitialize(pp.getHealth(), currentEntrance.transform.position, currentEntrance.getURDL());
+        return this.currentEntrance;
     }
+
 
 
     public int getHealth()

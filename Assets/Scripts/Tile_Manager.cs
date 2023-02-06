@@ -11,6 +11,8 @@ using System;
 [ExecuteInEditMode]
 public class Tile_Manager : MonoBehaviour
 {
+    public bool debugMode;
+    
     Player player;
     //RoomManager rm;
 
@@ -96,30 +98,57 @@ public class Tile_Manager : MonoBehaviour
         }
     }
 
+    public void waterTile()
+    {
+        //Find this tile
+        //TODO need to do proper rounding of tile instead of int cast
+        Vector3Int playerLoc = dirtMap.WorldToCell(player.transform.position);
+        if(dirtMap.HasTile(playerLoc))
+        {
+            dirtMap.SetTile(playerLoc, null);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-
-        scenePersistence();
+        this.crops = new Dictionary<Vector2Int, Crop>();
+        
+        
+        if(!debugMode || Time.time > 0.1f)
+            loadScenePersistence();
 
         //grid = rm.getCurrentGrid();
 
         //bgMap = grid.transform.Find("Background").GetComponent<Tilemap>();
 
 
-
+        
 
         //grassTest();
     }
 
-    void scenePersistence()
+    void loadScenePersistence()
     {
         //get crops from Scene Persistence
         if (sp == null) return;
 
-        foreach (KeyValuePair<Vector2Int, Crop> pair in sp.getCrops())
+        if(sp.getCrops() != null)
         {
-            this.crops.Add(pair.Key, pair.Value);
+            foreach (KeyValuePair<Vector2Int, Crop> pair in sp.getCrops())
+            {
+                this.crops.Add(pair.Key, pair.Value);
+            }
+        }
+
+        if (dirtMap == null) return;
+
+        //get all dug Tiles
+        foreach(Vector2Int point in sp.getDugTiles())
+        {
+            //place a dirt tile onto the map here
+            dirtMap.SetTile((Vector3Int)point, dirt);
+
         }
 
     }
@@ -241,7 +270,13 @@ public class Tile_Manager : MonoBehaviour
 
         //Check if there is a valid tile in the diggable tilemap
         if(diggableTiles.HasTile(targ))
+        {
             dirtMap.SetTile(targ, dirt);
+
+            //save to the persistence scriptable object
+            sp.setDugTile(new Vector2Int(targ.x, targ.y));
+        }
+            
 
 
     }

@@ -24,7 +24,6 @@ public class Player : MonoBehaviour
     Text_Manager textManager;
     Scene_Manager sm;
 
-
     [SerializeField]
     protected float baseSpeed;
     [SerializeField]
@@ -104,6 +103,11 @@ public class Player : MonoBehaviour
 
     }
 
+    private void OnEnable()
+    {
+        speed = baseSpeed;
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -126,7 +130,7 @@ public class Player : MonoBehaviour
         //directionFacing = Vector2.down;
         //facing = 2;
 
-        speed = baseSpeed;
+        
 
         invManager = gm.GetComponent<Inventory_Manager>();
 
@@ -143,7 +147,11 @@ public class Player : MonoBehaviour
 
         stairYcomponent = new Vector2(0,0);
 
+        Player_Persistence pp = sm.getPlayerPersistence();
 
+        this.transform.position = sm.getEntrance().transform.position;
+        this.facing = sm.getEntrance().getURDL();
+        this.health = sm.getPlayerPersistence().getHealth();
 
     }
 
@@ -203,6 +211,7 @@ public class Player : MonoBehaviour
     {
         if (code == 0) Sword();
         if (code == 1) Shovel();
+        if (code == 2) water();
     }
 
     public void heal(byte hp)
@@ -211,8 +220,11 @@ public class Player : MonoBehaviour
         if (health > MAX_HEALTH)
             health = MAX_HEALTH;
     }
-                
 
+    void water()
+    {
+        tm.waterTile();
+    }
 
     void Sword()
     {
@@ -229,8 +241,6 @@ public class Player : MonoBehaviour
         if (!interruptibleState()) return;
         
         currentState = State.shovel;
-
-        //till the current tile
     }
 
     void AnimationUpdate()
@@ -429,13 +439,6 @@ public class Player : MonoBehaviour
         colliderBottomRight.x = this.transform.position.x + (bc.size.x / 2f) + bc.offset.x;
         colliderBottomRight.y = this.transform.position.y + (bc.size.y / 2f) + bc.offset.y;
         return colliderBottomRight;
-    }
-
-    public void sceneInitialize(int health, Vector2 pos, byte URDL)
-    {
-        this.health = health;
-        this.transform.position = pos;
-        this.facing = URDL;
     }
 
     public void setStairSlope(float co) { this.stairSlope = co; }
