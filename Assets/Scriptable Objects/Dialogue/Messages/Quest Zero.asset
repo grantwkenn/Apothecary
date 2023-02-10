@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92cba9464d756c9418e409f196fa034e, type: 3}
+  m_Name: Quest Zero
+  m_EditorClassIdentifier: 
+  messageSegments:
+  - Hey there,
+  - Can you help me find my wallet?
+  - Here, Take this shovel
+  itemsToDeliver:
+  - {fileID: 11400000, guid: 22523e0a22b44c94f8660ce0908ecd8e, type: 2}
+  nextMessage:
+  - {fileID: 11400000, guid: 17632385da4b8804386792fc9f4d7278, type: 2}
+  - {fileID: 11400000, guid: 7d15f2f456057494ebec7c191c194e95, type: 2}

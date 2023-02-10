@@ -59,7 +59,7 @@ public class Dialogue_Manager : MonoBehaviour
         if (!currentMessager.hasNextSegment())
         {
             textManager.deactivateTextBox();
-            messageTerminated();           
+            messageTerminated();
         }
         
         else
@@ -100,6 +100,9 @@ public class Dialogue_Manager : MonoBehaviour
 
     public void messageTerminated()
     {        
+
+        //check to open up a menu (shop, trade, etc)
+        if(currentMessager)
 
 
         //what is this for?

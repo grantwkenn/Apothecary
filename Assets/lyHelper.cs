@@ -12,7 +12,7 @@ public class lyHelper : MonoBehaviour
 
     public Transform layerParent;
 
-    Transform _transform;
+    Transform t;
     BoxCollider2D bc;
 
     float offset = 0;
@@ -36,7 +36,7 @@ public class lyHelper : MonoBehaviour
 
 
 
-    
+    Vector3 temp;
 
 
 
@@ -77,11 +77,15 @@ public class lyHelper : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        temp = new Vector3();
+    }
 
     private void OnEnable()
     {
 
-        _transform = this.GetComponent<Transform>();
+        t = this.GetComponent<Transform>();
 
         bc = this.GetComponent<BoxCollider2D>();
         sr = this.GetComponent<SpriteRenderer>();
@@ -104,12 +108,11 @@ public class lyHelper : MonoBehaviour
 
     void updateLayer()
     {
-        Vector3 position = _transform.position;
-        position.z = position.y + offset;
-        _transform.position = position;
+        temp = t.position;
+        temp.z = temp.y + offset;
+        t.position = temp;
 
-
-        int order = 4096 - (int)(_transform.position.z * 16);
+        int order = 4096 - (int)(t.position.z * 16);
         
         sr.sortingOrder = order;
 
@@ -117,9 +120,9 @@ public class lyHelper : MonoBehaviour
 
     public static void layerManHelper(SpriteRenderer sr)
     {
-        Vector3 position = sr.transform.position;
-        position.z = position.y;
-        sr.transform.position = position;
+        Vector3 pos = sr.transform.position;
+        pos.z = pos.y;
+        sr.transform.position = pos;
 
         int order = 4096 - (int)(sr.transform.position.z * 16);
 

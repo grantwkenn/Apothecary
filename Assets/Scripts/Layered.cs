@@ -13,7 +13,7 @@ public class Layered : MonoBehaviour
 
     public Transform layerParent;
 
-    Transform _transform;
+    Transform t;
     BoxCollider2D bc; 
 
     float offset = 0;
@@ -36,11 +36,13 @@ public class Layered : MonoBehaviour
 
     public bool fromParent;
 
+    Vector3 temp;
+
 
     private void OnEnable()
     {
-        
-        _transform = this.GetComponent<Transform>();
+
+        t = this.GetComponent<Transform>();
 
         bc = this.GetComponent<BoxCollider2D>();
         sr = this.GetComponent<SpriteRenderer>();
@@ -68,61 +70,45 @@ public class Layered : MonoBehaviour
         //adjust the z location (layering) according to y + offset
         //_transform.position = new Vector3(_transform.position.x, _transform.position.y, _transform.position.y + offset);
 
-        setLevel();
         updateLayer();
 
+        //TODO this will be deleted because this script will only apply to dynamic movers
         if (!dynamic)
             this.enabled = false;
     }
 
     void Start()
     {
-
+        
+        
 
     }
 
     private void Update()
     {
-        if (lastPosition != _transform.position)
+
+        if (!t.position.Equals(lastPosition))
         {
-            updateLayer();          
+            updateLayer();
         }
-      
+
+        //update last position
+        lastPosition = transform.position;
     }
 
-    void setLevel()
+
+    public void updateLayer()
     {
-        sr.sortingLayerName = "" + level + " Object";
-
-        if (!cascadeLevel) return;
-
-        foreach(SpriteRenderer s in children)
-        {
-            s.sortingLayerName = "" + level + " Object";
-
-            //this is a work-around to match the Layered property level with sprite level.
-            //could be better implementation but works for now
-            Layered ly = s.GetComponent<Layered>();
-            if (ly != null) ly.level = level;
-
-            
-        }
-    }
-
-    void updateLayer()
-    {
-        
-        int order = 4096 - (int)(_transform.position.z * 16);
+        temp = t.position;
+        temp.z = temp.y + offset;
+        t.position = temp;
 
 
-        if (sr != null)
-            sr.sortingOrder = order;
+        int order = 4096 - (int)(t.position.z * 16);
 
-        //USED FOR DYNAMIC OBJECTS
-        //update z and previous location
-        lastPosition = _transform.position;
-        lastPosition.z = lastPosition.y + offset;
-        _transform.position = lastPosition;
+
+        sr.sortingOrder = order;
+
     }
 
 

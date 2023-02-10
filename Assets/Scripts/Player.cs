@@ -81,7 +81,7 @@ public class Player : MonoBehaviour
     string[] shovel = { "Shovel_Up", "Shovel_Right", "Shovel_Down", "Shovel_Left" };
     string[] run = { "Run_UP_V2", "Run_Right_V2", "Run_Down_V2", "Run_Left_V2" };
     string[] idle = { "Idle_UP_V2", "Idle_Right_V2", "Idle_Down_V2", "Idle_Left_V2" };
-    string[] sword = { "sword_up", "sword_right", "sword_down", "sword_left" };
+    string[] sword = { "sword_up", "sword_right", "Sword_D", "sword_left" };
 
     Vector2 knockImpulse;
 
@@ -105,13 +105,6 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        speed = baseSpeed;
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
         gm = GameObject.FindGameObjectWithTag("GameManager");
         pm = gm.GetComponent<Pause_Manager>();
         tm = gm.GetComponent<Tile_Manager>();
@@ -119,52 +112,58 @@ public class Player : MonoBehaviour
         sm = gm.GetComponent<Scene_Manager>();
         bc = this.GetComponent<BoxCollider2D>();
 
-
-        //this is to ensure the player cannot respond to input until 
-        //the Scene Manager relinquishes and unfreezes player after Fade in
-        freeze();
-
         animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
-
-        //directionFacing = Vector2.down;
-        //facing = 2;
-
-        
-
         invManager = gm.GetComponent<Inventory_Manager>();
+        spriteRenderer = this.GetComponent<SpriteRenderer>();
+        audioSource = this.GetComponent<AudioSource>();
 
-        health = sm.getHealth();
+        stairYcomponent = new Vector2(0, 0);
+
+        speed = baseSpeed;
+
+        freeze();
+    }
+
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        //SCENE MANAGER must be enabled?
+        Player_Persistence pp = sm.getPlayerPersistence();
+
+
         mana = MAX_MANA;
         mana = 0;
         manaRegenCounter = 0;
 
-        //currentState = State.idle;
 
-        spriteRenderer = this.GetComponent<SpriteRenderer>();
 
-        audioSource = this.GetComponent<AudioSource>();
+        loadPersistenceData();
 
-        stairYcomponent = new Vector2(0,0);
 
-        Player_Persistence pp = sm.getPlayerPersistence();
+    }
 
+
+
+    void loadPersistenceData()
+    {       
         this.transform.position = sm.getEntrance().transform.position;
         this.facing = sm.getEntrance().getURDL();
         this.health = sm.getPlayerPersistence().getHealth();
 
     }
 
-
-
     public void freeze()
     {       
         currentState = State.freeze;
+        Debug.Log("Freeze at: " + Time.time);
     }
 
     public void unfreeze()
     {
         currentState = State.idle;
+        Debug.Log("Un-freeze at: " + Time.time);
     }
 
     public void setDirectionFacing(Vector2 direction)
@@ -427,19 +426,6 @@ public class Player : MonoBehaviour
         audioSource.Play();
     }
 
-    public Vector2 getColliderBottomLeft()
-    {
-        colliderBottomLeft.x = this.transform.position.x - (bc.size.x / 2f) + bc.offset.x;
-        colliderBottomLeft.y = this.transform.position.y - (bc.size.y / 2f) + bc.offset.y;
-        return colliderBottomLeft;
-    }
-
-    public Vector2 getColliderBottomRight()
-    {
-        colliderBottomRight.x = this.transform.position.x + (bc.size.x / 2f) + bc.offset.x;
-        colliderBottomRight.y = this.transform.position.y + (bc.size.y / 2f) + bc.offset.y;
-        return colliderBottomRight;
-    }
 
     public void setStairSlope(float co) { this.stairSlope = co; }
 

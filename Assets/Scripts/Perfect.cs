@@ -103,12 +103,37 @@ public class Perfect : MonoBehaviour
 
     float sixteenths(float input)
     {
-        if((input * 16) > (((int) (input * 16)) + 0.5f))
-            return ((int)(input * 16) + 1) / 16.0f;
+        float px = input * 16;
 
+        if(input < 0)
+        {
+            int floor = (int)px;
+            int roof = ((int)px) - 1;
 
-        return ((int)(input * 16)) / 16.0f;
+            //which one is closer?
+            if(px < (floor - 0.5f))
+            {
+                return roof / 16.0f;
+            }
+            return floor / 16.0f;
+
+        }
+
+        else
+        {
+            int floor = (int)px;
+            int roof = ((int)px) + 1;
+
+            //which one is closer?
+            if (px > (floor + 0.5f))
+            {
+                return roof / 16.0f;
+            }
+            return floor / 16.0f;
+        }
     }
+
+
 
     float thirtiseconds(float input)
     {

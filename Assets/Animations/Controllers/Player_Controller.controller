@@ -1025,9 +1025,6 @@ AnimatorStateMachine:
     m_State: {fileID: 4933630997693830773}
     m_Position: {x: 790, y: 470, z: 0}
   - serializedVersion: 1
-    m_State: {fileID: 9169543232655485419}
-    m_Position: {x: 1010, y: 370, z: 0}
-  - serializedVersion: 1
     m_State: {fileID: -3486985159842655936}
     m_Position: {x: 1010, y: 320, z: 0}
   - serializedVersion: 1
@@ -1072,6 +1069,9 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 8359654255431726803}
     m_Position: {x: 1670, y: 420, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: 73454734348034556}
+    m_Position: {x: 1010, y: 370, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
@@ -1542,6 +1542,32 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
+--- !u!1102 &73454734348034556
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Sword_D
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: 8da033a7912682248a66c081ebd209f8, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &246549425723933656
 AnimatorState:
   serializedVersion: 6
@@ -2709,32 +2735,6 @@ AnimatorState:
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
   m_Motion: {fileID: 7400000, guid: 33ce67d277c08fc42b68fba51cc40e7d, type: 2}
-  m_Tag: 
-  m_SpeedParameter: 
-  m_MirrorParameter: 
-  m_CycleOffsetParameter: 
-  m_TimeParameter: 
---- !u!1102 &9169543232655485419
-AnimatorState:
-  serializedVersion: 6
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: sword_down
-  m_Speed: 1
-  m_CycleOffset: 0
-  m_Transitions: []
-  m_StateMachineBehaviours: []
-  m_Position: {x: 50, y: 50, z: 0}
-  m_IKOnFeet: 0
-  m_WriteDefaultValues: 1
-  m_Mirror: 0
-  m_SpeedParameterActive: 0
-  m_MirrorParameterActive: 0
-  m_CycleOffsetParameterActive: 0
-  m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9b50ec1f1f3669046980a86faf2dff80, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

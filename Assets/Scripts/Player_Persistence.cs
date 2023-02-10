@@ -20,6 +20,7 @@ public class Player_Persistence : ScriptableObject
 
     byte inventorySize;
 
+    [SerializeField]
     byte entranceNo;
 
     bool changingScenes;

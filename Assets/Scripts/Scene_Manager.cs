@@ -15,49 +15,93 @@ public class Scene_Manager : MonoBehaviour
     Player player;
     Inventory_Manager im;
     Quest_Manager qm;
+    Input_Manager inputMan;
 
     entrance currentEntrance;
+    public entrance defaultEntrance;
 
     Image fadeImage;
 
-    float fadeInSeconds = 0.2f;
-    float fadeOutSeconds = 0.2f;
-    int fadeSteps = 12;
+
+
+    //consider 30fps
+    float fadeInSeconds = 0.9f;
+    float fadeOutSeconds = 0.4f;
+    int fadeSteps = 20;
 
     bool fadingOut = false;
+    bool fadingIn = false;
+    Color fade;
 
     string[] sortingLayers;
 
+    string targetSceneName;
+
+
     //public bool manageLayers;
+
 
     private void OnEnable()
     {
         pp = Resources.Load<Player_Persistence>("Player Persistence");
         qm = this.GetComponent<Quest_Manager>();
         im = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Inventory_Manager>();
-
-        if (sp != null)
-            sp.initialize();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-       
+        inputMan = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Input_Manager>();
 
         fadeImage = GameObject.FindGameObjectWithTag("HUD").transform.Find("Fade").GetComponent<Image>();
 
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        fade = new Color(0, 0, 0, 0);
+
+        if (sp != null)
+            sp.initialize();
+
         sortingLayers = new string[SortingLayer.layers.Length];
 
-        foreach(SortingLayer layer in SortingLayer.layers)
+        foreach (SortingLayer layer in SortingLayer.layers)
         {
             sortingLayers[SortingLayer.GetLayerValueFromID(layer.id)] = layer.name;
         }
 
+        if (Time.time < 0.1f)
+        {
+            pp.setChangingScenes(false);
+        }
+
+        //Find the Entrance to this scene which was set by previous scene's exit
+        currentEntrance = null;
+        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Entrance"))
+        {
+            entrance ent = go.GetComponent<entrance>();
+            if (ent.getEntranceNo() == pp.getEntranceNo())
+            {
+                currentEntrance = ent;
+                break;
+            }
+        }
+        if (currentEntrance == null)
+        {
+            Debug.Log("Error: No Scene Entrance Found");
+            currentEntrance = defaultEntrance;
+            if(defaultEntrance == null)
+                Debug.Log("Error: No Default Entrance Set");
+        }
+
+        if (pp.isChangingScenes())
+            enterScene();
+
+        pp.setChangingScenes(false);
+
+        setFadeIn();
+
+    }
 
 
-
+    // Start is called before the first frame update
+    void Start()
+    {
+        
         //player.GetComponent<Player>().unfreeze();
 
         //set character position from SO
@@ -66,48 +110,19 @@ public class Scene_Manager : MonoBehaviour
         //find object of name in entrance SO variable
 
         //TODO is this needed anymore?
-        if(Time.time < 0.1f)
-        {
-            pp.setChangingScenes(false);
-        }
-
-
-        if (pp.isChangingScenes())
-            enterScene();
 
 
 
-        fadeIn();
 
     }
 
     void enterScene()
     {
-        //player.GetComponent<Player>().freeze();
+        //Implement a default entrance per scene
 
-        //Find the Entrance to this scene which was set by previous scene's exit
-        currentEntrance = null;
-        foreach (GameObject go in GameObject.FindGameObjectsWithTag("Entrance"))
-        {
-            entrance e = go.GetComponent<entrance>();
-            if (e.getEntranceNo() == pp.getEntranceNo())
-            {
-                currentEntrance = e;
-            }
-        }
-        if (currentEntrance == null) Debug.Log("Error: No Scene Entrance Found");
+
 
         
-        
-        //setPlayer();
-
-
-
-        pp.setChangingScenes(false);
-
-        //player.GetComponent<Player>().unfreeze();
-
-
     }
 
 
@@ -138,10 +153,17 @@ public class Scene_Manager : MonoBehaviour
         pp.setEntrance(entranceNo);
 
 
+        setFadingOut();
+        this.targetSceneName = targetSceneName;
+
+    }
+
+    void setFadingOut()
+    {
         fadeImage.enabled = true;
         fadingOut = true;
-        StartCoroutine(FadeOut(targetSceneName));
-
+        fade.a = 0;
+        fadeImage.color = fade;
     }
 
     public entrance getEntrance()
@@ -156,55 +178,59 @@ public class Scene_Manager : MonoBehaviour
         return pp.getHealth();
     }
 
-    IEnumerator FadeOut(string sceneName)
-    {   
-
-        while (fadeImage.color.a < 1)
-        {
-            fadeImage.color = new Color(0, 0, 0, fadeImage.color.a + (1f / fadeSteps));
-            yield return new WaitForSeconds(fadeOutSeconds / fadeSteps);
-            //yield return null;
-        }
-
-        fadeImage.color = new Color(0, 0, 0, 1);
-
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-    }
-
-
-    IEnumerator FadeIn()
+    private void FixedUpdate()
     {
-        //Fade screen back in
-
-
-
-        //wait for Fade to Black to Complete
-        //If we decide to change scenes (fade out) while still fading in, cancel the fade in
-        while (fadeImage.color.a > 0 && !fadingOut)
+        if(fadingOut)
         {
-            // This allows player to respond to input after the Fade is almost complete, 
-            // Better responsiveness of input
-            if (fadeImage.color.a < 0.75f) player.unfreeze();
-
-            fadeImage.color = new Color(0, 0, 0, fadeImage.color.a - (1f / fadeSteps));
-            yield return new WaitForSeconds(fadeInSeconds / fadeSteps);
-            //yield return null;
+            fade = fadeImage.color;
+            if(fade.a < 1)
+            {
+                fade.a += 1f/fadeSteps;
+                fadeImage.color = fade;
+            }
+            else
+            {
+                fade.a = 1;
+                fadeImage.color = fade;
+                SceneManager.LoadScene(targetSceneName, LoadSceneMode.Single);
+                //End of Fade Out Sequence
+            }
         }
-        if (fadingOut) yield break;
 
+        else if(fadingIn)
+        {
+            fade = fadeImage.color;
+            if(fade.a > 0)
+            {
+                fade.a -= 1f / fadeSteps;
+                fadeImage.color = fade;
+                if (fade.a < 0.5f) player.unfreeze();
 
-        fadeImage.color = new Color(0, 0, 0, 0);
-        fadeImage.enabled = false;
-
-        player.unfreeze();
-        
+                if (fade.a < 0.5f && inputMan.getInputState() == InputState.ignoreInput)
+                {
+                    inputMan.setInputState(InputState.inGame);
+                    player.unfreeze();
+                }
+                    
+            }
+            else
+            {
+                fade.a = 0;
+                fadeImage.color = fade;
+                fadeImage.enabled = false;
+                this.fadingIn = false;
+                //End of Fade In Sequence
+            }
+        }
     }
 
-    void fadeIn()
+    void setFadeIn()
     {
         fadeImage.enabled = true;
-        fadeImage.color = new Color(0, 0, 0, 1);
-        StartCoroutine(FadeIn());
+        fade.a = 1;
+        fadeImage.color = fade;
+
+        this.fadingIn = true;
 
     }
 

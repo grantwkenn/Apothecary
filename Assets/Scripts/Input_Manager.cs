@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-enum InputState { inGame, paused }
+public enum InputState { inGame, paused, ignoreInput }
 
 public class Input_Manager : MonoBehaviour
 {
@@ -82,7 +82,7 @@ public class Input_Manager : MonoBehaviour
 
         direction = new Vector2();
 
-        inputState = InputState.inGame;
+        inputState = InputState.ignoreInput;
 
     }
 
@@ -297,4 +297,7 @@ public class Input_Manager : MonoBehaviour
 
     public Vector2 readInput() { return moveInput; }
 
+    public void setInputState(InputState state) { this.inputState = state; }
+
+    public InputState getInputState() { return this.inputState; }
 }
