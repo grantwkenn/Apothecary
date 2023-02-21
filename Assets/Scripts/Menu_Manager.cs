@@ -1,15 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Menu_Manager : MonoBehaviour
 {
     byte selectedTab;
-
-    GameObject[] MenuTabs;
     
     Input_Manager im;
     Inventory_Manager invMan;
+
+    GameObject[] pauseMenuTabs;
 
     [SerializeField]
     GameObject pauseMenu;
@@ -26,21 +27,28 @@ public class Menu_Manager : MonoBehaviour
     
     Transform canvas;
 
+    Transform menuSelector;
+    Image[] menuImages;
+
     private void OnEnable()
     {
         im = this.GetComponent<Input_Manager>();
         invMan = this.GetComponent<Inventory_Manager>();
 
-        MenuTabs = new GameObject[2];
+        pauseMenuTabs = new GameObject[2];
         invMenu = pauseMenu.transform.Find("Inventory Menu").gameObject;
-        questLog = pauseMenu.transform.Find("Quest Log").gameObject;
+        questLog = pauseMenu.transform.Find("Quest Log Menu").gameObject;
 
-        MenuTabs[0] = invMenu;
-        MenuTabs[1] = questLog;
+        pauseMenuTabs[0] = invMenu;
+        pauseMenuTabs[1] = questLog;
+
+        menuSelector = invMenu.transform.Find("Selection");
 
         selectedTab = 0;
 
     }
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -65,57 +73,64 @@ public class Menu_Manager : MonoBehaviour
 
     public void loadShopMenu(byte shopId)
     {
-        currentMenu = Instantiate(storeMenus[shopId], canvas);
-        currentMenu.SetActive(true);
-
-        //change input schema
-
-        im.enableMenuInput();
         Time.timeScale = 0;
+        im.enableMenuInput();
+
+        currentMenu = Instantiate(storeMenus[shopId], canvas);
+        currentMenu.SetActive(true);      
+        
     }
 
     public void closeMenu()
-    {
-        Time.timeScale = 1;
-        currentMenu.SetActive(false);
-        Object.Destroy(currentMenu);
+    {  
+        
+
+        if(!currentMenu.CompareTag("Pause Tab"))
+            Object.Destroy(currentMenu);
+        else
+        {
+            currentMenu.SetActive(false);
+            pauseMenu.SetActive(false);     
+        }
+            
+
         currentMenu = null;
 
-        im.enableGameplay();
+        Time.timeScale = 1f;
+
     }
 
 
     public void handleInput(direction urdl)
     {
-
+        //TODO change this to a current menu variable to include other menus
+        pauseMenuTabs[selectedTab].GetComponent<Menu>().handleInput(urdl);
     }
 
     public void pauseGame()
     {
+        Time.timeScale = 0f;
+
+        currentMenu = pauseMenuTabs[selectedTab];
         pauseMenu.SetActive(true);
-        MenuTabs[selectedTab].SetActive(true);
+        currentMenu.SetActive(true);
     }
 
-    public void resumeGame()
-    {
-        pauseMenu.SetActive(false);
-        MenuTabs[selectedTab].SetActive(false);
-    }
 
     public void incrementTab(sbyte value)
     {
-        
-        MenuTabs[selectedTab].SetActive(false);
+
+        pauseMenuTabs[selectedTab].SetActive(false);
         
         int sel = selectedTab + value;
         selectedTab = (byte)(selectedTab + value);
 
-        if (sel >= MenuTabs.Length)
+        if (sel >= pauseMenuTabs.Length)
             selectedTab = 0;
         if (sel < 0)
-            selectedTab = (byte)(MenuTabs.Length - 1);
+            selectedTab = (byte)(pauseMenuTabs.Length - 1);
 
 
-        MenuTabs[selectedTab].SetActive(true);
+        pauseMenuTabs[selectedTab].SetActive(true);
     }
 }

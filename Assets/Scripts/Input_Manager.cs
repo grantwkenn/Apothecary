@@ -32,8 +32,6 @@ public class Input_Manager : MonoBehaviour
     Vector2 direction;
 
 
-
-
     private void Awake()
     {
         GameObject gm = GameObject.FindGameObjectWithTag("GameManager");
@@ -80,7 +78,7 @@ public class Input_Manager : MonoBehaviour
 
         //ENTER / START Button
         controls.Gameplay.Pause.performed += context => pauseGame();
-        controls.Menus.Start.performed += context => resumeGame();
+        controls.Menus.Start.performed += context => closeMenu();
 
         //Z Key
         controls.Gameplay.Zoom.performed += context => toggleZoom();
@@ -111,22 +109,14 @@ public class Input_Manager : MonoBehaviour
         controls.Gameplay.Disable();
         controls.Menus.Enable();
 
-        Time.timeScale = 0f;
-
     }
 
-    void resumeGame()
+    void closeMenu()
     {
-        menuManager.resumeGame();
+        menuManager.closeMenu();
         controls.Menus.Disable();
         controls.Gameplay.Enable();
 
-        Time.timeScale = 1f;
-    }
-
-    void menuInput(byte URDL)
-    {
-        
     }
 
     ////// A
@@ -239,11 +229,6 @@ public class Input_Manager : MonoBehaviour
     {
         controls.Gameplay.Disable();
         controls.Menus.Enable();
-    }
-
-    public void closeMenu()
-    {
-        menuManager.closeMenu();
     }
 
     public void enableGameplay()

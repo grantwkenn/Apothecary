@@ -69,6 +69,9 @@ public class Tile_Manager : MonoBehaviour
 
     public GameObject selection_hilight;
 
+    Vector3Int targetTile;
+    Vector3Int cellTarget;
+
     //TODO
     //Dictionary of Vector2Int coords to crop object?
     //Crop object: daysOld, orientation/children, location? 
@@ -237,9 +240,6 @@ public class Tile_Manager : MonoBehaviour
     }
 
 
-
-
-
     // Update is called once per frame
     void Update()
     {
@@ -248,37 +248,43 @@ public class Tile_Manager : MonoBehaviour
 
         //check for grass tile
 
-        Vector2 target = player.transform.position;
-        Vector3Int targ = new Vector3Int(0, 0, 0);
-        targ.x = (int)target.x;
-        targ.y = (int)target.y;
+        targetTile = new Vector3Int((int)player.transform.position.x, (int)player.transform.position.y, 0);
 
         int facing = player.getFacing();
         if(facing == 0)
         {
-            targ.y += 1;
+            double distance = (targetTile.y + 1.25f) - player.transform.position.y;
+            
+            if(distance < 1)
+                targetTile.y += 1;
         }
         else if (facing == 1)
         {
-            targ.x += 1;
+            double distance = (targetTile.x + 1.25f) - player.transform.position.x;
+
+            if (distance < 1)
+                targetTile.x += 1;
         }
         else if (facing == 2)
         {
-            targ.y -= 1;
+            double distance = player.transform.position.y - (targetTile.y - 0.25f);
+
+            if (distance < 1)
+                targetTile.y -= 1;
         }
         else if (facing == 3)
         {
-            targ.x -= 1;
+            double distance = player.transform.position.x - (targetTile.x - 0.25f);
+
+            if (distance < 1)
+                targetTile.x -= 1;
         }
 
 
-
-        //targ = dirtMap.WorldToCell(targ);
-
         //Check if there is a valid tile in the diggable tilemap
-        if (tillableTiles.HasTile(targ))
+        if (tillableTiles.HasTile(targetTile))
         {
-            selection_hilight.transform.position = targ;
+            selection_hilight.transform.position = targetTile;
             selection_hilight.SetActive(true);
         }
         else
@@ -290,40 +296,15 @@ public class Tile_Manager : MonoBehaviour
     {
         if (dirtMap == null || tillableTiles == null) return;
         
-        
-        Vector2 target = player.transform.position;
-        
-        int facing = player.getFacing();
-        if (facing == 0) target.y += 1;
-        else if (facing == 1) target.x += 1;
-        else if (facing == 2) target.y -= 1;
-        else if (facing == 3) target.x -= 1;
-
-
-        Vector3Int targ = new Vector3Int(0, 0, 0);
-
-        targ.x = (int)target.x;
-        targ.y = (int)target.y;
-
-        //TODO calculate closest instead of rounding
-        if(target.x < 0) //round x up
-        {
-            targ.x -= 1;
-        }
-        if(target.y < 0)
-        {
-            targ.y -= 1;
-        }
                
-        targ = dirtMap.WorldToCell(targ);
 
         //Check if there is a valid tile in the diggable tilemap
-        if(tillableTiles.HasTile(targ))
+        if(tillableTiles.HasTile(targetTile))
         {
-            dirtMap.SetTile(targ, dirt);
+            dirtMap.SetTile(targetTile, dirt);
 
             //save to the persistence scriptable object
-            sp.setDugTile(new Vector2Int(targ.x, targ.y));
+            sp.setDugTile(new Vector2Int(targetTile.x, targetTile.y));
         }
             
 

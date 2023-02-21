@@ -16,8 +16,6 @@ public class Inventory_Manager : MonoBehaviour
     [SerializeField]
     Item_Catalogue itemCatalogue;
 
-    Item_Data[] allItemData;
-
     //items may not neccessarilly be in index order in the catalogue collection
     Dictionary<int, Item_Data> itemData_by_ID;
     Dictionary<string, Item_Data> itemData_by_Name;
@@ -28,13 +26,13 @@ public class Inventory_Manager : MonoBehaviour
     public RectTransform bar;
 
     Transform barSelector;
-    Transform menuSelector;
+    //Transform menuSelector;
 
     [SerializeField]
     Item[] inventory;
 
 
-    Image[] menuImages;
+    //Image[] menuImages;
     Image[] barImages;
 
     byte inventorySize = 44;
@@ -44,7 +42,6 @@ public class Inventory_Manager : MonoBehaviour
     int itemCount = 0;
     int emptyCount;
     byte barSelection = 0;
-    public int menuSelection = 0;
 
     int menuRow = 0;
     int menuCol = 0;
@@ -54,7 +51,6 @@ public class Inventory_Manager : MonoBehaviour
     bool inputBreak = true;
 
     Vector3[] barPositions;
-    Vector3[] menuPositions;
 
 
     //public Item_List itemList;
@@ -68,18 +64,13 @@ public class Inventory_Manager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
         //persistenceData = this.GetComponentInParent<Scene_Manager>().sp;
-    }
 
-    // Start is called before the first frame update
-    void Start()
-    {
         //mappings of item catalogue
-        allItemData = itemCatalogue.getCatalogue();
         itemData_by_ID = new Dictionary<int, Item_Data>();
         itemData_by_Name = new Dictionary<string, Item_Data>();
 
         //populate the mapping of item No to Item_Data
-        foreach (Item_Data item_data in allItemData)
+        foreach (Item_Data item_data in itemCatalogue.getCatalogue())
         {
             itemData_by_ID.Add(item_data.getItemNo(), item_data);
             itemData_by_Name.Add(item_data.getName(), item_data);
@@ -88,37 +79,14 @@ public class Inventory_Manager : MonoBehaviour
         //This line may change if we have variable bag size
         inventory = new Item[inventorySize];
 
-        emptyItem = new Item(allItemData[0], 1);
+        emptyItem = new Item(itemCatalogue.getCatalogue()[0], 1);
 
         loadPersistenceData();
+    }
 
-
-        //TODO SETUP INVENTORY MENU AND QUICK BAR UI ELEMENTS.
-        //THIS SHOULD BE HANDLED BY RESPECTIVE UI ELEMENTS
-        // OR A UI MANAGER, NOT INVENTORY MANAGER!
-        menuImages = new Image[inventorySize];
-
-        //Find the Row Transform groups
-        Transform[] rows = new RectTransform[4];
-        for (int i = 0; i < rows.Length; i++)
-        {
-            string s = "row" + i;
-            rows[i] = inv.Find(s);
-        }
-
-        //Find each slot Transform in each row
-        for (int i = 0; i < rows.Length; i++)
-        {
-            //Find the row
-            //string r = "row" + i;
-            //Transform row = inv.Find(r);
-            for (int j = 0; j < numCols; j++)
-            {
-                string s = "Slot" + j;
-                Transform slot = rows[i].Find(s);
-                menuImages[(i * numCols) + j] = slot.GetComponentInChildren<Image>();
-            }
-        }
+    // Start is called before the first frame update
+    void Start()
+    {
 
 
         barImages = new Image[numCols];
@@ -135,23 +103,12 @@ public class Inventory_Manager : MonoBehaviour
         {
             barPositions[i] = new Vector3(3 + i * 18, 3, 0);
         }
-        //Placement of Menu Slots
-        menuPositions = new Vector3[numRows * numCols];
-        for (int i = 0; i < numRows; i++)
-        {
-            for (int j = 0; j < numCols; j++)
-            {
-                float x = rows[i].transform.localPosition.x - 2;
-                float y = rows[i].transform.localPosition.y - 2;
-                menuPositions[(numCols * i) + j] = new Vector3(x + 18 * j, y, 0);
 
-            }
-        }
         //////////////////////////////////////////////////////////
 
         //Selector Slot
         barSelector = bar.Find("Selection");
-        menuSelector = inv.Find("Selection");
+
 
         gmAudioSource = GetComponentInParent<AudioSource>();
 
@@ -193,36 +150,20 @@ public class Inventory_Manager : MonoBehaviour
 
         for (int i = 0; i < numCols; i++)
         {
-            if (allItemData[inventory[i].getData().getItemNo()].getSprite() != null)
+            if(inventory[i].getData().getSprite() != null)
             {
                 barImages[i].enabled = true;
-                barImages[i].sprite = allItemData[inventory[i].getData().getItemNo()].getSprite();
+                barImages[i].sprite = inventory[i].getData().getSprite();
             }
             else
                 barImages[i].enabled = false;
         }
 
         barSelector.transform.localPosition = barPositions[barSelection];
-        menuSelector.transform.localPosition = menuPositions[menuSelection];
+        //menuSelector.transform.localPosition = menuPositions[menuSelection];
 
     }
 
-    public void populateInvMenu()
-    {
-        for (int i = 0; i < inventory.Length; i++)
-        {
-            int itemNo = inventory[i].getData().getItemNo();
-
-
-            if (allItemData[itemNo].getSprite() != null)
-            {
-                menuImages[i].enabled = true;
-                menuImages[i].sprite = allItemData[inventory[i].getData().getItemNo()].getSprite();
-            }
-            else
-                menuImages[i].enabled = false;
-        }
-    }
 
     public bool inventoryFull()
     {
@@ -287,43 +228,6 @@ public class Inventory_Manager : MonoBehaviour
             barSelection = (byte)(rowSize - 1);
         else
             barSelection = (byte) index;
-    }
-
-    public void inputUpdate(Vector2 input)
-    {
-        if (input == Vector2.zero)
-        {
-            inputBreak = true;
-            return;
-        }
-
-        if (!inputBreak) return;
-
-        inputBreak = false;
-
-        if (input.x < 0) // Left
-        {
-            if (menuCol > 0)
-                menuCol--;
-        }
-        else if (input.x > 0) // LEFT
-        {
-            if (menuCol < numCols - 1)
-                menuCol++;
-        }
-
-        else if (input.y < 0) // DOWN
-        {
-            if (menuRow < numRows - 1)
-                menuRow++;
-        }
-        else if (input.y > 0) // UP
-        {
-            if (menuRow > 0)
-                menuRow--;
-        }
-
-        menuSelection = (menuRow * numCols) + menuCol;
     }
 
     public byte getSelectionIndex()
@@ -457,6 +361,8 @@ public class Inventory_Manager : MonoBehaviour
     {
         return inventory;
     }
+
+    public int getInvSize() { return this.inventorySize; }
 
     public void setItems(Item[] items)
     {
