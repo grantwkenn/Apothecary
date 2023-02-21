@@ -88,8 +88,6 @@ public class Scene_Manager : MonoBehaviour
                 Debug.Log("Error: No Default Entrance Set");
         }
 
-        if (pp.isChangingScenes())
-            enterScene();
 
         pp.setChangingScenes(false);
 
@@ -114,15 +112,6 @@ public class Scene_Manager : MonoBehaviour
 
 
 
-    }
-
-    void enterScene()
-    {
-        //Implement a default entrance per scene
-
-
-
-        
     }
 
 
@@ -204,11 +193,11 @@ public class Scene_Manager : MonoBehaviour
             {
                 fade.a -= 1f / fadeSteps;
                 fadeImage.color = fade;
-                if (fade.a < 0.5f) player.unfreeze();
 
-                if (fade.a < 0.5f && inputMan.getInputState() == InputState.ignoreInput)
+                if (fade.a < 0.5f)
                 {
-                    inputMan.setInputState(InputState.inGame);
+                    inputMan.enableGameplay();
+                    //inputMan.setInputState(InputState.inGame);
                     player.unfreeze();
                 }
                     

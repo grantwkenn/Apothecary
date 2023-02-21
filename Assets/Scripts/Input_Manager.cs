@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 
 
-public enum InputState { inGame, paused, ignoreInput }
+public enum direction { up, down, left, right }
 
 public class Input_Manager : MonoBehaviour
 {
@@ -14,13 +14,13 @@ public class Input_Manager : MonoBehaviour
 
     Inventory_Manager invManager;
     Dialogue_Manager dialogueManager;
-    Pause_Manager pauseManager;
+    Menu_Manager menuManager;
 
     [SerializeField]
     Camera mainCamera;
     CameraManager cm;
 
-    InputState inputState;
+    //InputState inputState;
 
     //get reference to the quick bar
     bool inventoryBarWake = false;
@@ -30,18 +30,8 @@ public class Input_Manager : MonoBehaviour
 
     Vector2 moveInput;
     Vector2 direction;
-    Vector2 scroll;
 
-    int scrollUpHoldCounter = 0;
-    int scrollDownHoldCounter = 0;
 
-    bool scrollUpHold = false;
-    bool scrollDownHold = false;
-
-    bool scrollingUp = false;
-    bool scrollingDown = false;
-
-    int scrollTimer = 0;
 
 
     private void Awake()
@@ -49,40 +39,57 @@ public class Input_Manager : MonoBehaviour
         GameObject gm = GameObject.FindGameObjectWithTag("GameManager");
         invManager = gm.GetComponent<Inventory_Manager>();
         dialogueManager = gm.GetComponent<Dialogue_Manager>();
-        pauseManager = gm.GetComponent<Pause_Manager>();
-
+        menuManager = gm.GetComponent<Menu_Manager>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
-
         cm = mainCamera.GetComponent<CameraManager>();
-
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
 
         controls = new PlayerControls();
 
-        //WASD / Left Stick
+        //Gameplay Movement -- WASD / Left Stick
         controls.Gameplay.Move.performed += context => moveInput = context.ReadValue<Vector2>();
         controls.Gameplay.Move.canceled += context => moveInput = Vector2.zero;
 
+        //Menu Navigation -- WASD / Left Stick
+        controls.Menus.Up.performed += context => menuManager.handleInput(global::direction.up);
+        controls.Menus.Down.performed += context => menuManager.handleInput(global::direction.down);
+        controls.Menus.Left.performed += context => menuManager.handleInput(global::direction.left);
+        controls.Menus.Right.performed += context => menuManager.handleInput(global::direction.right);
+
+
         //Scroll / RB,LB
-        controls.Gameplay.Select.performed += context => scroll = context.ReadValue<Vector2>();
-        controls.Gameplay.Select.canceled += context => scrollRelease();
+        //controls.Gameplay.Bumpers.performed += context => scroll = context.ReadValue<Vector2>();
+        //controls.Gameplay.Bumpers.canceled += context => scrollRelease();
+
+        controls.Gameplay.LB.performed += context => invManager.toggleSelection(-1);
+        controls.Gameplay.RB.performed += context => invManager.toggleSelection(1);
+
+        controls.Menus.LB.performed += context => menuManager.incrementTab(-1);
+        controls.Menus.RB.performed += context => menuManager.incrementTab(1);
+
 
         //Left Click / A Button
         controls.Gameplay.Use.performed += context => aButton();
+
 
         //SPACE / B Button
         controls.Gameplay.CancelSprint.performed += context => bButton();
         controls.Gameplay.CancelSprint.canceled += context => bRelease();
 
+
         //ENTER / START Button
-        controls.Gameplay.Pause.performed += context => togglePause();
+        controls.Gameplay.Pause.performed += context => pauseGame();
+        controls.Menus.Start.performed += context => resumeGame();
 
         //Z Key
         controls.Gameplay.Zoom.performed += context => toggleZoom();
 
         direction = new Vector2();
 
-        inputState = InputState.ignoreInput;
+        //inputState = InputState.ignoreInput;
+
+        controls.Menus.Disable();
 
     }
 
@@ -98,62 +105,48 @@ public class Input_Manager : MonoBehaviour
     ////  CONTROLS  ///////////////////////////////
     
     // PAUSE
-    void togglePause()
+    void pauseGame()
     {
-        pauseManager.togglePause();
+        menuManager.pauseGame();
+        controls.Gameplay.Disable();
+        controls.Menus.Enable();
 
-        if (pauseManager.checkPaused())
-        {
-            inputState = InputState.paused;
-        }
-        else
-        {
-            inputState = InputState.inGame;
-        }
+        Time.timeScale = 0f;
+
+    }
+
+    void resumeGame()
+    {
+        menuManager.resumeGame();
+        controls.Menus.Disable();
+        controls.Gameplay.Enable();
+
+        Time.timeScale = 1f;
+    }
+
+    void menuInput(byte URDL)
+    {
+        
     }
 
     ////// A
     void aButton()
     {
-        if (inputState == InputState.inGame)
-        {
-            if (dialogueManager.AwaitingInput())
-                dialogueManager.displayText();
-            else
-                invManager.useItem();
-        }
+        if (dialogueManager.AwaitingInput())
+            dialogueManager.displayText();
+        else
+            invManager.useItem();
+
     }
 
     ////// B
     void bButton()
     {
-        if(inputState == InputState.inGame)
-        {
-            player.toggleSprint(true);
-        }
-
+        player.toggleSprint(true);
     }
     void bRelease()
     {
-        if (inputState == InputState.inGame)
-        {
-            player.toggleSprint(false);
-        }
-    }
-
-
-
-    /// LB / RB
-    void scrollRelease()
-    {
-        scrollUpHoldCounter = 0;
-        scrollDownHoldCounter = 0;
-        scrollUpHold = false;
-        scrollDownHold = false;
-        scroll = Vector2.zero;
-        scrollingDown = false;
-        scrollingUp = false;
-
+        player.toggleSprint(false);
     }
 
 
@@ -192,31 +185,8 @@ public class Input_Manager : MonoBehaviour
         if (moveInput.normalized.x < 0)
             direction.x = 0-direction.x;
 
-
-        if (inputState == InputState.inGame)
+        if(controls.Gameplay.enabled)
             player.inputUpdate(direction);
-
-        else if (inputState == InputState.paused)
-            invManager.inputUpdate(direction);
-
-        if (scrollingUp || scrollingDown)
-            return;
-
-        //Inventory Select L/R or Scroll
-        if(inputState == InputState.inGame)
-        {
-            if (scroll.y < 0)
-            {
-                invManager.toggleSelection(1);
-                scrollUpHold = true;
-            }
-            else if (scroll.y > 0)
-            {
-                invManager.toggleSelection(-1);
-                scrollDownHold = true;
-            }
-            scroll = Vector2.zero;
-        }
 
 
 
@@ -240,39 +210,6 @@ public class Input_Manager : MonoBehaviour
             }
         }
 
-        if (scrollUpHold)
-        {
-            scrollUpHoldCounter++;
-            if (scrollUpHoldCounter == 10)
-            {
-                scrollingUp = true;
-                scrollUpHold = false;
-                scrollUpHoldCounter = 0;
-            }
-
-        }
-
-        else if (scrollDownHold)
-        {
-            scrollDownHoldCounter++;
-            if(scrollDownHoldCounter == 10)
-            {
-                scrollingDown = true;
-                scrollDownHold = false;
-                scrollDownHoldCounter = 0;
-            }
-        }
-
-        if(scrollingDown || scrollingUp)
-        {
-            scrollTimer++;
-            if(scrollTimer == 4)
-            {
-                if(scrollingDown) invManager.toggleSelection((sbyte)-1);
-                else if (scrollingUp) invManager.toggleSelection((sbyte)1);
-                scrollTimer = 0;
-            }
-        }
         
     }
 
@@ -287,7 +224,7 @@ public class Input_Manager : MonoBehaviour
 
     private void OnEnable()
     {
-        controls.Gameplay.Enable();
+        //controls.Gameplay.Enable();
     }
 
     private void OnDisable()
@@ -297,7 +234,26 @@ public class Input_Manager : MonoBehaviour
 
     public Vector2 readInput() { return moveInput; }
 
-    public void setInputState(InputState state) { this.inputState = state; }
 
-    public InputState getInputState() { return this.inputState; }
+    public void enableMenuInput()
+    {
+        controls.Gameplay.Disable();
+        controls.Menus.Enable();
+    }
+
+    public void closeMenu()
+    {
+        menuManager.closeMenu();
+    }
+
+    public void enableGameplay()
+    {
+        controls.Gameplay.Enable();
+        controls.Menus.Disable();
+
+        if(controls.Gameplay.CancelSprint.IsPressed())
+            player.toggleSprint(true);
+
+        moveInput = controls.Gameplay.Move.ReadValue<Vector2>();
+    }
 }

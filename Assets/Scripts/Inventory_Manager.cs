@@ -22,6 +22,8 @@ public class Inventory_Manager : MonoBehaviour
     Dictionary<int, Item_Data> itemData_by_ID;
     Dictionary<string, Item_Data> itemData_by_Name;
 
+    
+    //TODO these references should not exist in new menu manager schema
     public RectTransform inv;
     public RectTransform bar;
 
@@ -186,19 +188,7 @@ public class Inventory_Manager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        for (int i = 0; i < inventory.Length; i++)
-        {
-            int itemNo = inventory[i].getData().getItemNo();
 
-
-            if (allItemData[itemNo].getSprite() != null)
-            {
-                menuImages[i].enabled = true;
-                menuImages[i].sprite = allItemData[inventory[i].getData().getItemNo()].getSprite();
-            }
-            else
-                menuImages[i].enabled = false;
-        }
 
 
         for (int i = 0; i < numCols; i++)
@@ -215,6 +205,23 @@ public class Inventory_Manager : MonoBehaviour
         barSelector.transform.localPosition = barPositions[barSelection];
         menuSelector.transform.localPosition = menuPositions[menuSelection];
 
+    }
+
+    public void populateInvMenu()
+    {
+        for (int i = 0; i < inventory.Length; i++)
+        {
+            int itemNo = inventory[i].getData().getItemNo();
+
+
+            if (allItemData[itemNo].getSprite() != null)
+            {
+                menuImages[i].enabled = true;
+                menuImages[i].sprite = allItemData[inventory[i].getData().getItemNo()].getSprite();
+            }
+            else
+                menuImages[i].enabled = false;
+        }
     }
 
     public bool inventoryFull()

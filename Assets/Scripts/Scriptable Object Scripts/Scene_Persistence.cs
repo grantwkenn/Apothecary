@@ -7,7 +7,6 @@ public class Scene_Persistence : ScriptableObject
 {
     Dictionary<Vector2Int, Crop> crops;
 
-
     HashSet<Vector2Int> dugTiles;
 
     public Vector2Int[] tiles;

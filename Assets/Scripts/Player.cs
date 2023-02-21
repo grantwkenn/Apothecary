@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
     State currentState;
 
     GameObject gm;
-    Pause_Manager pm;
     Tile_Manager tm;
     Text_Manager textManager;
     Scene_Manager sm;
@@ -78,10 +77,10 @@ public class Player : MonoBehaviour
     //string[] sword = { "sword_up", "sword_right", "sword_down", "sword_left" };
 
 
-    string[] shovel = { "Shovel_Up", "Shovel_Right", "Shovel_Down", "Shovel_Left" };
-    string[] run = { "Run_UP_V2", "Run_Right_V2", "Run_Down_V2", "Run_Left_V2" };
-    string[] idle = { "Idle_UP_V2", "Idle_Right_V2", "Idle_Down_V2", "Idle_Left_V2" };
-    string[] sword = { "sword_up", "sword_right", "Sword_D", "sword_left" };
+    string[] shovel = { "hoe_U", "hoe_R", "hoe_D", "hoe_L" };
+    string[] run = { "run_U", "run_R", "run_D", "run_L" };
+    string[] idle = { "idle_U", "idle_R", "idle_D", "idle_L" };
+    string[] sword = { "sword_U", "sword_R", "sword_D", "sword_L" };
 
     Vector2 knockImpulse;
 
@@ -106,7 +105,6 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         gm = GameObject.FindGameObjectWithTag("GameManager");
-        pm = gm.GetComponent<Pause_Manager>();
         tm = gm.GetComponent<Tile_Manager>();
         textManager = gm.GetComponent<Text_Manager>();
         sm = gm.GetComponent<Scene_Manager>();
@@ -157,13 +155,11 @@ public class Player : MonoBehaviour
     public void freeze()
     {       
         currentState = State.freeze;
-        Debug.Log("Freeze at: " + Time.time);
     }
 
     public void unfreeze()
     {
         currentState = State.idle;
-        Debug.Log("Un-freeze at: " + Time.time);
     }
 
     public void setDirectionFacing(Vector2 direction)

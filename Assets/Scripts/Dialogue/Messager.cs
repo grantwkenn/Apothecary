@@ -8,7 +8,7 @@ using System;
 
 public class Messager : MonoBehaviour
 {
-    //
+    //TODO convert to Byte
     public int messagerID;
     
     GameObject gameManager;
@@ -38,7 +38,9 @@ public class Messager : MonoBehaviour
 
     private void OnEnable()
     {
-        
+        //TODO why do non-NPC messagers need to be indexed by the DM?
+
+
         //not all messagers have NPC. but we need a way to 
         //ID all messagers by messager ID
         // current solution is to manually ID all signs with ID not overlapping any NPCs
@@ -46,6 +48,8 @@ public class Messager : MonoBehaviour
         NPC npc = this.GetComponentInParent<NPC>();
         if (npc != null) messagerID = npc.getNPCID();
 
+        //do we need dialogue manager if a messager is not an NPC??
+        //maybe, might as well keep it for now
         dialogueManager.messagerEnable(this);
     }
 

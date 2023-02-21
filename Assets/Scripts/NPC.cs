@@ -42,7 +42,10 @@ public class NPC : MonoBehaviour
 
     public bool dontMove;
 
+    //make these private and only controlled by a cashier's switch.
 
+    public bool shopOpen;
+    public byte shopID;
 
     // Start is called before the first frame update
     void Start()
@@ -261,7 +264,12 @@ public class NPC : MonoBehaviour
         return Vector2.up;
     }
 
+    public bool isOpen()
+    {
+        return this.shopOpen;
+    }
 
+    public byte getShopID() { return this.shopID; }
 }
 
 

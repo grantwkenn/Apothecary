@@ -86,7 +86,7 @@ public class Dialogue_Manager : MonoBehaviour
 
     public void messagerEnable(Messager messager)
     {
-        if (activeMessagersByNPCID == null) Debug.Log("BAD");
+        //if (activeMessagersByNPCID == null) Debug.Log("BAD");
         
         if (!activeMessagersByNPCID.ContainsKey(messager.getID()))
             activeMessagersByNPCID.Add(messager.getID(), messager);
@@ -100,15 +100,6 @@ public class Dialogue_Manager : MonoBehaviour
 
     public void messageTerminated()
     {        
-
-        //check to open up a menu (shop, trade, etc)
-        if(currentMessager)
-
-
-        //what is this for?
-        //Message currentMessage = currentMessager.getMessage();
-
-
         questManager.checkDialogueProgression(currentMessager);
 
 
@@ -158,6 +149,14 @@ public class Dialogue_Manager : MonoBehaviour
         // if end of list (quest / progression completed)
         //determine next quest available / progression...
 
+
+        //check to open up a menu (shop, trade, etc)
+        NPC thisNPC = currentMessager.GetComponent<NPC>();
+        if (thisNPC != null && thisNPC.isOpen())
+        {
+            //Open the Shop Menu
+            this.GetComponent<Menu_Manager>().loadShopMenu(thisNPC.getShopID());
+        }
 
     }
 

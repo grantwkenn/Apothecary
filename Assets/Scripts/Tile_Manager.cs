@@ -24,7 +24,7 @@ public class Tile_Manager : MonoBehaviour
     [SerializeField]
     private Tilemap dirtMap;
 
-    Tilemap diggableTiles;
+    Tilemap tillableTiles;
 
     TileBase currentTile;
 
@@ -67,6 +67,8 @@ public class Tile_Manager : MonoBehaviour
 
     Scene_Persistence sp;
 
+    public GameObject selection_hilight;
+
     //TODO
     //Dictionary of Vector2Int coords to crop object?
     //Crop object: daysOld, orientation/children, location? 
@@ -79,9 +81,9 @@ public class Tile_Manager : MonoBehaviour
 
         sp = this.GetComponent<Scene_Manager>().getSP();
 
-        Transform diggableT = GameObject.FindGameObjectWithTag("Grid").transform.Find("Diggable");
-        if(diggableT != null)
-            diggableTiles = GameObject.FindGameObjectWithTag("Grid").transform.Find("Diggable").GetComponent<Tilemap>();
+        Transform tillableT = GameObject.FindGameObjectWithTag("Grid").transform.Find("Tillable");
+        if(tillableT != null)
+            tillableTiles = tillableT.GetComponent<Tilemap>();
 
         populateGrassDict();
 
@@ -96,6 +98,8 @@ public class Tile_Manager : MonoBehaviour
             }
 
         }
+
+        selection_hilight.SetActive(false);
     }
 
     public void waterTile()
@@ -114,6 +118,13 @@ public class Tile_Manager : MonoBehaviour
     {
         this.crops = new Dictionary<Vector2Int, Crop>();
         
+        if(debugMode)
+        {
+            if(dirtMap != null)
+            {
+                dirtMap.ClearAllTiles();
+            }
+        }
         
         if(!debugMode || Time.time > 0.1f)
             loadScenePersistence();
@@ -235,11 +246,49 @@ public class Tile_Manager : MonoBehaviour
         //TODO Re impolement expose dirt
         //playerLocation = bgMap.WorldToCell(playerLocation);
 
+        //check for grass tile
+
+        Vector2 target = player.transform.position;
+        Vector3Int targ = new Vector3Int(0, 0, 0);
+        targ.x = (int)target.x;
+        targ.y = (int)target.y;
+
+        int facing = player.getFacing();
+        if(facing == 0)
+        {
+            targ.y += 1;
+        }
+        else if (facing == 1)
+        {
+            targ.x += 1;
+        }
+        else if (facing == 2)
+        {
+            targ.y -= 1;
+        }
+        else if (facing == 3)
+        {
+            targ.x -= 1;
+        }
+
+
+
+        //targ = dirtMap.WorldToCell(targ);
+
+        //Check if there is a valid tile in the diggable tilemap
+        if (tillableTiles.HasTile(targ))
+        {
+            selection_hilight.transform.position = targ;
+            selection_hilight.SetActive(true);
+        }
+        else
+            selection_hilight.SetActive(false);
+
     }
 
     public void dig()
     {
-        if (dirtMap == null || diggableTiles == null) return;
+        if (dirtMap == null || tillableTiles == null) return;
         
         
         Vector2 target = player.transform.position;
@@ -269,7 +318,7 @@ public class Tile_Manager : MonoBehaviour
         targ = dirtMap.WorldToCell(targ);
 
         //Check if there is a valid tile in the diggable tilemap
-        if(diggableTiles.HasTile(targ))
+        if(tillableTiles.HasTile(targ))
         {
             dirtMap.SetTile(targ, dirt);
 
