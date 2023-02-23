@@ -6,7 +6,7 @@ using UnityEngine;
 public enum State
 {
     //does shovel and sword need their own animation? can it be shared as uninteruptible?
-    idle, run, sword, shovel, interact, freeze, knockBack
+    idle, run, sword, hoe, water, interact, freeze, knockBack
 }
 
 
@@ -77,10 +77,11 @@ public class Player : MonoBehaviour
     //string[] sword = { "sword_up", "sword_right", "sword_down", "sword_left" };
 
 
-    string[] shovel = { "hoe_U", "hoe_R", "hoe_D", "hoe_L" };
+    string[] hoe = { "hoe_U", "hoe_R", "hoe_D", "hoe_L" };
     string[] run = { "run_U", "run_R", "run_D", "run_L" };
     string[] idle = { "idle_U", "idle_R", "idle_D", "idle_L" };
     string[] sword = { "sword_U", "sword_R", "sword_D", "sword_L" };
+    string[] water = { "water_U", "water_R", "water_D", "water_L" };
 
     Vector2 knockImpulse;
 
@@ -204,9 +205,11 @@ public class Player : MonoBehaviour
 
     public void executePlayerFn(byte code)
     {
+        if (!interruptibleState()) return;
+        
         if (code == 0) Sword();
-        if (code == 1) Shovel();
-        if (code == 2) water();
+        if (code == 1) Hoe();
+        if (code == 2) Water();
     }
 
     public void heal(byte hp)
@@ -216,26 +219,28 @@ public class Player : MonoBehaviour
             health = MAX_HEALTH;
     }
 
-    void water()
+    void Water()
+    {
+        currentState = State.water;
+    }
+
+    //used by animation
+    void waterTile()
     {
         tm.waterTile();
     }
 
     void Sword()
     {
-        if (!interruptibleState()) return;
-
         currentState = State.sword;
 
-        swordSound();
-        
+        //swordSound();       
     }
 
-    void Shovel()
+    void Hoe()
     {
-        if (!interruptibleState()) return;
         
-        currentState = State.shovel;
+        currentState = State.hoe;
     }
 
     void AnimationUpdate()
@@ -251,9 +256,13 @@ public class Player : MonoBehaviour
         {
             animator.Play(run[facing]);
         }
-        else if (currentState == State.shovel)
+        else if (currentState == State.hoe)
         {
-            animator.Play(shovel[facing]);
+            animator.Play(hoe[facing]);
+        }
+        else if (currentState == State.water)
+        {
+            animator.Play(water[facing]);
         }
         else if (currentState == State.sword) animator.Play(sword[facing]);
 
@@ -380,8 +389,12 @@ public class Player : MonoBehaviour
 
     bool interruptibleState()
     {
-        if (currentState == State.shovel) return false;
+        //this could use a map for increased speed?
+
+        //do we need different state for each tool? hoe, water, etc.?
+        if (currentState == State.hoe) return false;
         if (currentState == State.sword) return false;
+        if (currentState == State.water) return false;
         if (currentState == State.knockBack) return false;
         if (currentState == State.freeze) return false;
         

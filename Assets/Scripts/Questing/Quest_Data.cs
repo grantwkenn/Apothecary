@@ -7,7 +7,9 @@ public class Quest_Data : ScriptableObject
 {
     //Maybe these need to be private, but only the QM should have access
     // to Quest Data objects right now...
-    
+
+    [SerializeField]
+    string title;
 
     [SerializeField]
     private int[] preQuests, worldValues;
@@ -69,6 +71,8 @@ public class Quest_Data : ScriptableObject
     public List<Slay_Objective_Data> getSlayObjectives() { return slay_objectives; }
 
     public List<Gather_Objective_Data> getGatherObjectives() { return gather_objectives; }
+
+    public string getTitle() { return this.title; }
 
 
 

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class Pickup_Item : MonoBehaviour
 {
     [SerializeField]
@@ -16,23 +17,11 @@ public class Pickup_Item : MonoBehaviour
     private void OnEnable()
     {
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
         this.GetComponentInParent<SpriteRenderer>().sprite = item_Data.getSprite();
 
-        
-
     }
 
-    // Update is called once per frame
-    void Update()
-    {
 
-    }
 
     //check collisoin with Player
     private void OnTriggerEnter2D(Collider2D player)

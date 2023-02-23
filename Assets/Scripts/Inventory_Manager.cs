@@ -10,6 +10,7 @@ public class Inventory_Manager : MonoBehaviour
     Scene_Manager sm;
     Player player;
     Player_Persistence pp;
+    Tile_Manager tm;
 
     public Item emptyItem;
 
@@ -61,6 +62,7 @@ public class Inventory_Manager : MonoBehaviour
     {
         qm = GetComponentInParent<Quest_Manager>();
         sm = GetComponentInParent<Scene_Manager>();
+        tm = GetComponentInParent<Tile_Manager>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
         //persistenceData = this.GetComponentInParent<Scene_Manager>().sp;
@@ -228,6 +230,12 @@ public class Inventory_Manager : MonoBehaviour
             barSelection = (byte)(rowSize - 1);
         else
             barSelection = (byte) index;
+
+        if (inventory[barSelection].getName() == "Hoe"
+            || inventory[barSelection].getName() == "Watering Can")
+            tm.setSelectionHilight(true);
+        else
+            tm.setSelectionHilight(false);
     }
 
     public byte getSelectionIndex()
@@ -290,7 +298,7 @@ public class Inventory_Manager : MonoBehaviour
         string itemName = inventory[barSelection].getData().getName();
 
         if (itemName == "Sword") player.executePlayerFn(0);
-        if (itemName == "Shovel") player.executePlayerFn(1);
+        if (itemName == "Hoe") player.executePlayerFn(1);
         if (itemName == "Watering Can") player.executePlayerFn(2);
 
         if (itemName == "Red Potion")

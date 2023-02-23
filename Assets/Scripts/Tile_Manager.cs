@@ -29,7 +29,7 @@ public class Tile_Manager : MonoBehaviour
     TileBase currentTile;
 
     [SerializeField]
-    TileBase dirt;
+    TileBase tilledDirtTile, wateredDirtTile;
 
     ////////////////////////////////////
 
@@ -72,6 +72,11 @@ public class Tile_Manager : MonoBehaviour
     Vector3Int targetTile;
     Vector3Int cellTarget;
 
+    bool hilightActive = false;
+
+    [SerializeField]
+    Color watered;
+
     //TODO
     //Dictionary of Vector2Int coords to crop object?
     //Crop object: daysOld, orientation/children, location? 
@@ -90,6 +95,8 @@ public class Tile_Manager : MonoBehaviour
 
         populateGrassDict();
 
+        wateredTiles = new Dictionary<Vector2Int, bool>();
+
         Transform grassMap = GameObject.Find("Grid").transform.Find("Grass");
         if (grassMap != null)
         {
@@ -107,12 +114,13 @@ public class Tile_Manager : MonoBehaviour
 
     public void waterTile()
     {
-        //Find this tile
-        //TODO need to do proper rounding of tile instead of int cast
-        Vector3Int playerLoc = dirtMap.WorldToCell(player.transform.position);
-        if(dirtMap.HasTile(playerLoc))
+
+        if(dirtMap.HasTile(targetTile) && !wateredTiles.ContainsKey((Vector2Int)targetTile))
         {
-            dirtMap.SetTile(playerLoc, null);
+            dirtMap.SetTile(targetTile, wateredDirtTile);
+            //dirtMap.SetColor(targetTile, watered);
+            //dirtMap.get
+            wateredTiles.Add((Vector2Int)targetTile, true);
         }
     }
 
@@ -161,7 +169,7 @@ public class Tile_Manager : MonoBehaviour
         foreach(Vector2Int point in sp.getDugTiles())
         {
             //place a dirt tile onto the map here
-            dirtMap.SetTile((Vector3Int)point, dirt);
+            dirtMap.SetTile((Vector3Int)point, tilledDirtTile);
 
         }
 
@@ -173,11 +181,6 @@ public class Tile_Manager : MonoBehaviour
 
     }
 
-    void checkTransparentTile()
-    {
-        //get player location
-        Vector3Int location;
-    }
 
 
     void instantiateGrass()
@@ -282,7 +285,7 @@ public class Tile_Manager : MonoBehaviour
 
 
         //Check if there is a valid tile in the diggable tilemap
-        if (tillableTiles.HasTile(targetTile))
+        if (hilightActive && tillableTiles.HasTile(targetTile))
         {
             selection_hilight.transform.position = targetTile;
             selection_hilight.SetActive(true);
@@ -294,21 +297,19 @@ public class Tile_Manager : MonoBehaviour
 
     public void dig()
     {
-        if (dirtMap == null || tillableTiles == null) return;
+        if (dirtMap == null || tillableTiles == null 
+            || dirtMap.HasTile(targetTile) 
+            || wateredTiles.ContainsKey((Vector2Int)targetTile)) return;
         
-               
-
         //Check if there is a valid tile in the diggable tilemap
         if(tillableTiles.HasTile(targetTile))
         {
-            dirtMap.SetTile(targetTile, dirt);
+            dirtMap.SetTile(targetTile, tilledDirtTile);
 
             //save to the persistence scriptable object
             sp.setDugTile(new Vector2Int(targetTile.x, targetTile.y));
         }
             
-
-
     }
 
 
@@ -384,6 +385,9 @@ public class Tile_Manager : MonoBehaviour
             }
         }
     }
+
+    public void setSelectionHilight(bool val) { this.hilightActive = val; }
+
 
 
 }

@@ -733,6 +733,8 @@ public class Quest_Manager : MonoBehaviour
         questLog.Remove(quest);
     }
 
+    public List<Quest> getLog() { return this.questLog; }
+
 }
 
 

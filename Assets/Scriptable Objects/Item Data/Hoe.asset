@@ -17,4 +17,4 @@ MonoBehaviour:
   itemNo: 12
   value: 22
   stackable: 0
-  sprite: {fileID: 980155311395259703, guid: 10fe57014834daa4282c6bbc9d8fee94, type: 3}
+  sprite: {fileID: 969246407, guid: 10fe57014834daa4282c6bbc9d8fee94, type: 3}

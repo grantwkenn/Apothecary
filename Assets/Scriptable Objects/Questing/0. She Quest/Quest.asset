@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9518cd0f26bd047b5ac71f6394cb55, type: 3}
   m_Name: Quest
   m_EditorClassIdentifier: 
+  title: Your very first Quest
   preQuests: 
   worldValues: 
   relationship: 0
