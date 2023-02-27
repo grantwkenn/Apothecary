@@ -320,7 +320,7 @@ public class Quest_Manager : MonoBehaviour
             
             //check for log full or inventory full, shared state
             if (questLog.Count >= LOG_CAPACITY 
-                || !inventory_Manager.enoughSpace(questDataByQID[QID].numQuestItems()))
+                || !inventory_Manager.isSpaceForItems(questDataByQID[QID].getQuestItems()))
             {
                 //set QG state, 
                 QG.setState(QuestGiverState.availableFull);
@@ -371,7 +371,7 @@ public class Quest_Manager : MonoBehaviour
             List<Item> rewards = quest.getData().getRewards();
 
 
-            if(!inventory_Manager.enoughSpace(quest.getData().numRewards()))
+            if(!inventory_Manager.isSpaceForItems(quest.getData().getRewards()))
             {
                 //set full state
                 QG.setState(QuestGiverState.turnInFull);
@@ -482,7 +482,7 @@ public class Quest_Manager : MonoBehaviour
                 {
                     currentQuest_by_QGID.Add(QGID, qid);
 
-                    if (inventory_Manager.enoughSpace(questDataByQID[qid].numQuestItems()))
+                    if (inventory_Manager.isSpaceForItems(questDataByQID[qid].getQuestItems()))
                         return QuestGiverState.available;
                     else return QuestGiverState.availableFull;
                 }
@@ -499,7 +499,7 @@ public class Quest_Manager : MonoBehaviour
             {
                 currentQuest_by_QGID.Add(QGID, priorityQID);
 
-                if (inventory_Manager.enoughSpace(questDataByQID[priorityQID].numQuestItems()))
+                if (inventory_Manager.isSpaceForItems(questDataByQID[priorityQID].getQuestItems()))
                     return QuestGiverState.available;
                 else return QuestGiverState.availableFull;
             }

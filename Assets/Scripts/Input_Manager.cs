@@ -60,8 +60,8 @@ public class Input_Manager : MonoBehaviour
         //controls.Gameplay.Bumpers.performed += context => scroll = context.ReadValue<Vector2>();
         //controls.Gameplay.Bumpers.canceled += context => scrollRelease();
 
-        controls.Gameplay.LB.performed += context => invManager.toggleSelection(-1);
-        controls.Gameplay.RB.performed += context => invManager.toggleSelection(1);
+        controls.Gameplay.LB.performed += context => menuManager.toggleBarSelection(global::direction.left);
+        controls.Gameplay.RB.performed += context => menuManager.toggleBarSelection(global::direction.right);
 
         controls.Menus.LB.performed += context => menuManager.incrementTab(-1);
         controls.Menus.RB.performed += context => menuManager.incrementTab(1);
@@ -74,6 +74,9 @@ public class Input_Manager : MonoBehaviour
         //SPACE / B Button
         controls.Gameplay.CancelSprint.performed += context => bButton();
         controls.Gameplay.CancelSprint.canceled += context => bRelease();
+
+        //Q / Y Button
+        controls.Gameplay.Discard.performed += context => invManager.discardSelection();
 
 
         //ENTER / START Button

@@ -12,6 +12,8 @@ public enum State
 
 public class Player : MonoBehaviour
 {
+    public bool debugMode;
+
     public static Player Instance { get; private set; }
 
 
@@ -110,6 +112,7 @@ public class Player : MonoBehaviour
         textManager = gm.GetComponent<Text_Manager>();
         sm = gm.GetComponent<Scene_Manager>();
         bc = this.GetComponent<BoxCollider2D>();
+        Player_Persistence pp = sm.getPlayerPersistence();
 
         animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();
@@ -128,8 +131,6 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //SCENE MANAGER must be enabled?
-        Player_Persistence pp = sm.getPlayerPersistence();
 
 
         mana = MAX_MANA;
@@ -147,7 +148,8 @@ public class Player : MonoBehaviour
 
     void loadPersistenceData()
     {       
-        this.transform.position = sm.getEntrance().transform.position;
+        if(!debugMode)
+            this.transform.position = sm.getEntrance().transform.position;
         this.facing = sm.getEntrance().getURDL();
         this.health = sm.getPlayerPersistence().getHealth();
 

@@ -98,6 +98,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Discard"",
+                    ""type"": ""Button"",
+                    ""id"": ""4b192757-99e5-490a-b0f4-7af761619a5f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -496,6 +505,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""RB"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""aabb43d2-ea60-478e-9864-054207ef7c2a"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Discard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -777,6 +797,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Gameplay_Zoom = m_Gameplay.FindAction("Zoom", throwIfNotFound: true);
         m_Gameplay_LB = m_Gameplay.FindAction("LB", throwIfNotFound: true);
         m_Gameplay_RB = m_Gameplay.FindAction("RB", throwIfNotFound: true);
+        m_Gameplay_Discard = m_Gameplay.FindAction("Discard", throwIfNotFound: true);
         // Menus
         m_Menus = asset.FindActionMap("Menus", throwIfNotFound: true);
         m_Menus_Start = m_Menus.FindAction("Start", throwIfNotFound: true);
@@ -855,6 +876,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Zoom;
     private readonly InputAction m_Gameplay_LB;
     private readonly InputAction m_Gameplay_RB;
+    private readonly InputAction m_Gameplay_Discard;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -867,6 +889,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Zoom => m_Wrapper.m_Gameplay_Zoom;
         public InputAction @LB => m_Wrapper.m_Gameplay_LB;
         public InputAction @RB => m_Wrapper.m_Gameplay_RB;
+        public InputAction @Discard => m_Wrapper.m_Gameplay_Discard;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -900,6 +923,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @RB.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRB;
                 @RB.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRB;
                 @RB.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRB;
+                @Discard.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDiscard;
+                @Discard.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDiscard;
+                @Discard.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDiscard;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -928,6 +954,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @RB.started += instance.OnRB;
                 @RB.performed += instance.OnRB;
                 @RB.canceled += instance.OnRB;
+                @Discard.started += instance.OnDiscard;
+                @Discard.performed += instance.OnDiscard;
+                @Discard.canceled += instance.OnDiscard;
             }
         }
     }
@@ -1039,6 +1068,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnZoom(InputAction.CallbackContext context);
         void OnLB(InputAction.CallbackContext context);
         void OnRB(InputAction.CallbackContext context);
+        void OnDiscard(InputAction.CallbackContext context);
     }
     public interface IMenusActions
     {

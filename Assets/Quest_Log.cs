@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Quest_Log : MonoBehaviour
+public class Quest_Log : Menu
 {
     Quest_Manager qm;
 
@@ -54,5 +54,10 @@ public class Quest_Log : MonoBehaviour
 
         }
 
+    }
+
+    public override void handleInput(direction urdl)
+    {
+        throw new System.NotImplementedException();
     }
 }

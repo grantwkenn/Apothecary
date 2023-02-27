@@ -8,7 +8,6 @@ using System;
 //TODO keep maps of all tilled, watered, etc. dirt tiles
 
 
-[ExecuteInEditMode]
 public class Tile_Manager : MonoBehaviour
 {
     public bool debugMode;
@@ -19,16 +18,12 @@ public class Tile_Manager : MonoBehaviour
     /// USED FOR DIRT ///////////////////////
 
     [SerializeField]
-    private Tilemap bgMap;
-
-    [SerializeField]
-    private Tilemap dirtMap;
+    private Tilemap dirtMap, wateredMap;
+    
 
     Tilemap tillableTiles;
 
-    TileBase currentTile;
 
-    [SerializeField]
     TileBase tilledDirtTile, wateredDirtTile;
 
     ////////////////////////////////////
@@ -89,11 +84,19 @@ public class Tile_Manager : MonoBehaviour
 
         sp = this.GetComponent<Scene_Manager>().getSP();
 
+        //TODO these do not need to be loaded for indoor scenes without dirt (most scenes!)
+        //maybe there should be a specific manager for farm related, Farm Manager? Crop Manager?
+
+        tilledDirtTile = Resources.Load<RuleTile>("Dirt Rule Tile");
+        wateredDirtTile = Resources.Load<RuleTile>("Watered Dirt Rule Tile");
+
         Transform tillableT = GameObject.FindGameObjectWithTag("Grid").transform.Find("Tillable");
         if(tillableT != null)
             tillableTiles = tillableT.GetComponent<Tilemap>();
 
         populateGrassDict();
+
+        targetTile = new Vector3Int();
 
         wateredTiles = new Dictionary<Vector2Int, bool>();
 
@@ -114,12 +117,11 @@ public class Tile_Manager : MonoBehaviour
 
     public void waterTile()
     {
-
         if(dirtMap.HasTile(targetTile) && !wateredTiles.ContainsKey((Vector2Int)targetTile))
         {
-            dirtMap.SetTile(targetTile, wateredDirtTile);
+            //dirtMap.SetTile(targetTile, wateredDirtTile);
+            wateredMap.SetTile(targetTile, wateredDirtTile);
             //dirtMap.SetColor(targetTile, watered);
-            //dirtMap.get
             wateredTiles.Add((Vector2Int)targetTile, true);
         }
     }
@@ -140,14 +142,6 @@ public class Tile_Manager : MonoBehaviour
         if(!debugMode || Time.time > 0.1f)
             loadScenePersistence();
 
-        //grid = rm.getCurrentGrid();
-
-        //bgMap = grid.transform.Find("Background").GetComponent<Tilemap>();
-
-
-        
-
-        //grassTest();
     }
 
     void loadScenePersistence()
@@ -165,82 +159,21 @@ public class Tile_Manager : MonoBehaviour
 
         if (dirtMap == null) return;
 
-        //get all dug Tiles
-        foreach(Vector2Int point in sp.getDugTiles())
+        if(dirtMap != null)
         {
-            //place a dirt tile onto the map here
-            dirtMap.SetTile((Vector3Int)point, tilledDirtTile);
+            //get all dug Tiles
+            foreach (Vector2Int point in sp.getDugTiles())
+            {
+                //place a dirt tile onto the map here
+                dirtMap.SetTile((Vector3Int)point, tilledDirtTile);
 
-        }
+            }
+        }    
+        
+
 
     }
 
-
-    void tileAction()
-    {
-
-    }
-
-
-
-    void instantiateGrass()
-    {
-        Vector3Int index = new Vector3Int(0,0,0);
-        Quaternion q = new Quaternion(0, 0, 0, 0);
-
-        Transform parent = transform.Find("Grass Container");
-
-        if (parent != null) return;
-
-        GameObject container = new GameObject("Grass Container");
-        container.transform.parent = this.transform.parent;
-
-        parent = container.transform;
-
-
-        foreach(Vector3Int position in grassTileMap.cellBounds.allPositionsWithin)
-        {
-            if (!grassTileMap.HasTile(position)) continue;
-
-
-            Vector2 loc = grassTileMap.CellToWorld(position);
-            loc.x += 0.5f;
-            loc.y += 0.5f;
-
-            Sprite sprite = grassTileMap.GetSprite(position);
-            if (sprite == null) continue;
-            string name = grassTileMap.GetSprite(position).name;
-            if (!grassDict.ContainsKey(name)) continue;
-
-            byte mode = grassDict[name];
-
-            if (mode == 1)
-            {
-                Instantiate(grassPreFab, loc, q, parent);
-            }
-
-            else if (mode == 2)
-            {
-                loc.x += 0.5f;
-                loc.y -= 0.5f;
-                Instantiate(grassPreFab, loc, q, parent);
-            }
-
-            else if (mode == 3)
-            {
-                Instantiate(grassPreFab, loc, q, parent);
-                loc.x += 0.5f;
-                loc.y -= 0.5f;
-                Instantiate(grassPreFab, loc, q, parent);
-            }
-        }
-
-
-
-        grassTileMap.gameObject.SetActive(false);
-
-
-    }
 
 
     // Update is called once per frame
@@ -251,35 +184,34 @@ public class Tile_Manager : MonoBehaviour
 
         //check for grass tile
 
-        targetTile = new Vector3Int((int)player.transform.position.x, (int)player.transform.position.y, 0);
+        targetTile.Set((int)player.transform.position.x, (int)player.transform.position.y, 0);
 
         int facing = player.getFacing();
         if(facing == 0)
         {
-            double distance = (targetTile.y + 1.25f) - player.transform.position.y;
+            double distance = player.transform.position.y - targetTile.y;
             
-            if(distance < 1)
+            if(distance > 0.25)
                 targetTile.y += 1;
         }
         else if (facing == 1)
         {
-            double distance = (targetTile.x + 1.25f) - player.transform.position.x;
-
-            if (distance < 1)
+            double distance = player.transform.position.x - targetTile.x;
+            if (distance > 0.25)
                 targetTile.x += 1;
         }
         else if (facing == 2)
         {
-            double distance = player.transform.position.y - (targetTile.y - 0.25f);
+            double distance = player.transform.position.y - targetTile.y;
 
-            if (distance < 1)
+            if (distance < 0.75)
                 targetTile.y -= 1;
         }
         else if (facing == 3)
         {
-            double distance = player.transform.position.x - (targetTile.x - 0.25f);
+            double distance = player.transform.position.x - targetTile.x;
 
-            if (distance < 1)
+            if (distance < 0.75)
                 targetTile.x -= 1;
         }
 
@@ -388,6 +320,63 @@ public class Tile_Manager : MonoBehaviour
 
     public void setSelectionHilight(bool val) { this.hilightActive = val; }
 
+    void instantiateGrass()
+    {
+        Vector3Int index = new Vector3Int(0, 0, 0);
+        Quaternion q = new Quaternion(0, 0, 0, 0);
 
+        Transform parent = transform.Find("Grass Container");
+
+        if (parent != null) return;
+
+        GameObject container = new GameObject("Grass Container");
+        container.transform.parent = this.transform.parent;
+
+        parent = container.transform;
+
+
+        foreach (Vector3Int position in grassTileMap.cellBounds.allPositionsWithin)
+        {
+            if (!grassTileMap.HasTile(position)) continue;
+
+
+            Vector2 loc = grassTileMap.CellToWorld(position);
+            loc.x += 0.5f;
+            loc.y += 0.5f;
+
+            Sprite sprite = grassTileMap.GetSprite(position);
+            if (sprite == null) continue;
+            string name = grassTileMap.GetSprite(position).name;
+            if (!grassDict.ContainsKey(name)) continue;
+
+            byte mode = grassDict[name];
+
+            if (mode == 1)
+            {
+                Instantiate(grassPreFab, loc, q, parent);
+            }
+
+            else if (mode == 2)
+            {
+                loc.x += 0.5f;
+                loc.y -= 0.5f;
+                Instantiate(grassPreFab, loc, q, parent);
+            }
+
+            else if (mode == 3)
+            {
+                Instantiate(grassPreFab, loc, q, parent);
+                loc.x += 0.5f;
+                loc.y -= 0.5f;
+                Instantiate(grassPreFab, loc, q, parent);
+            }
+        }
+
+
+
+        grassTileMap.gameObject.SetActive(false);
+
+
+    }
 
 }

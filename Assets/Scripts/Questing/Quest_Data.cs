@@ -58,7 +58,7 @@ public class Quest_Data : ScriptableObject
 
     public List<Item> getRewards() { return rewards; }
 
-    public List<Item> getQuestItems() { return questItems; }
+    public List<Item> getQuestItems() { Debug.Log(questItems.Count); return questItems; }
 
     public int numRewards() { return rewards.Count; }
 

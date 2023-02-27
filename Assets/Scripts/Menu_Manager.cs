@@ -6,24 +6,28 @@ using UnityEngine.UI;
 public class Menu_Manager : MonoBehaviour
 {
     byte selectedTab;
-    
+  
     Input_Manager im;
     Inventory_Manager invMan;
 
-    GameObject[] pauseMenuTabs;
+    Menu[] pauseMenuTabs;
 
-    [SerializeField]
     GameObject pauseMenu;
 
-    GameObject invMenu, questLog;
+    Menu invMenu, questLog;
 
-    
+    Sprite[] numbers;
+
+    Inventory_Bar_Menu invBarMenu;
+
+
+    //TODO this will change, find a dynamic way to find the store menu needed in a given scene from an npc
     [SerializeField]
     GameObject storeMenu;
 
     public GameObject[] storeMenus;
 
-    public GameObject currentMenu;
+    public Menu currentMenu;
     
     Transform canvas;
 
@@ -34,10 +38,13 @@ public class Menu_Manager : MonoBehaviour
     {
         im = this.GetComponent<Input_Manager>();
         invMan = this.GetComponent<Inventory_Manager>();
+        invBarMenu = GameObject.FindGameObjectWithTag("HUD").transform.Find("Inventory Bar").GetComponent<Inventory_Bar_Menu>();
+        pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
+        numbers = Resources.LoadAll<Sprite>("NUMBERS");
 
-        pauseMenuTabs = new GameObject[2];
-        invMenu = pauseMenu.transform.Find("Inventory Menu").gameObject;
-        questLog = pauseMenu.transform.Find("Quest Log Menu").gameObject;
+        pauseMenuTabs = new Menu[2];
+        invMenu = pauseMenu.transform.Find("Inventory Menu").GetComponent<Menu>();
+        questLog = pauseMenu.transform.Find("Quest Log Menu").GetComponent<Menu>();
 
         pauseMenuTabs[0] = invMenu;
         pauseMenuTabs[1] = questLog;
@@ -45,6 +52,10 @@ public class Menu_Manager : MonoBehaviour
         menuSelector = invMenu.transform.Find("Selection");
 
         selectedTab = 0;
+
+
+
+
 
     }
 
@@ -58,8 +69,10 @@ public class Menu_Manager : MonoBehaviour
         //clone.SetActive(true);
 
         pauseMenu.SetActive(false);
-        invMenu.SetActive(false);
-        questLog.SetActive(false);
+        invMenu.gameObject.SetActive(false);
+        questLog.gameObject.SetActive(false);
+
+        refresh();
         
     }
 
@@ -70,14 +83,19 @@ public class Menu_Manager : MonoBehaviour
 
     }
 
+    public void refresh()
+    {
+        invBarMenu.refresh();
+    }
+
 
     public void loadShopMenu(byte shopId)
     {
         Time.timeScale = 0;
         im.enableMenuInput();
 
-        currentMenu = Instantiate(storeMenus[shopId], canvas);
-        currentMenu.SetActive(true);      
+        currentMenu = storeMenus[shopId].GetComponent<Menu>();
+        Instantiate(storeMenus[shopId], canvas);     
         
     }
 
@@ -89,7 +107,7 @@ public class Menu_Manager : MonoBehaviour
             Object.Destroy(currentMenu);
         else
         {
-            currentMenu.SetActive(false);
+            currentMenu.gameObject.SetActive(false);
             pauseMenu.SetActive(false);     
         }
             
@@ -107,20 +125,25 @@ public class Menu_Manager : MonoBehaviour
         pauseMenuTabs[selectedTab].GetComponent<Menu>().handleInput(urdl);
     }
 
+    public void toggleBarSelection(direction input)
+    {
+        invBarMenu.handleInput(input);
+    }
+
     public void pauseGame()
     {
         Time.timeScale = 0f;
 
         currentMenu = pauseMenuTabs[selectedTab];
         pauseMenu.SetActive(true);
-        currentMenu.SetActive(true);
+        currentMenu.gameObject.SetActive(true);
     }
 
 
     public void incrementTab(sbyte value)
     {
 
-        pauseMenuTabs[selectedTab].SetActive(false);
+        pauseMenuTabs[selectedTab].gameObject.SetActive(false);
         
         int sel = selectedTab + value;
         selectedTab = (byte)(selectedTab + value);
@@ -131,6 +154,12 @@ public class Menu_Manager : MonoBehaviour
             selectedTab = (byte)(pauseMenuTabs.Length - 1);
 
 
-        pauseMenuTabs[selectedTab].SetActive(true);
+        pauseMenuTabs[selectedTab].gameObject.SetActive(true);
+    }
+
+    public Sprite getDigitSprite(byte digit)
+    {
+        return (numbers[digit]);
+
     }
 }

@@ -78,7 +78,7 @@ public class Inventory_Menu : Menu
         for (int i = 0; i < items.Length; i++)
         {
 
-            if (items[i].getData().getSprite() != null)
+            if (items[i].getData() != null)
             {
                 itemImages[i].enabled = true;
                 itemImages[i].sprite = items[i].getSprite();

@@ -16,5 +16,5 @@ MonoBehaviour:
   description: 
   itemNo: 4
   value: 0
-  stackable: 0
+  stackLimit: 16
   sprite: {fileID: -7583409310137716746, guid: 10fe57014834daa4282c6bbc9d8fee94, type: 3}

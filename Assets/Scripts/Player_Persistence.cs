@@ -11,12 +11,9 @@ public class Player_Persistence : ScriptableObject
     int health;
 
     [SerializeField]
-    Item_Data[] items;
+    Item[] items;
 
     byte invSelection;
-
-    [SerializeField]
-    int[] itemCounts;
 
     byte inventorySize;
 
@@ -27,6 +24,8 @@ public class Player_Persistence : ScriptableObject
 
     bool[] questsComplete;
     List<Quest> questLog;
+
+
 
 
     public void setEntrance(byte entranceNo)
@@ -47,26 +46,15 @@ public class Player_Persistence : ScriptableObject
 
     public void setItems(Item[] items)
     {
-        this.items = new Item_Data[items.Length];
-        this.itemCounts = new int[items.Length];
+        this.items = new Item[items.Length];
 
         for(int i = 0; i<items.Length; i++)
         {
-            this.items[i] = items[i].getData();
-            this.itemCounts[i] = items[i].getQuantity();
+            this.items[i] = items[i];
         }
     }
 
-
-    public Item_Data[] getItemData()
-    {
-        return this.items;
-    }
-
-    public int[] getItemCounts()
-    {
-        return this.itemCounts;
-    }
+    public Item[] getItems() { return this.items; }
 
     public void setInvSelection(byte sel) { this.invSelection = sel; }
 

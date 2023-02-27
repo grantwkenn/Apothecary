@@ -15,7 +15,7 @@ public class Item_Data : ScriptableObject
     int itemNo, value;
 
     [SerializeField]
-    bool stackable;
+    int stackLimit;
 
     [SerializeField]
     Sprite sprite;
@@ -26,5 +26,10 @@ public class Item_Data : ScriptableObject
 
     public string getName() { return this.itemName; }
 
+    public int getStackLimit() { return this.stackLimit; }
 
+    public void editorOnlySetItemNo(int number)
+    {
+        this.itemNo = number;
+    }
 }

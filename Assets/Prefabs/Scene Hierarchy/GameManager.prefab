@@ -80,10 +80,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemCatalogue: {fileID: 11400000, guid: ac1e88af66f0d254b97683ae99565998, type: 2}
-  inv: {fileID: 0}
-  bar: {fileID: 0}
   inventory: []
-  menuSelection: 0
 --- !u!114 &2698974980975134956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -111,9 +108,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugMode: 1
-  bgMap: {fileID: 0}
   dirtMap: {fileID: 0}
-  dirt: {fileID: 11400000, guid: 2f165cf16f7060d4a9eb1372e695dad4, type: 2}
   grassTileMap: {fileID: 0}
   grassPreFab: {fileID: 2577758115621942394, guid: 72e8052ca72f478459f2b91e5e437673, type: 3}
   defaultGrassSprite: {fileID: -4776146301609788052, guid: dc4eebc4f0f2bda46aa6dbb171e567ff, type: 3}
@@ -121,6 +116,7 @@ MonoBehaviour:
   grassRight: {fileID: 7400000, guid: 6204b438ffa2c5b428a960ba42fe4831, type: 2}
   instantiate_Grass: 0
   selection_hilight: {fileID: 0}
+  watered: {r: 0.7169812, g: 0.66625136, b: 0.66625136, a: 1}
 --- !u!114 &2698974980975134964
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -198,7 +194,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7dd0b0ca0a049cf458dde97df5866e88, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 0}
   storeMenu: {fileID: 1448704053639121768, guid: c4f8f20c621376244875953e40995576, type: 3}
   storeMenus:
   - {fileID: 1448704053639121768, guid: c4f8f20c621376244875953e40995576, type: 3}

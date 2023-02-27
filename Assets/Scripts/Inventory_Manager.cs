@@ -4,6 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 
+//TODO Find where items are added or discarded and only use those functions as gate keepers,
+// these functions are responsible for checking quest progression and calling refresh on the GUI Menus.
+
+//Redo the offer item schema in favor of the quantity stacking schema
+
+
 public class Inventory_Manager : MonoBehaviour
 {
     Quest_Manager qm;
@@ -11,8 +17,12 @@ public class Inventory_Manager : MonoBehaviour
     Player player;
     Player_Persistence pp;
     Tile_Manager tm;
+    Menu_Manager mm;
+    Inventory_Bar_Menu invBar;
 
-    public Item emptyItem;
+    Item emptyItem;
+    int emptyID;
+    string emptyName;
 
     [SerializeField]
     Item_Catalogue itemCatalogue;
@@ -23,36 +33,26 @@ public class Inventory_Manager : MonoBehaviour
 
     
     //TODO these references should not exist in new menu manager schema
-    public RectTransform inv;
-    public RectTransform bar;
+    //public RectTransform inv;
+    
 
-    Transform barSelector;
+    
     //Transform menuSelector;
 
     [SerializeField]
     Item[] inventory;
 
 
-    //Image[] menuImages;
-    Image[] barImages;
-
     byte inventorySize = 44;
     byte rowSize = 11;
 
 
-    int itemCount = 0;
-    int emptyCount;
-    byte barSelection = 0;
+    //int occupiedSlots;
+    int freeSlots;
 
-    int menuRow = 0;
-    int menuCol = 0;
-    int numRows = 4;
-    int numCols = 11;
 
-    bool inputBreak = true;
 
-    Vector3[] barPositions;
-
+    byte barSelection;
 
     //public Item_List itemList;
 
@@ -63,7 +63,12 @@ public class Inventory_Manager : MonoBehaviour
         qm = GetComponentInParent<Quest_Manager>();
         sm = GetComponentInParent<Scene_Manager>();
         tm = GetComponentInParent<Tile_Manager>();
+        mm = GetComponentInParent<Menu_Manager>();
+        invBar = GameObject.FindGameObjectWithTag("HUD").transform.Find("Inventory Bar").GetComponent<Inventory_Bar_Menu>();
+
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        gmAudioSource = GetComponentInParent<AudioSource>();
 
         //persistenceData = this.GetComponentInParent<Scene_Manager>().sp;
 
@@ -78,64 +83,44 @@ public class Inventory_Manager : MonoBehaviour
             itemData_by_Name.Add(item_data.getName(), item_data);
         }
 
+        emptyItem = new Item(itemData_by_Name["Empty"],0);
+        emptyName = emptyItem.getName();
+        emptyID = emptyItem.getItemNo();
+
         //This line may change if we have variable bag size
         inventory = new Item[inventorySize];
-
-        emptyItem = new Item(itemCatalogue.getCatalogue()[0], 1);
+       
 
         loadPersistenceData();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-
-        barImages = new Image[numCols];
-        //Find the Inventory Bar Transforms
-        for (int i = 0; i < numCols; i++)
+        int occupiedSlots = 0;
+        freeSlots = inventory.Length;
+        for(int i=0; i<inventory.Length; i++)
         {
-            string s = "Slot" + i;
-            Transform slot = bar.Find(s);
-            barImages[i] = slot.GetComponentInChildren<Image>();
+            if (inventory[i].getData() == null)
+                inventory[i] = emptyItem;
+
+            else if (!inventory[i].isEmpty())
+                freeSlots--;
         }
-        //placement of Bar Transforms
-        barPositions = new Vector3[numCols];
-        for (int i = 0; i < numCols; i++)
-        {
-            barPositions[i] = new Vector3(3 + i * 18, 3, 0);
-        }
-
-        //////////////////////////////////////////////////////////
-
-        //Selector Slot
-        barSelector = bar.Find("Selection");
-
-
-        gmAudioSource = GetComponentInParent<AudioSource>();
-
-        emptyCount = inventorySize - itemCount;
 
     }
 
+
+
+
+    /// <summary>
+    /// /////PERSISTENCE ////////////////
+    /// </summary>
 
     void loadPersistenceData()
     {
         pp = sm.getPlayerPersistence();
 
-        Item_Data[] ppItemData = pp.getItemData();
-        int[] spItemCounts = pp.getItemCounts();
-
-        for (int i = 0; i < inventorySize; i++)
-        {
-            inventory[i] = new Item(ppItemData[i], spItemCounts[i]);
-        }
+        inventory = pp.getItems();
 
         barSelection = pp.getInvSelection();
 
     }
-
-
 
     //TODO maybe this can be done in real time as each item is updated instead of all on scene exit? 
     public void storePersistenceData()
@@ -143,67 +128,67 @@ public class Inventory_Manager : MonoBehaviour
         pp.setItems(inventory);
         pp.setInvSelection(barSelection);
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+    /// <summary>
+    /// /////////////////////////////////////////////////////////////////
+    /// </summary>
 
 
-        for (int i = 0; i < numCols; i++)
-        {
-            if(inventory[i].getData().getSprite() != null)
-            {
-                barImages[i].enabled = true;
-                barImages[i].sprite = inventory[i].getData().getSprite();
-            }
-            else
-                barImages[i].enabled = false;
-        }
-
-        barSelector.transform.localPosition = barPositions[barSelection];
-        //menuSelector.transform.localPosition = menuPositions[menuSelection];
-
-    }
-
-
-    public bool inventoryFull()
-    {
-        return itemCount == inventorySize;
-    }
-
+    //TODO need to change the offer item system in favor of the quantity stacking schema below
+    //TODO refresh menus here
     private void addItem(Item item)
     {
-
-        //redundent
-        if (inventoryFull()) return;
-
-        if (inventory[barSelection].getName() == emptyItem.getName())
+        int quantity = item.getQuantity();
+        //first look for this item already in stack
+        for(int i=0; i<inventorySize; i++)
         {
-            inventory[barSelection] = item;
-        }
-
-        else
-        {
-            for (int i = 0; i < inventorySize; i++)
+            Item invItem = inventory[i];
+            if(isSameItem(invItem, item))
             {
-                if (inventory[i].getName() == emptyItem.getName())
+                //attempt to stack onto this item
+                int space = (invItem.getData().getStackLimit() - invItem.getQuantity());
+                if(space > quantity)
                 {
-                    inventory[i] = item;
+                    invItem.addQuantity(quantity);
+                    item.subtractQuantity(quantity);
                     break;
+                }
+                else
+                {
+                    invItem.addQuantity(space);
+                    item.subtractQuantity(space);
                 }
             }
         }
 
-        itemCount++;
-        emptyCount = inventorySize - itemCount;
+        if(item.getQuantity() > 0)
+        {
+            if (inventory[barSelection].isEmpty())
+            {
+                inventory[barSelection] = item;
+                freeSlots--;
+            }
 
-        playSound();
+            else
+            {
+                for (int i = 0; i < inventorySize; i++)
+                {
+                    if (inventory[i].isEmpty())
+                    {
+                        inventory[i] = item;
+                        freeSlots--;
+                        break;
+                    }
+                }
+            }
+        }
+
+        //playSound();
 
         //notify the Quest Manager
         //qm.itemPickedUp(item.itemNo);
-        qm.itemAdded(item.getData().getItemNo(), 1);
-
+        qm.itemAdded(item.getData().getItemNo(), quantity - item.getQuantity());
+        mm.refresh();
+        evaluateSelector();
     }
 
     public Item[] getSelectedRow()
@@ -216,11 +201,6 @@ public class Inventory_Manager : MonoBehaviour
     }
 
 
-    public Item getEmptyItem()
-    {
-        return emptyItem;
-    }
-
     public void toggleSelection(sbyte val)
     {
         int index = barSelection + val;
@@ -231,6 +211,7 @@ public class Inventory_Manager : MonoBehaviour
         else
             barSelection = (byte) index;
 
+        //TODO rewrite this to get selection from bar menu
         if (inventory[barSelection].getName() == "Hoe"
             || inventory[barSelection].getName() == "Watering Can")
             tm.setSelectionHilight(true);
@@ -238,18 +219,17 @@ public class Inventory_Manager : MonoBehaviour
             tm.setSelectionHilight(false);
     }
 
-    public byte getSelectionIndex()
-    {
-        return barSelection;
-    }
 
-
+    //TODO fix this with new stacking schema
     public void discardSelection()
     {
+        Item item = inventory[barSelection];
         qm.itemRemoved(inventory[barSelection].getItemNo(), inventory[barSelection].getQuantity());
         inventory[barSelection] = emptyItem;
-        itemCount--;
+        freeSlots++;
 
+        mm.refresh();
+        evaluateSelector();
     }
 
 
@@ -259,28 +239,23 @@ public class Inventory_Manager : MonoBehaviour
         //gmAudioSource.Play();
     }
 
-    public bool enoughSpace(int number)
-    {
-        return emptyCount >= number;
-    }
 
     //will need to fix for stackables...
     public bool offerItems(List<Item> items)
     {
-        if (!enoughSpace(items.Count)) return false;
+        if (!isSpaceForItems(items)) return false;
 
         foreach (Item i in items)
         {
             addItem(i);
         }
 
-
         return true;
     }
 
     public bool offerItem(Item item)
     {
-        if (!enoughSpace(1)) return false;
+        if (slotNeededForItem(item) && freeSlots == 0) return false;
         addItem(item);
         return true;
     }
@@ -295,6 +270,7 @@ public class Inventory_Manager : MonoBehaviour
 
     public void useItem()
     {
+
         string itemName = inventory[barSelection].getData().getName();
 
         if (itemName == "Sword") player.executePlayerFn(0);
@@ -313,9 +289,11 @@ public class Inventory_Manager : MonoBehaviour
     void consumeSelection()
     {
         removeItemHelper(barSelection, 1);
+
+        //refresh UI
+        mm.refresh();
+        evaluateSelector();
     }
-
-
 
     public void removeItem(int itemID, int quantity)
     {
@@ -325,7 +303,7 @@ public class Inventory_Manager : MonoBehaviour
         int quantityToRemove = quantity;
 
         //search every item for match, then subtract amount
-        for (int i = 0; i < inventory.Length; i++)
+        for (int i = inventory.Length-1; i>=0; i--)
         {
             Item item = inventory[i];
             if (item.getData().getItemNo() != itemID) continue;
@@ -333,32 +311,39 @@ public class Inventory_Manager : MonoBehaviour
             //quantity of this item
             int itemQuantity = item.getQuantity();
 
-            int remainder = quantityToRemove - itemQuantity;
-
             if (quantityToRemove < itemQuantity)
-                removeItemHelper(i, quantityToRemove);               
+            {
+                removeItemHelper(i, quantityToRemove);
+                quantityToRemove = 0;
+            }
+                             
             else
+            {
                 removeItemHelper(i, itemQuantity);
-            
-
-            quantityToRemove -= itemQuantity;
-            if (quantityToRemove <= 0) break;
+                quantityToRemove -= itemQuantity;
+            }
+                
+                      
+            if (quantityToRemove == 0) break;
         }
 
+        //refresh UI
+        mm.refresh();
+        evaluateSelector();
     }
 
     void removeItemHelper(int index, int quantity)
     {        
         int remainder = inventory[index].getQuantity() - quantity;
 
-        if (remainder < 0) Debug.Log("ERROR: Can't remove more than exists");
-
         //delete item
         if (remainder == 0)
         {
             inventory[index] = emptyItem;
+            freeSlots--;
+
         }
-        else if(remainder > 0) //some remains
+        else //some remains
         {
             inventory[index].subtractQuantity(quantity);
         }
@@ -374,13 +359,100 @@ public class Inventory_Manager : MonoBehaviour
 
     public void setItems(Item[] items)
     {
-        for(int i=0; i<items.Length; i++)
+        for (int i = 0; i < items.Length; i++)
         {
             inventory[i] = new Item(items[i].getData(), items[i].getQuantity());
-        }    
+        }
     }
 
 
+    //check if there is space for all items in the list, including stacking
+    //This code is not efficient, but it should only work on sets of constant size N = 1-5
+    //Quest Rewards, etc. will not be very long lists.
+    public bool isSpaceForItems(List<Item> items)
+    {
+        if (items.Count == 0) return true;
+
+        int emptySpace = freeSlots;
+        
+        //b/c of the nested loop traversal, keep track of which items have been searched
+        bool[] searched = new bool[items.Count];
+
+        for(int i=0; i< items.Count; i++)
+        {
+
+            //Skip the extra manipulation for items that don't stack
+            if(items[i].getData().getStackLimit() <= 1 && slotNeededForItem(items[i]))
+            {                
+                emptySpace--;
+                continue;
+            }               
+            
+            List<Item> sameItems = new List<Item>();
+            //Construct a list of similar items to i
+            for(int j=0; j< items.Count; j++)
+            {
+                if(isSameItem(items[i], items[j]))
+                {
+                    sameItems.Add(items[i]);
+                    searched[j] = true;
+                }
+                    
+            }
+            if(sameItems.Count > 1)
+            {
+                //this list includes similar items, need to calculate with separate helper Fn:
+                emptySpace -= slotsNeededSameItems(sameItems);
+            }
+            else if(slotNeededForItem(items[i]))
+                emptySpace--;
+
+            searched[i] = true;
+        }
+
+        return emptySpace >= 0;
+    }
+
+    //Determine if a slot is needed for this item after stacking
+    bool slotNeededForItem(Item item)
+    {
+        int quantity = item.getQuantity();
+        int stackLimit = item.getData().getStackLimit();
+        for(int i=0; i<inventorySize; i++)
+        {
+            Item indexItem = inventory[i];
+            if (isSameItem(indexItem, item))
+            {
+                quantity -= stackLimit - indexItem.getQuantity();
+            }
+        }
+        if (quantity > 0) return true; //we need a slot for this item
+        return false;
+    }
+
+    //This helper function will take a list of sameItems and evaluate the number of empty spaces needed
+    // given current stacks in inventory
+    int slotsNeededSameItems(List<Item> sameItems)
+    {
+        int quantity = 0;
+        foreach(Item i in sameItems)
+        {
+            quantity += i.getQuantity();
+        }
+        Item item = sameItems[0];
+        int stackLimit = item.getData().getStackLimit();
+        for (int i = 0; i < inventorySize; i++)
+        {
+            Item indexItem = inventory[i];
+            if (isSameItem(indexItem, item))
+            {
+                quantity -= stackLimit - indexItem.getQuantity();
+            }
+        }
+
+        return quantity % stackLimit;
+    }
+    
 
     //count of an ItemID on hand
     public int countItem(int itemID)
@@ -390,14 +462,25 @@ public class Inventory_Manager : MonoBehaviour
         {
             if (item == null || item.getData().getItemNo() != itemID) continue;
 
-            count += item.getQuantity();
+            count += (int)item.getQuantity();
 
         }
 
         return count;
     }
 
+    public void evaluateSelector()
+    {
+        if ((inventory[barSelection].getName() == "Hoe"
+        || inventory[barSelection].getName() == "Watering Can"))
+            tm.setSelectionHilight(true);
+        else
+            tm.setSelectionHilight(false);
+    }
 
+    public void setBarSelection(byte selection) { this.barSelection = selection; }
+
+    bool isSameItem(Item i1, Item i2) { return i1.getItemNo() == i2.getItemNo(); }
 
 }
 

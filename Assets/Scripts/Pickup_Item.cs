@@ -11,13 +11,13 @@ public class Pickup_Item : MonoBehaviour
     [SerializeField]
     int quantity;
 
-
-    private GameObject gameManager;
+    Item item;
 
     private void OnEnable()
     {
-        gameManager = GameObject.FindGameObjectWithTag("GameManager");
         this.GetComponentInParent<SpriteRenderer>().sprite = item_Data.getSprite();
+
+        item = new Item(item_Data, quantity);
 
     }
 
@@ -28,18 +28,9 @@ public class Pickup_Item : MonoBehaviour
     {
         if (player.CompareTag("Player"))
         {
-            //if inventory not full
-            if(!gameManager.GetComponent<Inventory_Manager>().inventoryFull())
-            {
-                Item item = new Item(item_Data, quantity);
-                
-                //Add to Inventory
-                gameManager.GetComponent<Inventory_Manager>().offerItem(item);
-
-
-                //Destroy
+            if (GameObject.FindGameObjectWithTag("GameManager").GetComponent<Inventory_Manager>().offerItem(item))
                 Destroy(this.gameObject);
-            }
+            
 
         }
     }

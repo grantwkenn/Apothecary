@@ -6,7 +6,9 @@ using UnityEngine;
 [System.Serializable]
 public class Item
 {
+    [SerializeField]
     Item_Data data;
+    [SerializeField]
     int stackQuantity;
 
     public Item_Data getData()
@@ -35,7 +37,16 @@ public class Item
 
     public void subtractQuantity(int value)
     {
-        this.stackQuantity -= value;
+        if (value <= stackQuantity)
+            this.stackQuantity = this.stackQuantity - value;
+        else
+            Debug.Log("Item counting error");
+    }
+
+
+    public bool isEmpty()
+    {
+        return this.data.getItemNo() == 0;
     }
 
 }

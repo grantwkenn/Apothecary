@@ -40,10 +40,14 @@ public class Scene_Manager : MonoBehaviour
 
     //public bool manageLayers;
 
+    private void Awake()
+    {
+        pp = Resources.Load<Player_Persistence>("Player Persistence");
+    }
+
 
     private void OnEnable()
     {
-        pp = Resources.Load<Player_Persistence>("Player Persistence");
         qm = this.GetComponent<Quest_Manager>();
         im = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Inventory_Manager>();
         inputMan = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Input_Manager>();
