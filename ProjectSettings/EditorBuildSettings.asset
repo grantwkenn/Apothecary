@@ -15,9 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/tavern_cellar.unity
     guid: 083fe62258aca704caf54e7478fd14b7
   - enabled: 1
-    path: Assets/Scenes/Farm House.unity
+    path: Assets/Scenes/farm house.unity
     guid: 6c16bcacd6e7d8e40b59fe58e8635f8f
   - enabled: 1
     path: Assets/Scenes/Farm House 1.unity
     guid: cce4e09c3d593914e84aa3b12ad5a6d1
+  - enabled: 1
+    path: Assets/Scenes/beach.unity
+    guid: 258137f2a751d7945ac5790ff3d97f10
   m_configObjects: {}

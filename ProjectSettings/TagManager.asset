@@ -17,6 +17,7 @@ TagManager:
   - Pause Tab
   - PauseMenu
   - hundreds
+  - Inventory Bar
   layers:
   - Default
   - TransparentFX

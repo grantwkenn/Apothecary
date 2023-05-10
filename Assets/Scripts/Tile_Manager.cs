@@ -62,7 +62,7 @@ public class Tile_Manager : MonoBehaviour
 
     Scene_Persistence sp;
 
-    public GameObject selection_hilight;
+    GameObject selection_hilight;
 
     Vector3Int targetTile;
     Vector3Int cellTarget;
@@ -99,6 +99,8 @@ public class Tile_Manager : MonoBehaviour
         targetTile = new Vector3Int();
 
         wateredTiles = new Dictionary<Vector2Int, bool>();
+
+        selection_hilight = GameObject.FindGameObjectWithTag("Grid").transform.Find("Tile Selection").gameObject;
 
         Transform grassMap = GameObject.Find("Grid").transform.Find("Grass");
         if (grassMap != null)
@@ -217,7 +219,7 @@ public class Tile_Manager : MonoBehaviour
 
 
         //Check if there is a valid tile in the diggable tilemap
-        if (hilightActive && tillableTiles.HasTile(targetTile))
+        if (hilightActive && tillableTiles != null && tillableTiles.HasTile(targetTile))
         {
             selection_hilight.transform.position = targetTile;
             selection_hilight.SetActive(true);

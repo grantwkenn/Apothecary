@@ -95,7 +95,7 @@ public class Menu_Manager : MonoBehaviour
         im.enableMenuInput();
 
         currentMenu = storeMenus[shopId].GetComponent<Menu>();
-        Instantiate(storeMenus[shopId], canvas);     
+        storeMenu = Instantiate(storeMenus[shopId], canvas);     
         
     }
 
@@ -104,7 +104,7 @@ public class Menu_Manager : MonoBehaviour
         
 
         if(!currentMenu.CompareTag("Pause Tab"))
-            Object.Destroy(currentMenu);
+            Destroy(storeMenu);
         else
         {
             currentMenu.gameObject.SetActive(false);

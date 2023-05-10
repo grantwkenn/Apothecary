@@ -33,6 +33,8 @@ public class Text_Manager : MonoBehaviour
 
         dialogueManager = GetComponentInParent<Dialogue_Manager>();
 
+        dialogueContainer = GameObject.FindGameObjectWithTag("HUD").transform.Find("DialogueContainer").gameObject;
+
         dialogueContainer.SetActive(false);
 
         arrow = dialogueContainer.transform.Find("Arrow");
