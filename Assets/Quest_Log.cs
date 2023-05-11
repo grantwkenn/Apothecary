@@ -32,7 +32,7 @@ public class Quest_Log : Menu
         }
 
 
-
+        this.refresh();
         refreshLog();
     }
 
@@ -44,20 +44,25 @@ public class Quest_Log : Menu
 
     void refreshLog()
     {
-        //get all quests in log
-        quests = qm.getLog();
 
-        for(int i =0; i< quests.Count; i++)
-        {
-            slots[i].gameObject.SetActive(true);
-            slots[i].GetComponent<Text>().text = quests[i].getData().getTitle();
-
-        }
 
     }
 
     public override void handleInput(direction urdl)
     {
         throw new System.NotImplementedException();
+    }
+
+    public override void refresh()
+    {
+        //get all quests in log
+        quests = qm.getLog();
+
+        for (int i = 0; i < quests.Count; i++)
+        {
+            slots[i].gameObject.SetActive(true);
+            slots[i].GetComponent<Text>().text = quests[i].getData().getTitle();
+
+        }
     }
 }

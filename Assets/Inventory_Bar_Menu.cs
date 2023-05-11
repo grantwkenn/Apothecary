@@ -64,7 +64,7 @@ public class Inventory_Bar_Menu : Menu
 
 
 
-    public void refresh()
+    public override void refresh()
     {
 
         //TODO this code is very sketchy should be optimized and doesn't need to be called every frame!

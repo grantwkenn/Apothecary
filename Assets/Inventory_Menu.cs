@@ -51,6 +51,7 @@ public class Inventory_Menu : Menu
             {
                 string s = "Slot" + j;
                 Transform slot = rows[i].Find(s);
+                Image im = slot.GetComponentInChildren<Image>();
                 itemImages[(i * numCols) + j] = slot.GetComponentInChildren<Image>();
             }
         }
@@ -78,7 +79,7 @@ public class Inventory_Menu : Menu
         for (int i = 0; i < items.Length; i++)
         {
 
-            if (items[i].getData() != null)
+            if (items[i].getData().getSprite() != null)
             {
                 itemImages[i].enabled = true;
                 itemImages[i].sprite = items[i].getSprite();
@@ -112,5 +113,10 @@ public class Inventory_Menu : Menu
         menuSelection = (selectedRow * numCols) + selectedCol;
 
         Selector.transform.localPosition = spritePositions[menuSelection];
+    }
+
+    public override void refresh()
+    {
+        throw new System.NotImplementedException();
     }
 }
