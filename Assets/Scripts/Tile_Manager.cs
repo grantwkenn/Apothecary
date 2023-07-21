@@ -100,7 +100,7 @@ public class Tile_Manager : MonoBehaviour
 
         wateredTiles = new Dictionary<Vector2Int, bool>();
 
-        selection_hilight = GameObject.FindGameObjectWithTag("Grid").transform.Find("Tile Selection").gameObject;
+        selection_hilight = this.transform.Find("Tile Selection").gameObject;
 
         Transform grassMap = GameObject.Find("Grid").transform.Find("Grass");
         if (grassMap != null)
