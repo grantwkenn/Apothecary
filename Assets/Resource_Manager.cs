@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Resource_Manager : MonoBehaviour
 {
+    [SerializeField]
     Resource_Object Resources;
     
     

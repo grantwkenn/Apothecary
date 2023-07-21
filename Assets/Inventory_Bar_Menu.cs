@@ -8,6 +8,7 @@ public class Inventory_Bar_Menu : Menu
     Inventory_Manager im;
     Tile_Manager tm;
     Menu_Manager mm;
+    GameObject GM;
     
     byte numRows = 4;
     byte barCount = 11;
@@ -24,9 +25,12 @@ public class Inventory_Bar_Menu : Menu
 
     private void OnEnable()
     {
-        im = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Inventory_Manager>();
-        tm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Tile_Manager>();
-        mm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Menu_Manager>();
+        GM = GameObject.FindGameObjectWithTag("GameManager");
+
+
+        im = GM.GetComponent<Inventory_Manager>();
+        tm = GM.GetComponent<Tile_Manager>();
+        mm = GM.GetComponent<Menu_Manager>();
 
         numberImages = new Image[barCount * 3];
 
@@ -48,6 +52,7 @@ public class Inventory_Bar_Menu : Menu
 
         barSelector = this.transform.Find("Selector");
 
+
         
     }
 
@@ -55,7 +60,9 @@ public class Inventory_Bar_Menu : Menu
     // Start is called before the first frame update
     void Start()
     {
-        selection = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Scene_Manager>().getPlayerPersistence().getInvSelection();
+        selection = GM.GetComponent<Scene_Manager>().getPlayerPersistence().getInvSelection();
+        barSelector.GetComponent<Image>().sprite = GM.GetComponent<Resource_Manager>().getSprite(1);
+
         updateSelection();
 
         inventory = im.getItems();

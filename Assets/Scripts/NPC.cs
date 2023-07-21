@@ -19,9 +19,15 @@ public class NPC : MonoBehaviour
     Messager messager;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
+    Vector2 moveVelocity;
+    Vector2 prevPosition;
 
     public float walkSpeed;
 
+    [SerializeField]
+    NPC_Behavior_Data behaviorData;
+
+    
     public Vector2 currentTarget;
 
     public NPCState currentState;
@@ -47,6 +53,7 @@ public class NPC : MonoBehaviour
     public bool shopOpen;
     public byte shopID;
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -55,6 +62,9 @@ public class NPC : MonoBehaviour
         messager = this.GetComponentInParent<Messager>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         rb = this.GetComponent<Rigidbody2D>();
+
+        behaviorData.init();
+        currentTarget = behaviorData.getNextTarget();
 
 
         //Manually Round location to integer X and Y (5.44, 10.7) --> (5, 11)
@@ -71,6 +81,8 @@ public class NPC : MonoBehaviour
         directionFromTarget();
 
         home = rb.position;
+
+        prevPosition = rb.position;
 
     }
 
@@ -118,10 +130,11 @@ public class NPC : MonoBehaviour
     {
         //TODO redo this function completely
         if (currentTarget == rb.position) //arrived to target
-        {            
-
+        {
+            
+            currentTarget = behaviorData.getNextTarget();
             //adjust direction
-            directionFromTarget();
+            
         }
         else if (currentState == NPCState.walk)
         {
@@ -132,10 +145,39 @@ public class NPC : MonoBehaviour
 
     void move()
     {
+        
         rb.MovePosition(Vector2.MoveTowards(rb.position, currentTarget, Time.fixedDeltaTime * walkSpeed));
+        
+        
+        moveVelocity = rb.position - prevPosition;
+        prevPosition = rb.position;
+
+        updateDirectionFacing();
     }
 
 
+    void updateDirectionFacing()
+    {
+        if (moveVelocity == Vector2.zero) return;
+
+        float angle = Vector2.SignedAngle(moveVelocity, Vector2.up);
+
+        if(angle >= 0)
+        {
+            if (angle <= 45) animationDirection = 0;
+            else if (angle <= 135) animationDirection = 1;
+            else if (angle <= 180) animationDirection = 2;
+        }
+        else if(angle < 0)
+        {
+            if (angle <= -135) animationDirection = 2;
+            else if (angle <= -45) animationDirection = 3;
+            else animationDirection = 0;
+        }
+        
+        
+    }
+    
     void directionFromTarget()
     {
         if (rb.position.x > currentTarget.x)
