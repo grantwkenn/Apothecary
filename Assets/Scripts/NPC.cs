@@ -19,28 +19,29 @@ public class NPC : MonoBehaviour
     Messager messager;
     SpriteRenderer spriteRenderer;
     Rigidbody2D rb;
-    Vector2 moveVelocity;
+    public Vector2 moveVelocity;
     Vector2 prevPosition;
 
     public float walkSpeed;
 
     [SerializeField]
-    NPC_Behavior_Data behaviorData;
+    NPC_Data npcData;
 
     
-    public Vector2 currentTarget;
+    public Vector2 destination;
+    public Vector2 direction;
 
     public NPCState currentState;
-    NPCState startingState;
+    NPCState interruptedState = NPCState.idle;
+
 
     protected Animator animator;
 
 
     int animationDirection;
-    Vector2 direction;
 
-    public string[] idle;
-    public string[] walk;
+    static string[] idle = { "Idle_U", "Idle_R", "Idle_D", "Idle_L" };
+    static string[] walk = { "Walk_U", "Walk_R", "Walk_D", "Walk_L" };
 
     Vector2 prevDirection;
 
@@ -53,36 +54,49 @@ public class NPC : MonoBehaviour
     public bool shopOpen;
     public byte shopID;
 
+    int height;
+
+    public int angle;
+
+    static float engagedRadius = 2f;
+    static float roamingRadius = 1f;
+
+    private void OnEnable()
+    {
+        //get message from the DM / QM
+        //messager.setMessage(DM.getMessage(NPC_ID));
+        this.GetComponent<CircleCollider2D>().radius = roamingRadius;
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        DM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Dialogue_Manager>();
+        GameObject gm = GameObject.FindGameObjectWithTag("GameManager");
+        DM = gm.GetComponent<Dialogue_Manager>();
         messager = this.GetComponentInParent<Messager>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         rb = this.GetComponent<Rigidbody2D>();
 
-        behaviorData.init();
-        currentTarget = behaviorData.getNextTarget();
+        Resource_Manager rman = gm.GetComponent<Resource_Manager>();
+
+        npcData.init();
+        getNextBehavior();
 
 
         //Manually Round location to integer X and Y (5.44, 10.7) --> (5, 11)
         Vector2 floorXY = new Vector2(Mathf.RoundToInt(rb.position.x), Mathf.RoundToInt(rb.position.y));
         rb.position = floorXY;
 
-        direction = Vector2.down;
 
         animator = GetComponent<Animator>();
 
-        startingState = NPCState.walk;
-        currentState = startingState;
 
-        directionFromTarget();
 
         home = rb.position;
 
         prevPosition = rb.position;
+
 
     }
 
@@ -100,12 +114,16 @@ public class NPC : MonoBehaviour
         //simpleAI();
         if (currentState == NPCState.engage)
         {
-            direction = cardinal(((Vector2)player.transform.position - rb.position).normalized);
-
-            animationDirection = cardinalToInt(direction);
+            direction = player.transform.position;
+            updateHeading();
         }
         else if (!dontMove)
             simpleAI();
+    }
+
+    void getNPCData()
+    {
+
     }
 
 
@@ -129,38 +147,56 @@ public class NPC : MonoBehaviour
     void simpleAI()
     {
         //TODO redo this function completely
-        if (currentTarget == rb.position) //arrived to target
-        {
-            
-            currentTarget = behaviorData.getNextTarget();
-            //adjust direction
-            
-        }
-        else if (currentState == NPCState.walk)
+
+        if (currentState == NPCState.walk)
         {
             move();
         }            
 
     }
 
+    void getNextBehavior()
+    {
+        destination = npcData.getNextDestination();
+
+        if(destination == rb.position || destination == Vector2.zero)
+        {
+            currentState = NPCState.idle;
+            animationDirection = npcData.getURDL();
+        }
+
+        else
+        {
+            currentState = NPCState.walk; 
+            direction = destination;
+            updateHeading();
+        }
+    }
+
     void move()
     {
-        
-        rb.MovePosition(Vector2.MoveTowards(rb.position, currentTarget, Time.fixedDeltaTime * walkSpeed));
-        
-        
-        moveVelocity = rb.position - prevPosition;
+        rb.MovePosition(Vector2.MoveTowards(rb.position, destination, Time.fixedDeltaTime * walkSpeed));
+
+        if (destination == rb.position) //arrived to target
+        {
+            getNextBehavior();
+        }
+
+        else //still moving towards target
+        {
+            moveVelocity = rb.position - prevPosition;           
+        }
+
         prevPosition = rb.position;
 
-        updateDirectionFacing();
     }
 
 
-    void updateDirectionFacing()
+    void updateHeading()
     {
-        if (moveVelocity == Vector2.zero) return;
-
-        float angle = Vector2.SignedAngle(moveVelocity, Vector2.up);
+        //TODO round the angle to avoid flickering on float math
+        
+        angle = (int)System.Math.Round(Vector2.SignedAngle(direction - rb.position, Vector2.up));
 
         if(angle >= 0)
         {
@@ -177,51 +213,15 @@ public class NPC : MonoBehaviour
         
         
     }
-    
-    void directionFromTarget()
-    {
-        if (rb.position.x > currentTarget.x)
-        {
-            direction = Vector2.left;
-            animationDirection = 3;
-        }
-        else if (rb.position.x < currentTarget.x)
-        {
-            direction = Vector2.right;
-            animationDirection = 1;
-        }
-        else if (rb.position.y < currentTarget.y)
-        {
-            direction = Vector2.up;
-            animationDirection = 0;
-        }
-        else if (rb.position.y > currentTarget.y)
-        {
-            direction = Vector2.down;
-            animationDirection = 2;
-        }
-        else direction = Vector2.zero;
-    }
-
-
-
-
-
-
-
-
-
-
+   
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if(other.CompareTag("Player"))
         {
+            this.GetComponent<CircleCollider2D>().radius = engagedRadius;
             engagePlayer();
-            this.GetComponent<CircleCollider2D>().radius = 2;
-        }
-        
-        
+        }        
 
     }
 
@@ -229,19 +229,37 @@ public class NPC : MonoBehaviour
     {
         if(other.CompareTag("Player") && currentState == NPCState.engage)
         {
-            currentState = NPCState.walk;
-            directionFromTarget();
-            this.GetComponent<CircleCollider2D>().radius = 0.5f;
+            disengagePlayer();
+            this.GetComponent<CircleCollider2D>().radius = roamingRadius;
         }    
 
+    }
+
+    void disengagePlayer()
+    {
+        currentState = interruptedState;
+
+        if(currentState == NPCState.walk)
+        {
+            direction = destination;
+            updateHeading();
+        }
+
+        else if (currentState == NPCState.idle)
+        {
+            animationDirection = npcData.getURDL();
+        }
+        
     }
 
 
     void engagePlayer()
     {
         //stop walking but remember path
+        interruptedState = currentState;
         currentState = NPCState.engage;
-
+        direction = player.transform.position;
+        updateHeading();
     }
 
 
@@ -253,6 +271,7 @@ public class NPC : MonoBehaviour
     public static Vector2 cardinal(Vector2 input)
     {
         //return Vector2.up or down or left or right
+        //TODO can this code merge with the animation direction system?
         
         float degrees = Vector2.SignedAngle(Vector2.down, input);
 
@@ -283,27 +302,9 @@ public class NPC : MonoBehaviour
         currentState = NPCState.walk;
     }
 
-
-    private void OnEnable()
-    {
-        //get message from the DM / QM
-        //messager.setMessage(DM.getMessage(NPC_ID));
-
-
-
-    }
-
     public int getNPCID()
     {
         return NPC_ID;
-    }
-
-    public Vector2 intToCardinal(int URDL)
-    {
-        if (URDL == 1) return Vector2.right;
-        if (URDL == 2) return Vector2.down;
-        if (URDL == 3) return Vector2.left;
-        return Vector2.up;
     }
 
     public bool isOpen()
@@ -312,6 +313,14 @@ public class NPC : MonoBehaviour
     }
 
     public byte getShopID() { return this.shopID; }
+
+    public static Vector2 URDLtoVector2(int urdl)
+    {
+        if (urdl == 0) return Vector2.up;
+        if (urdl == 1) return Vector2.left;
+        if (urdl == 2) return Vector2.down;
+        return Vector2.right;
+    }
 }
 
 

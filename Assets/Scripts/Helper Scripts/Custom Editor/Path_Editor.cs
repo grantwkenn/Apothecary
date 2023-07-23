@@ -8,7 +8,7 @@ using UnityEditorInternal;
 public class Path_Editor : EditorWindow
 {
     [SerializeField]
-    NPC_Behavior_Data SO;
+    NPC_Data SO;
     [SerializeField]
     Transform Parent_Transform;
 
@@ -37,7 +37,7 @@ public class Path_Editor : EditorWindow
         if (GUILayout.Button("Round Coordinates")) { roundCoords(); }
 
 
-        SO = (NPC_Behavior_Data)EditorGUILayout.ObjectField("L", SO, typeof(NPC_Behavior_Data), true);
+        SO = (NPC_Data)EditorGUILayout.ObjectField("L", SO, typeof(NPC_Data), true);
 
         Parent_Transform = (Transform)EditorGUILayout.ObjectField("Parent", Parent_Transform, typeof(Transform), true);
 

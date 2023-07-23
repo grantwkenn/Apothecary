@@ -14,6 +14,7 @@ public class Messager : MonoBehaviour
     GameObject gameManager;
     Text_Manager textManager;
     Dialogue_Manager dialogueManager;
+    Quest_Manager qm;
 
     [SerializeField]
     private Message message;
@@ -22,11 +23,13 @@ public class Messager : MonoBehaviour
     [SerializeField]
     int segmentIndex;
 
-    [SerializeField]
-    SpriteRenderer quest_indicator;
+    SpriteRenderer questIndicatorSprite;
 
     [SerializeField]
     bool sign;
+
+    [SerializeField]
+    float indicatorHeight;
 
 
     private void Awake()
@@ -34,6 +37,11 @@ public class Messager : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
         textManager = gameManager.GetComponent<Text_Manager>();
         dialogueManager = gameManager.GetComponent<Dialogue_Manager>();
+        qm = gameManager.GetComponent<Quest_Manager>();
+
+
+        questIndicatorSprite = this.transform.Find("Quest Indicator").GetComponent<SpriteRenderer>();
+
     }
 
     private void OnEnable()
@@ -71,7 +79,10 @@ public class Messager : MonoBehaviour
         else
             setMessage(message);
 
+
+
     }
+
 
     //maybe only load message once player has interacted,
 
@@ -81,7 +92,6 @@ public class Messager : MonoBehaviour
             dialogueManager.setCurrentMessager(this);
 
     }
-
 
 
     private void OnTriggerExit2D(Collider2D player)
@@ -155,12 +165,12 @@ public class Messager : MonoBehaviour
     {
         if(index < 0)
         {
-            quest_indicator.enabled = false;
+            questIndicatorSprite.enabled = false;
         }
         else
         {
-            quest_indicator.enabled = true;
-            quest_indicator.sprite = dialogueManager.getQuestSymbol(index);           
+            questIndicatorSprite.enabled = true;
+            questIndicatorSprite.sprite = qm.getQuestSymbol(index);           
         }
     }
 

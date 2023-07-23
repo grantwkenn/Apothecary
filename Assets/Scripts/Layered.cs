@@ -38,6 +38,8 @@ public class Layered : MonoBehaviour
 
     Vector3 temp;
 
+    SpriteRenderer questIndicator;
+
 
     private void OnEnable()
     {
@@ -75,12 +77,15 @@ public class Layered : MonoBehaviour
         //TODO this will be deleted because this script will only apply to dynamic movers
         if (!dynamic)
             this.enabled = false;
+
+
     }
 
     void Start()
     {
-        
-        
+        if (this.GetComponent<Messager>() != null)
+            questIndicator = this.transform.Find("Quest Indicator").GetComponent<SpriteRenderer>();
+
 
     }
 
@@ -94,6 +99,7 @@ public class Layered : MonoBehaviour
 
         //update last position
         lastPosition = transform.position;
+
     }
 
 
@@ -108,6 +114,15 @@ public class Layered : MonoBehaviour
 
 
         sr.sortingOrder = order;
+
+        
+        //update quest indicator child transform to match its parent
+        if (questIndicator != null)
+        {
+            questIndicator.gameObject.layer = this.gameObject.layer;
+            questIndicator.sortingLayerName = sr.sortingLayerName;
+            questIndicator.sortingOrder = sr.sortingOrder;
+        }
 
     }
 
