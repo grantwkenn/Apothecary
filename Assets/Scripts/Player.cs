@@ -73,6 +73,8 @@ public class Player : MonoBehaviour
 
     int manaBurn;
 
+    SpriteMask tallGrassMask;
+
     //string[] shovel = { "Shovel_Up", "Shovel_Right", "Shovel_Down", "Shovel_Left" };
     //string[] run = { "run_up", "run_right", "run_down", "run_left" };
     //string[] idle = { "idle_up", "idle_right", "idle_down", "idle_left" };
@@ -102,6 +104,8 @@ public class Player : MonoBehaviour
     {
         if (Instance != null && Instance != this) Destroy(gameObject);
         else Instance = this;
+
+        tallGrassMask = this.transform.Find("Tall Grass Mask").GetComponent<SpriteMask>();
 
     }
 
@@ -439,6 +443,7 @@ public class Player : MonoBehaviour
 
 
     public void setStairSlope(float co) { this.stairSlope = co; }
+
 
 
 }

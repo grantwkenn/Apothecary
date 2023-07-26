@@ -7,7 +7,6 @@ using System;
 
 //TODO keep maps of all tilled, watered, etc. dirt tiles
 
-
 public class Tile_Manager : MonoBehaviour
 {
     public bool debugMode;
@@ -57,6 +56,7 @@ public class Tile_Manager : MonoBehaviour
 
     Dictionary<Vector2Int, bool> tilledTiles;
     Dictionary<Vector2Int, bool> wateredTiles;
+    HashSet<Vector2Int> wheat;
 
     Dictionary<Vector2Int, Crop> crops;
 
@@ -99,6 +99,7 @@ public class Tile_Manager : MonoBehaviour
         targetTile = new Vector3Int();
 
         wateredTiles = new Dictionary<Vector2Int, bool>();
+        wheat = new HashSet<Vector2Int>();
 
         selection_hilight = this.transform.Find("Tile Selection").gameObject;
 
@@ -145,6 +146,7 @@ public class Tile_Manager : MonoBehaviour
             loadScenePersistence();
 
     }
+
 
     void loadScenePersistence()
     {
@@ -296,6 +298,16 @@ public class Tile_Manager : MonoBehaviour
         anim.GetComponent<SpriteRenderer>().sprite = defaultGrassSprite;
 
 
+    }
+
+    public void mapWheat(Vector2Int v2)
+    {
+        wheat.Add(v2);
+    }
+
+    public bool checkWheat(Vector2Int v2)
+    {
+        return wheat.Contains(v2);
     }
 
     void grassTest()

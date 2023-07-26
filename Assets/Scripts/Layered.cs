@@ -41,6 +41,7 @@ public class Layered : MonoBehaviour
     SpriteRenderer questIndicator;
 
 
+
     private void OnEnable()
     {
 
@@ -68,15 +69,13 @@ public class Layered : MonoBehaviour
         if (bc != null)
             offset += bc.offset.y - (bc.size.y / 2.0f);
 
+        children = this.GetComponentsInChildren<SpriteRenderer>();
+
 
         //adjust the z location (layering) according to y + offset
         //_transform.position = new Vector3(_transform.position.x, _transform.position.y, _transform.position.y + offset);
 
         updateLayer();
-
-        //TODO this will be deleted because this script will only apply to dynamic movers
-        if (!dynamic)
-            this.enabled = false;
 
 
     }
@@ -112,8 +111,9 @@ public class Layered : MonoBehaviour
 
         int order = 4096 - (int)(t.position.z * 16);
 
-
+        if(sr!= null)
         sr.sortingOrder = order;
+
 
         
         //update quest indicator child transform to match its parent
@@ -122,6 +122,14 @@ public class Layered : MonoBehaviour
             questIndicator.gameObject.layer = this.gameObject.layer;
             questIndicator.sortingLayerName = sr.sortingLayerName;
             questIndicator.sortingOrder = sr.sortingOrder;
+        }
+
+        if(cascadeLevel)
+        {
+            foreach(SpriteRenderer childSR in children)
+            {
+                childSR.sortingOrder = order;
+            }
         }
 
     }

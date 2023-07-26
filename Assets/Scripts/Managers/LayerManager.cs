@@ -15,7 +15,7 @@ public class LayerManager : MonoBehaviour
     
     // Start is called before the first frame update
     void Start()
-    {
+    {        
         levelNames = new string[6];
         levelNames[0] = "Level 0";
         levelNames[1] = "Level 1";
@@ -57,24 +57,38 @@ public class LayerManager : MonoBehaviour
             string objectName = "" + lvlNo + " Object";
             string groundName = "" + lvlNo + " Ground";
             string overheadName = "" + lvlNo + " Above";
-            Transform Object = level.Find(objectName);
-            Transform Ground = level.Find(groundName);
-            Transform Overhead = level.Find(overheadName);
+            Transform objectLayer = level.Find(objectName);
+            Transform groundLayer = level.Find(groundName);
+            Transform overheadLayer = level.Find(overheadName);
 
-            if(Object != null)
-                layerRecursive(Object, objectName);
-            // layerRecursive(Ground, groundName);
-            if(Overhead != null)
-                layerRecursive(Overhead, overheadName);
+            SpriteRenderer[] objectObjects = objectLayer.GetComponentsInChildren<SpriteRenderer>();
+            SpriteRenderer[] groundObjects = groundLayer.GetComponentsInChildren<SpriteRenderer>();
+            SpriteRenderer[] overheadObjects = objectLayer.GetComponentsInChildren<SpriteRenderer>();
+
+            foreach(SpriteRenderer sr in objectObjects)
+            {                
+                newRelayer(sr, objectName);
+            }
 
         }
 
 
     }
 
+    void newRelayer(SpriteRenderer sr, string sortingLayerName)
+    {
+        lyHelper lyHelp = sr.GetComponent<lyHelper>();
+        Layered layered = sr.GetComponent<Layered>();
+        if (lyHelp == null && layered == null)
+        {
+            sr.sortingLayerName = sortingLayerName;
+            updateOrder(sr);
+        }
+    }
+
+
     void layerRecursive(Transform t, string layerName)
     {
-        
         SpriteRenderer sr = t.GetComponent<SpriteRenderer>();
         if(sr != null)
         {
@@ -86,7 +100,8 @@ public class LayerManager : MonoBehaviour
             ///to be sorted on a different layer from its parent
             if(lyHelp == null)
             {
-                sr.sortingLayerName = layerName; 
+                sr.sortingLayerName = layerName;
+
             }
             else if(!lyHelp.edgeCase)
             {
@@ -117,6 +132,28 @@ public class LayerManager : MonoBehaviour
         }
     }
 
+    public void updateOrder(SpriteRenderer sr)
+    {
+        float offset = 0;
+        Transform t = sr.transform;
+
+        BoxCollider2D bc = this.GetComponent<BoxCollider2D>();
+        if(bc != null)
+        {
+            offset += bc.offset.y - (bc.size.y / 2.0f);
+        }
+        
+        Vector3 temp = t.position;
+        temp.z = temp.y + offset;
+        t.position = temp;
+
+
+        int order = 4096 - (int)(t.position.z * 16);
+
+
+        sr.sortingOrder = order;
+
+    }
 
 
     void relayerAllSprites()

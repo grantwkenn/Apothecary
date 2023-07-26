@@ -216,10 +216,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentMessager: {fileID: 0}
-  questSymbols:
-  - {fileID: 732387933, guid: 1ea742da53502144e8004746fcd928bf, type: 3}
-  - {fileID: 333607250, guid: 1ea742da53502144e8004746fcd928bf, type: 3}
-  - {fileID: 678280249, guid: 1ea742da53502144e8004746fcd928bf, type: 3}
 --- !u!114 &2698974980975134971
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,6 +233,7 @@ MonoBehaviour:
   questDataByQID: []
   questsComplete: 
   questLog: []
+  questSymbols: []
 --- !u!114 &1883576782824874436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -296,3 +293,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c94e3ba4a8e46a468fe584df2a08e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Resources: {fileID: 11400000, guid: d029b8376f5da964cb09a5a00c546315, type: 2}
