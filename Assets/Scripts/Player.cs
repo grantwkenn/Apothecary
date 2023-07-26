@@ -73,7 +73,6 @@ public class Player : MonoBehaviour
 
     int manaBurn;
 
-    SpriteMask tallGrassMask;
 
     //string[] shovel = { "Shovel_Up", "Shovel_Right", "Shovel_Down", "Shovel_Left" };
     //string[] run = { "run_up", "run_right", "run_down", "run_left" };
@@ -104,8 +103,6 @@ public class Player : MonoBehaviour
     {
         if (Instance != null && Instance != this) Destroy(gameObject);
         else Instance = this;
-
-        tallGrassMask = this.transform.Find("Tall Grass Mask").GetComponent<SpriteMask>();
 
     }
 

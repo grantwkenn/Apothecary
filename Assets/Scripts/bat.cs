@@ -15,21 +15,41 @@ public class bat : MonoBehaviour
     float flySpeed = 3f;
 
     Vector2 home;
-    
+
+    public float chaseRadius = 8f;
+    float alertRadius;
+
+    CircleCollider2D chaseCollider;
+
+    private void OnEnable()
+    {
+        CircleCollider2D[] temp = this.GetComponentsInChildren<CircleCollider2D>();
+        foreach(CircleCollider2D cc in temp)
+        {
+            if (cc.isTrigger) chaseCollider = cc;
+            break;
+        }
+        if (chaseCollider != null)
+            alertRadius = chaseCollider.radius;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+
         animator = this.GetComponentInParent<Animator>();
         rb = this.GetComponentInParent<Rigidbody2D>();
 
         animator.Play("BatHang");
 
         home = this.rb.position;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         if (target != null && chasing)
         {
             animator.Play("BatFlap");
@@ -65,6 +85,7 @@ public class bat : MonoBehaviour
         target = other.gameObject;
 
         chasing = true;
+        chaseCollider.radius = chaseRadius;
 
     }
 
@@ -74,6 +95,7 @@ public class bat : MonoBehaviour
 
         target = null;
         chasing = false;
+        chaseCollider.radius = alertRadius;
     }
 
 }

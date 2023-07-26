@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class Scene_Manager : MonoBehaviour
 {
+    [SerializeField]
     Player_Persistence pp;
 
     [SerializeField]
@@ -42,12 +43,13 @@ public class Scene_Manager : MonoBehaviour
 
     private void Awake()
     {
-        pp = Resources.Load<Player_Persistence>("Player Persistence");
+        
     }
 
 
     private void OnEnable()
     {
+
         qm = this.GetComponent<Quest_Manager>();
         im = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Inventory_Manager>();
         inputMan = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Input_Manager>();
@@ -97,13 +99,15 @@ public class Scene_Manager : MonoBehaviour
 
         setFadeIn();
 
+        
+
     }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Physics2D.IgnoreLayerCollision(0, 8, true);
         //player.GetComponent<Player>().unfreeze();
 
         //set character position from SO
@@ -112,9 +116,6 @@ public class Scene_Manager : MonoBehaviour
         //find object of name in entrance SO variable
 
         //TODO is this needed anymore?
-
-
-
 
     }
 
