@@ -63,11 +63,21 @@ public class LayerManager : MonoBehaviour
 
             SpriteRenderer[] objectObjects = objectLayer.GetComponentsInChildren<SpriteRenderer>();
             SpriteRenderer[] groundObjects = groundLayer.GetComponentsInChildren<SpriteRenderer>();
-            SpriteRenderer[] overheadObjects = objectLayer.GetComponentsInChildren<SpriteRenderer>();
+            SpriteRenderer[] overheadObjects = overheadLayer.GetComponentsInChildren<SpriteRenderer>();
 
             foreach(SpriteRenderer sr in objectObjects)
             {                
                 newRelayer(sr, objectName);
+            }
+
+            foreach (SpriteRenderer sr in groundObjects)
+            {
+                newRelayer(sr, groundName);
+            }
+
+            foreach (SpriteRenderer sr in overheadObjects)
+            {
+                newRelayer(sr, overheadName);
             }
 
         }

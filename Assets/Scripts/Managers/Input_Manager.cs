@@ -46,14 +46,21 @@ public class Input_Manager : MonoBehaviour
         controls = new PlayerControls();
 
         //Gameplay Movement -- WASD / Left Stick
-        controls.Gameplay.Move.performed += context => moveInput = context.ReadValue<Vector2>();
+        controls.Gameplay.Move.performed += context =>
+        {
+            moveInput = context.ReadValue<Vector2>();
+        };
         controls.Gameplay.Move.canceled += context => moveInput = Vector2.zero;
+
+
 
         //Menu Navigation -- WASD / Left Stick
         controls.Menus.Up.performed += context => menuManager.handleInput(global::direction.up);
         controls.Menus.Down.performed += context => menuManager.handleInput(global::direction.down);
         controls.Menus.Left.performed += context => menuManager.handleInput(global::direction.left);
         controls.Menus.Right.performed += context => menuManager.handleInput(global::direction.right);
+
+
 
 
         //Scroll / RB,LB
@@ -97,7 +104,6 @@ public class Input_Manager : MonoBehaviour
     void Start()
     {
         inventoryTimer = 0;
-
 
     }
 

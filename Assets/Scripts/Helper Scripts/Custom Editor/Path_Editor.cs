@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System;
-using UnityEditorInternal;
 
+#if UNITY_EDITOR
 public class Path_Editor : EditorWindow
 {
     [SerializeField]
@@ -91,3 +91,4 @@ public class Path_Editor : EditorWindow
     }
 
 }
+#endif

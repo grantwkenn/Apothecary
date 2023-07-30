@@ -20,7 +20,8 @@ public class CameraManager : MonoBehaviour
     int pixelHeight;
     int pixelWidth;
 
-
+    [SerializeField]
+    Transform min, max;
     Transform player;
     Transform target;
     public float smoothingSpeed;
@@ -41,6 +42,8 @@ public class CameraManager : MonoBehaviour
 
     int[] PPU;
     byte PPU_index = 0;
+
+    public bool debug;
 
 
     private void OnEnable()
@@ -113,6 +116,8 @@ public class CameraManager : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (debug) setBounds();
+        
         if(ppc.assetsPPU < PPU[PPU_index])
         {
             ppc.assetsPPU += 1;
@@ -167,8 +172,8 @@ public class CameraManager : MonoBehaviour
     public void setBounds()
     {
 
-        maxPos = GameObject.Find("CameraMax").transform.position;
-        minPos = GameObject.Find("CameraMin").transform.position;
+        maxPos = max.position;
+        minPos = min.position;
 
 
         float roomWidth = maxPos.x - minPos.x;

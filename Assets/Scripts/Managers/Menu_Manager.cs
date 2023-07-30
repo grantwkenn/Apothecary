@@ -85,7 +85,7 @@ public class Menu_Manager : MonoBehaviour
 
     public void refresh()
     {
-        invBarMenu.refresh();
+        //invBarMenu.refresh();
         questLog.refresh();
     }
 

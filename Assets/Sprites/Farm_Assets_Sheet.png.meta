@@ -734,6 +734,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -5096,7 +5108,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Farm_Assets_Sheet_15: -5989754361358337295
-      Farm_Assets_Sheet_1: 4448498759460742826
+      Farm_Assets_Sheet_44: -2050592259578404360
       Farm_Assets_Sheet_182: -466747508431061540
       Farm_Assets_Sheet_55: 8152030435644393823
       Farm_Assets_Sheet_49: -5303839390754917306
@@ -5148,19 +5160,19 @@ TextureImporter:
       Farm_Assets_Sheet_31: -9022949468384137801
       Farm_Assets_Sheet_166: -2909117090352409785
       Farm_Assets_Sheet_48: 1305579717265785049
-      Farm_Assets_Sheet_87: -8844139067101537167
       Farm_Assets_Sheet_121: -7310700625905805410
-      Farm_Assets_Sheet_90: 2990155600166568385
+      Farm_Assets_Sheet_87: -8844139067101537167
       Farm_Assets_Sheet_134: 6811720164151207356
       Farm_Assets_Sheet_2: 7159359588331120189
       Farm_Assets_Sheet_199: -7930191754455407743
       Farm_Assets_Sheet_117: 6847542997947700744
       Farm_Assets_Sheet_99: -2208925754118214622
       Farm_Assets_Sheet_159: 784845417458519866
+      Farm_Assets_Sheet_90: 2990155600166568385
       Farm_Assets_Sheet_13: -5221956676641624574
       Farm_Assets_Sheet_30: -7537787480970638453
-      Farm_Assets_Sheet_172: -96836606225749421
       Farm_Assets_Sheet_0: 3541124263662668953
+      Farm_Assets_Sheet_172: -96836606225749421
       Farm_Assets_Sheet_28: 7518466416038980183
       Farm_Assets_Sheet_143: 463191235125274129
       Farm_Assets_Sheet_185: -6965757804980840352
@@ -5253,16 +5265,16 @@ TextureImporter:
       Farm_Assets_Sheet_47: 2769530130180300756
       Farm_Assets_Sheet_114: -823481495593271572
       Farm_Assets_Sheet_11: -8710433436303633833
-      Farm_Assets_Sheet_20: -8486623368102127691
       Farm_Assets_Sheet_52: -3592938397020777198
-      Farm_Assets_Sheet_142: -200040123273033442
+      Farm_Assets_Sheet_122: 8102348789068741107
+      Farm_Assets_Sheet_20: -8486623368102127691
       Farm_Assets_Sheet_104: -4101959578550599055
       Farm_Assets_Sheet_148: 5886305701124259538
-      Farm_Assets_Sheet_122: 8102348789068741107
+      Farm_Assets_Sheet_142: -200040123273033442
+      Farm_Assets_Sheet_165: 174317028814772990
       Farm_Assets_Sheet_21: -8167321099720146354
       Farm_Assets_Sheet_19: -4754357800298663398
       Farm_Assets_Sheet_85: 9167866111015011163
-      Farm_Assets_Sheet_165: 174317028814772990
       Farm_Assets_Sheet_23: -4053525516583422663
       Farm_Assets_Sheet_22: -1602771065495765821
       Farm_Assets_Sheet_75: -603723294854362372
@@ -5300,8 +5312,8 @@ TextureImporter:
       Farm_Assets_Sheet_124: 8811609188129159055
       Farm_Assets_Sheet_40: 6942848264314925584
       Farm_Assets_Sheet_62: -7735940894739266093
-      Farm_Assets_Sheet_44: -2050592259578404360
       Farm_Assets_Sheet_61: 3624702959611925782
+      Farm_Assets_Sheet_1: 4448498759460742826
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

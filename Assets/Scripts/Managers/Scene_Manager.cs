@@ -43,7 +43,7 @@ public class Scene_Manager : MonoBehaviour
 
     private void Awake()
     {
-        
+        Application.targetFrameRate = 60;
     }
 
 
