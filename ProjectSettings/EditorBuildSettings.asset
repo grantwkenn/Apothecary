@@ -8,19 +8,19 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/New Farm.unity
     guid: d9d98c9e5361dfa408e185fe38a1639d
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/The Tavern.unity
     guid: e49e453346881264daeb77f31b7158f7
   - enabled: 0
     path: Assets/Scenes/tavern_cellar.unity
     guid: 083fe62258aca704caf54e7478fd14b7
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/farm house.unity
     guid: 6c16bcacd6e7d8e40b59fe58e8635f8f
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Farm House 1.unity
     guid: cce4e09c3d593914e84aa3b12ad5a6d1
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/beach.unity
     guid: 258137f2a751d7945ac5790ff3d97f10
   - enabled: 1

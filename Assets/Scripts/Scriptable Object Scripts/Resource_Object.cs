@@ -43,7 +43,6 @@ public class Resource_Object : ScriptableObject
             if (!prefabMap.TryAdd(prefabs[i].name, i)) Debug.Log("Mapping Error");
         }
 
-        Debug.Log("mapping updated");
     }
 
     public Sprite[] getQuestSymbols()

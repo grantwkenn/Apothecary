@@ -83,6 +83,7 @@ public class Scene_Manager : MonoBehaviour
             if (ent.getEntranceNo() == pp.getEntranceNo())
             {
                 currentEntrance = ent;
+
                 break;
             }
         }
@@ -90,7 +91,7 @@ public class Scene_Manager : MonoBehaviour
         {
             Debug.Log("Error: No Scene Entrance Found");
             currentEntrance = defaultEntrance;
-            if(defaultEntrance == null)
+            if (defaultEntrance == null)
                 Debug.Log("Error: No Default Entrance Set");
         }
 
@@ -116,6 +117,8 @@ public class Scene_Manager : MonoBehaviour
         //find object of name in entrance SO variable
 
         //TODO is this needed anymore?
+
+
 
     }
 

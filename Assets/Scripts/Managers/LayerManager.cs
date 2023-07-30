@@ -8,10 +8,10 @@ public class LayerManager : MonoBehaviour
     public bool run;
 
     Transform[] levels;
-    List<Transform> levelsList;
+
 
     string[] levelNames;
-
+    string[] layerNames;
     
     // Start is called before the first frame update
     void Start()
@@ -23,6 +23,7 @@ public class LayerManager : MonoBehaviour
         levelNames[3] = "Level 3";
         levelNames[4] = "Level 4";
         levelNames[5] = "Level 5";
+
 
         levels = new Transform[6];
 
@@ -89,10 +90,16 @@ public class LayerManager : MonoBehaviour
     {
         lyHelper lyHelp = sr.GetComponent<lyHelper>();
         Layered layered = sr.GetComponent<Layered>();
-        if (lyHelp == null && layered == null)
+        Canopy_Tree tree = sr.GetComponent<Canopy_Tree>();
+        if (lyHelp == null && layered == null && tree == null)
         {
             sr.sortingLayerName = sortingLayerName;
             updateOrder(sr);
+        }
+
+        if(tree != null)
+        {
+            tree.relayer();
         }
     }
 
@@ -197,4 +204,15 @@ public class LayerManager : MonoBehaviour
         }
         
     }
+
+    public string getLayerRelative(string layerName, int index)
+    {
+        for(int i=0; i<18; i++)
+        {
+            if (layerName[i].Equals(layerName))
+                return layerNames[i + index];
+        }
+        return null;
+    }
+
 }

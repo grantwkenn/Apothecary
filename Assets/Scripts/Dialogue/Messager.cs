@@ -163,6 +163,7 @@ public class Messager : MonoBehaviour
 
     public void setSymbol(int index)
     {
+        if (questIndicatorSprite == null) return;
         if(index < 0)
         {
             questIndicatorSprite.enabled = false;

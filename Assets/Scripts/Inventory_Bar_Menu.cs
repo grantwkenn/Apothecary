@@ -130,6 +130,13 @@ public class Inventory_Bar_Menu : Menu
         }
     }
 
+    public void buttonPress(int index)
+    {
+        selection = (byte)index;
+        updateSelection();
+
+    }
+    
     public override void handleInput(direction input)
     {
         if(input == direction.right)

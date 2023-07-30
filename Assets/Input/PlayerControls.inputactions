@@ -408,6 +408,17 @@
                     "isPartOfComposite": false
                 },
                 {
+                    "name": "",
+                    "id": "db1298ba-97f9-435c-a207-8779be045676",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
                     "name": "1D Axis",
                     "id": "8e7fc19f-b661-4e52-9064-91f4bdcbda98",
                     "path": "1DAxis",

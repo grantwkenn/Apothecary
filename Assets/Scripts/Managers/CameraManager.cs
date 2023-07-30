@@ -81,8 +81,8 @@ public class CameraManager : MonoBehaviour
 
         ppc = this.GetComponentInParent<UnityEngine.Experimental.Rendering.Universal.PixelPerfectCamera>();
 
-        PPU = new int[3];
-        PPU[0] = 16; PPU[1] = 32; PPU[2] = 8;
+        PPU = new int[2];
+        PPU[0] = 16; PPU[1] = 32;
 
     }
 

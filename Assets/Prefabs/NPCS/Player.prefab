@@ -85,7 +85,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 873441191
   m_SortingLayer: 2
-  m_SortingOrder: 3517
+  m_SortingOrder: 3535
   m_Sprite: {fileID: -6306320423191127496, guid: be068e0030034b140b23542078b8cd81, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -95,7 +95,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 1
 --- !u!114 &170779730255610899
 MonoBehaviour:
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b372c6e744c9db4c96a6e10252f1589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMode: 1
+  debugMode: 0
   currentState: 0
   baseSpeed: 6
   sprintSpeed: 12
@@ -236,7 +236,7 @@ MonoBehaviour:
   - {x: -0.24631691, y: 0.123542786, z: 0}
   m_ShapePathHash: -1994051563
   m_Mesh: {fileID: 0}
-  m_InstanceId: 104522
+  m_InstanceId: -390888
 --- !u!82 &728521525
 AudioSource:
   m_ObjectHideFlags: 0
@@ -670,7 +670,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 170779731489071923}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.3125, z: 0}
+  m_LocalPosition: {x: 0.031188965, y: 0.3437271, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

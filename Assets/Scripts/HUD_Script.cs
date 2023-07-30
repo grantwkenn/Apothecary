@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem.OnScreen;
+
 
 public class HUD_Script : MonoBehaviour
 {
@@ -15,6 +17,33 @@ public class HUD_Script : MonoBehaviour
 
     Sprite[] healthManaSprites;
 
+    [SerializeField]
+    bool build;
+    Transform touchButtons;
+
+    private void OnEnable()
+    {
+        touchButtons = this.transform.Find("Touch Buttons");
+        Button[] buttons;
+        buttons = touchButtons.GetComponentsInChildren<Button>();
+        foreach(Button button in buttons)
+        {
+            button.enabled = build;
+            button.GetComponent<Image>().enabled = build;
+        }
+        OnScreenButton[] onScreenButtons = touchButtons.GetComponentsInChildren<OnScreenButton>();
+        foreach(OnScreenButton osb in onScreenButtons)
+        {
+            osb.enabled = build;
+            osb.GetComponent<Image>().enabled = build;
+        }
+        OnScreenStick[] sticks = touchButtons.GetComponentsInChildren<OnScreenStick>();
+        foreach(OnScreenStick stick in sticks)
+        {
+            stick.enabled = build;
+            stick.GetComponent<Image>().enabled = build;
+        }
+    }
 
     // Start is called before the first frame update
     void Start()

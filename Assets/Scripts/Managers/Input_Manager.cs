@@ -189,6 +189,8 @@ public class Input_Manager : MonoBehaviour
 
 
 
+
+
     }
 
     private void FixedUpdate()
@@ -249,5 +251,10 @@ public class Input_Manager : MonoBehaviour
             player.toggleSprint(true);
 
         moveInput = controls.Gameplay.Move.ReadValue<Vector2>();
+    }
+
+    public void button(int index)
+    {
+
     }
 }
