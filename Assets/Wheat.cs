@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class Wheat : MonoBehaviour
 {
-    Tile_Manager tm;
+    Tall_Grass_Manager tgm;
     
     SpriteRenderer[] sprites;
 
@@ -19,7 +20,7 @@ public class Wheat : MonoBehaviour
     [SerializeField]
     Sprite bottomSingle, bottomConnected, bottomLeft, bottomRight;
 
-    Vector2Int position, above, aboveLeft, aboveRight, _left, _right;
+    Vector2Int gridPosition, above, _left, _right;
 
 
     public float width;
@@ -28,7 +29,7 @@ public class Wheat : MonoBehaviour
 
     private void OnEnable()
     {
-        tm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Tile_Manager>();
+        tgm = this.transform.parent.GetComponent<Tall_Grass_Manager>();
         
         sprites = this.GetComponentsInChildren<SpriteRenderer>();
 
@@ -40,19 +41,10 @@ public class Wheat : MonoBehaviour
         //get references to spriteRenderers from transformsj
         initReferences();
 
-        position = (Vector2Int.RoundToInt((Vector2)this.transform.position));
-        above = position + new Vector2Int(0,1);
-        aboveLeft = above + new Vector2Int(-1,0);
-        aboveRight = above + new Vector2Int(1,0);
 
-        _left = position + new Vector2Int(-1, 0);
-        _right = position + new Vector2Int(1, 0);
-
-        centerSprites = center.GetComponentsInChildren<SpriteRenderer>();
-        leftSprites = left.GetComponentsInChildren<SpriteRenderer>();
-        rightSprites = right.GetComponentsInChildren<SpriteRenderer>();
 
     }
+
 
     void initReferences()
     {
@@ -64,15 +56,40 @@ public class Wheat : MonoBehaviour
         topLeft = this.transform.Find("TopLeft").GetComponent<SpriteRenderer>();
         topRight = this.transform.Find("TopRight").GetComponent<SpriteRenderer>();
 
+        centerSprites = center.GetComponentsInChildren<SpriteRenderer>();
+        leftSprites = left.GetComponentsInChildren<SpriteRenderer>();
+        rightSprites = right.GetComponentsInChildren<SpriteRenderer>();
+
 
         bottom = this.transform.Find("Bottom").GetComponent<SpriteRenderer>();
+
+    }
+    
+    void updatePositions()
+    {
+        gridPosition = new Vector2Int((int)(bottom.bounds.min.x), (int)(bottom.bounds.min.y));
+        above = gridPosition + new Vector2Int(0, 1);
+        _left = gridPosition + new Vector2Int(-1, 0);
+        _right = gridPosition + new Vector2Int(1, 0);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        tm.mapWheat(position);
+        reload();
+    }
+
+    public Vector2Int getGridPosition()
+    {
+        updatePositions();
+        return gridPosition;
+    }
+
+    public void reload()
+    {
+
         layer();
+        updateSprites();
     }
 
     void layer()
@@ -103,19 +120,15 @@ public class Wheat : MonoBehaviour
         if(run)
         {
             run = false;
-            tm.mapWheat(position);
-            layer();
-            updateSprites();
+            reload();
         }
-
-
     }
 
     void updateSprites()
     {
-        if (tm == null) return;
+        if (tgm == null) return;
         
-        if(tm.checkWheat(above))
+        if(tgm.checkWheat(above))
         {
             this.top.enabled = false;
             this.topLeft.enabled = false;
@@ -128,12 +141,17 @@ public class Wheat : MonoBehaviour
             this.topRight.enabled = true;
         }
 
-        bool isLeft = tm.checkWheat(_left);
-        bool isRight = tm.checkWheat(_right);
+        bool isLeft = tgm.checkWheat(_left);
+        bool isRight = tgm.checkWheat(_right);
 
         if(isLeft && isRight)
         {
             bottom.sprite = bottomConnected;
+        }
+
+        if(!isLeft && !isRight)
+        {
+            bottom.sprite = bottomSingle;
         }
 
 
@@ -146,6 +164,14 @@ public class Wheat : MonoBehaviour
             }
             if (!isRight) bottom.sprite = bottomRight;
         }
+        else
+        {
+            topLeft.enabled = true;
+            foreach (SpriteRenderer sr in left.GetComponentsInChildren<SpriteRenderer>(true))
+            {
+                sr.enabled = true;
+            }
+        }
 
         if (isRight)
         {
@@ -156,5 +182,15 @@ public class Wheat : MonoBehaviour
             }
             if (!isLeft) bottom.sprite = bottomLeft;
         }
+        else
+        {
+            topRight.enabled = true;
+            foreach (SpriteRenderer sr in right.GetComponentsInChildren<SpriteRenderer>(true))
+            {
+                sr.enabled = true;
+            }
+        }
+
+
     }
 }

@@ -101,6 +101,17 @@
                 },
                 {
                     "name": "",
+                    "id": "43b6e02e-f099-4cf4-a709-f58eaeba44ff",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Use",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "89123712-dae0-4128-823b-b73f1a75c180",
                     "path": "<Gamepad>/buttonEast",
                     "interactions": "",

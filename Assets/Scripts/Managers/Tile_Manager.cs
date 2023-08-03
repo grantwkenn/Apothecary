@@ -87,6 +87,8 @@ public class Tile_Manager : MonoBehaviour
         //TODO these do not need to be loaded for indoor scenes without dirt (most scenes!)
         //maybe there should be a specific manager for farm related, Farm Manager? Crop Manager?
 
+        //TODO replace these resources loads with SOs
+        
         tilledDirtTile = Resources.Load<RuleTile>("Dirt Rule Tile");
         wateredDirtTile = Resources.Load<RuleTile>("Watered Dirt Rule Tile");
 
@@ -99,7 +101,7 @@ public class Tile_Manager : MonoBehaviour
         targetTile = new Vector3Int();
 
         wateredTiles = new Dictionary<Vector2Int, bool>();
-        wheat = new HashSet<Vector2Int>();
+        
 
         selection_hilight = this.transform.Find("Tile Selection").gameObject;
 
@@ -300,15 +302,9 @@ public class Tile_Manager : MonoBehaviour
 
     }
 
-    public void mapWheat(Vector2Int v2)
-    {
-        wheat.Add(v2);
-    }
 
-    public bool checkWheat(Vector2Int v2)
-    {
-        return wheat.Contains(v2);
-    }
+
+
 
     void grassTest()
     {
