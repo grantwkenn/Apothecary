@@ -82,8 +82,6 @@ public class Layered : MonoBehaviour
 
     void Start()
     {
-        if (this.GetComponent<Messager>() != null)
-            questIndicator = this.transform.Find("Quest Indicator").GetComponent<SpriteRenderer>();
 
 
     }

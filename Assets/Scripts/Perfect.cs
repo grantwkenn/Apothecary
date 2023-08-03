@@ -14,6 +14,7 @@ public class Perfect : MonoBehaviour
 
     public bool units;
 
+
     private void OnEnable()
     {
         transforms = GameObject.FindObjectsOfType<Transform>();
@@ -21,11 +22,8 @@ public class Perfect : MonoBehaviour
         pcs = GameObject.FindObjectsOfType<PolygonCollider2D>();
         bcs = GameObject.FindObjectsOfType<BoxCollider2D>();
 
-
         run();
-
-        if(!dynamic)
-            this.enabled = false;
+        if (!dynamic) this.enabled = false;
 
     }
 
@@ -39,6 +37,7 @@ public class Perfect : MonoBehaviour
     void Update()
     {
         run();
+        
     }
 
     void run()
