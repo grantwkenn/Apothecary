@@ -104,7 +104,11 @@ public class Layered : MonoBehaviour
     {
         temp = t.position;
         temp.z = temp.y + offset;
+        if (layerParent != null)
+            temp.z = layerParent.position.z;
         t.position = temp;
+
+
 
 
         int order = 4096 - (int)(t.position.z * 16);
