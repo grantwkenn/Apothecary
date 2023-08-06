@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5044186871159188544}
   - component: {fileID: 5044186871159188550}
-  - component: {fileID: 5044186871159188545}
   - component: {fileID: 655839419085723841}
   m_Layer: 0
   m_Name: Doorway
@@ -86,23 +85,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5044186871159188545
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5044186871159188547}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7a09ef03af627c43bba3edebbf51fb6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dynamic: 0
-  offsetFromY: 0
-  heightOffset: 0
-  pixelOffset: 0
-  level: 1
 --- !u!60 &655839419085723841
 PolygonCollider2D:
   m_ObjectHideFlags: 0

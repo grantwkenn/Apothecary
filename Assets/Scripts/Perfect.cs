@@ -17,15 +17,19 @@ public class Perfect : MonoBehaviour
 
     private void OnEnable()
     {
+        loadReferences();
+
+        run();
+    }
+
+    void loadReferences()
+    {
         transforms = GameObject.FindObjectsOfType<Transform>();
         srs = GameObject.FindObjectsOfType<SpriteRenderer>();
         pcs = GameObject.FindObjectsOfType<PolygonCollider2D>();
         bcs = GameObject.FindObjectsOfType<BoxCollider2D>();
-
-        run();
-        if (!dynamic) this.enabled = false;
-
     }
+
 
     // Start is called before the first frame update
     void Start()
@@ -36,12 +40,15 @@ public class Perfect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        run();
+        if(dynamic)
+            run();
         
     }
 
-    void run()
+    public void run()
     {
+        loadReferences();
+        
         if(units)
         {
             unitAlign();

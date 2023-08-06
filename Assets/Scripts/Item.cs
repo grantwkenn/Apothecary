@@ -24,7 +24,7 @@ public class Item
 
     public int getItemNo() { return data.getItemNo(); }
 
-    public Sprite getSprite() { return data.getSprite(); }
+    public virtual Sprite getSprite() { return data.getSprite(); }
 
     public int getQuantity() { return stackQuantity; }
 

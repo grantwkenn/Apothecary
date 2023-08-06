@@ -411,7 +411,7 @@ public class Player : MonoBehaviour
 
     public float getVelocity() { return myRigidbody.velocity.magnitude; }
 
-    public void dig() { tm.dig(); }
+    public void dig() { tm.till(); }
 
     public bool isFacing(Transform transform)
     {

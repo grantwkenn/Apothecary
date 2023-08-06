@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class LayerManager : MonoBehaviour
+public class Layer_Manager : MonoBehaviour
 {
     public bool run;
 
@@ -16,6 +16,12 @@ public class LayerManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {        
+
+
+    }
+
+    private void OnEnable()
+    {
         levelNames = new string[6];
         levelNames[0] = "Level 0";
         levelNames[1] = "Level 1";
@@ -24,24 +30,27 @@ public class LayerManager : MonoBehaviour
         levelNames[4] = "Level 4";
         levelNames[5] = "Level 5";
 
-
         levels = new Transform[6];
 
-        for(int i=0; i<levels.Length; i++)
+        for (int i = 0; i < levels.Length; i++)
         {
             if (GameObject.Find(levelNames[i]) != null)
             {
                 levels[i] = GameObject.Find(levelNames[i]).transform;
             }
-                
+
         }
     }
 
-
+    public Transform getLevel(byte level)
+    {
+        return levels[level];
+    }
 
 
     void relayer()
     {
+        
         for (int i = 0; i < levels.Length; i++)
         {
             if (GameObject.Find(levelNames[i]) != null)
@@ -81,6 +90,14 @@ public class LayerManager : MonoBehaviour
                 newRelayer(sr, overheadName);
             }
 
+            Perfect perfect = level.GetComponent<Perfect>();
+            if (perfect == null)
+                Debug.Log("Level " + lvlNo + "Needs Perfect Component");
+            else
+            {
+                perfect.run();
+            }
+
         }
 
 
@@ -96,6 +113,10 @@ public class LayerManager : MonoBehaviour
             sr.sortingLayerName = sortingLayerName;
             updateOrder(sr);
         }
+        else if(layered != null)
+        {
+            layered.updateLayer();
+        }
 
         if(tree != null)
         {
@@ -103,6 +124,10 @@ public class LayerManager : MonoBehaviour
         }
     }
 
+    public void relayerMe(SpriteRenderer sr, string sortingLayerName)
+    {
+        newRelayer(sr, sortingLayerName);
+    }
 
     void layerRecursive(Transform t, string layerName)
     {

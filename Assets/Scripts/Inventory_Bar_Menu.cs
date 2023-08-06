@@ -81,7 +81,7 @@ public class Inventory_Bar_Menu : Menu
             if (!inventory[i].isEmpty())
             {
                 barImages[i].enabled = true;
-                barImages[i].sprite = inventory[i].getData().getSprite();
+                barImages[i].sprite = inventory[i].getSprite();
 
                 int quant = inventory[i].getQuantity();
                 byte hundreds = (byte)(quant / 100);

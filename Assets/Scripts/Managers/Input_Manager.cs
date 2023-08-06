@@ -15,6 +15,7 @@ public class Input_Manager : MonoBehaviour
     Inventory_Manager invManager;
     Dialogue_Manager dialogueManager;
     Menu_Manager menuManager;
+    Tile_Manager tm;
 
     [SerializeField]
     Camera mainCamera;
@@ -34,13 +35,15 @@ public class Input_Manager : MonoBehaviour
 
     private void Awake()
     {
-        GameObject gm = GameObject.FindGameObjectWithTag("GameManager");
-        invManager = gm.GetComponent<Inventory_Manager>();
-        dialogueManager = gm.GetComponent<Dialogue_Manager>();
-        menuManager = gm.GetComponent<Menu_Manager>();
+        //GameObject gm = GameObject.FindGameObjectWithTag("GameManager");
+
+        invManager = this.GetComponent<Inventory_Manager>();
+        dialogueManager = this.GetComponent<Dialogue_Manager>();
+        menuManager = this.GetComponent<Menu_Manager>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
         cm = mainCamera.GetComponent<CameraManager>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        tm = this.GetComponent<Tile_Manager>();
 
 
         controls = new PlayerControls();
@@ -130,9 +133,10 @@ public class Input_Manager : MonoBehaviour
 
     ////// A
     void aButton()
-    {
+    {       
         if (dialogueManager.AwaitingInput())
             dialogueManager.displayText();
+        else if(tm.tryHarvest()) { }
         else
             invManager.useItem();
 

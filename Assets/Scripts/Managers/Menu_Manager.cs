@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class Menu_Manager : MonoBehaviour
 {
     byte selectedTab;
@@ -41,6 +42,7 @@ public class Menu_Manager : MonoBehaviour
         invBarMenu = GameObject.FindGameObjectWithTag("HUD").transform.Find("Inventory Bar").GetComponent<Inventory_Bar_Menu>();
         pauseMenu = GameObject.FindGameObjectWithTag("PauseMenu");
         numbers = Resources.LoadAll<Sprite>("NUMBERS");
+        canvas = GameObject.FindGameObjectWithTag("HUD").transform;
 
         pauseMenuTabs = new Menu[2];
         invMenu = pauseMenu.transform.Find("Inventory Menu").GetComponent<Menu>();
@@ -64,16 +66,15 @@ public class Menu_Manager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        canvas = GameObject.FindGameObjectWithTag("HUD").transform;
+
         //GameObject clone = Instantiate(storeMenu, canvas);
         //clone.SetActive(true);
 
+        //These functions must be at start instead of onenable, because they need to give 
+        // each object a chance to init
         pauseMenu.SetActive(false);
         invMenu.gameObject.SetActive(false);
         questLog.gameObject.SetActive(false);
-
-        refresh();
-        
     }
 
     // Update is called once per frame
@@ -85,7 +86,7 @@ public class Menu_Manager : MonoBehaviour
 
     public void refresh()
     {
-        //invBarMenu.refresh();
+        invBarMenu.refresh();
         questLog.refresh();
     }
 

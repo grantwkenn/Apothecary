@@ -116,7 +116,18 @@ public class Inventory_Manager : MonoBehaviour
     {
         pp = sm.getPlayerPersistence();
 
-        inventory = pp.getItems();
+        
+        Item[] tempInventory = pp.getItems();
+        inventory = new Item[tempInventory.Length];
+        for(int i=0; i<inventory.Length; i++)
+        {
+            if (tempInventory[i] is Consumable_Item)
+            {
+                inventory[i] = (Consumable_Item)tempInventory[i];
+            }
+            else
+                inventory[i] = tempInventory[i];
+        }
 
         barSelection = pp.getInvSelection();
 
@@ -188,6 +199,8 @@ public class Inventory_Manager : MonoBehaviour
         //qm.itemPickedUp(item.itemNo);
         qm.itemAdded(item.getData().getItemNo(), quantity - item.getQuantity());
         mm.refresh();
+        
+        //evaluate the selector in case we just picked up a tool. Is this neccessary?
         evaluateSelector();
     }
 
@@ -201,24 +214,6 @@ public class Inventory_Manager : MonoBehaviour
     }
 
 
-    public void toggleSelection(sbyte val)
-    {
-        int index = barSelection + val;
-        if (index >= rowSize)
-            barSelection = 0;
-        else if (index < 0)
-            barSelection = (byte)(rowSize - 1);
-        else
-            barSelection = (byte) index;
-
-        //TODO rewrite this to get selection from bar menu
-        if (inventory[barSelection].getName() == "Hoe"
-            || inventory[barSelection].getName() == "Watering Can")
-            tm.setSelectionHilight(true);
-        else
-            tm.setSelectionHilight(false);
-    }
-
 
     //TODO fix this with new stacking schema
     public void discardSelection()
@@ -229,6 +224,8 @@ public class Inventory_Manager : MonoBehaviour
         freeSlots++;
 
         mm.refresh();
+
+        //in case we just set down a tool
         evaluateSelector();
     }
 
@@ -270,19 +267,45 @@ public class Inventory_Manager : MonoBehaviour
 
     public void useItem()
     {
+        Item item = inventory[barSelection];
+
+
+        if (item is Consumable_Item)
+        {
+            
+            Consumable_Item consumable = (Consumable_Item)item;
+
+            player.heal(consumable.consume());
+            if(consumable.depleted())
+            {
+                //delete this item
+                consumeSelection();
+            }
+            mm.refresh();
+        }
+
 
         string itemName = inventory[barSelection].getData().getName();
 
         if (itemName == "Sword") player.executePlayerFn(0);
-        if (itemName == "Hoe") player.executePlayerFn(1);
-        if (itemName == "Watering Can") player.executePlayerFn(2);
+        else if (itemName == "Hoe") player.executePlayerFn(1);
+        else if (itemName == "Watering Can" && tm.canWater())
+        {
+            player.executePlayerFn(2);
+        }
 
-        if (itemName == "Red Potion")
+        else if (itemName == "Red Potion")
         {
             //TODO add subclass to Item_Data to Consumable, extra fields for healing value
             // Hard Coded healing HP = 3 for now
             player.heal(3);
             consumeSelection();
+        }
+
+        else if (itemName == "Watermelon Seeds")
+        {
+            //tile manager needs to execute
+            tm.plantSeed(inventory[barSelection].getName());
         }
     }
 
@@ -471,16 +494,12 @@ public class Inventory_Manager : MonoBehaviour
 
     public void evaluateSelector()
     {
-        if ((inventory[barSelection].getName() == "Hoe"
-        || inventory[barSelection].getName() == "Watering Can"))
-            tm.setSelectionHilight(true);
-        else
-            tm.setSelectionHilight(false);
+        tm.setSelectionHilight(inventory[barSelection].getData().isTileSelector());
     }
 
     public void setBarSelection(byte selection) { this.barSelection = selection; }
 
-    bool isSameItem(Item i1, Item i2) { return i1.getItemNo() == i2.getItemNo(); }
+    bool isSameItem(Item i1, Item i2) { return i1.getName() == i2.getName(); }
 
 }
 

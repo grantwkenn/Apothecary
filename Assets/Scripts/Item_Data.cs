@@ -15,12 +15,15 @@ public class Item_Data : ScriptableObject
     int itemNo, value;
 
     [SerializeField]
-    int stackLimit;
+    int stackLimit = 16;
 
     [SerializeField]
     Sprite sprite;
 
-    public Sprite getSprite(){ return this.sprite; }
+    [SerializeField]
+    bool tileSelector;
+
+    public virtual Sprite getSprite(){ return this.sprite; }
 
     public int getItemNo() { return this.itemNo; }
 
@@ -32,4 +35,6 @@ public class Item_Data : ScriptableObject
     {
         this.itemNo = number;
     }
+
+    public bool isTileSelector() { return tileSelector; }
 }

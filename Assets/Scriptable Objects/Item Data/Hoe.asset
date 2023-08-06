@@ -18,3 +18,4 @@ MonoBehaviour:
   value: 22
   stackLimit: 1
   sprite: {fileID: 969246407, guid: 10fe57014834daa4282c6bbc9d8fee94, type: 3}
+  tileSelector: 1

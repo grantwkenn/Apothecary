@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c2d8180873762a4dad4f5021c08f682, type: 3}
+  m_Name: Watermelon Crop Data
+  m_EditorClassIdentifier: 
+  harvestPrefab: {fileID: 6245990486165916764, guid: 2c2835966acdd68478ef9a96f7fa2bac, type: 3}
+  cropName: watermelon
+  cropID: 0
+  sproutAge: 1
+  seedlingAge: 2
+  juvenileAge: 3
+  floweringAge: 4
+  fruitingAge: 5
+  seed: {fileID: -1070770312, guid: 14fede08e61c32649913f56c2b65656d, type: 3}
+  sprout: {fileID: 452830106, guid: 14fede08e61c32649913f56c2b65656d, type: 3}
+  seedling: {fileID: 36106205, guid: 14fede08e61c32649913f56c2b65656d, type: 3}
+  juvenile: {fileID: -236778822, guid: 14fede08e61c32649913f56c2b65656d, type: 3}
+  flowering: {fileID: -283612014, guid: 14fede08e61c32649913f56c2b65656d, type: 3}
+  fruiting: {fileID: 847335369, guid: 14fede08e61c32649913f56c2b65656d, type: 3}
+  multipleHarvests: 0

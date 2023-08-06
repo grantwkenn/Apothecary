@@ -6,13 +6,24 @@ using System;
 
 
 //TODO keep maps of all tilled, watered, etc. dirt tiles
+enum soilState
+{
+    tilled, watered, planted
+}
 
 public class Tile_Manager : MonoBehaviour
 {
     public bool debugMode;
+
+    [SerializeField]
+    GameObject selectionPrefab;
+
+    GameObject selHilight;
     
     Player player;
     //RoomManager rm;
+    Resource_Manager rman;
+    Layer_Manager layerMan;
 
     /// USED FOR DIRT ///////////////////////
 
@@ -22,7 +33,7 @@ public class Tile_Manager : MonoBehaviour
 
     Tilemap tillableTiles;
 
-
+    [SerializeField]
     TileBase tilledDirtTile, wateredDirtTile;
 
     ////////////////////////////////////
@@ -62,8 +73,6 @@ public class Tile_Manager : MonoBehaviour
 
     Scene_Persistence sp;
 
-    GameObject selection_hilight;
-
     Vector3Int targetTile;
     Vector3Int cellTarget;
 
@@ -71,6 +80,14 @@ public class Tile_Manager : MonoBehaviour
 
     [SerializeField]
     Color watered;
+
+    Dictionary<Vector2Int, soilState> soilMap;
+
+    public bool skipDay;
+
+    static Vector2[] seedOffsets = { new Vector2(0, 0), new Vector2(0.125f, -0.0625f), new Vector2(-.0625f, -0.125f), new Vector2(-0.125f, 0.0625f), new Vector2(-0.125f, 0.0625f) };
+
+    System.Random random;
 
     //TODO
     //Dictionary of Vector2Int coords to crop object?
@@ -81,29 +98,34 @@ public class Tile_Manager : MonoBehaviour
     private void OnEnable()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-
+        rman = this.GetComponent<Resource_Manager>();
         sp = this.GetComponent<Scene_Manager>().getSP();
+        layerMan = this.GetComponent<Layer_Manager>();
 
         //TODO these do not need to be loaded for indoor scenes without dirt (most scenes!)
         //maybe there should be a specific manager for farm related, Farm Manager? Crop Manager?
 
         //TODO replace these resources loads with SOs
         
-        tilledDirtTile = Resources.Load<RuleTile>("Dirt Rule Tile");
-        wateredDirtTile = Resources.Load<RuleTile>("Watered Dirt Rule Tile");
+        //tilledDirtTile = Resources.Load<RuleTile>("Dirt Rule Tile");
+        //wateredDirtTile = Resources.Load<RuleTile>("Watered Dirt Rule Tile");
 
         Transform tillableT = GameObject.FindGameObjectWithTag("Grid").transform.Find("Tillable");
         if(tillableT != null)
             tillableTiles = tillableT.GetComponent<Tilemap>();
+
+        soilMap = new Dictionary<Vector2Int, soilState>();
+
+        random = new System.Random();
 
         populateGrassDict();
 
         targetTile = new Vector3Int();
 
         wateredTiles = new Dictionary<Vector2Int, bool>();
-        
 
-        selection_hilight = this.transform.Find("Tile Selection").gameObject;
+
+        selHilight = GameObject.Instantiate(selectionPrefab);
 
         Transform grassMap = GameObject.Find("Grid").transform.Find("Grass");
         if (grassMap != null)
@@ -117,7 +139,7 @@ public class Tile_Manager : MonoBehaviour
 
         }
 
-        selection_hilight.SetActive(false);
+        selHilight.SetActive(false);
     }
 
     public void waterTile()
@@ -128,6 +150,15 @@ public class Tile_Manager : MonoBehaviour
             wateredMap.SetTile(targetTile, wateredDirtTile);
             //dirtMap.SetColor(targetTile, watered);
             wateredTiles.Add((Vector2Int)targetTile, true);
+        }
+    }
+
+    private void OnValidate()
+    {
+        if(skipDay)
+        {
+            skipDay = false;
+            advanceDay();
         }
     }
 
@@ -149,6 +180,32 @@ public class Tile_Manager : MonoBehaviour
 
     }
 
+    public void plantSeed(string name)
+    {
+        Vector2Int location = new Vector2Int((int)selHilight.transform.position.x, (int)selHilight.transform.position.y);
+
+        //check if a crop already exists here
+        if (crops.ContainsKey(location)) return;
+
+        //check that the soil is tilled
+        if (dirtMap == null || !dirtMap.HasTile(targetTile)) return;
+
+        //TODO replace "0 Object" dynamically
+        Transform layer = layerMan.getLevel(0).Find("0 Object");
+        Vector3 randomOffset = (Vector3)seedOffsets[random.Next(0, seedOffsets.Length)];
+        Vector3 position = new Vector3(selHilight.transform.position.x + 0.5f, selHilight.transform.position.y + 0.5f, 0);
+        position += randomOffset;
+
+
+        GameObject newCrop = GameObject.Instantiate(rman.getPrefab("New Crop"), position, Quaternion.identity, layer);
+        layerMan.relayerMe(newCrop.GetComponent<SpriteRenderer>(), "0 Object");
+
+        //set parent to the correct level
+        //TODO get the layer number from the player
+
+        crops.Add(location, newCrop.GetComponent<Crop>());
+
+    }
 
     void loadScenePersistence()
     {
@@ -225,18 +282,18 @@ public class Tile_Manager : MonoBehaviour
         //Check if there is a valid tile in the diggable tilemap
         if (hilightActive && tillableTiles != null && tillableTiles.HasTile(targetTile))
         {
-            selection_hilight.transform.position = targetTile;
-            selection_hilight.SetActive(true);
+            selHilight.transform.position = targetTile;
+            selHilight.SetActive(true);
         }
         else
-            selection_hilight.SetActive(false);
+            selHilight.SetActive(false);
 
     }
 
-    public void dig()
+    public void till()
     {
-        if (dirtMap == null || tillableTiles == null 
-            || dirtMap.HasTile(targetTile) 
+        if (dirtMap == null
+            || dirtMap.HasTile(targetTile)
             || wateredTiles.ContainsKey((Vector2Int)targetTile)) return;
         
         //Check if there is a valid tile in the diggable tilemap
@@ -251,10 +308,53 @@ public class Tile_Manager : MonoBehaviour
     }
 
 
+
+
+
+
+
+
+
+    public void setSelectionHilight(bool val) { this.hilightActive = val; }
+
+    
+
+    public bool tryHarvest()
+    {
+        Vector2Int v2int = (Vector2Int)targetTile;
+        
+        if (!crops.ContainsKey(v2int)) return false;
+
+        //harvest the crop
+
+        Crop toHarvest = crops[v2int];
+        if (toHarvest.isHarvestable())
+        {
+            crops.Remove(v2int);
+            Transform parent = layerMan.getLevel(0).Find("0 Object");
+            Vector3 position = new Vector3(targetTile.x, targetTile.y, 0);
+            GameObject harvest = GameObject.Instantiate(toHarvest.getData().getPrefab(), position, Quaternion.identity, parent);
+
+            harvest.GetComponent<Pickup_Item>().pop();
+
+            Destroy(toHarvest.gameObject);
+            return true;
+        }
+
+        return false;
+    }
+
+    public bool canWater()
+    {
+        return dirtMap.HasTile(targetTile);
+
+    }
+
+
     void populateGrassDict()
     {
         grassDict = new Dictionary<string, byte>();
-        
+
         grassDict.Add("Grass_Rule_Tile_0", 2);
         grassDict.Add("Grass_Rule_Tile_1", 3);
         grassDict.Add("Grass_Rule_Tile_2", 1);
@@ -272,64 +372,6 @@ public class Tile_Manager : MonoBehaviour
         grassDict.Add("Grass_Rule_Tile_15", 3);
         grassDict.Add("Grass_Rule_Tile_16", 1);
     }
-
-
-
-
-
-    public void animateGrass(Animator anim, bool isLeft)
-    {
-        anim.enabled = true;
-        if(isLeft)
-        {
-            anim.Play(grassLeft.name);
-            StartCoroutine(grassAnimation(anim, grassLeft.length));
-        }
-        else
-        {
-            anim.Play(grassRight.name);
-            StartCoroutine(grassAnimation(anim, grassRight.length));
-        }
-    }
-
-    IEnumerator grassAnimation(Animator anim, float length)
-    {
-        yield return new WaitForSeconds(length);
-
-        anim.enabled = false;
-        anim.GetComponent<SpriteRenderer>().sprite = defaultGrassSprite;
-
-
-    }
-
-
-
-
-
-    void grassTest()
-    {
-
-        int height = 60;
-        int length = 60;
-
-        Transform parent = GameObject.Find("Grass Container").transform;
-
-        for (int i = 0; i < length; i++)
-        {
-            for (int j = 0; j < height; j++)
-            {
-                Vector3 place = new Vector3(player.transform.position.x + (i), player.transform.position.y + (j), 0);
-                Instantiate(grassPreFab, place, new Quaternion(0, 0, 0, 0), parent);
-
-                place.x += 0.5f;
-                place.y += 0.5f;
-                Instantiate(grassPreFab, place, new Quaternion(0, 0, 0, 0), parent);
-            }
-        }
-    }
-
-    public void setSelectionHilight(bool val) { this.hilightActive = val; }
-
     void instantiateGrass()
     {
         Vector3Int index = new Vector3Int(0, 0, 0);
@@ -387,6 +429,63 @@ public class Tile_Manager : MonoBehaviour
         grassTileMap.gameObject.SetActive(false);
 
 
+    }
+
+    void grassTest()
+    {
+
+        int height = 60;
+        int length = 60;
+
+        Transform parent = GameObject.Find("Grass Container").transform;
+
+        for (int i = 0; i < length; i++)
+        {
+            for (int j = 0; j < height; j++)
+            {
+                Vector3 place = new Vector3(player.transform.position.x + (i), player.transform.position.y + (j), 0);
+                Instantiate(grassPreFab, place, new Quaternion(0, 0, 0, 0), parent);
+
+                place.x += 0.5f;
+                place.y += 0.5f;
+                Instantiate(grassPreFab, place, new Quaternion(0, 0, 0, 0), parent);
+            }
+        }
+    }
+
+    public void animateGrass(Animator anim, bool isLeft)
+    {
+        anim.enabled = true;
+        if (isLeft)
+        {
+            anim.Play(grassLeft.name);
+            StartCoroutine(grassAnimation(anim, grassLeft.length));
+        }
+        else
+        {
+            anim.Play(grassRight.name);
+            StartCoroutine(grassAnimation(anim, grassRight.length));
+        }
+    }
+
+
+    IEnumerator grassAnimation(Animator anim, float length)
+    {
+        yield return new WaitForSeconds(length);
+
+        anim.enabled = false;
+        anim.GetComponent<SpriteRenderer>().sprite = defaultGrassSprite;
+
+
+    }
+
+    void advanceDay()
+    {
+        //find all crops
+        foreach(Crop crop in crops.Values)
+        {
+            crop.updateAge();
+        }
     }
 
 }

@@ -6,8 +6,7 @@ public class Resource_Manager : MonoBehaviour
 {
     [SerializeField]
     Resource_Object Resources;
-    
-    
+
     // Start is called before the first frame update
     void Start()
     {

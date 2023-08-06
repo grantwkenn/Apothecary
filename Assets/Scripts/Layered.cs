@@ -12,6 +12,7 @@ public class Layered : MonoBehaviour
     Vector3 lastPosition;
 
     public Transform layerParent;
+    public bool onTopofParent;
 
     Transform t;
     BoxCollider2D bc; 
@@ -102,6 +103,8 @@ public class Layered : MonoBehaviour
 
     public void updateLayer()
     {
+        t = this.transform;
+        
         temp = t.position;
         temp.z = temp.y + offset;
         if (layerParent != null)
@@ -113,10 +116,15 @@ public class Layered : MonoBehaviour
 
         int order = 4096 - (int)(t.position.z * 16);
 
-        if(sr!= null)
+        if (onTopofParent)
+        {
+            order += 1;
+        }
+
+        if (sr!= null)
         sr.sortingOrder = order;
 
-
+        
         
         //update quest indicator child transform to match its parent
         if (questIndicator != null)

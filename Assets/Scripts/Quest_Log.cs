@@ -31,10 +31,10 @@ public class Quest_Log : Menu
             slots[i].gameObject.SetActive(false);
         }
 
-
         this.refresh();
         refreshLog();
     }
+
 
     // Update is called once per frame
     void Update()

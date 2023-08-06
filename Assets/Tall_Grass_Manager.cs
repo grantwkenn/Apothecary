@@ -31,13 +31,11 @@ public class Tall_Grass_Manager : MonoBehaviour
             reload();
         }
     }
-
+    
     void reload()
     {
-        if (wheatMap == null) wheatMap = new HashSet<Vector2Int>();
-        
-        wheatMap.Clear();
-        
+        wheatMap = new HashSet<Vector2Int>();
+               
         Wheat[] allWheat = this.GetComponentsInChildren<Wheat>();
 
         foreach(Wheat wheat in allWheat)
@@ -54,6 +52,12 @@ public class Tall_Grass_Manager : MonoBehaviour
     public bool checkWheat(Vector2Int v2)
     {
         return wheatMap.Contains(v2);
+    }
+
+    public void unmap(Vector2Int wheat)
+    {
+        if(wheatMap.Contains(wheat))
+            wheatMap.Remove(wheat);
     }
 
 }

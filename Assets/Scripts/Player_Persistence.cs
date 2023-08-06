@@ -51,6 +51,11 @@ public class Player_Persistence : ScriptableObject
         for(int i = 0; i<items.Length; i++)
         {
             this.items[i] = items[i];
+
+            if(items[i] is Consumable_Item)
+            {
+                this.items[i] = (Consumable_Item)items[i];
+            }
         }
     }
 

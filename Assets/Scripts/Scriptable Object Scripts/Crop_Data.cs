@@ -6,7 +6,8 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Crop", menuName = "Crop/New Crop")]
 public class Crop_Data : ScriptableObject
 {
-
+    [SerializeField]
+    GameObject harvestPrefab;
 
     [SerializeField]
     string cropName;
@@ -61,6 +62,8 @@ public class Crop_Data : ScriptableObject
         if (phase == 5) return fruitingAge;
         return 0;
     }
+
+    public GameObject getPrefab() { return this.harvestPrefab; }
 
 }
 

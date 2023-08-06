@@ -67,7 +67,8 @@ public class Wheat : MonoBehaviour
     
     void updatePositions()
     {
-        gridPosition = new Vector2Int((int)(bottom.bounds.min.x), (int)(bottom.bounds.min.y));
+
+        gridPosition = new Vector2Int((int)this.transform.position.x, (int)this.transform.position.y);
         above = gridPosition + new Vector2Int(0, 1);
         _left = gridPosition + new Vector2Int(-1, 0);
         _right = gridPosition + new Vector2Int(1, 0);
@@ -87,7 +88,6 @@ public class Wheat : MonoBehaviour
 
     public void reload()
     {
-
         layer();
         updateSprites();
     }

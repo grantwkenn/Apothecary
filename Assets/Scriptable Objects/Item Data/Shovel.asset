@@ -16,5 +16,6 @@ MonoBehaviour:
   description: 
   itemNo: 2
   value: 0
-  stackable: 0
+  stackLimit: 0
   sprite: {fileID: 5508725064705088119, guid: 10fe57014834daa4282c6bbc9d8fee94, type: 3}
+  tileSelector: 1
