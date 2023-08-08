@@ -101,6 +101,7 @@ public class Tile_Manager : MonoBehaviour
         rman = this.GetComponent<Resource_Manager>();
         sp = this.GetComponent<Scene_Manager>().getSP();
         layerMan = this.GetComponent<Layer_Manager>();
+        selectionPrefab = rman.getPrefab("Tile Selection");
 
         //TODO these do not need to be loaded for indoor scenes without dirt (most scenes!)
         //maybe there should be a specific manager for farm related, Farm Manager? Crop Manager?

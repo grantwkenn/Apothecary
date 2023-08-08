@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[System.Serializable]
+[ExecuteInEditMode]
 public class Player_Persistence : ScriptableObject
 {
     //TODO add current selection
@@ -26,7 +27,11 @@ public class Player_Persistence : ScriptableObject
     List<Quest> questLog;
 
 
+    private void OnValidate()
+    {
 
+
+    }
 
     public void setEntrance(byte entranceNo)
     {
@@ -44,6 +49,11 @@ public class Player_Persistence : ScriptableObject
 
     public void setChangingScenes(bool b) { changingScenes = b; }
 
+    public void setItem(int index, Item item)
+    {
+        this.items[index] = item;
+    }
+
     public void setItems(Item[] items)
     {
         this.items = new Item[items.Length];
@@ -51,15 +61,24 @@ public class Player_Persistence : ScriptableObject
         for(int i = 0; i<items.Length; i++)
         {
             this.items[i] = items[i];
-
-            if(items[i] is Consumable_Item)
-            {
-                this.items[i] = (Consumable_Item)items[i];
-            }
         }
     }
 
-    public Item[] getItems() { return this.items; }
+    public Item[] getItems() {
+        Item[] result = new Item[44];
+        for(int i =0; i< 44; i++)
+        {
+            
+            //Debug.Log(items[i].GetType());
+            //if (consumables!= null && consumables[i] != null) result[i] = consumables[i];
+            //else result[i] = this.items[i];
+            result[i] = this.items[i];
+        }
+        
+
+        return result;
+    
+    }
 
     public void setInvSelection(byte sel) { this.invSelection = sel; }
 

@@ -33,15 +33,7 @@ public class Pickup_Item : MonoBehaviour
         bc = this.GetComponent<BoxCollider2D>();
         this.GetComponentInParent<SpriteRenderer>().sprite = item_Data.getSprite();
 
-        
-
-        if(item_Data is Consumable_Data)
-        {
-            Consumable_Data cData = (Consumable_Data)item_Data;
-            item = new Consumable_Item(cData, quantity);
-        }
-        else
-            item = new Item(item_Data, quantity);
+        item = new Item(item_Data, quantity);
     }
 
 

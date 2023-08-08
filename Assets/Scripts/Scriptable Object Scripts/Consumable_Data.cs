@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[System.Serializable]
-[CreateAssetMenu(fileName = "New Item", menuName = "Item/Consumable Item Data")]
+
+[CreateAssetMenu(fileName = "New Item", menuName = "Item/Consumable Item Data")][System.Serializable]
 public class Consumable_Data : Item_Data
 {
     [SerializeField]
@@ -13,15 +13,15 @@ public class Consumable_Data : Item_Data
     [SerializeField]
     Sprite[] depletionSprites;
 
-    public Sprite getSprite(byte index) { return depletionSprites[index]; }
-
-    public override Sprite getSprite()
+    public override Sprite getSprite(int index)
     {
-        return depletionSprites[0];
+        return depletionSprites[index];
     }
 
-    public int numSprites() { return depletionSprites.Length; }
+    public override int numSprites() { return depletionSprites.Length; }
 
     public byte getHealth() { return health; }
+
+
 
 }

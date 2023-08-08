@@ -617,6 +617,18 @@ TextureImporter:
     overridden: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
@@ -4160,16 +4172,16 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       new dirt sheet_108: -3694307363707591631
-      new dirt sheet_107: 8298392527034788039
-      new dirt sheet_102: -1849498506562996650
       new dirt sheet_161: -7449583532344835681
-      new dirt sheet_122: 7058789460943648821
-      new dirt sheet_141: -6235156194758319171
+      new dirt sheet_102: -1849498506562996650
+      new dirt sheet_51: 683803740949465120
       new dirt sheet_29: -2336661958963085791
       new dirt sheet_86: 8532715504689787701
       new dirt sheet_137: 7923093295430250573
       new dirt sheet_115: 6540125721035569003
       new dirt sheet_54: -2690485772086678958
+      new dirt sheet_68: 6282043081102456070
+      new dirt sheet_76: 309858027099897281
       new dirt sheet_50: -5053093225321897314
       new dirt sheet_101: 6923961273530802467
       new dirt sheet_80: 945926155098829919
@@ -4195,10 +4207,10 @@ TextureImporter:
       new dirt sheet_42: -4443433224473658248
       new dirt sheet_148: 8992400244233124348
       new dirt sheet_0: 7598038987769267688
-      new dirt sheet_13: 7047106183159974474
+      new dirt sheet_155: -5782450984373689286
       new dirt sheet_89: 107710379033352489
       new dirt sheet_105: 8858520366815978295
-      new dirt sheet_155: -5782450984373689286
+      new dirt sheet_13: 7047106183159974474
       new dirt sheet_166: 4195458619382943172
       new dirt sheet_159: -95818057628352238
       new dirt sheet_58: 2967049934431971736
@@ -4232,17 +4244,17 @@ TextureImporter:
       new dirt sheet_30: -6703034586114573637
       new dirt sheet_8: -7045340855667669423
       new dirt sheet_12: 6641434558984335402
-      new dirt sheet_70: 6940087042653435382
+      new dirt sheet_133: 6358997641047333374
       new dirt sheet_124: -2872547274934904745
       new dirt sheet_31: -4056289032605929204
       new dirt sheet_19: -292828347064690836
+      new dirt sheet_70: 6940087042653435382
       new dirt sheet_66: 5408022731731230783
       new dirt sheet_57: 5618820711582786318
-      new dirt sheet_88: 6063353206512641394
       new dirt sheet_49: -1660957763926941609
       new dirt sheet_1: -941713744004756804
+      new dirt sheet_88: 6063353206512641394
       new dirt sheet_83: -920095224287502728
-      new dirt sheet_133: 6358997641047333374
       new dirt sheet_90: -952501164818656120
       new dirt sheet_98: 2840808792471557975
       new dirt sheet_125: 7060783847794647766
@@ -4318,15 +4330,15 @@ TextureImporter:
       new dirt sheet_164: 2409924263255104866
       new dirt sheet_16: 1622587251821130139
       new dirt sheet_132: -2798140560402469204
-      new dirt sheet_51: 683803740949465120
-      new dirt sheet_76: 309858027099897281
-      new dirt sheet_120: 6932215266911917099
-      new dirt sheet_43: 7829055159402860153
-      new dirt sheet_134: 2623879057477926571
       new dirt sheet_106: 6874699132930117880
+      new dirt sheet_134: 2623879057477926571
+      new dirt sheet_120: 6932215266911917099
+      new dirt sheet_122: 7058789460943648821
+      new dirt sheet_43: 7829055159402860153
+      new dirt sheet_141: -6235156194758319171
       new dirt sheet_127: -6757933257385289456
       new dirt sheet_91: 2273619522208801296
-      new dirt sheet_68: 6282043081102456070
+      new dirt sheet_107: 8298392527034788039
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

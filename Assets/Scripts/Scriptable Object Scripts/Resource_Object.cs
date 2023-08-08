@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+//SCRIPT EXECUTION ORDER: it is best to go early since it is only responsible for holding references and
+// can be used by any scripts
 
 [CreateAssetMenu(fileName = "Resources Object", menuName = "Resources Object")]
 public class Resource_Object : ScriptableObject
@@ -16,6 +18,9 @@ public class Resource_Object : ScriptableObject
     [SerializeField]
     GameObject[] prefabs;
 
+    [SerializeField]
+    Player_Persistence playerPersistence;
+
     Dictionary<string, int> prefabMap;
 
     public Sprite getSprite(int index)
@@ -26,10 +31,10 @@ public class Resource_Object : ScriptableObject
 
     public Sprite getResource(string name, int index)
     {
-        
-
         return null;
     }
+
+    public Player_Persistence getPlayerPersistence() { return this.playerPersistence; }
 
     public GameObject getPrefab(string name) { return prefabs[prefabMap[name]]; }
 
@@ -42,6 +47,7 @@ public class Resource_Object : ScriptableObject
         {
             if (!prefabMap.TryAdd(prefabs[i].name, i)) Debug.Log("Mapping Error");
         }
+
 
     }
 

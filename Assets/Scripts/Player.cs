@@ -121,6 +121,8 @@ public class Player : MonoBehaviour
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         audioSource = this.GetComponent<AudioSource>();
 
+
+
         stairYcomponent = new Vector2(0, 0);
 
         speed = baseSpeed;

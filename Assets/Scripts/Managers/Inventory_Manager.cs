@@ -121,12 +121,7 @@ public class Inventory_Manager : MonoBehaviour
         inventory = new Item[tempInventory.Length];
         for(int i=0; i<inventory.Length; i++)
         {
-            if (tempInventory[i] is Consumable_Item)
-            {
-                inventory[i] = (Consumable_Item)tempInventory[i];
-            }
-            else
-                inventory[i] = tempInventory[i];
+            inventory[i] = tempInventory[i];
         }
 
         barSelection = pp.getInvSelection();
@@ -197,6 +192,9 @@ public class Inventory_Manager : MonoBehaviour
 
         //notify the Quest Manager
         //qm.itemPickedUp(item.itemNo);
+
+        pp.setItems(inventory);
+
         qm.itemAdded(item.getData().getItemNo(), quantity - item.getQuantity());
         mm.refresh();
         
@@ -224,6 +222,7 @@ public class Inventory_Manager : MonoBehaviour
         freeSlots++;
 
         mm.refresh();
+        pp.setItems(inventory);
 
         //in case we just set down a tool
         evaluateSelector();
@@ -270,13 +269,11 @@ public class Inventory_Manager : MonoBehaviour
         Item item = inventory[barSelection];
 
 
-        if (item is Consumable_Item)
+        if (item.getData() is Consumable_Data)
         {
-            
-            Consumable_Item consumable = (Consumable_Item)item;
-
-            player.heal(consumable.consume());
-            if(consumable.depleted())
+            Consumable_Data cd = (Consumable_Data)item.getData();
+            player.heal(cd.getHealth());
+            if(item.deplete())
             {
                 //delete this item
                 consumeSelection();
@@ -313,6 +310,7 @@ public class Inventory_Manager : MonoBehaviour
     {
         removeItemHelper(barSelection, 1);
 
+        pp.setItems(inventory);
         //refresh UI
         mm.refresh();
         evaluateSelector();
@@ -350,6 +348,7 @@ public class Inventory_Manager : MonoBehaviour
             if (quantityToRemove == 0) break;
         }
 
+        pp.setItems(inventory);
         //refresh UI
         mm.refresh();
         evaluateSelector();
@@ -364,7 +363,6 @@ public class Inventory_Manager : MonoBehaviour
         {
             inventory[index] = emptyItem;
             freeSlots--;
-
         }
         else //some remains
         {

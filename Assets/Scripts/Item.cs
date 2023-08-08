@@ -9,7 +9,9 @@ public class Item
     [SerializeField]
     Item_Data data;
     [SerializeField]
-    int stackQuantity;
+    protected int stackQuantity;
+
+    int depletionIndex;
 
     public Item_Data getData()
     {
@@ -20,11 +22,12 @@ public class Item
     {
         this.data = data;
         this.stackQuantity = quant;
+        depletionIndex = 0;
     }
 
     public int getItemNo() { return data.getItemNo(); }
 
-    public virtual Sprite getSprite() { return data.getSprite(); }
+    public virtual Sprite getSprite() { return data.getSprite(depletionIndex); }
 
     public int getQuantity() { return stackQuantity; }
 
@@ -47,6 +50,15 @@ public class Item
     public bool isEmpty()
     {
         return this.data.getItemNo() == 0;
+    }
+
+
+    public bool deplete()
+    {
+        depletionIndex++;
+        if (depletionIndex == data.numSprites())//need to delete
+            return true;
+        return false;
     }
 
 }

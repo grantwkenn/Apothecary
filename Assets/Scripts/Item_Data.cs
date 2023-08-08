@@ -6,8 +6,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Item",menuName = "Item/New Item")]
 public class Item_Data : ScriptableObject
 {
-    
-    
+        
     [SerializeField]
     string itemName, description;
 
@@ -23,7 +22,16 @@ public class Item_Data : ScriptableObject
     [SerializeField]
     bool tileSelector;
 
-    public virtual Sprite getSprite(){ return this.sprite; }
+    [SerializeField]
+    int depletions;
+
+    public int getDepletions() { return this.depletions;  }
+    
+    public virtual Sprite getSprite(int index){ return this.sprite; }
+
+    public virtual Sprite getSprite() { return this.sprite; }
+
+    public virtual int numSprites() { return 1; }
 
     public int getItemNo() { return this.itemNo; }
 

@@ -12,94 +12,190 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4edf77fa7a6425f499e29cc3dccf1702, type: 3}
   m_Name: Player Persistence
   m_EditorClassIdentifier: 
-  health: 4
+  health: 7
   items:
-  - data: {fileID: 11400000, guid: 37a61f218b61ee24fb6a9e4447b4d0f7, type: 2}
-    stackQuantity: 13
-  - data: {fileID: 11400000, guid: e77963f442beb0549a8702e4714c77dd, type: 2}
-    stackQuantity: 1
-  - data: {fileID: 11400000, guid: f578210848330354f916e240ba6a166c, type: 2}
-    stackQuantity: 1
-  - data: {fileID: 11400000, guid: d6a054bb83a846144b4601ab7bb075e8, type: 2}
-    stackQuantity: 1
-  - data: {fileID: 11400000, guid: afc1b3cc455dff94e9030751cdbc5fff, type: 2}
-    stackQuantity: 16
-  - data: {fileID: 11400000, guid: afc1b3cc455dff94e9030751cdbc5fff, type: 2}
-    stackQuantity: 16
-  - data: {fileID: 11400000, guid: afc1b3cc455dff94e9030751cdbc5fff, type: 2}
-    stackQuantity: 7
-  - data: {fileID: 11400000, guid: d6a054bb83a846144b4601ab7bb075e8, type: 2}
-    stackQuantity: 1
-  - data: {fileID: 11400000, guid: 80828bb4ee9bfc342b739e251f04098c, type: 2}
-    stackQuantity: 1
-  - data: {fileID: 11400000, guid: 80828bb4ee9bfc342b739e251f04098c, type: 2}
-    stackQuantity: 1
-  - data: {fileID: 11400000, guid: 80828bb4ee9bfc342b739e251f04098c, type: 2}
-    stackQuantity: 1
-  - data: {fileID: 11400000, guid: 80828bb4ee9bfc342b739e251f04098c, type: 2}
-    stackQuantity: 1
-  - data: {fileID: 11400000, guid: 80828bb4ee9bfc342b739e251f04098c, type: 2}
-    stackQuantity: 1
-  - data: {fileID: 11400000, guid: 80828bb4ee9bfc342b739e251f04098c, type: 2}
-    stackQuantity: 1
-  - data: {fileID: 11400000, guid: 80828bb4ee9bfc342b739e251f04098c, type: 2}
-    stackQuantity: 1
-  - data: {fileID: 11400000, guid: 80828bb4ee9bfc342b739e251f04098c, type: 2}
-    stackQuantity: 1
-  - data: {fileID: 11400000, guid: 80828bb4ee9bfc342b739e251f04098c, type: 2}
-    stackQuantity: 1
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
+  - data: {fileID: 0}
     stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  consumables:
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  - data: {fileID: 0}
+    stackQuantity: 0
+  bats:
+  - rid: -2
   entranceNo: 1
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

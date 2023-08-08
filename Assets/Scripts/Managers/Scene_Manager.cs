@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class Scene_Manager : MonoBehaviour
 {
-    [SerializeField]
+
     Player_Persistence pp;
 
     [SerializeField]
@@ -55,6 +55,7 @@ public class Scene_Manager : MonoBehaviour
         inputMan = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Input_Manager>();
 
         fadeImage = GameObject.FindGameObjectWithTag("HUD").transform.Find("Fade").GetComponent<Image>();
+        pp = this.GetComponent<Resource_Manager>().getPlayerPersistence();
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 

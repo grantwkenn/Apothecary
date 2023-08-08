@@ -19,6 +19,8 @@ public class Resource_Manager : MonoBehaviour
         
     }
 
+    public Player_Persistence getPlayerPersistence() { return Resources.getPlayerPersistence(); }
+
     public Sprite getSprite(int index)
     {
         return Resources.getSprite(index);
