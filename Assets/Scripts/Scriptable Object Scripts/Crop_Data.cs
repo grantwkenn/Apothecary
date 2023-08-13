@@ -25,7 +25,7 @@ public class Crop_Data : ScriptableObject
     Sprite seed, sprout, seedling, juvenile, flowering, fruiting;
 
     [SerializeField]
-    bool multipleHarvests;
+    bool multiYield;
 
     public int getCropID() { return this.cropID; }
 
@@ -51,7 +51,7 @@ public class Crop_Data : ScriptableObject
         return fruiting;
     }
 
-    public bool hasMultipleHarvests() { return multipleHarvests; }
+    public bool hasMultiYield() { return multiYield; }
 
     public byte getAgeOfPhase(byte phase)
     {

@@ -107,6 +107,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Skip Day"",
+                    ""type"": ""Button"",
+                    ""id"": ""95d5378d-4ced-484f-ae2d-3ab7c2e40df5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -527,6 +536,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Discard"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""153b8273-3f1a-41f5-88b7-a0363e67e3dc"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Skip Day"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -809,6 +829,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Gameplay_LB = m_Gameplay.FindAction("LB", throwIfNotFound: true);
         m_Gameplay_RB = m_Gameplay.FindAction("RB", throwIfNotFound: true);
         m_Gameplay_Discard = m_Gameplay.FindAction("Discard", throwIfNotFound: true);
+        m_Gameplay_SkipDay = m_Gameplay.FindAction("Skip Day", throwIfNotFound: true);
         // Menus
         m_Menus = asset.FindActionMap("Menus", throwIfNotFound: true);
         m_Menus_Start = m_Menus.FindAction("Start", throwIfNotFound: true);
@@ -888,6 +909,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_LB;
     private readonly InputAction m_Gameplay_RB;
     private readonly InputAction m_Gameplay_Discard;
+    private readonly InputAction m_Gameplay_SkipDay;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -901,6 +923,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @LB => m_Wrapper.m_Gameplay_LB;
         public InputAction @RB => m_Wrapper.m_Gameplay_RB;
         public InputAction @Discard => m_Wrapper.m_Gameplay_Discard;
+        public InputAction @SkipDay => m_Wrapper.m_Gameplay_SkipDay;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -937,6 +960,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Discard.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDiscard;
                 @Discard.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDiscard;
                 @Discard.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnDiscard;
+                @SkipDay.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSkipDay;
+                @SkipDay.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSkipDay;
+                @SkipDay.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSkipDay;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -968,6 +994,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Discard.started += instance.OnDiscard;
                 @Discard.performed += instance.OnDiscard;
                 @Discard.canceled += instance.OnDiscard;
+                @SkipDay.started += instance.OnSkipDay;
+                @SkipDay.performed += instance.OnSkipDay;
+                @SkipDay.canceled += instance.OnSkipDay;
             }
         }
     }
@@ -1080,6 +1109,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnLB(InputAction.CallbackContext context);
         void OnRB(InputAction.CallbackContext context);
         void OnDiscard(InputAction.CallbackContext context);
+        void OnSkipDay(InputAction.CallbackContext context);
     }
     public interface IMenusActions
     {

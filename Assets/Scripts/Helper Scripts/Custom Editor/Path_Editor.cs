@@ -23,6 +23,7 @@ public class Path_Editor : EditorWindow
         GetWindow<Path_Editor>("Edit Mode Functions");
     }
 
+
     private void Update()
     {
         
@@ -88,6 +89,7 @@ public class Path_Editor : EditorWindow
         }
 
         SO.trainTargets(positions);
+        EditorUtility.SetDirty(SO);
     }
 
 }

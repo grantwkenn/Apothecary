@@ -108,7 +108,7 @@ public class Layer_Manager : MonoBehaviour
         lyHelper lyHelp = sr.GetComponent<lyHelper>();
         Layered layered = sr.GetComponent<Layered>();
         Canopy_Tree tree = sr.GetComponent<Canopy_Tree>();
-        if (lyHelp == null && layered == null && tree == null)
+        if (lyHelp == null && layered == null)
         {
             sr.sortingLayerName = sortingLayerName;
             updateOrder(sr);

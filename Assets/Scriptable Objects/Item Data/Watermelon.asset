@@ -19,10 +19,11 @@ MonoBehaviour:
   stackLimit: 1
   sprite: {fileID: 157536707, guid: 14fede08e61c32649913f56c2b65656d, type: 3}
   tileSelector: 0
+  depletions: 0
   health: 0
   depletionSprites:
   - {fileID: 157536707, guid: 14fede08e61c32649913f56c2b65656d, type: 3}
-  - {fileID: -1416776724, guid: 14fede08e61c32649913f56c2b65656d, type: 3}
   - {fileID: 155582049, guid: 14fede08e61c32649913f56c2b65656d, type: 3}
   - {fileID: 96918424, guid: 14fede08e61c32649913f56c2b65656d, type: 3}
   - {fileID: -546915003, guid: 14fede08e61c32649913f56c2b65656d, type: 3}
+  - {fileID: -580848839, guid: 14fede08e61c32649913f56c2b65656d, type: 3}

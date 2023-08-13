@@ -61,16 +61,16 @@ public class Crop : MonoBehaviour
     }
 
     //If it can fruit again, return true
-    bool Harvest()
+    public bool multiYield()
     {
-        if (data.hasMultipleHarvests())
-        {
-            this.phase = 4;
-            this.age = data.getAgeOfPhase(this.phase);
-            sr.sprite = data.getSprite(this.phase);
-            return true;
-        }
-        else return false;
+        if (!this.data.hasMultiYield()) return false;
+
+        harvestable = false;
+        this.phase = 2;
+        this.age = data.getAgeOfPhase(this.phase);
+        sr.sprite = data.getSprite(this.phase);
+
+        return true;
         
     }
 

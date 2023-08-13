@@ -26,4 +26,4 @@ MonoBehaviour:
   juvenile: {fileID: -236778822, guid: 14fede08e61c32649913f56c2b65656d, type: 3}
   flowering: {fileID: -283612014, guid: 14fede08e61c32649913f56c2b65656d, type: 3}
   fruiting: {fileID: 847335369, guid: 14fede08e61c32649913f56c2b65656d, type: 3}
-  multipleHarvests: 0
+  multiYield: 1

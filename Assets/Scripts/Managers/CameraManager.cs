@@ -15,6 +15,7 @@ public class CameraManager : MonoBehaviour
 {
     float heightOffset;
     float widthOffset;
+    [SerializeField]
     float scale;
 
     int pixelHeight;

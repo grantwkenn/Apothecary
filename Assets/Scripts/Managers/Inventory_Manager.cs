@@ -279,6 +279,10 @@ public class Inventory_Manager : MonoBehaviour
                 consumeSelection();
             }
             mm.refresh();
+
+            //perform a bounce 'animation' on the inventory bar
+            //TODO make this a coroutine so the item deletes after the animation finishes?
+            invBar.bounceItem(barSelection);
         }
 
 
@@ -303,6 +307,7 @@ public class Inventory_Manager : MonoBehaviour
         {
             //tile manager needs to execute
             tm.plantSeed(inventory[barSelection].getName());
+            consumeSelection();
         }
     }
 

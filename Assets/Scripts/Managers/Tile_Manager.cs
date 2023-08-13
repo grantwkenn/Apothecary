@@ -83,8 +83,6 @@ public class Tile_Manager : MonoBehaviour
 
     Dictionary<Vector2Int, soilState> soilMap;
 
-    public bool skipDay;
-
     static Vector2[] seedOffsets = { new Vector2(0, 0), new Vector2(0.125f, -0.0625f), new Vector2(-.0625f, -0.125f), new Vector2(-0.125f, 0.0625f), new Vector2(-0.125f, 0.0625f) };
 
     System.Random random;
@@ -156,11 +154,7 @@ public class Tile_Manager : MonoBehaviour
 
     private void OnValidate()
     {
-        if(skipDay)
-        {
-            skipDay = false;
-            advanceDay();
-        }
+
     }
 
     // Start is called before the first frame update
@@ -331,14 +325,21 @@ public class Tile_Manager : MonoBehaviour
         Crop toHarvest = crops[v2int];
         if (toHarvest.isHarvestable())
         {
-            crops.Remove(v2int);
+            
+            //TODO layer shall be dynamic, crops map will be a vector 3 where z = level!!
             Transform parent = layerMan.getLevel(0).Find("0 Object");
             Vector3 position = new Vector3(targetTile.x, targetTile.y, 0);
             GameObject harvest = GameObject.Instantiate(toHarvest.getData().getPrefab(), position, Quaternion.identity, parent);
-
+            layerMan.relayerMe(harvest.GetComponent<SpriteRenderer>(), "0 Object");
             harvest.GetComponent<Pickup_Item>().pop();
 
-            Destroy(toHarvest.gameObject);
+            //check if this crop has multiple harvests
+            if(!toHarvest.multiYield())
+            {
+                crops.Remove(v2int);
+                Destroy(toHarvest.gameObject);
+            }
+                
             return true;
         }
 
@@ -480,7 +481,7 @@ public class Tile_Manager : MonoBehaviour
 
     }
 
-    void advanceDay()
+    public void advanceDay()
     {
         //find all crops
         foreach(Crop crop in crops.Values)

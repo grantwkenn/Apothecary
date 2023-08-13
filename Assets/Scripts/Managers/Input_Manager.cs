@@ -96,6 +96,9 @@ public class Input_Manager : MonoBehaviour
         //Z Key
         controls.Gameplay.Zoom.performed += context => toggleZoom();
 
+        //T Key (Debug)
+        controls.Gameplay.SkipDay.performed += context => skipDay();
+
         direction = new Vector2();
 
         //inputState = InputState.ignoreInput;
@@ -157,6 +160,12 @@ public class Input_Manager : MonoBehaviour
     void toggleZoom()
     {
         cm.toggleZoom();
+    }
+
+    //SKip Day (Debug)
+    void skipDay()
+    {
+        tm.advanceDay();
     }
 
 

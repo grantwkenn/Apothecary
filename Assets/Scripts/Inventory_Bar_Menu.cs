@@ -13,6 +13,8 @@ public class Inventory_Bar_Menu : Menu
     byte numRows = 4;
     byte barCount = 11;
 
+    float localSlotHeight;
+
     Transform barSelector;
     Image[] barImages;
     Vector3[] barPositions;
@@ -21,6 +23,14 @@ public class Inventory_Bar_Menu : Menu
     Item[] inventory;
 
     byte selection = 0;
+
+    int[] bouncingSlots;
+    Transform[] slots;
+
+    public float bouncingVelocity = -10f;
+    public float bouncingAcceleration = 1f;
+
+    public float[] bouncingPositions;
 
 
     private void OnEnable()
@@ -33,6 +43,9 @@ public class Inventory_Bar_Menu : Menu
         mm = GM.GetComponent<Menu_Manager>();
 
         numberImages = new Image[barCount * 3];
+        bouncingSlots = new int[barCount];
+
+        slots = new Transform[barCount];
 
         barImages = new Image[barCount];
         //Find the Inventory Bar Transforms
@@ -41,6 +54,8 @@ public class Inventory_Bar_Menu : Menu
         {
             string s = "Slot" + i;
             Transform slot = this.transform.Find(s);
+            slots[i] = slot;
+            bouncingSlots[i] = -1;
             barImages[i] = slot.Find("Image").GetComponent<Image>();
             numberImages[(i * 3)] = slot.Find("hundreds").gameObject.GetComponent<Image>();
             numberImages[(i * 3)+1] = slot.Find("tens").gameObject.GetComponent<Image>();
@@ -50,9 +65,13 @@ public class Inventory_Bar_Menu : Menu
 
         }
 
+        localSlotHeight = slots[0].localPosition.y;
+
         barSelector = this.transform.Find("Selector");
 
+        
 
+        //bouncingPositions = new Vector3[12];
         
     }
 
@@ -66,6 +85,28 @@ public class Inventory_Bar_Menu : Menu
 
         inventory = im.getItems();
         refresh();
+    }
+
+    private void Update()
+    {
+
+    }
+
+    private void FixedUpdate()
+    {
+        for (int i = 0; i < bouncingSlots.Length; i++)
+        {
+            if(bouncingSlots[i] != -1)
+            {
+                slots[i].localPosition = new Vector3(slots[i].localPosition.x, localSlotHeight - bouncingPositions[bouncingSlots[i]], slots[i].localPosition.z);
+                bouncingSlots[i]++;
+                if (bouncingSlots[i] == bouncingPositions.Length)
+                {
+                    bouncingSlots[i] = -1;
+                }
+                    
+            }
+        }
     }
 
 
@@ -161,6 +202,12 @@ public class Inventory_Bar_Menu : Menu
         barSelector.transform.localPosition = barPositions[selection];
         im.setBarSelection(selection);
         im.evaluateSelector();
+    }
+
+    public void bounceItem(int index)
+    {
+        //reset before allowing another bounce!
+        bouncingSlots[index] = 0;
     }
 
 }
