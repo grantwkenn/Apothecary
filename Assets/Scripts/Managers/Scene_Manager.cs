@@ -23,6 +23,8 @@ public class Scene_Manager : MonoBehaviour
 
     Image fadeImage;
 
+    string sceneName;
+
 
 
     //consider 30fps
@@ -44,6 +46,8 @@ public class Scene_Manager : MonoBehaviour
     private void Awake()
     {
         Application.targetFrameRate = 60;
+
+        sceneName = SceneManager.GetActiveScene().name;
     }
 
 
@@ -123,7 +127,10 @@ public class Scene_Manager : MonoBehaviour
 
     }
 
-
+    public string getSceneName()
+    {
+        return this.sceneName;
+    }
 
 
     public void exitScene(string targetSceneName, byte entranceNo)

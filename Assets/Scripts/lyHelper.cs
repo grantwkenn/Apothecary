@@ -66,7 +66,7 @@ public class lyHelper : MonoBehaviour
 
         if (pixels)
         {
-            heightOffset = pixelOffset / 16;
+            heightOffset = pixelOffset / 16f;
             return;
         }
 

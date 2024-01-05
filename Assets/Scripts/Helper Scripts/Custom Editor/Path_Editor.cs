@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System;
+using UnityEngine.SceneManagement;
 
 #if UNITY_EDITOR
 public class Path_Editor : EditorWindow
 {
     [SerializeField]
-    NPC_Data SO;
+    NPC_Behavior SO;
     [SerializeField]
     Transform Parent_Transform;
 
@@ -31,18 +32,27 @@ public class Path_Editor : EditorWindow
 
     private void OnGUI()
     {
-        if(GUILayout.Button("Train Object"))
+        // Display the default inspector properties
+        DrawDefaultInspector();
+
+
+        if (GUILayout.Button("Train Object"))
         {
             trainTargets();
         }
         if (GUILayout.Button("Round Coordinates")) { roundCoords(); }
 
 
-        SO = (NPC_Data)EditorGUILayout.ObjectField("L", SO, typeof(NPC_Data), true);
+        SO = (NPC_Behavior)EditorGUILayout.ObjectField("L", SO, typeof(NPC_Behavior), true);
 
         Parent_Transform = (Transform)EditorGUILayout.ObjectField("Parent", Parent_Transform, typeof(Transform), true);
 
         rounding = (int)EditorGUILayout.Slider(rounding, 0, 16);
+
+    }
+
+    private void DrawDefaultInspector()
+    {
 
     }
 
@@ -89,7 +99,9 @@ public class Path_Editor : EditorWindow
         }
 
         SO.trainTargets(positions);
+
         EditorUtility.SetDirty(SO);
+        AssetDatabase.SaveAssets();
     }
 
 }

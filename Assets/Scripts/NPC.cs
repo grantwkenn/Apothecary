@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [SerializeField]
 public enum NPCState
 {
@@ -15,6 +16,7 @@ public class NPC : MonoBehaviour
     private int NPC_ID;
     
     GameObject player;
+    GameObject gm;
     Dialogue_Manager DM;
     Messager messager;
     SpriteRenderer spriteRenderer;
@@ -25,7 +27,7 @@ public class NPC : MonoBehaviour
     public float walkSpeed;
 
     [SerializeField]
-    NPC_Data npcData;
+    NPC_Behavior npcBehavior;
 
     
     public Vector2 destination;
@@ -72,7 +74,7 @@ public class NPC : MonoBehaviour
     void Start()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-        GameObject gm = GameObject.FindGameObjectWithTag("GameManager");
+        gm = GameObject.FindGameObjectWithTag("GameManager");
         DM = gm.GetComponent<Dialogue_Manager>();
         messager = this.GetComponentInParent<Messager>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
@@ -80,7 +82,7 @@ public class NPC : MonoBehaviour
 
         Resource_Manager rman = gm.GetComponent<Resource_Manager>();
 
-        npcData.init();
+        npcBehavior.init();
         getNextBehavior();
 
 
@@ -157,12 +159,12 @@ public class NPC : MonoBehaviour
 
     void getNextBehavior()
     {
-        destination = npcData.getNextDestination();
+        destination = npcBehavior.getNextDestination();
 
         if(destination == rb.position || destination == Vector2.zero)
         {
             currentState = NPCState.idle;
-            animationDirection = npcData.getURDL();
+            animationDirection = npcBehavior.getURDL();
         }
 
         else
@@ -247,7 +249,7 @@ public class NPC : MonoBehaviour
 
         else if (currentState == NPCState.idle)
         {
-            animationDirection = npcData.getURDL();
+            animationDirection = npcBehavior.getURDL();
         }
         
     }

@@ -213,6 +213,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dynamic: 1
   layerParent: {fileID: 0}
+  onTopofParent: 0
   offsetFromY: 0
   heightOffset: 0
   pixelOffset: 0
@@ -272,6 +273,10 @@ PrefabInstance:
     - target: {fileID: 1302153412826171928, guid: a05b0ad4dc8a9e749ad0f1ca5e1f0fcc, type: 3}
       propertyPath: m_SortingLayer
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1302153412826171928, guid: a05b0ad4dc8a9e749ad0f1ca5e1f0fcc, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3260
       objectReference: {fileID: 0}
     - target: {fileID: 1302153412826171928, guid: a05b0ad4dc8a9e749ad0f1ca5e1f0fcc, type: 3}
       propertyPath: m_SortingLayerID

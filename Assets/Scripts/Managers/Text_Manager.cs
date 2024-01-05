@@ -5,13 +5,12 @@ using UnityEngine.UI;
 
 public class Text_Manager : MonoBehaviour
 {
-    public Text textObj;
-    public GameObject dialogueContainer;
+    Text textObj;
+    GameObject dialogueContainer;
 
     //public GameObject allDialogue;
     Inventory_Manager invMan;
     Dialogue_Manager dialogueManager;
-
 
     Transform arrow;
     Vector3 arrowRefPos;
@@ -26,6 +25,7 @@ public class Text_Manager : MonoBehaviour
     Image arrowImage;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +34,8 @@ public class Text_Manager : MonoBehaviour
         dialogueManager = GetComponentInParent<Dialogue_Manager>();
 
         dialogueContainer = GameObject.FindGameObjectWithTag("HUD").transform.Find("DialogueContainer").gameObject;
+
+        textObj = dialogueContainer.transform.Find("Message").GetComponent<Text>();
 
         dialogueContainer.SetActive(false);
 
