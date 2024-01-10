@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe3bf8bc5b253ee45ab943d9b6896a14, type: 3}
+  m_Name: q_dialogue_data
+  m_EditorClassIdentifier: 
+  pitch: {fileID: 11400000, guid: 9d54cbffebacb4a49b13a4aa16fe4af0, type: 2}
+  pitchInvFull: {fileID: 11400000, guid: 5c4278efc193d0349a8a6f701f866657, type: 2}
+  questLogFull: {fileID: 11400000, guid: 5c4278efc193d0349a8a6f701f866657, type: 2}
+  ongoing:
+  - {fileID: 11400000, guid: ee04c87b126f116458471ca6a7ee2393, type: 2}
+  hints: []
+  turnIn: {fileID: 0}
+  turnInFull: {fileID: 0}
+  turnInComplete: {fileID: 0}

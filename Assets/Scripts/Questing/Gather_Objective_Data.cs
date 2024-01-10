@@ -16,6 +16,8 @@ public class Gather_Objective_Data : Quest_Objective_Data
 
     public int getItemID() { return item_data.getItemNo(); }
 
+    public string getItemName() { return item_data.getName(); }
+
     public int getNumToGather() { return numToGather; }
 
     public bool isRetroactive() { return retroactive; }

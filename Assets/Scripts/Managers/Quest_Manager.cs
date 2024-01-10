@@ -175,13 +175,13 @@ public class Quest_Manager : MonoBehaviour
         {
             foreach (Talk_Objective to in q.talk_objectives)
             {
-                if (to.data.NPC_ID != messager.getID()) continue;
+                if (to.getData().NPC_ID != messager.getID()) continue;
 
                 //return the talk objective message
                 if (!to.isComplete())
                 {
                     messager.setSymbol(2);
-                    return to.data.getResponse();
+                    return to.getData().getResponse();
                     
                 }
                     
@@ -284,11 +284,11 @@ public class Quest_Manager : MonoBehaviour
         {
             foreach(Talk_Objective to in quest.talk_objectives)
             {
-                if (to.data.NPC_ID != messager.getID()) continue;
+                if (to.getData().NPC_ID != messager.getID()) continue;
 
 
                 //NOTE this may not work with the comparison. IF not, find proper way to compare two messages.
-                if (Dialogue_Manager.compareMessages(messager.getMessage(), to.data.getResponse()))
+                if (Dialogue_Manager.compareMessages(messager.getMessage(), to.getData().getResponse()))
                 {
                     //set this talk objective completed
                     to.dialogueComplete();
@@ -346,10 +346,10 @@ public class Quest_Manager : MonoBehaviour
 
                 foreach(Talk_Objective to in addedQuest.talk_objectives)
                 {
-                    if (!activeQG_By_ID.ContainsKey(to.data.NPC_ID)) continue;
+                    if (!activeQG_By_ID.ContainsKey(to.getData().NPC_ID)) continue;
 
-                    Quest_Giver QG2 = activeQG_By_ID[to.data.NPC_ID];
-                    QG2.setState(evaluateQuestGiverState(to.data.NPC_ID));
+                    Quest_Giver QG2 = activeQG_By_ID[to.getData().NPC_ID];
+                    QG2.setState(evaluateQuestGiverState(to.getData().NPC_ID));
                     QG2.nextMessage();
                 }
 
@@ -573,7 +573,7 @@ public class Quest_Manager : MonoBehaviour
 
             foreach(Talk_Objective to in quest.talk_objectives)
             {
-                if (to.data.NPC_ID == QGID)
+                if (to.getData().NPC_ID == QGID)
                     return quest;
             }
         }

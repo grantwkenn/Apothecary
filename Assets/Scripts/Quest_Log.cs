@@ -12,6 +12,20 @@ public class Quest_Log : Menu
     public Transform slotList;
     public Transform[] slots;
 
+    public Transform selection;
+
+    int currentSelection = 0;
+
+    byte questsPerPage = 8;
+
+    Color gray;
+
+    Transform counter;
+
+    Transform description;
+
+    Transform objectiveContainer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -23,9 +37,20 @@ public class Quest_Log : Menu
     {
         qm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Quest_Manager>();
         slotList = this.transform.Find("Slot List");
+        currentSelection = 0;
+        objectiveContainer = this.transform.Find("Quest Panel").transform.Find("Objectives");
+        description = this.transform.Find("Quest Panel").transform.Find("Quest Description");
 
-        slots = new RectTransform[5];
-        for(int i=0; i<5; i++)
+
+        gray = new Color(0f, 0f, 0f, 0.3f);
+
+        selection = slotList.Find("Selection");
+        counter = this.transform.Find("Counter");
+
+
+
+        slots = new RectTransform[questsPerPage];
+        for(int i=0; i< questsPerPage; i++)
         {
             slots[i] = slotList.Find("Slot" + i);
             slots[i].gameObject.SetActive(false);
@@ -50,19 +75,67 @@ public class Quest_Log : Menu
 
     public override void handleInput(direction urdl)
     {
-        throw new System.NotImplementedException();
+        if (quests == null || quests.Count == 0) return;
+
+        if (urdl == direction.up)
+        {
+            currentSelection -= 1;
+            if (currentSelection < 0) currentSelection = quests.Count - 1;
+        }
+        if (urdl == direction.down)
+        {
+            currentSelection += 1;
+            if (currentSelection >= quests.Count) currentSelection = 0;
+        }
+
+        this.refresh();
+
     }
 
     public override void refresh()
     {
         //get all quests in log
         quests = qm.getLog();
+        description.GetComponent<Text>().text = "";
+        objectiveContainer.GetComponent<Text>().text = "";
 
-        for (int i = 0; i < quests.Count; i++)
+        if (quests.Count == 0)
         {
-            slots[i].gameObject.SetActive(true);
-            slots[i].GetComponent<Text>().text = quests[i].getData().getTitle();
+            selection.gameObject.SetActive(false);
 
+            for (int i = 1; i < slots.Length; i++)
+            {
+                slots[i].gameObject.SetActive(false);
+
+            }
+
+            slots[0].gameObject.SetActive(true);
+            slots[0].GetComponent<Text>().text = "Quest Log is Empty";         
         }
+
+        else
+        {
+            selection.gameObject.SetActive(true);           
+            
+            for (int i = 0; i < quests.Count; i++)
+            {
+                slots[i].gameObject.SetActive(true);
+                slots[i].GetComponent<Text>().text = quests[i].getData().getTitle();
+                slots[i].GetComponent<Text>().color = gray;
+
+            }
+
+            slots[currentSelection].GetComponent<Text>().color = Color.black;
+
+            selection.transform.position = new Vector3(selection.position.x, slots[currentSelection].position.y, 0);
+
+            description.GetComponent<Text>().text = quests[currentSelection].getData().getDescription();
+            
+            objectiveContainer.GetComponent<Text>().text = quests[currentSelection].getObjectiveStatus();
+        }
+
+        
+
+
     }
 }

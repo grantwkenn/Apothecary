@@ -67,6 +67,35 @@ public class Quest
         }
     }
 
+    public string getObjectiveStatus()
+    {
+        string status = "";
+        
+        foreach(Slay_Objective so in slay_objectives)
+        {
+            status += "Slay X: " + so.getCount() + " / " + so.getData().quantity + "\n" ;
+        }
+
+        foreach(Gather_Objective go in gather_objectives)
+        {
+            int numtoPrint = go.getCount();
+            if (numtoPrint > go.getData().getNumToGather()) numtoPrint = go.getData().getNumToGather();
+            
+            status += "Gather " + go.getData().getNumToGather() + " " + go.getData().getItemName();
+            if (go.getData().getNumToGather() > 1) status += "s";
+            status += ": " + numtoPrint.ToString() + " / " + go.getData().getNumToGather() + "\n";
+        }
+
+        foreach(Talk_Objective to in talk_objectives)
+        {
+            status += "Talk to X: " + to.getData().name + "\n";
+        }
+
+        Debug.Log(status);
+        
+        return status;
+    }
+
     public Quest_Data getData() { return this.data; }
     
     ///TODO change all of these to appropriate protection level

@@ -12,6 +12,9 @@ public class Quest_Data : ScriptableObject
     string title;
 
     [SerializeField]
+    string description;
+
+    [SerializeField]
     private int[] preQuests, worldValues;
 
     [SerializeField]
@@ -73,6 +76,8 @@ public class Quest_Data : ScriptableObject
     public List<Gather_Objective_Data> getGatherObjectives() { return gather_objectives; }
 
     public string getTitle() { return this.title; }
+
+    public string getDescription() { return this.description; }
 
 
 

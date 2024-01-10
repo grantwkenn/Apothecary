@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Quest
   m_EditorClassIdentifier: 
   title: Your very first Quest
+  description: This is your first quest yay!
   preQuests: 
   worldValues: 
   relationship: 0
