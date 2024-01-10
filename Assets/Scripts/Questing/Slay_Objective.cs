@@ -27,5 +27,7 @@ public class Slay_Objective : Quest_Objective
 
     public Slay_Objective_Data getData() { return data; }
 
+    public void setCount(int _count) { this.count = _count; }
+
     public int getCount() { return this.count; }
 }

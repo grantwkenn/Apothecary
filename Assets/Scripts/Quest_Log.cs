@@ -40,6 +40,7 @@ public class Quest_Log : Menu
         currentSelection = 0;
         objectiveContainer = this.transform.Find("Quest Panel").transform.Find("Objectives");
         description = this.transform.Find("Quest Panel").transform.Find("Quest Description");
+        counter = this.transform.Find("Counter");
 
 
         gray = new Color(0f, 0f, 0f, 0.3f);
@@ -98,6 +99,8 @@ public class Quest_Log : Menu
         quests = qm.getLog();
         description.GetComponent<Text>().text = "";
         objectiveContainer.GetComponent<Text>().text = "";
+        
+
 
         if (quests.Count == 0)
         {
@@ -110,7 +113,8 @@ public class Quest_Log : Menu
             }
 
             slots[0].gameObject.SetActive(true);
-            slots[0].GetComponent<Text>().text = "Quest Log is Empty";         
+            slots[0].GetComponent<Text>().text = "Quest Log is Empty";
+            counter.GetComponent<Text>().text = "0/0";
         }
 
         else
@@ -124,6 +128,8 @@ public class Quest_Log : Menu
                 slots[i].GetComponent<Text>().color = gray;
 
             }
+
+            counter.GetComponent<Text>().text = (currentSelection + 1).ToString() + "/" + quests.Count;
 
             slots[currentSelection].GetComponent<Text>().color = Color.black;
 

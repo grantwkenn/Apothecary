@@ -634,6 +634,24 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Load"",
+                    ""type"": ""Button"",
+                    ""id"": ""28292dd4-f990-49e6-86d1-b4d20843cac3"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Save"",
+                    ""type"": ""Button"",
+                    ""id"": ""d25aa319-4f09-46b6-94e5-cbe26cd0ea20"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -696,6 +714,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""ee82db38-59ab-443d-ac9b-478f8e6df3f5"",
                     ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""B"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""43d0c147-c179-4a4f-b4d5-4994135fff8b"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -812,6 +841,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""RB"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""da1de45f-f79e-40a3-877a-db0d2ec49ea9"",
+                    ""path"": ""<Keyboard>/backslash"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Load"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""92a2eff8-e855-474d-90d6-b08c4dde7d6d"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Save"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -841,6 +892,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Menus_Right = m_Menus.FindAction("Right", throwIfNotFound: true);
         m_Menus_LB = m_Menus.FindAction("LB", throwIfNotFound: true);
         m_Menus_RB = m_Menus.FindAction("RB", throwIfNotFound: true);
+        m_Menus_Load = m_Menus.FindAction("Load", throwIfNotFound: true);
+        m_Menus_Save = m_Menus.FindAction("Save", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1014,6 +1067,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Menus_Right;
     private readonly InputAction m_Menus_LB;
     private readonly InputAction m_Menus_RB;
+    private readonly InputAction m_Menus_Load;
+    private readonly InputAction m_Menus_Save;
     public struct MenusActions
     {
         private @PlayerControls m_Wrapper;
@@ -1027,6 +1082,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Right => m_Wrapper.m_Menus_Right;
         public InputAction @LB => m_Wrapper.m_Menus_LB;
         public InputAction @RB => m_Wrapper.m_Menus_RB;
+        public InputAction @Load => m_Wrapper.m_Menus_Load;
+        public InputAction @Save => m_Wrapper.m_Menus_Save;
         public InputActionMap Get() { return m_Wrapper.m_Menus; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1063,6 +1120,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @RB.started -= m_Wrapper.m_MenusActionsCallbackInterface.OnRB;
                 @RB.performed -= m_Wrapper.m_MenusActionsCallbackInterface.OnRB;
                 @RB.canceled -= m_Wrapper.m_MenusActionsCallbackInterface.OnRB;
+                @Load.started -= m_Wrapper.m_MenusActionsCallbackInterface.OnLoad;
+                @Load.performed -= m_Wrapper.m_MenusActionsCallbackInterface.OnLoad;
+                @Load.canceled -= m_Wrapper.m_MenusActionsCallbackInterface.OnLoad;
+                @Save.started -= m_Wrapper.m_MenusActionsCallbackInterface.OnSave;
+                @Save.performed -= m_Wrapper.m_MenusActionsCallbackInterface.OnSave;
+                @Save.canceled -= m_Wrapper.m_MenusActionsCallbackInterface.OnSave;
             }
             m_Wrapper.m_MenusActionsCallbackInterface = instance;
             if (instance != null)
@@ -1094,6 +1157,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @RB.started += instance.OnRB;
                 @RB.performed += instance.OnRB;
                 @RB.canceled += instance.OnRB;
+                @Load.started += instance.OnLoad;
+                @Load.performed += instance.OnLoad;
+                @Load.canceled += instance.OnLoad;
+                @Save.started += instance.OnSave;
+                @Save.performed += instance.OnSave;
+                @Save.canceled += instance.OnSave;
             }
         }
     }
@@ -1122,5 +1191,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnRight(InputAction.CallbackContext context);
         void OnLB(InputAction.CallbackContext context);
         void OnRB(InputAction.CallbackContext context);
+        void OnLoad(InputAction.CallbackContext context);
+        void OnSave(InputAction.CallbackContext context);
     }
 }

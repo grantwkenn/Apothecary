@@ -749,7 +749,51 @@ public class Quest_Manager : MonoBehaviour
         return questSymbols[index];
     }
 
+    public bool[] getCompletion() { return questsComplete; }
 
+    public List<SerializableQuest> getSerialQuestLog()
+    {
+        List<SerializableQuest> list = new List<SerializableQuest>();
+        
+        foreach(Quest q in questLog)
+        {
+            SerializableQuest sq = q.serializeQuest();
+            if (sq != null)
+                list.Add(sq);
+        }
+
+        return list;
+    }
+
+    public void loadQuestLogFromSave(List<SerializableQuest> sQuests)
+    {
+        questLog = new List<Quest>();
+
+        foreach (SerializableQuest sQuest in sQuests)
+        {
+            Quest quest = new Quest(questDataByQID[sQuest.getID()], sQuest);
+            questLog.Add(quest);
+        }
+    }
+
+}
+
+[System.Serializable]
+public class SerializableQuest
+{
+    int QuestID;
+
+    List<int> objectiveProgress;
+
+    public SerializableQuest(int qid, List<int> objs)
+    {
+        this.QuestID = qid;
+        this.objectiveProgress = objs;
+    }
+
+    public int getID() { return QuestID; }
+
+    public List<int> getObjectiveProgress() { return this.objectiveProgress; }
 }
 
 

@@ -20,5 +20,7 @@ public class Talk_Objective : Quest_Objective
 
     public Talk_Objective_Data getData() { return data; }
 
+    public void setComplete(bool val) { complete = val; }
+
 
 }

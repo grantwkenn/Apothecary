@@ -16,6 +16,7 @@ public class Input_Manager : MonoBehaviour
     Dialogue_Manager dialogueManager;
     Menu_Manager menuManager;
     Tile_Manager tm;
+    SaveManager saveMan;
 
     [SerializeField]
     Camera mainCamera;
@@ -44,6 +45,7 @@ public class Input_Manager : MonoBehaviour
         cm = mainCamera.GetComponent<CameraManager>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         tm = this.GetComponent<Tile_Manager>();
+        saveMan = this.GetComponent<SaveManager>();
 
 
         controls = new PlayerControls();
@@ -63,7 +65,8 @@ public class Input_Manager : MonoBehaviour
         controls.Menus.Left.performed += context => menuManager.handleInput(global::direction.left);
         controls.Menus.Right.performed += context => menuManager.handleInput(global::direction.right);
 
-
+        controls.Menus.Save.performed += context => saveMan.saveGame();
+        controls.Menus.Load.performed += context => saveMan.loadGame();
 
 
         //Scroll / RB,LB

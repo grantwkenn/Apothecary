@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 1117785936}
   - component: {fileID: 808591620549776597}
   - component: {fileID: 7290408562977958600}
+  - component: {fileID: 378725796586729882}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -95,8 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48894f9ad22a7fa48856ae2b50be8d3c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textObj: {fileID: 0}
-  dialogueContainer: {fileID: 0}
 --- !u!114 &2698974980975134966
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,9 +108,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aba4a696bc7fa4443ae0d7b1426fd853, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugMode: 1
+  debugMode: 0
+  selectionPrefab: {fileID: 887418551750418569, guid: b4eba8dab744dd343b3da5c0092ab861, type: 3}
   dirtMap: {fileID: 0}
   wateredMap: {fileID: 0}
+  tilledDirtTile: {fileID: 11400000, guid: d57c9ae424314824194d60757312ec52, type: 2}
+  wateredDirtTile: {fileID: 11400000, guid: 2f165cf16f7060d4a9eb1372e695dad4, type: 2}
   grassTileMap: {fileID: 0}
   grassPreFab: {fileID: 2577758115621942394, guid: 72e8052ca72f478459f2b91e5e437673, type: 3}
   defaultGrassSprite: {fileID: -4776146301609788052, guid: dc4eebc4f0f2bda46aa6dbb171e567ff, type: 3}
@@ -162,7 +164,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2f2509326d621b4fb2638f78669f089, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pp: {fileID: 0}
   sp: {fileID: 11400000, guid: 7cf5fe9f72de11e449240a468887e353, type: 2}
   defaultEntrance: {fileID: 0}
 --- !u!114 &2698974980975134969
@@ -224,3 +225,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   run: 0
+--- !u!114 &378725796586729882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698974980975134958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2acbf1688aca99f44b5441aa9a8af0b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

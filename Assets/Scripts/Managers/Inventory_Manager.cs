@@ -503,6 +503,66 @@ public class Inventory_Manager : MonoBehaviour
     public void setBarSelection(byte selection) { this.barSelection = selection; }
 
     bool isSameItem(Item i1, Item i2) { return i1.getName() == i2.getName(); }
+    
+    public List<SerializableItem> serializeInventory()
+    {
+        List<SerializableItem> list = new List<SerializableItem>();
+
+        for(int i=0; i<inventory.Length; i++)
+        {
+
+            Item item = inventory[i];
+            if (item.isEmpty()) continue;
+
+            list.Add(new SerializableItem(i, item.getItemNo(), item.getQuantity()));
+        }
+
+        return list;
+    }
+
+    public void loadInventoryFromSave(List<SerializableItem> items)
+    {
+        for(int i = 0; i<inventorySize; i++)
+        {
+            inventory[i] = emptyItem;
+        }
+
+        foreach(SerializableItem item in items)
+        {
+            inventory[item.index] = new Item(itemData_by_ID[item.itemID], item.quantity);
+        }
+    }
+
+}
+
+[System.Serializable]
+public class SerializableInventory
+{
+    int containerID;
+    List<SerializableItem> inventory;
+
+
+    public SerializableInventory(int container, List<SerializableItem> inv)
+    {
+        this.containerID = container;
+        this.inventory = inv;
+    }
+
+}
+
+[System.Serializable]
+public class SerializableItem
+{
+    public int index;
+    public int itemID;
+    public int quantity;
+
+    public SerializableItem(int idx, int id, int qt)
+    {
+        index = idx;
+        itemID = id;
+        quantity = qt;
+    }
 
 }
 

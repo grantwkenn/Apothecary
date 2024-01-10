@@ -67,6 +67,40 @@ public class Quest
         }
     }
 
+    public Quest(Quest_Data qData, SerializableQuest sQuest)
+    {
+        Quest quest = new Quest(qData);
+
+        List<int> objectivesProgress = sQuest.getObjectiveProgress();
+
+        int objIndex = 0;
+
+        foreach(Slay_Objective so in quest.slay_objectives)
+        {
+            so.setCount(objectivesProgress[objIndex]);
+            objIndex++;
+        }
+
+        foreach (Talk_Objective to in quest.talk_objectives)
+        {
+            if (objectivesProgress[objIndex] == 1)
+                to.setComplete(true);
+            else
+            {
+                to.setComplete(false);
+            }
+            
+            objIndex++;
+        }
+
+        foreach (Gather_Objective go in quest.gather_objectives)
+        {
+            go.setCount(objectivesProgress[objIndex]);
+            objIndex++;
+        }
+
+    }
+
     public string getObjectiveStatus()
     {
         string status = "";
@@ -90,13 +124,41 @@ public class Quest
         {
             status += "Talk to X: " + to.getData().name + "\n";
         }
-
-        Debug.Log(status);
         
         return status;
     }
 
     public Quest_Data getData() { return this.data; }
+
+    public SerializableQuest serializeQuest()
+    {
+        List<int> list = new List<int>();
+
+        foreach (Slay_Objective so in slay_objectives)
+        {
+            list.Add(so.getCount());
+        }
+
+        foreach (Talk_Objective to in talk_objectives)
+        {
+            if (to.isComplete())
+                list.Add(1);
+            else
+                list.Add(0);
+        }
+
+        foreach (Gather_Objective go in gather_objectives)
+        {
+            list.Add(go.getCount());
+        }
+
+        if (list.Count == 0) return null;
+
+        SerializableQuest sq = new SerializableQuest(this.data.getQuestID(), list);
+
+        return sq;
+
+    }
     
     ///TODO change all of these to appropriate protection level
     ///and use data's getters instead of other functions.

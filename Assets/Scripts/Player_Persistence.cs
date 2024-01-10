@@ -7,6 +7,8 @@ using UnityEngine;
 public class Player_Persistence : ScriptableObject
 {
     //TODO add current selection
+
+    SaveData save;
     
     [SerializeField]
     int health;
@@ -27,17 +29,13 @@ public class Player_Persistence : ScriptableObject
     List<Quest> questLog;
 
 
-    private void OnValidate()
-    {
-
-
-    }
-
     public void setEntrance(byte entranceNo)
     {
         this.entranceNo = entranceNo;
             
     }
+
+    public void setLoadFile(SaveData data) { }
 
     public byte getEntranceNo() { return entranceNo; }
 

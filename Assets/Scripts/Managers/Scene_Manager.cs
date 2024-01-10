@@ -133,7 +133,7 @@ public class Scene_Manager : MonoBehaviour
     }
 
 
-    public void exitScene(string targetSceneName, byte entranceNo)
+    public void exitScene(string targetSceneName, byte entranceNo, SaveData save = null)
     {        
         if (pp.isChangingScenes()) return;
         
@@ -141,22 +141,27 @@ public class Scene_Manager : MonoBehaviour
 
         pp.setChangingScenes(true);
 
-        
-        //store health
-        pp.setHealth(player.getHealth());
+        if(save == null)
+        {
+            //store health
+            pp.setHealth(player.getHealth());
 
-        //Store Inventory Data
-        im.storePersistenceData();
+            //Store Inventory Data
+            im.storePersistenceData();
 
-        //Store Quest Data
-        qm.storePersistenceData();
+            //Store Quest Data
+            qm.storePersistenceData();
+        }
+        else
+        {
 
-        if(sp != null)
+        }
+
+        if (sp != null)
             sp.exitScene();
 
         //set the next scene entrance
         pp.setEntrance(entranceNo);
-
 
         setFadingOut();
         this.targetSceneName = targetSceneName;
@@ -255,5 +260,10 @@ public class Scene_Manager : MonoBehaviour
     
 
     public Scene_Persistence getSP() { return sp; }
+
+    public void loadPlayerPersistenceFromSave(int health)
+    {
+        pp.setHealth(health);
+    }
 
 }
