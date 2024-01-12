@@ -35,6 +35,8 @@ public class SaveData
     public void setSceneName(string scn) { this.sceneName = scn; }
 
     public byte getEntranceNo() { return this.entrancNo; }
+
+    public bool[] getQuestCompletion() { return this.questsComplete; }
 }
 
 

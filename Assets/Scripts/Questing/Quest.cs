@@ -67,21 +67,19 @@ public class Quest
         }
     }
 
-    public Quest(Quest_Data qData, SerializableQuest sQuest)
+    public void setProgress(SerializableQuest sQuest)
     {
-        Quest quest = new Quest(qData);
-
         List<int> objectivesProgress = sQuest.getObjectiveProgress();
 
         int objIndex = 0;
 
-        foreach(Slay_Objective so in quest.slay_objectives)
+        foreach (Slay_Objective so in this.slay_objectives)
         {
             so.setCount(objectivesProgress[objIndex]);
             objIndex++;
         }
 
-        foreach (Talk_Objective to in quest.talk_objectives)
+        foreach (Talk_Objective to in this.talk_objectives)
         {
             if (objectivesProgress[objIndex] == 1)
                 to.setComplete(true);
@@ -89,16 +87,15 @@ public class Quest
             {
                 to.setComplete(false);
             }
-            
+
             objIndex++;
         }
 
-        foreach (Gather_Objective go in quest.gather_objectives)
+        foreach (Gather_Objective go in this.gather_objectives)
         {
             go.setCount(objectivesProgress[objIndex]);
             objIndex++;
         }
-
     }
 
     public string getObjectiveStatus()

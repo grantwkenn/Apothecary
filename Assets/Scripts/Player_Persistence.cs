@@ -26,8 +26,11 @@ public class Player_Persistence : ScriptableObject
 
     bool changingScenes;
 
+    [SerializeField]
     bool[] questsComplete;
     List<Quest> questLog;
+    [SerializeField]
+    List<SerializableQuest> newquestLog;
 
 
     public void setEntrance(byte entranceNo)
@@ -35,8 +38,6 @@ public class Player_Persistence : ScriptableObject
         this.entranceNo = entranceNo;
             
     }
-
-    public void setLoadFile(SaveData data) { }
 
     public byte getEntranceNo() { return entranceNo; }
 
@@ -83,9 +84,11 @@ public class Player_Persistence : ScriptableObject
 
     public byte getInvSelection() { return this.invSelection; }
 
+
     public void storeQuestData(bool[] questsComplete, List<Quest> questLog)
     {
         this.questLog = new List<Quest>();
+        this.newquestLog = new List<SerializableQuest>();
         foreach(Quest q in questLog)
         {
             this.questLog.Add(q);
@@ -96,6 +99,39 @@ public class Player_Persistence : ScriptableObject
             this.questsComplete[b] = questsComplete[b];
         }
     }
+
+    public void newStoreQuestData(bool[] questsComplete, List<SerializableQuest> squests)
+    {
+        this.newquestLog = new List<SerializableQuest>();
+        foreach(SerializableQuest sq in squests)
+        {
+            newquestLog.Add(sq);
+        }
+        this.questsComplete = new bool[questsComplete.Length];
+        for (int b = 0; b < questsComplete.Length; b++)
+        {
+            this.questsComplete[b] = questsComplete[b];
+        }
+    }
+
+    public void getQuestData(ref bool[] completion, ref List<SerializableQuest> squests)
+    {
+        if(this.questsComplete.Length == completion.Length)
+        {
+            for (int i = 0; i < questsComplete.Length; i++)
+            {
+                completion[i] = this.questsComplete[i];
+            }
+        }
+
+        
+        foreach (SerializableQuest sq in newquestLog)
+        {
+            squests.Add(sq);
+        }
+
+    }
+
 
 
     public void loadQuestData(ref bool[] _questsComplete, ref List<Quest> _questLog)
@@ -113,7 +149,15 @@ public class Player_Persistence : ScriptableObject
         }
     }
 
-    public void setSaveFile(SaveData _save) { this.save = _save; }
+
+    public void setSaveFile(SaveData _save)
+    {
+        this.save = _save;
+
+        this.newquestLog = save.getSerializedQuests();
+        this.questsComplete = save.getQuestCompletion();
+    }
+    
 
     public SaveData getSaveData() { return this.save; }
 

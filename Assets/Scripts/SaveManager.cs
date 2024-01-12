@@ -73,7 +73,6 @@ public class SaveManager : MonoBehaviour
     {
                       
         SaveData data = loadData();
-        Debug.Log(data != null);
 
         sceneMan.loadSaveFile(data);
 

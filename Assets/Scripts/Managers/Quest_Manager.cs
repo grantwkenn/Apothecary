@@ -17,7 +17,9 @@ public class Quest_Manager : MonoBehaviour
     //Reference
     Inventory_Manager inventory_Manager;
     Dialogue_Manager dialogueManager;
+    Scene_Manager sm;
     Player_Persistence pp;
+
 
     
     //list of all Quest Data Scriptable Objects from Assets
@@ -61,7 +63,8 @@ public class Quest_Manager : MonoBehaviour
         //after Game Manager, Inventory Manager
         inventory_Manager = this.GetComponentInParent<Inventory_Manager>();
         dialogueManager = this.GetComponentInParent<Dialogue_Manager>();
-        
+        sm = this.GetComponentInParent<Scene_Manager>();
+
         if (inventory_Manager == null) Debug.Log("Inventory Manager Null");
 
         questCount = allQuests.questList.Count;
@@ -117,28 +120,38 @@ public class Quest_Manager : MonoBehaviour
 
     void Start()
     {
-        //This must wait until after Scene Manager has OnEnabled
+        //This must wait until after Scene Manager has OnEnabled?? TODO investigate execution order here
         pp = this.GetComponent<Scene_Manager>().getPlayerPersistence();
 
+        
+        loadQuestProgress();
+
+    }
+
+    void loadQuestProgress()
+    {
+        //call on Scene Manager to populate questLog and completion array
+        List<SerializableQuest> squests = new List<SerializableQuest>();
         questsComplete = new bool[questCount];
+        sm.getQuestData(ref questsComplete, ref squests);
+
         questLog = new List<Quest>();
 
+        foreach (SerializableQuest sq in squests)
+        {
+            Quest_Data qd = this.questDataByQID[sq.getID()];
+            Quest q = new Quest(qd);
+            q.setProgress(sq);
+            questLog.Add(q);
+        }
 
-        if (pp.fromSave() && Time.time > 0.5f)
-        {
-            loadQuestLogFromSave();
-        }
-        //else if(!debugMode || Time.time > 0.1f)
-        else
-        {
-            pp.loadQuestData(ref questsComplete, ref questLog);
-        }
 
     }
 
     public void storePersistenceData()
     {        
-        pp.storeQuestData(questsComplete, questLog);
+        //pp.storeQuestData(questsComplete, questLog);
+        pp.newStoreQuestData(questsComplete, getSerialQuestLog());
     }
 
 
@@ -577,7 +590,7 @@ public class Quest_Manager : MonoBehaviour
 
     bool isAvailable(int QID)
     {
-        if (questsComplete[QID]) return false;  
+        if (questsComplete[QID]) return false;
         
         Quest_Data data = questDataByQID[QID];
         int[] preQuests = data.getPreQuests();
@@ -758,26 +771,16 @@ public class Quest_Manager : MonoBehaviour
         return list;
     }
 
-    void loadQuestLogFromSave()
-    {
-        List<SerializableQuest> sQuests = pp.getSaveData().getSerializedQuests();
-        
-        questLog = new List<Quest>();
-
-        foreach (SerializableQuest sQuest in sQuests)
-        {
-            Quest quest = new Quest(questDataByQID[sQuest.getID()], sQuest);
-            questLog.Add(quest);
-        }
-    }
 
 }
 
 [System.Serializable]
 public class SerializableQuest
 {
+    [SerializeField]
     int QuestID;
 
+    [SerializeField]
     List<int> objectiveProgress;
 
     public SerializableQuest(int qid, List<int> objs)

@@ -25,6 +25,8 @@ public class Scene_Manager : MonoBehaviour
 
     string sceneName;
 
+    bool loadingFromDisk = false;
+
 
     //consider 30fps
     float fadeInSeconds = 0.9f;
@@ -47,6 +49,8 @@ public class Scene_Manager : MonoBehaviour
         Application.targetFrameRate = 60;
 
         sceneName = SceneManager.GetActiveScene().name;
+
+
     }
 
 
@@ -59,6 +63,7 @@ public class Scene_Manager : MonoBehaviour
 
         fadeImage = GameObject.FindGameObjectWithTag("HUD").transform.Find("Fade").GetComponent<Image>();
         pp = this.GetComponent<Resource_Manager>().getPlayerPersistence();
+
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
@@ -74,7 +79,7 @@ public class Scene_Manager : MonoBehaviour
             sortingLayers[SortingLayer.GetLayerValueFromID(layer.id)] = layer.name;
         }
 
-        if (Time.time < 0.1f)
+        if (Time.time < 0.1f) //??????? TODO what does this mean
         {
             pp.setChangingScenes(false);
         }
@@ -86,6 +91,9 @@ public class Scene_Manager : MonoBehaviour
         if (pp.fromSave()) targetEntrance = pp.getSaveData().getEntranceNo();
         else
             targetEntrance = pp.getEntranceNo();
+
+        if (pp.fromSave()) loadPersistenceFromSave();
+
 
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Entrance"))
         {
@@ -114,6 +122,12 @@ public class Scene_Manager : MonoBehaviour
 
     }
 
+    void loadPersistenceFromSave()
+    {
+        //load all data in the save file into the pp object
+
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -126,7 +140,8 @@ public class Scene_Manager : MonoBehaviour
 
         //find object of name in entrance SO variable
 
-        //TODO is this needed anymore?
+
+
         
 
     }
@@ -136,8 +151,13 @@ public class Scene_Manager : MonoBehaviour
         return this.sceneName;
     }
 
+    public void triggerSceneChange(string targetScene, byte entranceNo)
+    {
+        storeSceneChange();
+        exitScene(targetScene, entranceNo);
+    }    
 
-    public void exitScene(string targetSceneName, byte entranceNo)
+    void exitScene(string targetSceneName, byte entranceNo)
     {
         
         if (pp.isChangingScenes()) return;
@@ -146,19 +166,13 @@ public class Scene_Manager : MonoBehaviour
 
         pp.setChangingScenes(true);
 
-        if(!pp.fromSave())
-        {
-            pp.setSaveFile(null);
-            storeSceneChange();
-        }
-
 
         //set the next scene entrance
         pp.setEntrance(entranceNo);
 
-
-        setFadingOut();
         this.targetSceneName = targetSceneName;
+
+        setFadingOut();   
 
     }
 
@@ -183,13 +197,6 @@ public class Scene_Manager : MonoBehaviour
         pp.setSaveFile(save);
         exitScene(save.getSceneName(), save.getEntranceNo());
     }
-
-
-    //click load
-    //
-    //put the save file into the persistence SO
-    //load the target scene
-    //load the values from persistence on scene enter
 
 
 
@@ -258,6 +265,7 @@ public class Scene_Manager : MonoBehaviour
                 //End of Fade In Sequence
             }
         }
+        
     }
 
     void setFadeIn()
@@ -287,5 +295,13 @@ public class Scene_Manager : MonoBehaviour
 
     public Scene_Persistence getSP() { return sp; }
 
+
+    public void getQuestData(ref bool[] completion, ref List<SerializableQuest> squests)
+    {
+
+        if (Time.time < 0.5f) return;
+        
+        this.pp.getQuestData(ref completion, ref squests);
+    }
 
 }

@@ -29,7 +29,7 @@ public class Scene_Trigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            sm.exitScene(targetSceneName, entranceNo);
+            sm.triggerSceneChange(targetSceneName, entranceNo);
         }
     }
 }
