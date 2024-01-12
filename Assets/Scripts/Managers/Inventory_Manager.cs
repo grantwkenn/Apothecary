@@ -89,9 +89,9 @@ public class Inventory_Manager : MonoBehaviour
 
         //This line may change if we have variable bag size
         inventory = new Item[inventorySize];
-       
 
-        loadPersistenceData();
+        pp = sm.getPlayerPersistence();
+        loadInventoryData();
         int occupiedSlots = 0;
         freeSlots = inventory.Length;
         for(int i=0; i<inventory.Length; i++)
@@ -112,19 +112,25 @@ public class Inventory_Manager : MonoBehaviour
     /// /////PERSISTENCE ////////////////
     /// </summary>
 
-    void loadPersistenceData()
+    void loadInventoryData()
     {
-        pp = sm.getPlayerPersistence();
 
-        
-        Item[] tempInventory = pp.getItems();
-        inventory = new Item[tempInventory.Length];
-        for(int i=0; i<inventory.Length; i++)
+        if (pp.fromSave() && Time.time > 0.5f)
         {
-            inventory[i] = tempInventory[i];
+            loadInventoryFromSave();
         }
+        else
+        {
+            Item[] tempInventory = pp.getItems();
+            inventory = new Item[tempInventory.Length];
+            for (int i = 0; i < inventory.Length; i++)
+            {
+                inventory[i] = tempInventory[i];
+            }
 
-        barSelection = pp.getInvSelection();
+            barSelection = pp.getInvSelection();
+        }
+        
 
     }
 
@@ -520,8 +526,10 @@ public class Inventory_Manager : MonoBehaviour
         return list;
     }
 
-    public void loadInventoryFromSave(List<SerializableItem> items)
+    void loadInventoryFromSave()
     {
+        List<SerializableItem> items = pp.getSaveData().getSerializedItems();
+        
         for(int i = 0; i<inventorySize; i++)
         {
             inventory[i] = emptyItem;

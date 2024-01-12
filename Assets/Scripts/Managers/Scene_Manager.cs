@@ -26,7 +26,6 @@ public class Scene_Manager : MonoBehaviour
     string sceneName;
 
 
-
     //consider 30fps
     float fadeInSeconds = 0.9f;
     float fadeOutSeconds = 0.4f;
@@ -82,6 +81,12 @@ public class Scene_Manager : MonoBehaviour
 
         //Find the Entrance to this scene which was set by previous scene's exit
         currentEntrance = null;
+
+        byte targetEntrance;
+        if (pp.fromSave()) targetEntrance = pp.getSaveData().getEntranceNo();
+        else
+            targetEntrance = pp.getEntranceNo();
+
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Entrance"))
         {
             entrance ent = go.GetComponent<entrance>();
@@ -122,8 +127,7 @@ public class Scene_Manager : MonoBehaviour
         //find object of name in entrance SO variable
 
         //TODO is this needed anymore?
-
-
+        
 
     }
 
@@ -133,40 +137,61 @@ public class Scene_Manager : MonoBehaviour
     }
 
 
-    public void exitScene(string targetSceneName, byte entranceNo, SaveData save = null)
-    {        
+    public void exitScene(string targetSceneName, byte entranceNo)
+    {
+        
         if (pp.isChangingScenes()) return;
         
         player.GetComponent<Player>().freeze();
 
         pp.setChangingScenes(true);
 
-        if(save == null)
+        if(!pp.fromSave())
         {
-            //store health
-            pp.setHealth(player.getHealth());
-
-            //Store Inventory Data
-            im.storePersistenceData();
-
-            //Store Quest Data
-            qm.storePersistenceData();
-        }
-        else
-        {
-
+            pp.setSaveFile(null);
+            storeSceneChange();
         }
 
-        if (sp != null)
-            sp.exitScene();
 
         //set the next scene entrance
         pp.setEntrance(entranceNo);
+
 
         setFadingOut();
         this.targetSceneName = targetSceneName;
 
     }
+
+    void storeSceneChange()
+    {
+        //store health
+        pp.setHealth(player.getHealth());
+
+        //Store Inventory Data
+        im.storePersistenceData();
+
+        //Store Quest Data
+        qm.storePersistenceData();
+
+        if (sp != null)
+            sp.exitScene();
+    }
+
+
+    public void loadSaveFile(SaveData save)
+    {
+        pp.setSaveFile(save);
+        exitScene(save.getSceneName(), save.getEntranceNo());
+    }
+
+
+    //click load
+    //
+    //put the save file into the persistence SO
+    //load the target scene
+    //load the values from persistence on scene enter
+
+
 
     void setFadingOut()
     {
@@ -185,6 +210,7 @@ public class Scene_Manager : MonoBehaviour
 
     public int getHealth()
     {
+        if (pp.fromSave()) return pp.getSaveData().getHealth();
         return pp.getHealth();
     }
 
@@ -261,9 +287,5 @@ public class Scene_Manager : MonoBehaviour
 
     public Scene_Persistence getSP() { return sp; }
 
-    public void loadPlayerPersistenceFromSave(int health)
-    {
-        pp.setHealth(health);
-    }
 
 }

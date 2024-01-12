@@ -147,14 +147,12 @@ public class Player : MonoBehaviour
 
     }
 
-
-
     void loadPersistenceData()
     {       
         if(!debugMode)
             this.transform.position = sm.getEntrance().transform.position;
         this.facing = sm.getEntrance().getURDL();
-        this.health = sm.getPlayerPersistence().getHealth();
+        this.health = sm.getHealth();
 
     }
 

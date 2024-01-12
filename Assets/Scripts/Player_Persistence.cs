@@ -8,6 +8,7 @@ public class Player_Persistence : ScriptableObject
 {
     //TODO add current selection
 
+    [SerializeField]
     SaveData save;
     
     [SerializeField]
@@ -111,6 +112,13 @@ public class Player_Persistence : ScriptableObject
             _questLog.Add(q);
         }
     }
+
+    public void setSaveFile(SaveData _save) { this.save = _save; }
+
+    public SaveData getSaveData() { return this.save; }
+
+    public bool fromSave() { return this.save != null; }
+
 }
 
 

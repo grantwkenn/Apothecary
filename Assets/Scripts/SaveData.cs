@@ -6,6 +6,7 @@ using UnityEngine;
 public class SaveData
 {
     string sceneName;
+    byte entrancNo;
     
     int health;
     List<SerializableItem> inventory;
@@ -23,6 +24,8 @@ public class SaveData
 
     public int getHealth() { return this.health; }
 
+    public void setEntranceNo(byte ent) { this.entrancNo = ent; }
+
     public List<SerializableItem> getSerializedItems() { return this.inventory; }
 
     public List<SerializableQuest> getSerializedQuests() { return this.questLog; }
@@ -30,6 +33,8 @@ public class SaveData
     public string getSceneName() { return this.sceneName; }
 
     public void setSceneName(string scn) { this.sceneName = scn; }
+
+    public byte getEntranceNo() { return this.entrancNo; }
 }
 
 

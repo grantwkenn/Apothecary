@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "gatherObjective", menuName = "Questing/Objectives/Gather")]
+[System.Serializable]
 public class Gather_Objective_Data : Quest_Objective_Data
 {
     [SerializeField]

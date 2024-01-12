@@ -38,6 +38,7 @@ public class SaveManager : MonoBehaviour
         sd.setQuestCompletion(qm.getCompletion());
         sd.setQuestLog(qm.getSerialQuestLog());
         sd.setSceneName(sceneMan.getSceneName());
+        sd.setEntranceNo(sceneMan.getEntrance().getEntranceNo());
         
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream fileStream = File.Create(savePath);
@@ -70,19 +71,11 @@ public class SaveManager : MonoBehaviour
 
     public void loadGame()
     {
-        
-               
+                      
         SaveData data = loadData();
+        Debug.Log(data != null);
 
-        Item[] items = new Item[invMan.getInvSize()];
-
-        int itemIndex = 0;
-
-        invMan.loadInventoryFromSave(data.getSerializedItems());
-
-        qm.loadQuestLogFromSave(data.getSerializedQuests());
-
-        sceneMan.loadPlayerPersistenceFromSave(data.getHealth());
+        sceneMan.loadSaveFile(data);
 
     }
 

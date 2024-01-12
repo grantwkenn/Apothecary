@@ -121,20 +121,17 @@ public class Quest_Manager : MonoBehaviour
         pp = this.GetComponent<Scene_Manager>().getPlayerPersistence();
 
         questsComplete = new bool[questCount];
-
-
-        //instantiate the quest log, fill with current quests from disk
         questLog = new List<Quest>();
 
-        if(!debugMode || Time.time > 0.1f)
-            loadPersistenceData();
 
-        //populate all objective Lists from Quest Log
-        foreach (Quest quest in questLog)
+        if (pp.fromSave() && Time.time > 0.5f)
         {
-            //TODO: this is where quest log will populate quests from disk
-            
-            if (quest == null) continue;           
+            loadQuestLogFromSave();
+        }
+        //else if(!debugMode || Time.time > 0.1f)
+        else
+        {
+            pp.loadQuestData(ref questsComplete, ref questLog);
         }
 
     }
@@ -144,10 +141,6 @@ public class Quest_Manager : MonoBehaviour
         pp.storeQuestData(questsComplete, questLog);
     }
 
-    void loadPersistenceData()
-    {
-        pp.loadQuestData(ref questsComplete, ref questLog);
-    }
 
 
     //when a QG activates
@@ -584,7 +577,7 @@ public class Quest_Manager : MonoBehaviour
 
     bool isAvailable(int QID)
     {
-        if (questsComplete[QID]) return false;
+        if (questsComplete[QID]) return false;  
         
         Quest_Data data = questDataByQID[QID];
         int[] preQuests = data.getPreQuests();
@@ -765,8 +758,10 @@ public class Quest_Manager : MonoBehaviour
         return list;
     }
 
-    public void loadQuestLogFromSave(List<SerializableQuest> sQuests)
+    void loadQuestLogFromSave()
     {
+        List<SerializableQuest> sQuests = pp.getSaveData().getSerializedQuests();
+        
         questLog = new List<Quest>();
 
         foreach (SerializableQuest sQuest in sQuests)
