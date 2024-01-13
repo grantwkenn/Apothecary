@@ -149,7 +149,6 @@ public class Quest
             list.Add(go.getCount());
         }
 
-        if (list.Count == 0) return null;
 
         SerializableQuest sq = new SerializableQuest(this.data.getQuestID(), list);
 

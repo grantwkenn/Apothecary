@@ -11,7 +11,7 @@ public class SaveManager : MonoBehaviour
     Inventory_Manager invMan;
     Player player;
     Scene_Manager sceneMan;
-    
+    Menu_Manager mm;
     
     string savePath;
 
@@ -26,6 +26,7 @@ public class SaveManager : MonoBehaviour
         invMan = this.GetComponent<Inventory_Manager>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         sceneMan = this.GetComponent<Scene_Manager>();
+        mm = this.GetComponent<Menu_Manager>();
     }
 
     public void saveGame()
@@ -74,7 +75,11 @@ public class SaveManager : MonoBehaviour
                       
         SaveData data = loadData();
 
+        mm.inputCloseMenu();
+
         sceneMan.loadSaveFile(data);
+
+        
 
     }
 

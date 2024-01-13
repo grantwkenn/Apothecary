@@ -126,15 +126,13 @@ public class Input_Manager : MonoBehaviour
         menuManager.pauseGame();
         controls.Gameplay.Disable();
         controls.Menus.Enable();
-
     }
-
-    void closeMenu()
+    
+    public void closeMenu()
     {
         menuManager.closeMenu();
         controls.Menus.Disable();
         controls.Gameplay.Enable();
-
     }
 
     ////// A

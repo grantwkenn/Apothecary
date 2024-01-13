@@ -58,6 +58,21 @@ public class Inventory_Manager : MonoBehaviour
 
     AudioSource gmAudioSource;
 
+    private void Start()
+    {
+        
+        loadInventory();
+        freeSlots = inventory.Length;
+        for (int i = 0; i < inventory.Length; i++)
+        {
+            if (inventory[i].getData() == null)
+                inventory[i] = emptyItem;
+
+            else if (!inventory[i].isEmpty())
+                freeSlots--;
+        }
+    }
+
     private void OnEnable()
     {
         qm = GetComponentInParent<Quest_Manager>();
@@ -90,18 +105,13 @@ public class Inventory_Manager : MonoBehaviour
         //This line may change if we have variable bag size
         inventory = new Item[inventorySize];
 
-        pp = sm.getPlayerPersistence();
-        loadInventoryData();
-        int occupiedSlots = 0;
-        freeSlots = inventory.Length;
-        for(int i=0; i<inventory.Length; i++)
+        for (int i = 0; i < inventory.Length; i++)
         {
-            if (inventory[i].getData() == null)
-                inventory[i] = emptyItem;
-
-            else if (!inventory[i].isEmpty())
-                freeSlots--;
+            inventory[i] = emptyItem;
         }
+
+        pp = sm.getPlayerPersistence();
+
 
     }
 
@@ -112,32 +122,28 @@ public class Inventory_Manager : MonoBehaviour
     /// /////PERSISTENCE ////////////////
     /// </summary>
 
-    void loadInventoryData()
+    void loadInventory()
     {
+        //get serializedInventory from PP
+        List<SerializableItem> sInv = pp.getSerializableInventory();
 
-        if (pp.fromSave() && Time.time > 0.5f)
-        {
-            loadInventoryFromSave();
-        }
-        else
-        {
-            Item[] tempInventory = pp.getItems();
-            inventory = new Item[tempInventory.Length];
-            for (int i = 0; i < inventory.Length; i++)
-            {
-                inventory[i] = tempInventory[i];
-            }
+        //set inventory from pp data
 
-            barSelection = pp.getInvSelection();
+        foreach(SerializableItem sItem in sInv)
+        {
+            Item_Data data = itemData_by_ID[sItem.itemID];
+            inventory[sItem.index] = new Item(data, sItem.quantity);
+            freeSlots--;
         }
         
-
     }
+    
 
     //TODO maybe this can be done in real time as each item is updated instead of all on scene exit? 
     public void storePersistenceData()
     {
-        pp.setItems(inventory);
+        //pp.setItems(inventory);
+        pp.setItems(serializeInventory());
         pp.setInvSelection(barSelection);
     }
     /// <summary>
@@ -199,7 +205,7 @@ public class Inventory_Manager : MonoBehaviour
         //notify the Quest Manager
         //qm.itemPickedUp(item.itemNo);
 
-        pp.setItems(inventory);
+        pp.setItems(serializeInventory());
 
         qm.itemAdded(item.getData().getItemNo(), quantity - item.getQuantity());
         mm.refresh();
@@ -228,7 +234,7 @@ public class Inventory_Manager : MonoBehaviour
         freeSlots++;
 
         mm.refresh();
-        pp.setItems(inventory);
+        pp.setItems(serializeInventory());
 
         //in case we just set down a tool
         evaluateSelector();
@@ -321,7 +327,7 @@ public class Inventory_Manager : MonoBehaviour
     {
         removeItemHelper(barSelection, 1);
 
-        pp.setItems(inventory);
+        pp.setItems(serializeInventory());
         //refresh UI
         mm.refresh();
         evaluateSelector();
@@ -359,7 +365,7 @@ public class Inventory_Manager : MonoBehaviour
             if (quantityToRemove == 0) break;
         }
 
-        pp.setItems(inventory);
+        pp.setItems(serializeInventory());
         //refresh UI
         mm.refresh();
         evaluateSelector();
@@ -519,26 +525,10 @@ public class Inventory_Manager : MonoBehaviour
 
             Item item = inventory[i];
             if (item.isEmpty()) continue;
-
             list.Add(new SerializableItem(i, item.getItemNo(), item.getQuantity()));
         }
 
         return list;
-    }
-
-    void loadInventoryFromSave()
-    {
-        List<SerializableItem> items = pp.getSaveData().getSerializedItems();
-        
-        for(int i = 0; i<inventorySize; i++)
-        {
-            inventory[i] = emptyItem;
-        }
-
-        foreach(SerializableItem item in items)
-        {
-            inventory[item.index] = new Item(itemData_by_ID[item.itemID], item.quantity);
-        }
     }
 
 }
@@ -555,6 +545,8 @@ public class SerializableInventory
         this.containerID = container;
         this.inventory = inv;
     }
+
+    public List<SerializableItem> getItems() { return this.inventory; }
 
 }
 

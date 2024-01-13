@@ -104,13 +104,12 @@ public class Menu_Manager : MonoBehaviour
     public void closeMenu()
     {  
         
-
         if(!currentMenu.CompareTag("Pause Tab"))
             Destroy(storeMenu);
         else
         {
             currentMenu.gameObject.SetActive(false);
-            pauseMenu.SetActive(false);     
+            pauseMenu.SetActive(false);
         }
             
 
@@ -118,6 +117,11 @@ public class Menu_Manager : MonoBehaviour
 
         Time.timeScale = 1f;
 
+    }
+
+    public void inputCloseMenu()
+    {
+        im.closeMenu();
     }
 
 
