@@ -2,42 +2,66 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Canopy_Tree : MonoBehaviour
+[ExecuteInEditMode]
+public class Canopy_Tree : MonoBehaviour, ICustomLayer
 {
     SpriteRenderer canopy;
-    SpriteRenderer thisSR;
+    SpriteRenderer trunk;
 
-    [ExecuteInEditMode]
+    [SerializeField]
+    Color color;
+
+    
     // Start is called before the first frame update
     void Start()
     {
-        thisSR = this.GetComponent<SpriteRenderer>();
+        trunk = this.transform.Find("trunk").GetComponent<SpriteRenderer>();
+        canopy = this.transform.Find("canopy").GetComponent<SpriteRenderer>();
+    }
+
+    private void OnEnable()
+    {
+        trunk = this.transform.Find("trunk").GetComponent<SpriteRenderer>();
+        canopy = this.transform.Find("canopy").GetComponent<SpriteRenderer>();
+
+        if (canopy.color != Color.white) color = canopy.color;
+
+        if (color == null || color == new Color(0, 0, 0, 0)) color = Color.white;
+
+        trunk.color = color;
+        canopy.color = color;
+    }
+
+    void Awake()
+    {
+        trunk = this.transform.Find("trunk").GetComponent<SpriteRenderer>();
         canopy = this.transform.Find("canopy").GetComponent<SpriteRenderer>();
     }
 
     private void OnValidate()
     {
-        thisSR = this.GetComponent<SpriteRenderer>();
+        trunk = this.transform.Find("trunk").GetComponent<SpriteRenderer>();
         canopy = this.transform.Find("canopy").GetComponent<SpriteRenderer>();
+        canopy.color = color;
+        trunk.color = color;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void layer(string layerOrderName)
     {
-        canopy.color = thisSR.color;
-    }
+        //find the parent sorting name
+        trunk.sortingLayerName = layerOrderName;
 
-    public void relayer()
-    {
-        canopy.color = thisSR.color;
-        
-        string lyname = thisSR.sortingLayerName;
-        string[] split = lyname.Split(' ');
+        string[] split = layerOrderName.Split(' ');
         int layer = System.Int32.Parse(split[0]);
         string newLayer = "" + layer + " Above";
         canopy.sortingLayerName = newLayer;
-        canopy.sortingOrder = thisSR.sortingOrder;
+        canopy.sortingOrder = trunk.sortingOrder;
 
         canopy.transform.localPosition = new Vector3(canopy.transform.localPosition.x, canopy.transform.localPosition.y, -1);
+
+    }
+
+    public void setColor(Color color) { this.color = color; canopy.color = color;
+        trunk.color = color;
     }
 }

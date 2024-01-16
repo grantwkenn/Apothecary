@@ -10,7 +10,8 @@ public class Stairs : MonoBehaviour
 
     Player player;
 
-    Scene_Manager sm;
+    //Scene_Manager sm;
+    Layer_Manager lm;
 
     bool slopeSet = false;
 
@@ -19,7 +20,7 @@ public class Stairs : MonoBehaviour
     private void Start()
     {
         pc = this.GetComponent<PolygonCollider2D>();
-        sm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Scene_Manager>();
+        lm = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Layer_Manager>();
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
     }
@@ -34,7 +35,7 @@ public class Stairs : MonoBehaviour
             //if moving up
             if(_player.GetComponent<Rigidbody2D>().velocity.y > 0)
             {
-                sm.incrementLayer(player.gameObject, 1);
+                lm.incrementPlayerLayer(player.gameObject, 1);
             }
 
             return;
@@ -55,7 +56,7 @@ public class Stairs : MonoBehaviour
             {
 
                 //decrement
-                sm.incrementLayer(player.gameObject, -1);
+                lm.incrementPlayerLayer(player.gameObject, -1);
             }
 
         }
@@ -86,7 +87,7 @@ public class Stairs : MonoBehaviour
         {
             //decrement layer if moving down
             if(_player.GetComponent<Rigidbody2D>().velocity.y < 0)
-                sm.incrementLayer(player.gameObject, -1);
+                lm.incrementPlayerLayer(player.gameObject, -1);
             return;
 
         }
@@ -98,7 +99,7 @@ public class Stairs : MonoBehaviour
             if (_player.attachedRigidbody.velocity.x < 0f)
             {
                 //Increment Layer
-                sm.incrementLayer(player.gameObject, 1);
+                lm.incrementPlayerLayer(player.gameObject, 1);
             }
 
             else //leaving bottom of stair

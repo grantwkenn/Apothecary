@@ -13,97 +13,23 @@ MonoBehaviour:
   m_Name: Player Persistence
   m_EditorClassIdentifier: 
   health: 0
-  items:
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  - data: {fileID: 11400000, guid: a1c25d693e6970e4b99575d8bad71316, type: 2}
-    stackQuantity: 0
-  entranceNo: 1
-  questsComplete: 01000100
+  sInventory:
+  - index: 0
+    itemID: 12
+    quantity: 1
+  - index: 1
+    itemID: 12
+    quantity: 1
+  - index: 2
+    itemID: 12
+    quantity: 1
+  - index: 3
+    itemID: 1
+    quantity: 0
+  entranceNo: 17
+  questsComplete: 01000000
   newquestLog:
+  - QuestID: 2
+    objectiveProgress: 00000000
   - QuestID: 3
     objectiveProgress: 00000000

@@ -45,4 +45,16 @@ public class Item_Data : ScriptableObject
     }
 
     public bool isTileSelector() { return tileSelector; }
+
+    public void editorSetItemName(string name) { this.itemName = name; }
+
+    public void replaceData(ItemDataJSON newData)
+    {
+        this.description = newData.description;
+        this.itemName = newData.itemName;
+        this.itemNo = newData.itemNo;
+        this.value = newData.value;
+        this.stackLimit = newData.stackLimit;
+        this.sprite = newData.sprite;
+    }
 }

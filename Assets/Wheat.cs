@@ -22,6 +22,12 @@ public class Wheat : MonoBehaviour
 
     Vector2Int gridPosition, above, _left, _right;
 
+    [SerializeField]
+    Color c;
+
+    public bool runColor;
+
+    float widthOffset;
 
     public float width;
 
@@ -41,7 +47,22 @@ public class Wheat : MonoBehaviour
         //get references to spriteRenderers from transformsj
         initReferences();
 
+        
 
+    }
+
+    void setWidth()
+    {
+        Vector2 size = new Vector2(width, 1);
+        Vector2 sliceSize = new Vector2(width, 0.125f);
+        
+        bottom.size = size;
+        top.size = new Vector2(width, 0.375f);
+
+        foreach(SpriteRenderer sr in centerSprites)
+        {
+            sr.size = sliceSize;
+        }
 
     }
 
@@ -88,12 +109,15 @@ public class Wheat : MonoBehaviour
 
     public void reload()
     {
+        setWidth();
         layer();
         updateSprites();
     }
 
     void layer()
     {
+        
+        
         Vector3 temp = this.transform.position;
         temp.z = temp.y;
         this.transform.position = temp;
@@ -102,16 +126,26 @@ public class Wheat : MonoBehaviour
 
         bottom.sortingOrder = order;
 
-        for(int i=0; i<8; i++)
+        for(int i=7; i>=0; i--)
         {
             centerSprites[i].sortingOrder = order - 16 + (i+i);
+            centerSprites[7-i].transform.position = new Vector3(bottom.transform.position.x, bottom.transform.position.y+1+(i/8f), bottom.transform.position.z +(i/8f));
             rightSprites[i].sortingOrder = order - 16 + (i + i);
+            rightSprites[7-i].transform.position = new Vector3(bottom.transform.position.x+(width/2f), bottom.transform.position.y + 1 + (i / 8f), bottom.transform.position.z + (i / 8f));
             leftSprites[i].sortingOrder = order - 16 + (i + i);
+            leftSprites[7-i].transform.position = new Vector3(bottom.transform.position.x-(width/2f), bottom.transform.position.y + 1 + (i / 8f), bottom.transform.position.z + (i / 8f));
+
         }
+
+        topLeft.transform.position = new Vector3(bottom.transform.position.x - 0.5f, bottom.transform.position.y + 2, bottom.transform.position.z + 1);
+        topRight.transform.position = new Vector3(bottom.transform.position.x + 0.5f, bottom.transform.position.y + 2, bottom.transform.position.z + 1);
+        top.transform.position = new Vector3(bottom.transform.position.x, bottom.transform.position.y + 2, bottom.transform.position.z + 1);
 
         top.sortingOrder = order - 16;
         topLeft.sortingOrder = order - 16;
         topRight.sortingOrder = order - 16;
+
+
     }
 
     // Update is called once per frame
@@ -122,6 +156,33 @@ public class Wheat : MonoBehaviour
             run = false;
             reload();
         }
+
+        if(runColor)
+        {
+            runColor = false;
+            updateColor();
+        }
+    }
+
+    void updateColor()
+    {
+        foreach(SpriteRenderer sr in this.centerSprites)
+        {
+            sr.color = c;
+        }
+        foreach (SpriteRenderer sr in this.leftSprites)
+        {
+            sr.color = c;
+        }
+        foreach (SpriteRenderer sr in this.rightSprites)
+        {
+            sr.color = c;
+        }
+        top.color = c;
+        topLeft.color = c;
+        topRight.color = c;
+        bottom.color = c;
+
     }
 
     void updateSprites()

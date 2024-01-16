@@ -267,6 +267,12 @@ public class Input_Manager : MonoBehaviour
         moveInput = controls.Gameplay.Move.ReadValue<Vector2>();
     }
 
+    public void disableInput()
+    {
+        controls.Gameplay.Disable();
+        controls.Menus.Disable();
+    }
+
     public void button(int index)
     {
 

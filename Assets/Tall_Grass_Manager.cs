@@ -3,15 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [ExecuteInEditMode]
-public class Tall_Grass_Manager : MonoBehaviour
+public class Tall_Grass_Manager : MonoBehaviour, ICustomLayer
 {
     HashSet<Vector2Int> wheatMap;
 
     public bool doReload;
 
+
     private void Awake()
     {
         wheatMap = new HashSet<Vector2Int>();
+    }
+
+    public void layer(string sortingLayerName)
+    {
+        reload();
     }
 
 
@@ -34,6 +40,14 @@ public class Tall_Grass_Manager : MonoBehaviour
     
     void reload()
     {
+        string sortingLayer = this.transform.parent.name;
+
+        SpriteRenderer[] sprites = this.GetComponentsInChildren<SpriteRenderer>();
+        foreach(SpriteRenderer sr in sprites)
+        {
+            sr.sortingLayerName = sortingLayer;
+        }
+        
         wheatMap = new HashSet<Vector2Int>();
                
         Wheat[] allWheat = this.GetComponentsInChildren<Wheat>();

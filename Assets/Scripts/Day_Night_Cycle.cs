@@ -2,16 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+[ExecuteInEditMode]
 public class Day_Night_Cycle : MonoBehaviour
 {
     [SerializeField]
     int multiplier;
+
+    public bool run;
     
-    int hour = 0;
     int frameCounter = 0;
     int secondsPerGameHour = 45;
-    int fixedUpdatePerSecond = 50;
+
     int minuteCounter = 37;
     int hourCounter = 45 * 50;
     int secondCounter = 50;
@@ -24,7 +25,7 @@ public class Day_Night_Cycle : MonoBehaviour
     [SerializeField]
     bool freezeTime;
     
-
+    [SerializeField]
     int clockInSeconds;
 
     int _12am = 0;
@@ -62,9 +63,20 @@ public class Day_Night_Cycle : MonoBehaviour
     Color color;
     float intensity;
 
+    
     private void OnEnable()
     {
-        
+        if (run)
+        {
+            run = false;
+            //color = daylight.color;
+            //intensity = daylight.intensity;
+
+            clockInSeconds = setTime();
+
+
+            updateLight();
+        }
 
     }
 
@@ -100,6 +112,7 @@ public class Day_Night_Cycle : MonoBehaviour
 
     void updateLight()
     {
+        
         //5am to 7pm Day
         if (clockInSeconds > _5am && clockInSeconds < _7pm)
         {

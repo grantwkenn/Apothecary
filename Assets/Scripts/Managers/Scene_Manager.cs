@@ -19,7 +19,7 @@ public class Scene_Manager : MonoBehaviour
     Input_Manager inputMan;
 
     entrance currentEntrance;
-    public entrance defaultEntrance;
+    entrance defaultEntrance;
 
     Image fadeImage;
 
@@ -37,7 +37,7 @@ public class Scene_Manager : MonoBehaviour
     bool fadingIn = false;
     Color fade;
 
-    string[] sortingLayers;
+
 
     string targetSceneName;
 
@@ -49,7 +49,6 @@ public class Scene_Manager : MonoBehaviour
         Application.targetFrameRate = 60;
 
         sceneName = SceneManager.GetActiveScene().name;
-
 
     }
 
@@ -72,12 +71,7 @@ public class Scene_Manager : MonoBehaviour
         if (sp != null)
             sp.initialize();
 
-        sortingLayers = new string[SortingLayer.layers.Length];
 
-        foreach (SortingLayer layer in SortingLayer.layers)
-        {
-            sortingLayers[SortingLayer.GetLayerValueFromID(layer.id)] = layer.name;
-        }
 
         if (Time.time < 0.1f) //??????? TODO what does this mean
         {
@@ -104,6 +98,7 @@ public class Scene_Manager : MonoBehaviour
 
                 break;
             }
+            if (ent.getEntranceNo() == 0) defaultEntrance = ent;
         }
         if (currentEntrance == null)
         {
@@ -142,27 +137,29 @@ public class Scene_Manager : MonoBehaviour
 
 
 
-        
-
     }
+
 
     public string getSceneName()
     {
         return this.sceneName;
     }
 
-    public void triggerSceneChange(string targetScene, byte entranceNo)
+    public void triggerSceneChange(string targetScene, byte entranceNo, bool running)
     {
         storeSceneChange();
         exitScene(targetScene, entranceNo);
     }    
 
-    void exitScene(string targetSceneName, byte entranceNo)
+    void exitScene(string targetSceneName, byte entranceNo, bool running = false)
     {
         
         if (pp.isChangingScenes()) return;
         
-        player.GetComponent<Player>().freeze();
+        if(!running)
+            player.GetComponent<Player>().freeze();
+
+        inputMan.disableInput();
 
         pp.setChangingScenes(true);
 
@@ -276,17 +273,6 @@ public class Scene_Manager : MonoBehaviour
 
         this.fadingIn = true;
 
-    }
-
-    public void incrementLayer(GameObject obj, sbyte increment)
-    {
-        SpriteRenderer[] srs = obj.GetComponentsInChildren<SpriteRenderer>();
-
-        foreach(SpriteRenderer sr in srs)
-        {
-            sr.sortingLayerName = sortingLayers[SortingLayer.GetLayerValueFromID(sr.sortingLayerID) + increment*3];
-            
-        }
     }
 
 

@@ -82,8 +82,14 @@ public class NPC : MonoBehaviour
 
         Resource_Manager rman = gm.GetComponent<Resource_Manager>();
 
-        npcBehavior.init();
-        getNextBehavior();
+        if (npcBehavior != null)
+        {
+            npcBehavior.init();
+            getNextBehavior();
+        }
+        else
+            dontMove = true;
+        
 
 
         //Manually Round location to integer X and Y (5.44, 10.7) --> (5, 11)

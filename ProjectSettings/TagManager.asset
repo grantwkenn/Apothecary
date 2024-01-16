@@ -28,8 +28,8 @@ TagManager:
   - Walls
   - In Front of Shadow
   - Overhead
-  - 
-  - 
+  - Walls 1
+  - Walls 0
   - 
   - 
   - 
@@ -76,9 +76,9 @@ TagManager:
   - name: 2 Ground
     uniqueID: 3727967929
     locked: 0
+  - name: 2 Object
+    uniqueID: 2533672223
+    locked: 0
   - name: 2 Above
     uniqueID: 3564045865
-    locked: 0
-  - name: 2 Over
-    uniqueID: 2533672223
     locked: 0

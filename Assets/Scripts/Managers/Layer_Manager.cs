@@ -5,14 +5,16 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class Layer_Manager : MonoBehaviour
 {
-    public bool run;
+    GameObject player;
 
     Transform[] levels;
 
+    string[] sortingLayers;
 
     string[] levelNames;
     string[] layerNames;
-    
+
+    CompositeCollider2D[] compositeCollidersByLevel; 
     // Start is called before the first frame update
     void Start()
     {        
@@ -22,6 +24,8 @@ public class Layer_Manager : MonoBehaviour
 
     private void OnEnable()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
+        
         levelNames = new string[6];
         levelNames[0] = "Level 0";
         levelNames[1] = "Level 1";
@@ -40,6 +44,29 @@ public class Layer_Manager : MonoBehaviour
             }
 
         }
+
+        sortingLayers = new string[SortingLayer.layers.Length];
+
+        foreach (SortingLayer layer in SortingLayer.layers)
+        {
+            sortingLayers[SortingLayer.GetLayerValueFromID(layer.id)] = layer.name;
+        }
+
+        compositeCollidersByLevel = new CompositeCollider2D[levels.Length];
+
+        //get all colliders at all levels not including stair triggers TODO any triggers? should this just be for walls?
+        for(int i = 0; i< levels.Length; i++)
+        {
+            if (GameObject.Find(levelNames[i]) == null) continue;
+
+            levels[i] = GameObject.Find(levelNames[i]).transform;
+
+            //get all colliders at this level
+            compositeCollidersByLevel[i] = levels[i].GetComponent<CompositeCollider2D>();
+
+        }
+
+        incrementPlayerLayer(player, 0);
     }
 
     public Transform getLevel(byte level)
@@ -47,8 +74,47 @@ public class Layer_Manager : MonoBehaviour
         return levels[level];
     }
 
+    public void incrementPlayerLayer(GameObject obj, sbyte increment)
+    {
 
-    void relayer()
+        SpriteRenderer[] srs = obj.GetComponentsInChildren<SpriteRenderer>();
+
+        string newSortingName = sortingLayers[SortingLayer.GetLayerValueFromID(srs[0].sortingLayerID) + increment * 3];
+
+        foreach (SpriteRenderer sr in srs)
+        {
+            sr.sortingLayerName = newSortingName;
+        }
+
+        //for each Level ignore all collisions with this object except for current sortinglayer
+        for (int i = 0; i < levels.Length; i++)
+        {
+            if (compositeCollidersByLevel[i] == null)
+            {
+                continue;
+            }
+
+            bool ignore = true;
+            string objectName = "" + i + " Object";
+
+            // check if the player is at this level
+            if (newSortingName.CompareTo(objectName) == 0)
+                ignore = false;
+
+            //find the sorting name or ID for this level
+            Physics2D.IgnoreCollision(compositeCollidersByLevel[i], obj.GetComponent<Collider2D>(), ignore);
+            string message = compositeCollidersByLevel[i].gameObject.name + " & " + obj.gameObject.name + " ";
+            if (ignore)
+                message += "IGNORED";
+            else
+                message += "NOT ingnored";
+            Debug.Log(message);
+        }
+
+    }
+
+
+    public void relayer()
     {
         
         for (int i = 0; i < levels.Length; i++)
@@ -62,32 +128,65 @@ public class Layer_Manager : MonoBehaviour
 
         for (int lvlNo = 0; lvlNo < 6; lvlNo++)
         {
+            
+            
             if (levels[lvlNo] == null) continue;
+
             Transform level = levels[lvlNo];
             string objectName = "" + lvlNo + " Object";
             string groundName = "" + lvlNo + " Ground";
             string overheadName = "" + lvlNo + " Above";
+            string lightsName = "" + lvlNo + "Lights";
             Transform objectLayer = level.Find(objectName);
             Transform groundLayer = level.Find(groundName);
             Transform overheadLayer = level.Find(overheadName);
+            Transform lights = level.Find(lightsName);
 
             SpriteRenderer[] objectObjects = objectLayer.GetComponentsInChildren<SpriteRenderer>();
             SpriteRenderer[] groundObjects = groundLayer.GetComponentsInChildren<SpriteRenderer>();
             SpriteRenderer[] overheadObjects = overheadLayer.GetComponentsInChildren<SpriteRenderer>();
 
             foreach(SpriteRenderer sr in objectObjects)
-            {                
+            {
+                if (sr.transform.parent.GetComponent<ICustomLayer>() != null)
+                    continue;
                 newRelayer(sr, objectName);
             }
 
             foreach (SpriteRenderer sr in groundObjects)
             {
+                if (sr.transform.parent.GetComponent<ICustomLayer>() != null)
+                    continue;
                 newRelayer(sr, groundName);
             }
 
             foreach (SpriteRenderer sr in overheadObjects)
             {
+                if (sr.transform.parent.GetComponent<ICustomLayer>() != null)
+                    continue;
                 newRelayer(sr, overheadName);
+            }
+
+
+
+            //get all objects that implement layering interface
+            ICustomLayer[] customLayerObject = objectLayer.GetComponentsInChildren<ICustomLayer>();
+            ICustomLayer[] customLayerGround = groundLayer.GetComponentsInChildren<ICustomLayer>();
+            ICustomLayer[] customLayerAbove = overheadLayer.GetComponentsInChildren<ICustomLayer>();
+
+            foreach (ICustomLayer interfaces in customLayerObject)
+            {
+                interfaces.layer(objectName);
+            }
+
+            foreach (ICustomLayer interfaces in customLayerGround)
+            {
+                interfaces.layer(groundName);
+            }
+
+            foreach (ICustomLayer interfaces in customLayerAbove)
+            {
+                interfaces.layer(overheadName);
             }
 
             Perfect perfect = level.GetComponent<Perfect>();
@@ -98,6 +197,8 @@ public class Layer_Manager : MonoBehaviour
                 perfect.run();
             }
 
+
+
         }
 
 
@@ -107,7 +208,6 @@ public class Layer_Manager : MonoBehaviour
     {
         lyHelper lyHelp = sr.GetComponent<lyHelper>();
         Layered layered = sr.GetComponent<Layered>();
-        Canopy_Tree tree = sr.GetComponent<Canopy_Tree>();
         if (lyHelp == null && layered == null)
         {
             sr.sortingLayerName = sortingLayerName;
@@ -118,10 +218,6 @@ public class Layer_Manager : MonoBehaviour
             layered.updateLayer();
         }
 
-        if(tree != null)
-        {
-            tree.relayer();
-        }
     }
 
     public void relayerMe(SpriteRenderer sr, string sortingLayerName)
@@ -218,18 +314,6 @@ public class Layer_Manager : MonoBehaviour
     }
 
 
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (run)
-        {
-            relayer();
-            run = false;
-        }
-        
-    }
-
     public string getLayerRelative(string layerName, int index)
     {
         for(int i=0; i<18; i++)
@@ -240,4 +324,9 @@ public class Layer_Manager : MonoBehaviour
         return null;
     }
 
+}
+
+public interface ICustomLayer
+{
+    void layer(string sortingLayerName);
 }

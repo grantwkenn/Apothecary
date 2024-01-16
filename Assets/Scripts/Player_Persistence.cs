@@ -110,6 +110,7 @@ public class Player_Persistence : ScriptableObject
         this.questsComplete = save.getQuestCompletion();
 
         this.sInventory = new List<SerializableItem>(save.getSerializedItems());
+        //TODO could set the inventory selection here
     }
     
 

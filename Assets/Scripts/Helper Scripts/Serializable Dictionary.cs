@@ -27,3 +27,15 @@ public class SerializableDictionary<TKey, TValue>
 
 
 }
+
+[System.Serializable]
+public class ItemDataJSON
+{
+    public string itemName, description;
+    public int itemNo, value;
+
+    public int stackLimit;
+
+    public Sprite sprite;
+
+}

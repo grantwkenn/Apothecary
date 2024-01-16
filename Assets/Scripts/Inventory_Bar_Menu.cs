@@ -113,7 +113,6 @@ public class Inventory_Bar_Menu : Menu
 
     public override void refresh()
     {
-
         //TODO this code is very sketchy should be optimized and doesn't need to be called every frame!
         // only need to refresh a slot when we consume, or pickup, or otherwise inventory goes in or out, 
         // these events are controlled by Inv Manager

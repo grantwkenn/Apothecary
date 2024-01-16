@@ -103,7 +103,6 @@ public class Player : MonoBehaviour
     {
         if (Instance != null && Instance != this) Destroy(gameObject);
         else Instance = this;
-
     }
 
     private void OnEnable()

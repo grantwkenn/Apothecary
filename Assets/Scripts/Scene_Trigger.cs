@@ -11,6 +11,9 @@ public class Scene_Trigger : MonoBehaviour
     Inventory_Manager im;
     Scene_Manager sm;
 
+    [SerializeField]
+    bool runningExit;
+
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +32,7 @@ public class Scene_Trigger : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            sm.triggerSceneChange(targetSceneName, entranceNo);
+            sm.triggerSceneChange(targetSceneName, entranceNo, runningExit);
         }
     }
 }
