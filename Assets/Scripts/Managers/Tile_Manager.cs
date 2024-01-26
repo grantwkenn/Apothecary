@@ -126,6 +126,7 @@ public class Tile_Manager : MonoBehaviour
 
         selHilight = GameObject.Instantiate(selectionPrefab);
 
+        //TODO need to get current level from the layer manager, the tile grid will be there
         Transform grassMap = GameObject.Find("Grid").transform.Find("Grass");
         if (grassMap != null)
         {

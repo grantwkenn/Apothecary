@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 [ExecuteInEditMode]
-public class Canopy_Tree : MonoBehaviour, ICustomLayer
+public class Canopy_Tree : MonoBehaviour
 {
     SpriteRenderer canopy;
     SpriteRenderer trunk;
@@ -11,12 +12,42 @@ public class Canopy_Tree : MonoBehaviour, ICustomLayer
     [SerializeField]
     Color color;
 
-    
+    [SerializeField]
+    static float sway = 10;
+    [SerializeField]
+    float swayLimit;
+    float offset = 0;
+    sbyte direction = 1;
+
+    float staticX;
+
+    int counter = 0;
+
+    int[] swayFrames;
+    int swayIndex;
+
+
     // Start is called before the first frame update
     void Start()
     {
         trunk = this.transform.Find("trunk").GetComponent<SpriteRenderer>();
         canopy = this.transform.Find("canopy").GetComponent<SpriteRenderer>();
+
+        var rand = new System.Random();
+        if (rand.Next(0, 100) < 50)
+            direction = -1;
+
+        staticX = this.transform.position.x;
+
+        swayIndex = rand.Next(0, 4);
+        counter = rand.Next(0, 20);
+
+        swayFrames = new int[4];
+        swayFrames[0] = 0;
+        swayFrames[1] = 1;
+        swayFrames[2] = 0;
+        swayFrames[3] = -1;
+
     }
 
     private void OnEnable()
@@ -30,6 +61,27 @@ public class Canopy_Tree : MonoBehaviour, ICustomLayer
 
         trunk.color = color;
         canopy.color = color;
+    }
+
+    void FixedUpdate()
+    {
+        //updateOffset();
+
+        
+    }
+
+    void updateOffset()
+    {
+        counter++;
+        if (counter > 20)
+        {
+            counter = 0;
+            swayIndex++;
+            if (swayIndex == swayFrames.Length)
+                swayIndex = 0;
+            offset = swayFrames[swayIndex] / 32f;
+            canopy.transform.position = new Vector3(staticX + offset, canopy.transform.position.y, canopy.transform.position.z);
+        }
     }
 
     void Awake()
@@ -58,6 +110,8 @@ public class Canopy_Tree : MonoBehaviour, ICustomLayer
         canopy.sortingOrder = trunk.sortingOrder;
 
         canopy.transform.localPosition = new Vector3(canopy.transform.localPosition.x, canopy.transform.localPosition.y, -1);
+
+        //todo update order
 
     }
 

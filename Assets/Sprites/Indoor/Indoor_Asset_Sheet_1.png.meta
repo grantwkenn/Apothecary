@@ -3686,7 +3686,7 @@ TextureImporter:
         height: 96
       alignment: 6
       pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 0, y: 84, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -3705,9 +3705,9 @@ TextureImporter:
         y: 472
         width: 56
         height: 96
-      alignment: 6
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 8, z: 0, w: 11}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -3894,6 +3894,27 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_178
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 670
+        width: 38
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e1f66e6a20a65e449cfaedece550e22
+      internalID: -336306089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -3988,10 +4009,10 @@ TextureImporter:
       Indoor_Asset_Sheet_1_0: 324980860
       Indoor_Asset_Sheet_1_138: 1935173311
       Indoor_Asset_Sheet_1_49: -1702734279
-      Indoor_Asset_Sheet_1_104: 1449143177
+      Indoor_Asset_Sheet_1_139: -589796328
       Indoor_Asset_Sheet_1_119: -801032441
       Indoor_Asset_Sheet_1_43: 1473388453
-      Indoor_Asset_Sheet_1_139: -589796328
+      Indoor_Asset_Sheet_1_104: 1449143177
       Indoor_Asset_Sheet_1_15: 1879856174
       Indoor_Asset_Sheet_1_44: 1052654181
       Indoor_Asset_Sheet_1_151: 1223281232
@@ -4004,6 +4025,7 @@ TextureImporter:
       Indoor_Asset_Sheet_1_27: 1039227555
       Indoor_Asset_Sheet_1_166: -1457575141
       Indoor_Asset_Sheet_1_174: 1083928323
+      Indoor_Asset_Sheet_1_178: -336306089
       Indoor_Asset_Sheet_1_2: 1128702264
       Indoor_Asset_Sheet_1_160: 1199952895
       Indoor_Asset_Sheet_1_89: 991499811
