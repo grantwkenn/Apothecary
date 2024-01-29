@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
+using UnityEngine.Events;
+//using UnityEditor.Events;
 //using UnityEngine.Experimental.Rendering.LWRP;
 //using UnityEngine.Rendering.Universal;
 //using UnityEngine.Experimental.Rendering.Universal;
@@ -61,7 +63,9 @@ public class CameraManager : MonoBehaviour
         
         dd = r.GetComponent<TMPro.TMP_Dropdown>();
 
-
+        dd.onValueChanged.AddListener(delegate {
+            setResolution(dd);
+        });
     }
 
     private void OnEnable()
