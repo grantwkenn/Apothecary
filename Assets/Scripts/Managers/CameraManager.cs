@@ -34,6 +34,8 @@ public class CameraManager : MonoBehaviour
 
     private Vector3 targetPosition;
 
+    Dictionary<string, Resolution> resolutions;
+
     [SerializeField]
     UnityEngine.Experimental.Rendering.Universal.PixelPerfectCamera ppc;
 
@@ -46,16 +48,69 @@ public class CameraManager : MonoBehaviour
 
     public bool debug;
 
+    FullScreenMode screenMode;
+    Dictionary<string, FullScreenMode> screenModes;
+
+    TMPro.TMP_Dropdown dd;
+
+    private void Awake()
+    {
+        GameObject go = GameObject.FindGameObjectWithTag("PauseMenu");
+        Transform t = go.transform.Find("Settings Menu");
+        Transform r = t.Find("Resolutions");
+        
+        dd = r.GetComponent<TMPro.TMP_Dropdown>();
+
+
+    }
 
     private void OnEnable()
     {
-        
+        //TODO: this data can be stored in an SO? Config File?
+        resolutions = new Dictionary<string, Resolution>();
+
+
+        screenModes = new Dictionary<string, FullScreenMode>();
+        screenModes.Add("Fullscreen", FullScreenMode.FullScreenWindow);
+        screenModes.Add("Maximized", FullScreenMode.MaximizedWindow);
+        screenModes.Add("Windowed", FullScreenMode.Windowed);
+
+        foreach (Resolution reso in Screen.resolutions)
+        {
+            resolutions.Add(reso.ToString(), reso);
+        }
+
+        //set the options in the settings menu
+
+        dd.ClearOptions();
+        List<TMPro.TMP_Dropdown.OptionData> options = new List<TMPro.TMP_Dropdown.OptionData>();
+        foreach (string s in resolutions.Keys)
+        {           
+            options.Add(new TMPro.TMP_Dropdown.OptionData(s));
+        }
+        options.Reverse();
+        dd.AddOptions(options);
+    }
+
+    public void toggleFullScreen(TMPro.TMP_Dropdown d) 
+    { 
+        this.screenMode = screenModes[d.options[d.value].text];
+        Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, screenMode, Screen.currentResolution.refreshRate);
+    
+    }
+
+    public void setResolution(TMPro.TMP_Dropdown d)
+    {
+        string s = d.options[d.value].text;
+        Resolution resolution = resolutions[s];
+
+        Screen.SetResolution(resolution.width, resolution.height, screenMode, resolution.refreshRate);
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
-
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
         target = player;

@@ -15,7 +15,7 @@ public class Menu_Manager : MonoBehaviour
 
     GameObject pauseMenu;
 
-    Menu invMenu, questLog;
+    Menu invMenu, questLog, settings;
 
     Sprite[] numbers;
 
@@ -44,12 +44,14 @@ public class Menu_Manager : MonoBehaviour
         numbers = Resources.LoadAll<Sprite>("NUMBERS");
         canvas = GameObject.FindGameObjectWithTag("HUD").transform;
 
-        pauseMenuTabs = new Menu[2];
+        pauseMenuTabs = new Menu[3];
         invMenu = pauseMenu.transform.Find("Inventory Menu").GetComponent<Menu>();
         questLog = pauseMenu.transform.Find("Quest Log Menu").GetComponent<Menu>();
+        settings = pauseMenu.transform.Find("Settings Menu").GetComponent<Menu>();
 
         pauseMenuTabs[0] = invMenu;
         pauseMenuTabs[1] = questLog;
+        pauseMenuTabs[2] = settings;
 
         menuSelector = invMenu.transform.Find("Selection");
 
@@ -75,6 +77,7 @@ public class Menu_Manager : MonoBehaviour
         pauseMenu.SetActive(false);
         invMenu.gameObject.SetActive(false);
         questLog.gameObject.SetActive(false);
+        settings.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -88,6 +91,7 @@ public class Menu_Manager : MonoBehaviour
     {
         invBarMenu.refresh();
         questLog.refresh();
+        settings.refresh();
     }
 
 
