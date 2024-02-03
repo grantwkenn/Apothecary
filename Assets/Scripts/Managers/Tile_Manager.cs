@@ -6,20 +6,21 @@ using System;
 
 
 //TODO keep maps of all tilled, watered, etc. dirt tiles
-enum soilState
-{
-    tilled, watered, planted
-}
+
+//todo: need a tilemap in each level instead of 1 grid
+//can we reduce the number of structures by using soilState?
 
 public class Tile_Manager : MonoBehaviour
 {
     public bool debugMode;
 
+    Crop_Manager cropMan;
+
     [SerializeField]
     GameObject selectionPrefab;
 
     GameObject selHilight;
-    
+
     Player player;
     //RoomManager rm;
     Resource_Manager rman;
@@ -29,7 +30,8 @@ public class Tile_Manager : MonoBehaviour
 
     [SerializeField]
     private Tilemap dirtMap, wateredMap;
-    
+
+    List<Grid> gridLevels;
 
     Tilemap tillableTiles;
 
@@ -42,7 +44,7 @@ public class Tile_Manager : MonoBehaviour
 
     [SerializeField]
     Tilemap grassTileMap;
-       
+
 
     [SerializeField]
     GameObject grassPreFab;
@@ -83,15 +85,17 @@ public class Tile_Manager : MonoBehaviour
 
     Dictionary<Vector2Int, soilState> soilMap;
 
-    static Vector2[] seedOffsets = { new Vector2(0, 0), new Vector2(0.125f, -0.0625f), new Vector2(-.0625f, -0.125f), new Vector2(-0.125f, 0.0625f), new Vector2(-0.125f, 0.0625f) };
 
-    System.Random random;
 
     //TODO
     //Dictionary of Vector2Int coords to crop object?
     //Crop object: daysOld, orientation/children, location? 
 
     ////////////////////////////////////////
+
+
+    public Vector3Int getTargetTile() { return this.targetTile; }
+
 
     private void OnEnable()
     {
@@ -101,6 +105,13 @@ public class Tile_Manager : MonoBehaviour
         layerMan = this.GetComponent<Layer_Manager>();
         selectionPrefab = rman.getPrefab("Tile Selection");
 
+        cropMan = GameObject.FindObjectOfType<Crop_Manager>();
+
+        gridLevels = new List<Grid>(GameObject.FindObjectsOfType<Grid>());
+        gridLevels.Sort((g1, g2) => g1.gameObject.name.CompareTo(g2.gameObject.name));
+
+        
+
         //TODO these do not need to be loaded for indoor scenes without dirt (most scenes!)
         //maybe there should be a specific manager for farm related, Farm Manager? Crop Manager?
 
@@ -108,14 +119,14 @@ public class Tile_Manager : MonoBehaviour
         
         //tilledDirtTile = Resources.Load<RuleTile>("Dirt Rule Tile");
         //wateredDirtTile = Resources.Load<RuleTile>("Watered Dirt Rule Tile");
-
+        
         Transform tillableT = GameObject.FindGameObjectWithTag("Grid").transform.Find("Tillable");
         if(tillableT != null)
             tillableTiles = tillableT.GetComponent<Tilemap>();
 
         soilMap = new Dictionary<Vector2Int, soilState>();
 
-        random = new System.Random();
+        
 
         populateGrassDict();
 
@@ -147,20 +158,20 @@ public class Tile_Manager : MonoBehaviour
         selHilight.SetActive(false);
     }
 
-    public void waterTile()
-    {
-        if(dirtMap.HasTile(targetTile) && !wateredTiles.ContainsKey((Vector2Int)targetTile))
-        {
-            //dirtMap.SetTile(targetTile, wateredDirtTile);
-            wateredMap.SetTile(targetTile, wateredDirtTile);
-            //dirtMap.SetColor(targetTile, watered);
-            wateredTiles.Add((Vector2Int)targetTile, true);
-        }
-    }
+
 
     private void OnValidate()
     {
 
+    }
+
+    public void till() { if (cropMan != null) cropMan.tillTile(targetTile); }
+
+    public void water() { if (cropMan != null) cropMan.waterTile(targetTile); }
+
+    public void plant(string seedName)
+    {
+        if (cropMan != null) cropMan.plantSeed(seedName, targetTile);
     }
 
     // Start is called before the first frame update
@@ -176,65 +187,6 @@ public class Tile_Manager : MonoBehaviour
             }
         }
         
-        if(!debugMode || Time.time > 0.1f)
-            loadScenePersistence();
-
-    }
-
-    public void plantSeed(string name)
-    {
-        Vector2Int location = new Vector2Int((int)selHilight.transform.position.x, (int)selHilight.transform.position.y);
-
-        //check if a crop already exists here
-        if (crops.ContainsKey(location)) return;
-
-        //check that the soil is tilled
-        if (dirtMap == null || !dirtMap.HasTile(targetTile)) return;
-
-        //TODO replace "0 Object" dynamically
-        Transform layer = layerMan.getLevel(0).Find("0 Object");
-        Vector3 randomOffset = (Vector3)seedOffsets[random.Next(0, seedOffsets.Length)];
-        Vector3 position = new Vector3(selHilight.transform.position.x + 0.5f, selHilight.transform.position.y + 0.5f, 0);
-        position += randomOffset;
-
-
-        GameObject newCrop = GameObject.Instantiate(rman.getPrefab("New Crop"), position, Quaternion.identity, layer);
-        layerMan.relayerMe(newCrop.GetComponent<SpriteRenderer>(), "0 Object");
-
-        //set parent to the correct level
-        //TODO get the layer number from the player
-
-        crops.Add(location, newCrop.GetComponent<Crop>());
-
-    }
-
-    void loadScenePersistence()
-    {
-        //get crops from Scene Persistence
-        if (sp == null) return;
-
-        if(sp.getCrops() != null)
-        {
-            foreach (KeyValuePair<Vector2Int, Crop> pair in sp.getCrops())
-            {
-                this.crops.Add(pair.Key, pair.Value);
-            }
-        }
-
-        if (dirtMap == null) return;
-
-        if(dirtMap != null)
-        {
-            //get all dug Tiles
-            foreach (Vector2Int point in sp.getDugTiles())
-            {
-                //place a dirt tile onto the map here
-                dirtMap.SetTile((Vector3Int)point, tilledDirtTile);
-
-            }
-        }    
-        
-
 
     }
 
@@ -291,22 +243,7 @@ public class Tile_Manager : MonoBehaviour
 
     }
 
-    public void till()
-    {
-        if (dirtMap == null
-            || dirtMap.HasTile(targetTile)
-            || wateredTiles.ContainsKey((Vector2Int)targetTile)) return;
-        
-        //Check if there is a valid tile in the diggable tilemap
-        if(tillableTiles.HasTile(targetTile))
-        {
-            dirtMap.SetTile(targetTile, tilledDirtTile);
 
-            //save to the persistence scriptable object
-            sp.setDugTile(new Vector2Int(targetTile.x, targetTile.y));
-        }
-            
-    }
 
 
 
@@ -319,7 +256,7 @@ public class Tile_Manager : MonoBehaviour
     public void setSelectionHilight(bool val) { this.hilightActive = val; }
 
     
-
+    //TODO move to crop manager
     public bool tryHarvest()
     {
         Vector2Int v2int = (Vector2Int)targetTile;
@@ -352,6 +289,7 @@ public class Tile_Manager : MonoBehaviour
         return false;
     }
 
+    //TODO move to crop manager
     public bool canWater()
     {
         return dirtMap.HasTile(targetTile);
@@ -487,6 +425,7 @@ public class Tile_Manager : MonoBehaviour
 
     }
 
+    //TODO move to crop manager
     public void advanceDay()
     {
         //find all crops

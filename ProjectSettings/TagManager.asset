@@ -18,6 +18,7 @@ TagManager:
   - PauseMenu
   - hundreds
   - Inventory Bar
+  - Level
   layers:
   - Default
   - TransparentFX

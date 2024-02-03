@@ -7,7 +7,7 @@ public class Layer_Manager : MonoBehaviour
 {
     GameObject player;
 
-    Transform[] levels;
+    List<GameObject> levels;
 
     string[] sortingLayers;
 
@@ -25,6 +25,8 @@ public class Layer_Manager : MonoBehaviour
     private void OnEnable()
     {
         player = GameObject.FindGameObjectWithTag("Player");
+
+        
         
         levelNames = new string[6];
         levelNames[0] = "Level 0";
@@ -34,16 +36,10 @@ public class Layer_Manager : MonoBehaviour
         levelNames[4] = "Level 4";
         levelNames[5] = "Level 5";
 
-        levels = new Transform[6];
+        levels = new List<GameObject>(GameObject.FindGameObjectsWithTag("Level"));
+        levels.Sort((l1, l2) => l1.name.CompareTo(l2.name));
 
-        for (int i = 0; i < levels.Length; i++)
-        {
-            if (GameObject.Find(levelNames[i]) != null)
-            {
-                levels[i] = GameObject.Find(levelNames[i]).transform;
-            }
 
-        }
 
         sortingLayers = new string[SortingLayer.layers.Length];
 
@@ -52,14 +48,14 @@ public class Layer_Manager : MonoBehaviour
             sortingLayers[SortingLayer.GetLayerValueFromID(layer.id)] = layer.name;
         }
 
-        compositeCollidersByLevel = new CompositeCollider2D[levels.Length];
+        compositeCollidersByLevel = new CompositeCollider2D[levels.Count];
 
         //get all colliders at all levels not including stair triggers TODO any triggers? should this just be for walls?
-        for(int i = 0; i< levels.Length; i++)
+        for(int i = 0; i< levels.Count; i++)
         {
             if (GameObject.Find(levelNames[i]) == null) continue;
 
-            levels[i] = GameObject.Find(levelNames[i]).transform;
+            levels[i] = GameObject.Find(levelNames[i]);
 
             //get all colliders at this level
             compositeCollidersByLevel[i] = levels[i].GetComponent<CompositeCollider2D>();
@@ -71,12 +67,16 @@ public class Layer_Manager : MonoBehaviour
 
     public Transform getLevel(byte level)
     {
-        return levels[level];
+        return levels[level].transform;
     }
+    
+
+    public List<GameObject> getAllLevels() { return this.levels; }
+
 
     public void incrementPlayerLayer(GameObject obj, sbyte increment)
     {
-
+        
         SpriteRenderer[] srs = obj.GetComponentsInChildren<SpriteRenderer>();
 
         string newSortingName = sortingLayers[SortingLayer.GetLayerValueFromID(srs[0].sortingLayerID) + increment * 3];
@@ -87,7 +87,7 @@ public class Layer_Manager : MonoBehaviour
         }
 
         //for each Level ignore all collisions with this object except for current sortinglayer
-        for (int i = 0; i < levels.Length; i++)
+        for (int i = 0; i < levels.Count; i++)
         {
             if (compositeCollidersByLevel[i] == null)
             {
@@ -117,11 +117,11 @@ public class Layer_Manager : MonoBehaviour
     public void relayer()
     {
         
-        for (int i = 0; i < levels.Length; i++)
+        for (int i = 0; i < levels.Count; i++)
         {
             if (GameObject.Find(levelNames[i]) != null)
             {
-                levels[i] = GameObject.Find(levelNames[i]).transform;
+                levels[i] = GameObject.Find(levelNames[i]);
             }
 
         }
@@ -132,7 +132,7 @@ public class Layer_Manager : MonoBehaviour
             
             if (levels[lvlNo] == null) continue;
 
-            Transform level = levels[lvlNo];
+            Transform level = levels[lvlNo].transform;
             string objectName = "" + lvlNo + " Object";
             string groundName = "" + lvlNo + " Ground";
             string overheadName = "" + lvlNo + " Above";

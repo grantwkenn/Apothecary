@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2698974980975134962}
-  - component: {fileID: 2698974980975134963}
   - component: {fileID: 2698974980975134961}
   - component: {fileID: 2698974980975134960}
   - component: {fileID: 2698974980975134956}
@@ -49,14 +48,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &2698974980975134963
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2698974980975134958}
-  m_CullTransparentMesh: 0
 --- !u!114 &2698974980975134961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +156,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sp: {fileID: 11400000, guid: 7cf5fe9f72de11e449240a468887e353, type: 2}
-  defaultEntrance: {fileID: 0}
 --- !u!114 &2698974980975134969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,9 +169,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   multiplier: 16
+  run: 0
   Hour: 12
   PM: 1
   freezeTime: 1
+  clockInSeconds: 540
   daylight: {fileID: 0}
 --- !u!114 &1117785936
 MonoBehaviour:
@@ -224,7 +216,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74f13612d6779734793a0a0427a8be4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  run: 0
 --- !u!114 &378725796586729882
 MonoBehaviour:
   m_ObjectHideFlags: 0

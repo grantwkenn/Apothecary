@@ -17,6 +17,8 @@ public class Scene_Manager : MonoBehaviour
     Inventory_Manager im;
     Quest_Manager qm;
     Input_Manager inputMan;
+    Layer_Manager lm;
+    Crop_Manager cm;
 
     entrance currentEntrance;
     entrance defaultEntrance;
@@ -37,9 +39,11 @@ public class Scene_Manager : MonoBehaviour
     bool fadingIn = false;
     Color fade;
 
-
+    byte playerLevel;
 
     string targetSceneName;
+
+    System.Random randy;
 
 
     //public bool manageLayers;
@@ -55,10 +59,16 @@ public class Scene_Manager : MonoBehaviour
 
     private void OnEnable()
     {
+        GameObject GameManager = GameObject.FindGameObjectWithTag("GameManager");
 
         qm = this.GetComponent<Quest_Manager>();
-        im = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Inventory_Manager>();
-        inputMan = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Input_Manager>();
+        im = GameManager.GetComponent<Inventory_Manager>();
+        inputMan = GameManager.GetComponent<Input_Manager>();
+        lm = GameManager.GetComponent<Layer_Manager>();
+        cm = GameObject.FindObjectOfType<Crop_Manager>();
+
+        randy = new System.Random();
+
 
         fadeImage = GameObject.FindGameObjectWithTag("HUD").transform.Find("Fade").GetComponent<Image>();
         pp = this.GetComponent<Resource_Manager>().getPlayerPersistence();
@@ -66,10 +76,10 @@ public class Scene_Manager : MonoBehaviour
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 
+        playerLevel = (byte)int.Parse(player.GetComponent<SpriteRenderer>().sortingLayerName.Split(" ")[0]);
+
         fade = new Color(0, 0, 0, 0);
 
-        if (sp != null)
-            sp.initialize();
 
 
 
@@ -115,6 +125,19 @@ public class Scene_Manager : MonoBehaviour
 
         
 
+    }
+
+    public byte getPlayerLevel() { return this.playerLevel; }
+
+    public void updatePlayerLayer(GameObject player, sbyte increment)
+    {
+        playerLevel = (byte)(playerLevel + increment);
+        
+        lm.incrementPlayerLayer(player, increment);
+        if(cm != null)
+        {
+            cm.updatePlayerLevel(playerLevel);
+        }
     }
 
     void loadPersistenceFromSave()
@@ -184,8 +207,6 @@ public class Scene_Manager : MonoBehaviour
         //Store Quest Data
         qm.storePersistenceData();
 
-        if (sp != null)
-            sp.exitScene();
     }
 
 
@@ -288,6 +309,11 @@ public class Scene_Manager : MonoBehaviour
         if (Time.time < 0.5f) return;
         
         this.pp.getQuestData(ref completion, ref squests);
+    }
+
+    public int getRandom(int max)
+    {
+        return randy.Next(max);
     }
 
 }

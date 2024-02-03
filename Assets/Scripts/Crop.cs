@@ -15,6 +15,7 @@ public class Crop : MonoBehaviour
     Crop_Data data;
     bool harvestable = false;
 
+
     SpriteRenderer sr;
 
 
@@ -91,4 +92,5 @@ public class Crop : MonoBehaviour
     }
 
     public Crop_Data getData() { return this.data; }
+
 }

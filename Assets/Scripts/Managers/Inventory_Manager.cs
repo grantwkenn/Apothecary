@@ -318,7 +318,7 @@ public class Inventory_Manager : MonoBehaviour
         else if (itemName == "Watermelon Seeds")
         {
             //tile manager needs to execute
-            tm.plantSeed(inventory[barSelection].getName());
+            tm.plant(inventory[barSelection].getName());
             consumeSelection();
         }
     }

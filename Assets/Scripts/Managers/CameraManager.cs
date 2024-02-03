@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.U2D;
 using UnityEngine.Events;
+using TMPro;
+using System;
 //using UnityEditor.Events;
 //using UnityEngine.Experimental.Rendering.LWRP;
 //using UnityEngine.Rendering.Universal;
@@ -18,12 +20,11 @@ public class CameraManager : MonoBehaviour
     float heightOffset;
     float widthOffset;
     [SerializeField]
-    float scale;
+    int scale;
 
     int pixelHeight;
     int pixelWidth;
 
-    [SerializeField]
     Transform min, max;
     Transform player;
     Transform target;
@@ -53,26 +54,29 @@ public class CameraManager : MonoBehaviour
     FullScreenMode screenMode;
     Dictionary<string, FullScreenMode> screenModes;
 
-    TMPro.TMP_Dropdown dd;
+    TMP_Dropdown reso_dd;
+    TMP_Dropdown scaling_dd;
 
     private void Awake()
     {
         GameObject go = GameObject.FindGameObjectWithTag("PauseMenu");
         Transform t = go.transform.Find("Settings Menu");
         Transform r = t.Find("Resolutions");
-        
-        dd = r.GetComponent<TMPro.TMP_Dropdown>();
+        Transform s = t.Find("Scaling");
 
-        dd.onValueChanged.AddListener(delegate {
-            setResolution(dd);
-        });
+        reso_dd = r.GetComponent<TMP_Dropdown>();
+        scaling_dd = s.GetComponent<TMP_Dropdown>();
+
+        min = this.transform.parent.Find("CameraMin");
+        max = this.transform.parent.Find("CameraMax");
+
     }
 
     private void OnEnable()
     {
         //TODO: this data can be stored in an SO? Config File?
         resolutions = new Dictionary<string, Resolution>();
-
+        ppc = this.GetComponentInParent<UnityEngine.Experimental.Rendering.Universal.PixelPerfectCamera>();
 
         screenModes = new Dictionary<string, FullScreenMode>();
         screenModes.Add("Fullscreen", FullScreenMode.FullScreenWindow);
@@ -86,30 +90,58 @@ public class CameraManager : MonoBehaviour
 
         //set the options in the settings menu
 
-        dd.ClearOptions();
-        List<TMPro.TMP_Dropdown.OptionData> options = new List<TMPro.TMP_Dropdown.OptionData>();
+        reso_dd.ClearOptions();
+        List<TMP_Dropdown.OptionData> options = new List<TMP_Dropdown.OptionData>();
         foreach (string s in resolutions.Keys)
         {           
-            options.Add(new TMPro.TMP_Dropdown.OptionData(s));
+            options.Add(new TMP_Dropdown.OptionData(s));
         }
         options.Reverse();
-        dd.AddOptions(options);
+        reso_dd.AddOptions(options);
+
+        setScalingOptions();
     }
 
-    public void toggleFullScreen(TMPro.TMP_Dropdown d) 
+    public void toggleFullScreen(TMP_Dropdown d) 
     { 
         this.screenMode = screenModes[d.options[d.value].text];
-        Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, screenMode, Screen.currentResolution.refreshRate);
+        Screen.SetResolution(Screen.width, Screen.height, screenMode, Screen.currentResolution.refreshRate);
     
     }
 
-    public void setResolution(TMPro.TMP_Dropdown d)
+    public void setResolution(string option)
     {
-        string s = d.options[d.value].text;
-        Resolution resolution = resolutions[s];
+        Resolution resolution = resolutions[option];
 
         Screen.SetResolution(resolution.width, resolution.height, screenMode, resolution.refreshRate);
 
+
+        //Now populate the scaling drop down with all possible scaling options
+        setScalingOptions();
+
+    }
+
+    void setScalingOptions()
+    {
+        scaling_dd.ClearOptions();
+        HashSet<TMP_Dropdown.OptionData> set = new HashSet<TMP_Dropdown.OptionData>();
+
+        if (Screen.height >= 2160) set.Add(new TMP_Dropdown.OptionData("6:1"));
+        if (Screen.height >= 1440) set.Add(new TMP_Dropdown.OptionData("4:1"));
+        if (Screen.height >= 1080) set.Add(new TMP_Dropdown.OptionData("3:1"));
+        if (Screen.height >= 720) set.Add(new TMP_Dropdown.OptionData("2:1"));
+        set.Add(new TMP_Dropdown.OptionData("1:1"));
+
+        List<TMP_Dropdown.OptionData> list = new List<TMP_Dropdown.OptionData>(set);
+        list.Reverse();
+        scaling_dd.AddOptions(list);
+    }
+
+    public void setScale(string scaleLabel)
+    {
+        scale = Int32.Parse(scaleLabel.Substring(0,1));
+        ppc.refResolutionX = (int)(Screen.width / scale);
+        ppc.refResolutionY = (int)(Screen.height / scale);
     }
 
     // Start is called before the first frame update
@@ -139,13 +171,12 @@ public class CameraManager : MonoBehaviour
 
         setBounds();
 
-        ppc = this.GetComponentInParent<UnityEngine.Experimental.Rendering.Universal.PixelPerfectCamera>();
-
         PPU = new int[2];
         PPU[0] = 16; PPU[1] = 32;
 
     }
 
+    //TODO call this after scale settings change
     void calculateOffsets()
     {
         //calculate offsets
@@ -165,7 +196,7 @@ public class CameraManager : MonoBehaviour
         widthOffset = pixelWidth /
             (2 * scale * this.GetComponent<PixelPerfectCamera>().assetsPPU); */
 
-        scale = pixelHeight / 360;
+        scale = (int) (pixelHeight / ppc.refResolutionY);
         if (scale == 0) scale = 1;
 
         heightOffset = pixelHeight / (2 * scale * 16);

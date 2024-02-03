@@ -17,8 +17,6 @@ public class Resolution_Config : ScriptableObject
     public void setResolutionString(TMPro.TMP_Dropdown dd) { 
         
         this.resolutionString = dd.options[dd.value].text; 
-
-
     
     }
 }

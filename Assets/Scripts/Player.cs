@@ -229,7 +229,7 @@ public class Player : MonoBehaviour
     //used by animation
     void waterTile()
     {
-        tm.waterTile();
+        tm.water();
     }
 
     void Sword()
@@ -240,8 +240,7 @@ public class Player : MonoBehaviour
     }
 
     void Hoe()
-    {
-        
+    {        
         currentState = State.hoe;
     }
 
