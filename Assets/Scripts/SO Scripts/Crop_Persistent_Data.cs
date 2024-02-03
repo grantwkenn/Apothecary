@@ -33,8 +33,8 @@ public class Crop_Persistent_Data : ScriptableObject
         wateredTiles.Add(point);
     }
 
-    public List<Vector3Int> getTilledTiles() { return new List<Vector3Int>(this.tilledTiles); }
-    public List<Vector3Int> getWateredTiles() { return new List<Vector3Int>(this.wateredTiles); }
+    public List<Vector3Int> getTilledTiles() { return new List<Vector3Int>(this.tilledTiles != null ? this.tilledTiles : new List<Vector3Int>()); }
+    public List<Vector3Int> getWateredTiles() { return new List<Vector3Int>(this.wateredTiles != null ? this.wateredTiles : new List<Vector3Int>()); }
 
     public Crop checkCrop(Vector3 key) { if (crops.ContainsKey(key)) return crops[key]; return null; }
 
