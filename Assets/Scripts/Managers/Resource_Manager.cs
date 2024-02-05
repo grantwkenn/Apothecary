@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class Resource_Manager : MonoBehaviour
 {
@@ -32,4 +33,11 @@ public class Resource_Manager : MonoBehaviour
     {
         return Resources.getQuestSymbols();
     }
+
+    public List<TileBase> cropManagerInit()
+    {
+        return Resources.cropManagerInit();
+    }
+
+
 }

@@ -31,8 +31,8 @@ public class Scene_Manager : MonoBehaviour
 
 
     //consider 30fps
-    float fadeInSeconds = 0.9f;
-    float fadeOutSeconds = 0.4f;
+    //float fadeInSeconds = 0.9f;
+    //float fadeOutSeconds = 0.4f;
     int fadeSteps = 20;
 
     bool fadingOut = false;
@@ -136,7 +136,7 @@ public class Scene_Manager : MonoBehaviour
         lm.incrementPlayerLayer(player, increment);
         if(cm != null)
         {
-            cm.updatePlayerLevel(playerLevel);
+            cm.updatePlayerLevel();
         }
     }
 

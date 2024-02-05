@@ -24,3 +24,5 @@ MonoBehaviour:
   - {fileID: 3391852422917724535, guid: f3932d15ef312804c8c7fa026652e07c, type: 3}
   - {fileID: 887418551750418569, guid: b4eba8dab744dd343b3da5c0092ab861, type: 3}
   playerPersistence: {fileID: 11400000, guid: 4ed4040e4df345946800c819d7ae69ec, type: 2}
+  tilledTileBase: {fileID: 11400000, guid: d57c9ae424314824194d60757312ec52, type: 2}
+  wateredTileBase: {fileID: 11400000, guid: 2f165cf16f7060d4a9eb1372e695dad4, type: 2}

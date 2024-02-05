@@ -13,9 +13,9 @@ public class Day_Night_Cycle : MonoBehaviour
     int frameCounter = 0;
     int secondsPerGameHour = 45;
 
-    int minuteCounter = 37;
-    int hourCounter = 45 * 50;
-    int secondCounter = 50;
+    //int minuteCounter = 37;
+    //int hourCounter = 45 * 50;
+    //int secondCounter = 50;
 
     [SerializeField]
     int Hour;
@@ -28,31 +28,32 @@ public class Day_Night_Cycle : MonoBehaviour
     [SerializeField]
     int clockInSeconds;
 
-    int _12am = 0;
-    int _1am = 45;
-    int _2am = 90;
-    int _3am = 135;
+    
+    //int _12am = 0;
+    //int _1am = 45;
+    //int _2am = 90;
+    //int _3am = 135;
     int _4am = 180;
     int _5am = 225;
-    int _6am = 270;
+    //int _6am = 270;
     int _7am= 315;
-    int _8am = 360;
-    int _9am = 405;
-    int _10am = 450;
-    int _11am = 495;
-    int _12pm = 540;
-    int _1pm = 585;
-    int _2pm = 630;
-    int _3pm = 675;
-    int _4pm = 720;
-    int _5pm = 765;
-    int _6pm = 810;
+   // int _8am = 360;
+    //int _9am = 405;
+    //int _10am = 450;
+    //int _11am = 495;
+    //int _12pm = 540;
+    //int _1pm = 585;
+    //int _2pm = 630;
+    //int _3pm = 675;
+    //int _4pm = 720;
+    //int _5pm = 765;
+    //int _6pm = 810;
     int _7pm = 855;
-    int _8pm = 900;
-    int _9pm = 945;
+    //int _8pm = 900;
+    //int _9pm = 945;
     int _10pm = 990;
-    int _11pm = 1035;
-
+    //int _11pm = 1035;
+    
 
     float R;
     float G;

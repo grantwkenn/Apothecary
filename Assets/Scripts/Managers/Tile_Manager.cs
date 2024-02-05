@@ -233,7 +233,7 @@ public class Tile_Manager : MonoBehaviour
 
 
         //Check if there is a valid tile in the diggable tilemap
-        if (hilightActive && tillableTiles != null && tillableTiles.HasTile(targetTile))
+        if (cropMan != null && hilightActive && cropMan.hasTillableTile(targetTile))
         {
             selHilight.transform.position = targetTile;
             selHilight.SetActive(true);
@@ -259,41 +259,13 @@ public class Tile_Manager : MonoBehaviour
     //TODO move to crop manager
     public bool tryHarvest()
     {
-        Vector2Int v2int = (Vector2Int)targetTile;
-        
-        if (!crops.ContainsKey(v2int)) return false;
-
-        //harvest the crop
-
-        Crop toHarvest = crops[v2int];
-        if (toHarvest.isHarvestable())
-        {
-            
-            //TODO layer shall be dynamic, crops map will be a vector 3 where z = level!!
-            Transform parent = layerMan.getLevel(0).Find("0 Object");
-            Vector3 position = new Vector3(targetTile.x, targetTile.y, 0);
-            GameObject harvest = GameObject.Instantiate(toHarvest.getData().getPrefab(), position, Quaternion.identity, parent);
-            layerMan.relayerMe(harvest.GetComponent<SpriteRenderer>(), "0 Object");
-            harvest.GetComponent<Pickup_Item>().pop();
-
-            //check if this crop has multiple harvests
-            if(!toHarvest.multiYield())
-            {
-                crops.Remove(v2int);
-                Destroy(toHarvest.gameObject);
-            }
-                
-            return true;
-        }
-
-        return false;
+        return cropMan != null && cropMan.tryHarvest(targetTile);
     }
 
     //TODO move to crop manager
     public bool canWater()
     {
-        return dirtMap.HasTile(targetTile);
-
+        return cropMan != null && cropMan.hasTilledTile(targetTile);
     }
 
 
@@ -425,14 +397,6 @@ public class Tile_Manager : MonoBehaviour
 
     }
 
-    //TODO move to crop manager
-    public void advanceDay()
-    {
-        //find all crops
-        foreach(Crop crop in crops.Values)
-        {
-            crop.updateAge();
-        }
-    }
+
 
 }

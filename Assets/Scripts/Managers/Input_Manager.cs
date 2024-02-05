@@ -21,6 +21,7 @@ public class Input_Manager : MonoBehaviour
     [SerializeField]
     Camera mainCamera;
     CameraManager cm;
+    Crop_Manager cropMan;
 
     //InputState inputState;
 
@@ -46,6 +47,8 @@ public class Input_Manager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         tm = this.GetComponent<Tile_Manager>();
         saveMan = this.GetComponent<SaveManager>();
+
+        cropMan = GameObject.FindObjectOfType<Crop_Manager>();
 
 
         controls = new PlayerControls();
@@ -166,7 +169,7 @@ public class Input_Manager : MonoBehaviour
     //SKip Day (Debug)
     void skipDay()
     {
-        tm.advanceDay();
+        if(cropMan != null) cropMan.advanceDay();
     }
 
 

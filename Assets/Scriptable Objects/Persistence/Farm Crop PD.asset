@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23583a91e4aaa294681f123393e9afef, type: 3}
   m_Name: Farm Crop PD
   m_EditorClassIdentifier: 
-  tilledSoilTile: {fileID: 0}
-  wateredSoilTile: {fileID: 0}
+  wipe_data: 0

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Layer_Manager : MonoBehaviour
 {
     GameObject player;
+    Scene_Manager sm;
 
     List<GameObject> levels;
 
@@ -25,7 +26,7 @@ public class Layer_Manager : MonoBehaviour
     private void OnEnable()
     {
         player = GameObject.FindGameObjectWithTag("Player");
-
+        sm = this.gameObject.GetComponent<Scene_Manager>();
         
         
         levelNames = new string[6];
@@ -76,7 +77,7 @@ public class Layer_Manager : MonoBehaviour
 
     public void incrementPlayerLayer(GameObject obj, sbyte increment)
     {
-        
+
         SpriteRenderer[] srs = obj.GetComponentsInChildren<SpriteRenderer>();
 
         string newSortingName = sortingLayers[SortingLayer.GetLayerValueFromID(srs[0].sortingLayerID) + increment * 3];
@@ -103,12 +104,7 @@ public class Layer_Manager : MonoBehaviour
 
             //find the sorting name or ID for this level
             Physics2D.IgnoreCollision(compositeCollidersByLevel[i], obj.GetComponent<Collider2D>(), ignore);
-            string message = compositeCollidersByLevel[i].gameObject.name + " & " + obj.gameObject.name + " ";
-            if (ignore)
-                message += "IGNORED";
-            else
-                message += "NOT ingnored";
-            Debug.Log(message);
+
         }
 
     }

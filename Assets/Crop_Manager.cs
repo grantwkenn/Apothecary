@@ -26,14 +26,20 @@ public class Crop_Manager : MonoBehaviour
     Dictionary<byte, Tilemap> tilledTilemaps;
     Dictionary<byte, Tilemap> wateredTilemaps;
 
+    Dictionary<Vector3Int, Crop> crops;
+
     //TODO assign these sprites automatically using resource management?
     TileBase tilledDirtTile, wateredDirtTile;
 
-    Tilemap currentTillableTilemap;
+    [SerializeField] Tilemap currentTillableTilemap;
     Tilemap currentTilledTilemap;
     Tilemap currentWateredTilemap;
 
     [SerializeField] bool debug;
+
+    float[] seedOffsets = { 0f, 0f, 0.0625f, -0.0625f, 0.125f, -0.125f };
+
+    Dictionary<Vector3Int, Crop> cropMap;
 
 
     private void OnEnable()
@@ -44,12 +50,17 @@ public class Crop_Manager : MonoBehaviour
         lm = GameManager.GetComponent<Layer_Manager>();
         tm = GameManager.GetComponent<Tile_Manager>();
         sm = GameManager.GetComponent<Scene_Manager>();
-        rm = this.GetComponent<Resource_Manager>();
+        rm = GameManager.GetComponent<Resource_Manager>();
 
+        List<TileBase> tResources = rm.cropManagerInit();
+        tilledDirtTile = tResources[0];
+        wateredDirtTile = tResources[1];
 
         tillableTilemaps = new Dictionary<byte, Tilemap>();
         tilledTilemaps = new Dictionary<byte, Tilemap>();
         wateredTilemaps = new Dictionary<byte, Tilemap>();
+
+        cropMap = new Dictionary<Vector3Int, Crop>();
 
 
         foreach (GameObject grid in GameObject.FindGameObjectsWithTag("Grid"))
@@ -65,7 +76,7 @@ public class Crop_Manager : MonoBehaviour
             }
             if(tilled != null)
             {
-                tilledTilemaps.Add(levelNo, tillable.GetComponent<Tilemap>());
+                tilledTilemaps.Add(levelNo, tilled.GetComponent<Tilemap>());
             }
             if (watered != null)
             {
@@ -81,6 +92,8 @@ public class Crop_Manager : MonoBehaviour
     {
         if (debug) return;
 
+        cropPersistentData.init();
+
         //z values of the V3Int represents the level it belongs to. Ignore the "z" coordinate of 
         // the tiles by setting it to zero, relative to the rest of the tilemap (won't need this?)
         //set all the tilledTiles
@@ -94,26 +107,48 @@ public class Crop_Manager : MonoBehaviour
             wateredTilemaps[(byte)tileLoc.z].SetTile(new Vector3Int(tileLoc.x, tileLoc.y, 0), wateredDirtTile);
         }
 
-        foreach(KeyValuePair<Vector4, Crop> pair in cropPersistentData.getCrops())
+        Dictionary<Vector3Int, SerializableCrop> sCrops = cropPersistentData.getSCrops();
+
+        //TODO map new crop instantiated objects from serializable crops stored in cropPersistentData
+
+        foreach (Vector3Int v3Int in sCrops.Keys)
         {
-            //instantiate the crop here
-            Transform level = lm.getLevel((byte)pair.Key.z);
-            //TODO set the parent to be a crop container instead of the root of "Level 0" for ex
-            GameObject newCrop = GameObject.Instantiate(rm.getPrefab("New Crop"), (Vector3)pair.Key, Quaternion.identity, level);
+            Vector3 offset = sCrops[v3Int].getOffset();
+            Vector3 position = new Vector3(v3Int.x + offset.x + 0.5f, v3Int.y + offset.y + 0.5f, v3Int.y + offset.y + 0.5f);
 
+            Transform level = lm.getLevel((byte)v3Int.z);
 
-            //TODO make a level script with a function for finding the object child object without needing to find with text..?
-            Transform layer = level.Find(level.name.Split(" ")[1] + " Object");
+            Crop newCrop = instantiateCrop(position, level);
 
+            newCrop.setData(sCrops[v3Int]);
 
-            lm.relayerMe(newCrop.GetComponent<SpriteRenderer>(), layer.name);
+            cropMap.Add(v3Int, newCrop);
 
         }
+    }
+
+    Crop instantiateCrop(Vector3 position, Transform level)
+    {
+        //TODO pass the crop parameter and dynamically load the correct prefab crop (Another data mapping for Resource Man)
+        
+        //instantiate the crop here
+
+        //TODO set the parent to be a crop container instead of the root of "Level 0" for ex
+        GameObject newCrop = GameObject.Instantiate(rm.getPrefab("New Crop"), position, Quaternion.identity, level);
+
+
+        //TODO make a level script with a function for finding the object child object without needing to find with text..?
+        Transform layer = level.Find(level.name.Split(" ")[1] + " Object");
+        lm.relayerMe(newCrop.GetComponent<SpriteRenderer>(), layer.name);
+
+        return newCrop.GetComponent<Crop>();
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        updatePlayerLevel();
         loadCropPersistenceData();
     }
 
@@ -123,14 +158,23 @@ public class Crop_Manager : MonoBehaviour
         
     }
 
-    public void updatePlayerLevel(byte level)
+    public void updatePlayerLevel()
     {
         byte playerLevel = sm.getPlayerLevel();
         tillableTilemaps.TryGetValue(playerLevel, out currentTillableTilemap);
         tilledTilemaps.TryGetValue(playerLevel, out currentTilledTilemap);
         wateredTilemaps.TryGetValue(playerLevel, out currentWateredTilemap);
-
     }
+
+    public bool hasTillableTile(Vector3Int target)
+    {
+        return currentTillableTilemap != null && currentTillableTilemap.HasTile(target);
+    }
+
+    public bool hasTilledTile(Vector3Int target)
+    {
+        return currentTilledTilemap != null && currentTilledTilemap.HasTile(target);
+    }    
 
     public void tillTile(Vector3Int targetTile)
     {
@@ -152,11 +196,10 @@ public class Crop_Manager : MonoBehaviour
         if (currentTillableTilemap == null
         || currentTilledTilemap == null
         || currentWateredTilemap == null
-        || !currentTillableTilemap.HasTile(targetTile)
-        || currentTilledTilemap.HasTile(targetTile)
+        || !currentTilledTilemap.HasTile(targetTile)
         || currentWateredTilemap.HasTile(targetTile)) return;
 
-        if (currentTilledTilemap.HasTile(targetTile) && !currentWateredTilemap.ContainsTile(wateredDirtTile))
+        if (currentTilledTilemap.HasTile(targetTile) && !currentWateredTilemap.HasTile(targetTile))
         {
             currentWateredTilemap.SetTile(targetTile, wateredDirtTile);
 
@@ -168,27 +211,78 @@ public class Crop_Manager : MonoBehaviour
     //TODO move to crop manager
     public void plantSeed(string seedName, Vector3Int targetTile)
     {
-
-        //check if a crop already exists here
-        if (cropPersistentData.checkCrop(targetTile) == null) return; 
-
-
+        byte playerLevel = sm.getPlayerLevel();
+        
         //check that the soil is tilled
         if (currentTilledTilemap == null || !currentTilledTilemap.HasTile(targetTile)) return;
 
-        Transform layer = lm.getLevel(sm.getPlayerLevel()).Find(sm.getPlayerLevel().ToString() + " Object");
+        Vector3Int cropHashKey = new Vector3Int(targetTile.x, targetTile.y, playerLevel);       
+        
+        //check if a crop already exists here
+        if (cropMap.ContainsKey(cropHashKey)) return;
+       
 
-        Vector3 randomOffset = (Vector3)cropPersistentData.getSeedOffsets(sm.getRandom(cropPersistentData.getSeedOffsetSize()));
+        Transform level = lm.getLevel(playerLevel);
 
-        Vector3 position = new Vector3(targetTile.x + 0.5f, targetTile.y + 0.5f, 0);
-        position += randomOffset;
+        float offsetX = (seedOffsets[sm.getRandom(seedOffsets.Length)]);
+        float offsetY = (seedOffsets[sm.getRandom(seedOffsets.Length)]);
+
+        Vector3 gamePosition = new Vector3(targetTile.x + 0.5f + offsetX, targetTile.y + 0.5f + offsetY, 0);
+
+        Vector3Int hashKey = new Vector3Int(targetTile.x, targetTile.y, playerLevel);
 
 
-        GameObject newCrop = GameObject.Instantiate(rm.getPrefab("New Crop"), position, Quaternion.identity, layer);
-        lm.relayerMe(newCrop.GetComponent<SpriteRenderer>(), layer.name);
+        Crop newCrop = instantiateCrop(gamePosition, level);
 
-        cropPersistentData.addCrop(position, newCrop.GetComponent<Crop>());
+        cropMap.Add(hashKey, newCrop);
+        
+        cropPersistentData.addCrop(hashKey, newCrop.serializeCrop((sbyte)(offsetX * 16), (sbyte)(offsetY * 16)));
 
     }
 
+    public bool tryHarvest(Vector3Int targetTile)
+    {
+        byte playerLevel = sm.getPlayerLevel();
+        
+        Vector3Int cropHashKey = new Vector3Int(targetTile.x, targetTile.y, playerLevel);
+
+        if (!cropMap.ContainsKey(cropHashKey)) return false;
+
+        Crop toHarvest = cropMap[cropHashKey];
+
+        if (toHarvest == null || !toHarvest.isHarvestable()) return false;
+
+
+        //TODO layer shall be dynamic, crops map will be a vector 3 where z = level!!
+        Transform parent = lm.getLevel(playerLevel).Find(playerLevel.ToString() + " Object");
+        Vector3 position = new Vector3(targetTile.x, targetTile.y, 0);
+
+        GameObject harvest = GameObject.Instantiate(toHarvest.getData().getPrefab(), position, Quaternion.identity, parent);
+        lm.relayerMe(harvest.GetComponent<SpriteRenderer>(), "0 Object");
+        harvest.GetComponent<Pickup_Item>().pop();
+
+        //check if this crop has multiple harvests
+        if (!toHarvest.multiYield())
+        {
+            cropPersistentData.removeCrop(cropHashKey);
+            cropMap.Remove(cropHashKey);
+            Destroy(toHarvest.gameObject);
+        }
+
+        return true;
+
+    }
+
+    public void advanceDay()
+    {
+        foreach(Crop crop in cropMap.Values)
+        {
+            crop.updateAge();
+        }
+        //reflect the change in the SO in real time. TODO Maybe not neccessary in the future when age is automatic on day change?
+        cropPersistentData.ageCrops();
+    }
+
 }
+
+
