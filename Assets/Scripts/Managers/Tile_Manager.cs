@@ -24,7 +24,7 @@ public class Tile_Manager : MonoBehaviour
     Player player;
     //RoomManager rm;
     Resource_Manager rman;
-    Layer_Manager layerMan;
+    Scene_Manager sm;
 
     /// USED FOR DIRT ///////////////////////
 
@@ -102,7 +102,7 @@ public class Tile_Manager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         rman = this.GetComponent<Resource_Manager>();
         sp = this.GetComponent<Scene_Manager>().getSP();
-        layerMan = this.GetComponent<Layer_Manager>();
+        sm = this.GetComponent<Scene_Manager>();
         selectionPrefab = rman.getPrefab("Tile Selection");
 
         cropMan = GameObject.FindObjectOfType<Crop_Manager>();

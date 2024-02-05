@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Sprite_Layer_Helper : MonoBehaviour
 {
+    [SerializeField]
+    bool ignoreLayering;
 
     [SerializeField]
     levelName customLevel;
@@ -32,4 +34,6 @@ public class Sprite_Layer_Helper : MonoBehaviour
     }
 
     public bool isOffsetFromParent() { return offsetFromParent; }
+
+    public bool isIgnored() { return this.ignoreLayering; }
 }

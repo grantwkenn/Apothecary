@@ -16,6 +16,9 @@ public class Layer_Helper : MonoBehaviour, ICustomLayer
 
         foreach (SpriteRenderer sr in srs)
         {
+            slh = sr.GetComponent<Sprite_Layer_Helper>();
+
+            if (slh != null && slh.isIgnored()) continue;
 
             float offset = 0.0f;
             slh = sr.GetComponent<Sprite_Layer_Helper>();

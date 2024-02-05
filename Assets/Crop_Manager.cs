@@ -168,6 +168,19 @@ public class Crop_Manager : MonoBehaviour
 
     public bool hasTillableTile(Vector3Int target)
     {
+/*        BoundsInt bounds = currentTillableTilemap.cellBounds;
+        
+        foreach(Vector3Int position in bounds.allPositionsWithin)
+        {
+            if(currentTillableTilemap.HasTile(position))
+            {
+                TileBase tile = currentTillableTilemap.GetTile(position);
+                Debug.Log(position);
+                return false;
+            }
+        }*/
+        
+        
         return currentTillableTilemap != null && currentTillableTilemap.HasTile(target);
     }
 
@@ -258,7 +271,7 @@ public class Crop_Manager : MonoBehaviour
         Vector3 position = new Vector3(targetTile.x, targetTile.y, 0);
 
         GameObject harvest = GameObject.Instantiate(toHarvest.getData().getPrefab(), position, Quaternion.identity, parent);
-        lm.relayerMe(harvest.GetComponent<SpriteRenderer>(), "0 Object");
+        lm.relayerMe(harvest.GetComponent<SpriteRenderer>(), parent.name);
         harvest.GetComponent<Pickup_Item>().pop();
 
         //check if this crop has multiple harvests
