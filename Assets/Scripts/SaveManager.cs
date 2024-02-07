@@ -15,6 +15,9 @@ public class SaveManager : MonoBehaviour
     
     string savePath;
 
+    [SerializeField]
+    List<Scene_Save_Data> sceneData;
+
     private void Awake()
     {
         savePath = Application.persistentDataPath + "saveData.dat";
@@ -27,11 +30,11 @@ public class SaveManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         sceneMan = this.GetComponent<Scene_Manager>();
         mm = this.GetComponent<Menu_Manager>();
+
     }
 
     public void saveGame()
     {
-
         SaveData sd = new SaveData();
 
         sd.setHealth(player.getHealth());
@@ -40,6 +43,7 @@ public class SaveManager : MonoBehaviour
         sd.setQuestLog(qm.getSerialQuestLog());
         sd.setSceneName(sceneMan.getSceneName());
         sd.setEntranceNo(sceneMan.getEntrance().getEntranceNo());
+        sd.setCropSaveData(buildCropSaveData());
         
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream fileStream = File.Create(savePath);
@@ -48,6 +52,20 @@ public class SaveManager : MonoBehaviour
         fileStream.Close();
 
         Debug.Log("Saved file to: " + savePath);
+    }
+
+    List<cropSaveData> buildCropSaveData()
+    {
+        List<cropSaveData> list = new List<cropSaveData>();
+        foreach(Scene_Save_Data sd in sceneData)
+        {
+            Crop_Persistent_Data cpd = sd.getCropPersistentData();
+            if(cpd != null)
+            {
+                list.Add(cpd.getSaveData());
+            }
+        }
+        return list;
     }
 
     SaveData loadData()

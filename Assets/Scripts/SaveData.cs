@@ -14,6 +14,8 @@ public class SaveData
     bool[] questsComplete;
     List<SerializableQuest> questLog;
 
+    List<cropSaveData> cropSaveData;
+
     public void setHealth(int _health) { this.health = _health; }
 
     public void setInventory(List<SerializableItem> _items) { this.inventory = _items; }
@@ -23,6 +25,10 @@ public class SaveData
     public void setQuestLog(List<SerializableQuest> quests) { this.questLog = quests; }
 
     public int getHealth() { return this.health; }
+
+    public void setCropSaveData(List<cropSaveData> sd) { this.cropSaveData = sd; }
+
+    public List<cropSaveData> getCropSaveData() { return this.cropSaveData; }
 
     public void setEntranceNo(byte ent) { this.entrancNo = ent; }
 

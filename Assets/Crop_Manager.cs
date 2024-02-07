@@ -22,6 +22,11 @@ public class Crop_Manager : MonoBehaviour
     [SerializeField]
     Crop_Persistent_Data cropPersistentData;
 
+    [SerializeField]
+    SO_Collection cropData;
+
+    Dictionary<string, Crop_Data> cropDataMap;
+
     Dictionary<byte, Tilemap> tillableTilemaps;
     Dictionary<byte, Tilemap> tilledTilemaps;
     Dictionary<byte, Tilemap> wateredTilemaps;
@@ -37,9 +42,11 @@ public class Crop_Manager : MonoBehaviour
 
     [SerializeField] bool debug;
 
-    float[] seedOffsets = { 0f, 0f, 0.0625f, -0.0625f, 0.125f, -0.125f };
+    sbyte[] seedOffsets = { 0, 0, 1, -1, 2, -2 };
 
     Dictionary<Vector3Int, Crop> cropMap;
+
+    Dictionary<byte, Transform> cropParents;
 
 
     private void OnEnable()
@@ -61,7 +68,9 @@ public class Crop_Manager : MonoBehaviour
         wateredTilemaps = new Dictionary<byte, Tilemap>();
 
         cropMap = new Dictionary<Vector3Int, Crop>();
+        populateCropDataMap();
 
+        InstantiateCropParents();
 
         foreach (GameObject grid in GameObject.FindGameObjectsWithTag("Grid"))
         {
@@ -84,8 +93,39 @@ public class Crop_Manager : MonoBehaviour
             }
         }
 
-        
 
+
+    }
+
+    void InstantiateCropParents()
+    {
+        cropParents = new Dictionary<byte, Transform>();
+
+        List <GameObject> list = lm.getAllLevels();
+        foreach(GameObject go in list)
+        {
+            string levelNo = go.name.Split(" ")[1];
+            //find the "object" transform
+            Transform parent = go.transform.Find(levelNo + " Object");
+
+            //add a gameobject parent "Crops"
+            GameObject g = new GameObject();
+            g.name = levelNo + " Crop Clones";
+            GameObject cropParent = GameObject.Instantiate(g, parent);
+
+            //store the reference in a list / dictionary
+            cropParents.Add((byte)int.Parse(levelNo), cropParent.transform);
+        }
+    }
+
+    void populateCropDataMap()
+    {
+        cropDataMap = new Dictionary<string, Crop_Data>();
+        foreach (ScriptableObject so in cropData.getCollection())
+        {
+            Crop_Data cd = (Crop_Data)so;
+            cropDataMap.Add(cd.getName(), cd);
+        }
     }
 
     void loadCropPersistenceData()
@@ -97,49 +137,51 @@ public class Crop_Manager : MonoBehaviour
         //z values of the V3Int represents the level it belongs to. Ignore the "z" coordinate of 
         // the tiles by setting it to zero, relative to the rest of the tilemap (won't need this?)
         //set all the tilledTiles
-        foreach(Vector3Int tileLoc in cropPersistentData.getTilledTiles())
+        foreach(Byte3 tileLoc in cropPersistentData.getTilledTiles())
         {
             tilledTilemaps[(byte)tileLoc.z].SetTile(new Vector3Int(tileLoc.x, tileLoc.y, 0), tilledDirtTile);
         }
         //set all watered tiles
-        foreach(Vector3Int tileLoc in cropPersistentData.getWateredTiles())
+        foreach(Byte3 tileLoc in cropPersistentData.getWateredTiles())
         {
             wateredTilemaps[(byte)tileLoc.z].SetTile(new Vector3Int(tileLoc.x, tileLoc.y, 0), wateredDirtTile);
         }
 
-        Dictionary<Vector3Int, SerializableCrop> sCrops = cropPersistentData.getSCrops();
+        Dictionary<Byte3, SerializableCrop> sCrops = cropPersistentData.getSCrops();
 
         //TODO map new crop instantiated objects from serializable crops stored in cropPersistentData
 
-        foreach (Vector3Int v3Int in sCrops.Keys)
+        foreach (Byte3 b3 in sCrops.Keys)
         {
-            Vector3 offset = sCrops[v3Int].getOffset();
-            Vector3 position = new Vector3(v3Int.x + offset.x + 0.5f, v3Int.y + offset.y + 0.5f, v3Int.y + offset.y + 0.5f);
+            SerializableCrop scrop = sCrops[b3];
 
-            Transform level = lm.getLevel((byte)v3Int.z);
+            Vector3 offset = scrop.getOffset();
+            Vector3 position = new Vector3(b3.x + offset.x + 0.5f, b3.y + offset.y + 0.5f, b3.y + offset.y + 0.5f);
 
-            Crop newCrop = instantiateCrop(position, level);
+            Transform level = lm.getLevel(b3.z);
 
-            newCrop.setData(sCrops[v3Int]);
+            Crop newCrop = instantiateCrop(position, b3.z);
 
-            cropMap.Add(v3Int, newCrop);
+            newCrop.setData(scrop, cropDataMap[scrop.getName()]);
+
+            cropMap.Add(new Vector3Int(b3.x, b3.y, b3.z), newCrop);
 
         }
     }
 
-    Crop instantiateCrop(Vector3 position, Transform level)
+    Crop instantiateCrop(Vector3 position, byte level)
     {
         //TODO pass the crop parameter and dynamically load the correct prefab crop (Another data mapping for Resource Man)
-        
+
         //instantiate the crop here
+        Transform parent = cropParents[level];
 
         //TODO set the parent to be a crop container instead of the root of "Level 0" for ex
-        GameObject newCrop = GameObject.Instantiate(rm.getPrefab("New Crop"), position, Quaternion.identity, level);
-
+        GameObject newCrop = GameObject.Instantiate(rm.getPrefab("New Crop"), position, Quaternion.identity, parent);
 
         //TODO make a level script with a function for finding the object child object without needing to find with text..?
-        Transform layer = level.Find(level.name.Split(" ")[1] + " Object");
-        lm.relayerMe(newCrop.GetComponent<SpriteRenderer>(), layer.name);
+        
+        lm.relayerMe(newCrop.GetComponent<SpriteRenderer>(), parent.parent.name);
 
         return newCrop.GetComponent<Crop>();
 
@@ -168,19 +210,6 @@ public class Crop_Manager : MonoBehaviour
 
     public bool hasTillableTile(Vector3Int target)
     {
-/*        BoundsInt bounds = currentTillableTilemap.cellBounds;
-        
-        foreach(Vector3Int position in bounds.allPositionsWithin)
-        {
-            if(currentTillableTilemap.HasTile(position))
-            {
-                TileBase tile = currentTillableTilemap.GetTile(position);
-                Debug.Log(position);
-                return false;
-            }
-        }*/
-        
-        
         return currentTillableTilemap != null && currentTillableTilemap.HasTile(target);
     }
 
@@ -199,7 +228,10 @@ public class Crop_Manager : MonoBehaviour
         || currentWateredTilemap.HasTile(targetTile)) return;
 
         currentTilledTilemap.SetTile(targetTile, tilledDirtTile);
-        cropPersistentData.setDugTile(new Vector3Int(targetTile.x, targetTile.y, sm.getPlayerLevel()));
+        Byte3 locationKey = new Byte3(targetTile);
+        locationKey.z = sm.getPlayerLevel();
+
+        cropPersistentData.setDugTile(locationKey);
 
     }
 
@@ -216,8 +248,11 @@ public class Crop_Manager : MonoBehaviour
         {
             currentWateredTilemap.SetTile(targetTile, wateredDirtTile);
 
+            Byte3 locationKey = new Byte3(targetTile);
+            locationKey.z = sm.getPlayerLevel();
+
             //update the crop persistent data
-            cropPersistentData.setWateredTile(new Vector3Int(targetTile.x, targetTile.y, sm.getPlayerLevel()));
+            cropPersistentData.setWateredTile(locationKey);
         }
     }
 
@@ -237,19 +272,19 @@ public class Crop_Manager : MonoBehaviour
 
         Transform level = lm.getLevel(playerLevel);
 
-        float offsetX = (seedOffsets[sm.getRandom(seedOffsets.Length)]);
-        float offsetY = (seedOffsets[sm.getRandom(seedOffsets.Length)]);
+        sbyte offsetXPixels = (seedOffsets[sm.getRandom(seedOffsets.Length)]);
+        sbyte offsetYPixels = (seedOffsets[sm.getRandom(seedOffsets.Length)]);
 
-        Vector3 gamePosition = new Vector3(targetTile.x + 0.5f + offsetX, targetTile.y + 0.5f + offsetY, 0);
+        Vector3 gamePosition = new Vector3(targetTile.x + 0.5f + (offsetXPixels / 16f), targetTile.y + 0.5f + (offsetYPixels / 16f), 0);
 
         Vector3Int hashKey = new Vector3Int(targetTile.x, targetTile.y, playerLevel);
 
 
-        Crop newCrop = instantiateCrop(gamePosition, level);
+        Crop newCrop = instantiateCrop(gamePosition, playerLevel);
 
         cropMap.Add(hashKey, newCrop);
-        
-        cropPersistentData.addCrop(hashKey, newCrop.serializeCrop((sbyte)(offsetX * 16), (sbyte)(offsetY * 16)));
+        Byte3 b3 = new Byte3(hashKey);
+        cropPersistentData.addCrop(b3, newCrop.serializeCrop(b3, offsetXPixels, offsetYPixels));
 
     }
 
@@ -277,7 +312,7 @@ public class Crop_Manager : MonoBehaviour
         //check if this crop has multiple harvests
         if (!toHarvest.multiYield())
         {
-            cropPersistentData.removeCrop(cropHashKey);
+            cropPersistentData.removeCrop(new Byte3(cropHashKey));
             cropMap.Remove(cropHashKey);
             Destroy(toHarvest.gameObject);
         }

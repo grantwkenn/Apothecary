@@ -9,6 +9,8 @@ public class Crop_Persistent_Data : ScriptableObject
     //TODO, this SO relies on a redundent List / Dictionary structure
     // to store tilled and watered tiles, may or may not be using twice the memory per tile 
 
+    [SerializeField] string sceneName;
+    
     [SerializeField] bool wipe_data;
 
 
@@ -19,19 +21,18 @@ public class Crop_Persistent_Data : ScriptableObject
     List<SerializableCrop> sCrops;
 
     [SerializeField]
-    List<Vector3Int> cropKeys;
-
-    [SerializeField]
     List<KeyValuePair<int, string>> test;
 
     [SerializeField]
-    Dictionary<Vector3Int, SerializableCrop> sCropMap;
+    Dictionary<Byte3, SerializableCrop> sCropMap;
 
-    HashSet<Vector3Int> tilledTiles;
-    HashSet<Vector3Int> wateredTiles;
+    HashSet<Byte3> tilledTiles;
+    HashSet<Byte3> wateredTiles;
 
-    List<Vector3Int> tilledTilesList;
-    List<Vector3Int> wateredTilesList;
+    [SerializeField]
+    List<Byte3> tilledTilesList;
+    [SerializeField]
+    List<Byte3> wateredTilesList;
 
     private void OnValidate()
     {
@@ -44,12 +45,11 @@ public class Crop_Persistent_Data : ScriptableObject
 
     public void wipeData()
     {
-        tilledTilesList = new List<Vector3Int>();
-        wateredTilesList = new List<Vector3Int>();
+        tilledTilesList = new List<Byte3>();
+        wateredTilesList = new List<Byte3>();
 
         sCrops = new List<SerializableCrop>();
-        cropKeys = new List<Vector3Int>();
-        sCropMap = new Dictionary<Vector3Int, SerializableCrop>();
+        sCropMap = new Dictionary<Byte3, SerializableCrop>();
     }
     
     public void init()
@@ -58,31 +58,29 @@ public class Crop_Persistent_Data : ScriptableObject
 
 
         if (sCrops == null) sCrops = new List<SerializableCrop>();
-        if (cropKeys == null) cropKeys = new List<Vector3Int>();
 
-        tilledTiles = new HashSet<Vector3Int>();
-        wateredTiles = new HashSet<Vector3Int>();
-
-
-        if (tilledTilesList == null) tilledTilesList = new List<Vector3Int>();
-        if (wateredTilesList == null) wateredTilesList = new List<Vector3Int>();
+        tilledTiles = new HashSet<Byte3>();
+        wateredTiles = new HashSet<Byte3>();
 
 
-        foreach (Vector3Int v3 in tilledTilesList) tilledTiles.Add(v3);
-        foreach (Vector3Int v3 in wateredTilesList) wateredTiles.Add(v3);
+        if (tilledTilesList == null) tilledTilesList = new List<Byte3>();
+        if (wateredTilesList == null) wateredTilesList = new List<Byte3>();
 
 
-        sCropMap = new Dictionary<Vector3Int, SerializableCrop>();
+        foreach (Byte3 v3 in tilledTilesList) tilledTiles.Add(v3);
+        foreach (Byte3 v3 in wateredTilesList) wateredTiles.Add(v3);
 
-        foreach(Vector3Int v3 in cropKeys)
+
+        sCropMap = new Dictionary<Byte3, SerializableCrop>();
+
+        foreach(SerializableCrop crop in sCrops)
         {
-            int index = cropKeys.IndexOf(v3);
-            sCropMap.Add(v3, sCrops[index]);
+            sCropMap.Add(crop.getLocationKey(), crop);
         }
 
     }
 
-    public void setDugTile(Vector3Int point)
+    public void setDugTile(Byte3 point)
     {
         if(!tilledTiles.Contains(point))
         {
@@ -91,7 +89,7 @@ public class Crop_Persistent_Data : ScriptableObject
         }        
     }
 
-    public void setWateredTile(Vector3Int point)
+    public void setWateredTile(Byte3 point)
     {
         if(!wateredTiles.Contains(point))
         {
@@ -101,33 +99,23 @@ public class Crop_Persistent_Data : ScriptableObject
         
     }
 
-    public List<Vector3Int> getTilledTiles() { return new List<Vector3Int>(this.tilledTiles != null ? this.tilledTiles : new List<Vector3Int>()); }
-    public List<Vector3Int> getWateredTiles() { return new List<Vector3Int>(this.wateredTiles != null ? this.wateredTiles : new List<Vector3Int>()); }
+    public List<Byte3> getTilledTiles() { return new List<Byte3>(this.tilledTiles != null ? this.tilledTiles : new List<Byte3>()); }
+    public List<Byte3> getWateredTiles() { return new List<Byte3>(this.wateredTiles != null ? this.wateredTiles : new List<Byte3>()); }
 
-    public SerializableCrop getSCrop(Vector3Int key) 
-    {
-        if (!sCropMap.ContainsKey(key)) return null;
-        return sCropMap[key];
-    }
 
-    public void addCrop(Vector3Int location, SerializableCrop sCrop)
+    public void addCrop(Byte3 location, SerializableCrop sCrop)
     {
         sCrops.Add(sCrop);
-        cropKeys.Add(location);
         sCropMap.Add(location, sCrop);
     }
 
-    public void removeCrop(Vector3Int location)
-    {
-        //TODO ensure this Find function is matching by equality and not address
-        int index = cropKeys.IndexOf(location);
-        cropKeys.RemoveAt(index);
-        sCrops.RemoveAt(index);
+    public void removeCrop(Byte3 location)
+    {      
+        sCrops.Remove(sCropMap[location]);
         sCropMap.Remove(location);
-
     }
 
-    public Dictionary<Vector3Int, SerializableCrop> getSCrops()
+    public Dictionary<Byte3, SerializableCrop> getSCrops()
     {
         return this.sCropMap;
     }
@@ -139,5 +127,28 @@ public class Crop_Persistent_Data : ScriptableObject
             sCrop.updateAge();
         }
     }
-     
+
+    public List<SerializableCrop> getSCropList() { return this.sCrops; }
+
+    public string getSceneName() { return this.sceneName; }
+
+    public cropSaveData getSaveData() { return new cropSaveData(this); }
+}
+
+[System.Serializable]
+public class cropSaveData
+{
+    string sceneName;
+    List<SerializableCrop> sCrops;
+    List<Byte3> tilledTiles;
+    List<Byte3> wateredTiles;
+
+    public cropSaveData(Crop_Persistent_Data cpd)
+    {
+        this.sceneName = cpd.getSceneName();
+        this.sCrops = cpd.getSCropList();
+        this.tilledTiles = cpd.getTilledTiles();
+        this.wateredTiles = cpd.getWateredTiles();
+
+    }
 }

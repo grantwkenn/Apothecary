@@ -45,7 +45,6 @@ public class Layer_Editor : EditorWindow
             init();
         }
 
-
         // Add a button
         if (GUILayout.Button("Layer"))
         {

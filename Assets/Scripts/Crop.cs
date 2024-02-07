@@ -15,9 +15,7 @@ public class Crop : MonoBehaviour
     Crop_Data data;
     bool harvestable = false;
 
-
     SpriteRenderer sr;
-
 
     public bool run;
 
@@ -94,22 +92,17 @@ public class Crop : MonoBehaviour
 
     public Crop_Data getData() { return this.data; }
 
-    public SerializableCrop serializeCrop(sbyte offsetX, sbyte offsetY)
+    public SerializableCrop serializeCrop(Byte3 locationKey, sbyte offsetX, sbyte offsetY)
     {
-        return new SerializableCrop(this.age, this.data, offsetX, offsetY);
+        return new SerializableCrop(this.data.getName(), locationKey, this.age, offsetX, offsetY);
     }
 
-    public void setData(SerializableCrop sc)
+    public void setData(SerializableCrop sc, Crop_Data cd)
     {
         this.age = sc.getAge();
-        this.data = sc.getData();
+        this.data = cd;
     }
 
-    //public SerializableCrop serializeCrop()
-    //{
-        //SerializableCrop sCrop = new SerializableCrop();
-
-    //}
 
 }
 
@@ -117,20 +110,21 @@ public class Crop : MonoBehaviour
 public class SerializableCrop
 {
     [SerializeField]
-    float age;
+    string name;
     [SerializeField]
-    Crop_Data data;
+    float age;
     [SerializeField]
     sbyte offsetX;
     [SerializeField]
     sbyte offsetY;
+    Byte3 location;
 
-    public SerializableCrop(float age, Crop_Data cd, sbyte offsetX, sbyte offsetY)
+    public SerializableCrop(string name, Byte3 locationKey, float age, sbyte offsetX, sbyte offsetY)
     {
-        this.age = age; this.data = cd; this.offsetX = offsetX; this.offsetY = offsetY;
+        this.age = age; this.offsetX = offsetX; this.offsetY = offsetY;
+        this.location = locationKey;
+        this.name = name;
     }
-
-    public Vector3 getOffset() { return new Vector3(offsetX / 16f, offsetY / 16f, 0); }
 
     public void updateAge()
     {
@@ -138,6 +132,9 @@ public class SerializableCrop
     }
 
     public float getAge() { return this.age; }
-    public Crop_Data getData() { return this.data; }
+    public string getName() { return this.name; }
+    public Vector3 getOffset() { return new Vector3(offsetX / 16f, offsetY / 16f, 0); }
+    public Byte3 getLocationKey() { return this.location; }
+    
 
 }
