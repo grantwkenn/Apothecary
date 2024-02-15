@@ -15,7 +15,7 @@ public class Inventory_Manager : MonoBehaviour
     Quest_Manager qm;
     Scene_Manager sm;
     Player player;
-    Player_Persistence pp;
+    Data_Persistence dp;
     Tile_Manager tm;
     Menu_Manager mm;
     Inventory_Bar_Menu invBar;
@@ -110,7 +110,7 @@ public class Inventory_Manager : MonoBehaviour
             inventory[i] = emptyItem;
         }
 
-        pp = sm.getPlayerPersistence();
+        dp = sm.getDataPersistence();
 
 
     }
@@ -125,7 +125,7 @@ public class Inventory_Manager : MonoBehaviour
     void loadInventory()
     {
         //get serializedInventory from PP
-        List<SerializableItem> sInv = pp.getSerializableInventory();
+        List<SerializableItem> sInv = dp.getSerializableInventory();
 
         //set inventory from pp data
 
@@ -143,8 +143,8 @@ public class Inventory_Manager : MonoBehaviour
     public void storePersistenceData()
     {
         //pp.setItems(inventory);
-        pp.setItems(serializeInventory());
-        pp.setInvSelection(barSelection);
+        dp.setItems(serializeInventory());
+        dp.setInvSelection(barSelection);
     }
     /// <summary>
     /// /////////////////////////////////////////////////////////////////
@@ -205,7 +205,7 @@ public class Inventory_Manager : MonoBehaviour
         //notify the Quest Manager
         //qm.itemPickedUp(item.itemNo);
 
-        pp.setItems(serializeInventory());
+        dp.setItems(serializeInventory());
 
         qm.itemAdded(item.getData().getItemNo(), quantity - item.getQuantity());
         mm.refresh();
@@ -234,7 +234,7 @@ public class Inventory_Manager : MonoBehaviour
         freeSlots++;
 
         mm.refresh();
-        pp.setItems(serializeInventory());
+        dp.setItems(serializeInventory());
 
         //in case we just set down a tool
         evaluateSelector();
@@ -327,7 +327,7 @@ public class Inventory_Manager : MonoBehaviour
     {
         removeItemHelper(barSelection, 1);
 
-        pp.setItems(serializeInventory());
+        dp.setItems(serializeInventory());
         //refresh UI
         mm.refresh();
         evaluateSelector();
@@ -365,7 +365,7 @@ public class Inventory_Manager : MonoBehaviour
             if (quantityToRemove == 0) break;
         }
 
-        pp.setItems(serializeInventory());
+        dp.setItems(serializeInventory());
         //refresh UI
         mm.refresh();
         evaluateSelector();

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 808591620549776597}
   - component: {fileID: 7290408562977958600}
   - component: {fileID: 378725796586729882}
+  - component: {fileID: 2001381528329608711}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -156,6 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sp: {fileID: 11400000, guid: 7cf5fe9f72de11e449240a468887e353, type: 2}
+  sceneSaveData: []
 --- !u!114 &2698974980975134969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -203,7 +205,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c94e3ba4a8e46a468fe584df2a08e1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Resources: {fileID: 11400000, guid: d029b8376f5da964cb09a5a00c546315, type: 2}
+  refs: {fileID: 11400000, guid: d029b8376f5da964cb09a5a00c546315, type: 2}
 --- !u!114 &7290408562977958600
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -229,4 +231,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneData:
-  - {fileID: 11400000, guid: f5bd7af95e755044397547b75e300aa6, type: 2}
+  - sceneName: 
+    crop_data:
+      sCrops: []
+      tilledTiles: []
+      wateredTiles: []
+--- !u!114 &2001381528329608711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698974980975134958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11188cf37da7c93479478ffaa0eb575e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameData: {fileID: 0}

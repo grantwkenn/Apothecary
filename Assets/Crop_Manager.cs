@@ -15,7 +15,7 @@ public class Crop_Manager : MonoBehaviour
     Layer_Manager lm;
     Tile_Manager tm;
     Scene_Manager sm;
-    Resource_Manager rm;
+    Reference_Manager rm;
 
     //Get this from the editor for now,
     //maybe later the resource manager or scene manager will find it in the scene's folder or hashed by scene
@@ -57,7 +57,7 @@ public class Crop_Manager : MonoBehaviour
         lm = GameManager.GetComponent<Layer_Manager>();
         tm = GameManager.GetComponent<Tile_Manager>();
         sm = GameManager.GetComponent<Scene_Manager>();
-        rm = GameManager.GetComponent<Resource_Manager>();
+        rm = GameManager.GetComponent<Reference_Manager>();
 
         List<TileBase> tResources = rm.cropManagerInit();
         tilledDirtTile = tResources[0];

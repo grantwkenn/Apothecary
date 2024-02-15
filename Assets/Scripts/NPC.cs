@@ -80,7 +80,7 @@ public class NPC : MonoBehaviour
         spriteRenderer = this.GetComponent<SpriteRenderer>();
         rb = this.GetComponent<Rigidbody2D>();
 
-        Resource_Manager rman = gm.GetComponent<Resource_Manager>();
+        Reference_Manager rman = gm.GetComponent<Reference_Manager>();
 
         if (npcBehavior != null)
         {

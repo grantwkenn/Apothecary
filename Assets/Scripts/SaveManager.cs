@@ -12,6 +12,7 @@ public class SaveManager : MonoBehaviour
     Player player;
     Scene_Manager sceneMan;
     Menu_Manager mm;
+    Data_Manager dm;
     
     string savePath;
 
@@ -30,6 +31,7 @@ public class SaveManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         sceneMan = this.GetComponent<Scene_Manager>();
         mm = this.GetComponent<Menu_Manager>();
+        dm = this.GetComponent<Data_Manager>();
 
     }
 
@@ -37,13 +39,13 @@ public class SaveManager : MonoBehaviour
     {
         SaveData sd = new SaveData();
 
-        sd.setHealth(player.getHealth());
-        sd.setInventory(invMan.serializeInventory());
-        sd.setQuestCompletion(qm.getCompletion());
-        sd.setQuestLog(qm.getSerialQuestLog());
-        sd.setSceneName(sceneMan.getSceneName());
-        sd.setEntranceNo(sceneMan.getEntrance().getEntranceNo());
-        sd.setCropSaveData(buildCropSaveData());
+        sd.health = player.getHealth();
+        sd.inventory = invMan.serializeInventory();
+        sd.questsComplete = qm.getCompletion();
+        sd.questLog = qm.serializeQuestLog();
+        sd.sceneName = sceneMan.getSceneName();
+        sd.entranceNo = sceneMan.getEntrance().getEntranceNo();
+        sd.sceneSaveData = dm.getSceneSaveData();
         
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream fileStream = File.Create(savePath);
@@ -52,20 +54,6 @@ public class SaveManager : MonoBehaviour
         fileStream.Close();
 
         Debug.Log("Saved file to: " + savePath);
-    }
-
-    List<cropSaveData> buildCropSaveData()
-    {
-        List<cropSaveData> list = new List<cropSaveData>();
-        foreach(Scene_Save_Data sd in sceneData)
-        {
-            Crop_Persistent_Data cpd = sd.getCropPersistentData();
-            if(cpd != null)
-            {
-                list.Add(cpd.getSaveData());
-            }
-        }
-        return list;
     }
 
     SaveData loadData()
@@ -95,9 +83,9 @@ public class SaveManager : MonoBehaviour
 
         mm.inputCloseMenu();
 
-        sceneMan.loadSaveFile(data);
+        sceneMan.loadGame(data);
 
-        
+        dm.loadFile(data);
 
     }
 

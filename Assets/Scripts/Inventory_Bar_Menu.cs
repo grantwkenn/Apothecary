@@ -79,7 +79,7 @@ public class Inventory_Bar_Menu : Menu
     // Start is called before the first frame update
     void Start()
     {
-        selection = GM.GetComponent<Scene_Manager>().getPlayerPersistence().getInvSelection();
+        selection = GM.GetComponent<Scene_Manager>().getDataPersistence().getInvSelection();
 
         updateSelection();
 

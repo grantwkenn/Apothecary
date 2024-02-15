@@ -23,7 +23,7 @@ public class Tile_Manager : MonoBehaviour
 
     Player player;
     //RoomManager rm;
-    Resource_Manager rman;
+    Reference_Manager rman;
     Scene_Manager sm;
 
     /// USED FOR DIRT ///////////////////////
@@ -73,7 +73,7 @@ public class Tile_Manager : MonoBehaviour
 
     Dictionary<Vector2Int, Crop> crops;
 
-    Scene_Persistence sp;
+    Scene_Data sp;
 
     Vector3Int targetTile;
     Vector3Int cellTarget;
@@ -100,8 +100,8 @@ public class Tile_Manager : MonoBehaviour
     private void OnEnable()
     {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        rman = this.GetComponent<Resource_Manager>();
-        sp = this.GetComponent<Scene_Manager>().getSP();
+        rman = this.GetComponent<Reference_Manager>();
+        sp = this.GetComponent<Scene_Manager>().getData();
         sm = this.GetComponent<Scene_Manager>();
         selectionPrefab = rman.getPrefab("Tile Selection");
 

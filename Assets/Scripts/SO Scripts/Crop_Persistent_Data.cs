@@ -8,8 +8,6 @@ public class Crop_Persistent_Data : ScriptableObject
 {
     //TODO, this SO relies on a redundent List / Dictionary structure
     // to store tilled and watered tiles, may or may not be using twice the memory per tile 
-
-    [SerializeField] string sceneName;
     
     [SerializeField] bool wipe_data;
 
@@ -130,22 +128,23 @@ public class Crop_Persistent_Data : ScriptableObject
 
     public List<SerializableCrop> getSCropList() { return this.sCrops; }
 
-    public string getSceneName() { return this.sceneName; }
-
-    public cropSaveData getSaveData() { return new cropSaveData(this); }
+    public void loadSaveData(crop_Save_Data csd)
+    {
+        this.sCrops = csd.sCrops;
+        this.tilledTilesList = csd.tilledTiles;
+        this.wateredTilesList = csd.wateredTiles;
+    }
 }
 
 [System.Serializable]
-public class cropSaveData
+public class crop_Save_Data
 {
-    string sceneName;
-    List<SerializableCrop> sCrops;
-    List<Byte3> tilledTiles;
-    List<Byte3> wateredTiles;
+    public List<SerializableCrop> sCrops;
+    public List<Byte3> tilledTiles;
+    public List<Byte3> wateredTiles;
 
-    public cropSaveData(Crop_Persistent_Data cpd)
+    public crop_Save_Data(Crop_Persistent_Data cpd)
     {
-        this.sceneName = cpd.getSceneName();
         this.sCrops = cpd.getSCropList();
         this.tilledTiles = cpd.getTilledTiles();
         this.wateredTiles = cpd.getWateredTiles();

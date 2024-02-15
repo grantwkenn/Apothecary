@@ -18,8 +18,8 @@ public class Layer_Manager : MonoBehaviour
     CompositeCollider2D[] compositeCollidersByLevel; 
     // Start is called before the first frame update
     void Start()
-    {        
-
+    {
+        incrementPlayerLayer(player, 0);
 
     }
 
@@ -63,7 +63,7 @@ public class Layer_Manager : MonoBehaviour
 
         }
 
-        incrementPlayerLayer(player, 0);
+        
     }
 
     public Transform getLevel(byte level)
@@ -122,12 +122,9 @@ public class Layer_Manager : MonoBehaviour
 
         }
 
-        for (int lvlNo = 0; lvlNo < 6; lvlNo++)
+        foreach(GameObject lvl in levels)
         {
-            
-            
-            if (levels[lvlNo] == null) continue;
-
+            int lvlNo = levels.IndexOf(lvl);
             Transform level = levels[lvlNo].transform;
             string objectName = "" + lvlNo + " Object";
             string groundName = "" + lvlNo + " Ground";

@@ -18,7 +18,7 @@ public class Quest_Manager : MonoBehaviour
     Inventory_Manager inventory_Manager;
     Dialogue_Manager dialogueManager;
     Scene_Manager sm;
-    Player_Persistence pp;
+    Data_Persistence dp;
 
 
     
@@ -110,9 +110,9 @@ public class Quest_Manager : MonoBehaviour
             questList.Value.Sort();
         }
 
-        Resource_Manager resoMan;
+        Reference_Manager resoMan;
         //get the quest indicator prefab from the Resource Manager
-        resoMan = this.GetComponent<Resource_Manager>();
+        resoMan = this.GetComponent<Reference_Manager>();
 
         questSymbols = resoMan.getQuestSymbols();
 
@@ -121,7 +121,7 @@ public class Quest_Manager : MonoBehaviour
     void Start()
     {
         //This must wait until after Scene Manager has OnEnabled?? TODO investigate execution order here
-        pp = this.GetComponent<Scene_Manager>().getPlayerPersistence();
+        dp = this.GetComponent<Scene_Manager>().getDataPersistence();
 
         
         loadQuestProgress();
@@ -149,9 +149,9 @@ public class Quest_Manager : MonoBehaviour
     }
 
     public void storePersistenceData()
-    {        
+    {
         //pp.storeQuestData(questsComplete, questLog);
-        pp.newStoreQuestData(questsComplete, getSerialQuestLog());
+        dp.newStoreQuestData(questsComplete, serializeQuestLog());
     }
 
 
@@ -757,7 +757,7 @@ public class Quest_Manager : MonoBehaviour
 
     public bool[] getCompletion() { return questsComplete; }
 
-    public List<SerializableQuest> getSerialQuestLog()
+    public List<SerializableQuest> serializeQuestLog()
     {
         List<SerializableQuest> list = new List<SerializableQuest>();
         

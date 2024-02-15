@@ -8,10 +8,10 @@ using UnityEngine.UI;
 public class Scene_Manager : MonoBehaviour
 {
 
-    Player_Persistence pp;
+    Data_Persistence dp;
 
     [SerializeField]
-    Scene_Persistence sp;
+    Scene_Data sp;
 
     Player player;
     Inventory_Manager im;
@@ -19,9 +19,13 @@ public class Scene_Manager : MonoBehaviour
     Input_Manager inputMan;
     Layer_Manager lm;
     Crop_Manager cm;
+    Data_Manager dm;
 
     entrance currentEntrance;
     entrance defaultEntrance;
+
+    [SerializeField]
+    List<Scene_Save_Data> sceneSaveData;
 
     Image fadeImage;
 
@@ -59,19 +63,19 @@ public class Scene_Manager : MonoBehaviour
 
     private void OnEnable()
     {
-        GameObject GameManager = GameObject.FindGameObjectWithTag("GameManager");
 
         qm = this.GetComponent<Quest_Manager>();
-        im = GameManager.GetComponent<Inventory_Manager>();
-        inputMan = GameManager.GetComponent<Input_Manager>();
-        lm = GameManager.GetComponent<Layer_Manager>();
+        im = this.GetComponent<Inventory_Manager>();
+        inputMan = this.GetComponent<Input_Manager>();
+        lm = this.GetComponent<Layer_Manager>();
         cm = GameObject.FindObjectOfType<Crop_Manager>();
+        dm = this.GetComponent<Data_Manager>();
 
         randy = new System.Random();
 
 
         fadeImage = GameObject.FindGameObjectWithTag("HUD").transform.Find("Fade").GetComponent<Image>();
-        pp = this.GetComponent<Resource_Manager>().getPlayerPersistence();
+        dp = this.GetComponent<Reference_Manager>().getDataPersistence();
 
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
@@ -80,29 +84,29 @@ public class Scene_Manager : MonoBehaviour
 
         fade = new Color(0, 0, 0, 0);
 
-
+        List<Scene_Save_Data> sceneSaveData;
 
 
         if (Time.time < 0.1f) //??????? TODO what does this mean
         {
-            pp.setChangingScenes(false);
+            dp.setChangingScenes(false);
         }
 
         //Find the Entrance to this scene which was set by previous scene's exit
         currentEntrance = null;
 
         byte targetEntrance;
-        if (pp.fromSave()) targetEntrance = pp.getSaveData().getEntranceNo();
+        if (dp.fromSave()) targetEntrance = dp.getSaveData().entranceNo;
         else
-            targetEntrance = pp.getEntranceNo();
+            targetEntrance = dp.getEntranceNo();
 
-        if (pp.fromSave()) loadPersistenceFromSave();
+        if (dp.fromSave()) loadPersistenceFromSave();
 
 
         foreach (GameObject go in GameObject.FindGameObjectsWithTag("Entrance"))
         {
             entrance ent = go.GetComponent<entrance>();
-            if (ent.getEntranceNo() == pp.getEntranceNo())
+            if (ent.getEntranceNo() == dp.getEntranceNo())
             {
                 currentEntrance = ent;
 
@@ -119,7 +123,7 @@ public class Scene_Manager : MonoBehaviour
         }
 
 
-        pp.setChangingScenes(false);
+        dp.setChangingScenes(false);
 
         setFadeIn();
 
@@ -144,6 +148,7 @@ public class Scene_Manager : MonoBehaviour
     {
         //load all data in the save file into the pp object
 
+        //then clear the save file to null
     }
 
 
@@ -177,18 +182,18 @@ public class Scene_Manager : MonoBehaviour
     void exitScene(string targetSceneName, byte entranceNo, bool running = false)
     {
         
-        if (pp.isChangingScenes()) return;
+        if (dp.isChangingScenes()) return;
         
         if(!running)
             player.GetComponent<Player>().freeze();
 
         inputMan.disableInput();
 
-        pp.setChangingScenes(true);
+        dp.setChangingScenes(true);
 
 
         //set the next scene entrance
-        pp.setEntrance(entranceNo);
+        dp.setEntrance(entranceNo);
 
         this.targetSceneName = targetSceneName;
 
@@ -199,7 +204,7 @@ public class Scene_Manager : MonoBehaviour
     void storeSceneChange()
     {
         //store health
-        pp.setHealth(player.getHealth());
+        dp.setHealth(player.getHealth());
 
         //Store Inventory Data
         im.storePersistenceData();
@@ -210,10 +215,9 @@ public class Scene_Manager : MonoBehaviour
     }
 
 
-    public void loadSaveFile(SaveData save)
+    public void loadGame(SaveData save)
     {
-        pp.setSaveFile(save);
-        exitScene(save.getSceneName(), save.getEntranceNo());
+        exitScene(save.sceneName, save.entranceNo);
     }
 
 
@@ -235,8 +239,8 @@ public class Scene_Manager : MonoBehaviour
 
     public int getHealth()
     {
-        if (pp.fromSave()) return pp.getSaveData().getHealth();
-        return pp.getHealth();
+        if (dp.fromSave()) return dp.getSaveData().health;
+        return dp.getHealth();
     }
 
     private void FixedUpdate()
@@ -297,10 +301,10 @@ public class Scene_Manager : MonoBehaviour
     }
 
 
-    public Player_Persistence getPlayerPersistence() { return this.pp; }
+    public Data_Persistence getDataPersistence() { return this.dp; }
     
 
-    public Scene_Persistence getSP() { return sp; }
+    public Scene_Data getData() { return sp; }
 
 
     public void getQuestData(ref bool[] completion, ref List<SerializableQuest> squests)
@@ -308,12 +312,14 @@ public class Scene_Manager : MonoBehaviour
 
         if (Time.time < 0.5f) return;
         
-        this.pp.getQuestData(ref completion, ref squests);
+        this.dp.getQuestData(ref completion, ref squests);
     }
 
     public int getRandom(int max)
     {
         return randy.Next(max);
     }
+
+
 
 }

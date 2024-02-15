@@ -112,7 +112,7 @@ public class Player : MonoBehaviour
         textManager = gm.GetComponent<Text_Manager>();
         sm = gm.GetComponent<Scene_Manager>();
         bc = this.GetComponent<BoxCollider2D>();
-        Player_Persistence pp = sm.getPlayerPersistence();
+        Data_Persistence dp = sm.getDataPersistence(); //TODO remove?
 
         animator = GetComponent<Animator>();
         myRigidbody = GetComponent<Rigidbody2D>();

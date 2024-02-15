@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a0f9e8826c1b2c4c98435dd53cae3f7, type: 3}
   m_Name: Farm Persistence
   m_EditorClassIdentifier: 
-  tiles: []
-  iny: 0
+  scene: {fileID: 102900000, guid: d9d98c9e5361dfa408e185fe38a1639d, type: 3}
+  sceneName: New Farm
+  crop_data: {fileID: 11400000, guid: 13b583a89733a4145bca17819d1c71ad, type: 2}

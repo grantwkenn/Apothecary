@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a0f9e8826c1b2c4c98435dd53cae3f7, type: 3}
   m_Name: Beach Persistence
   m_EditorClassIdentifier: 
-  tiles: []
-  iny: 0
+  scene: {fileID: 102900000, guid: 258137f2a751d7945ac5790ff3d97f10, type: 3}
+  sceneName: beach
+  crop_data: {fileID: 0}
