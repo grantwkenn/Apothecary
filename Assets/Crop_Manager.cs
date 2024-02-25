@@ -31,8 +31,6 @@ public class Crop_Manager : MonoBehaviour
     Dictionary<byte, Tilemap> tilledTilemaps;
     Dictionary<byte, Tilemap> wateredTilemaps;
 
-    Dictionary<Vector3Int, Crop> crops;
-
     //TODO assign these sprites automatically using resource management?
     TileBase tilledDirtTile, wateredDirtTile;
 
@@ -147,24 +145,24 @@ public class Crop_Manager : MonoBehaviour
             wateredTilemaps[(byte)tileLoc.z].SetTile(new Vector3Int(tileLoc.x, tileLoc.y, 0), wateredDirtTile);
         }
 
-        Dictionary<Byte3, SerializableCrop> sCrops = cropPersistentData.getSCrops();
+        Dictionary<Vector3Int, SerializableCrop> sCrops = cropPersistentData.getSCrops();
 
         //TODO map new crop instantiated objects from serializable crops stored in cropPersistentData
 
-        foreach (Byte3 b3 in sCrops.Keys)
+        foreach (Vector3Int v3 in sCrops.Keys)
         {
-            SerializableCrop scrop = sCrops[b3];
+            SerializableCrop scrop = sCrops[v3];
 
             Vector3 offset = scrop.getOffset();
-            Vector3 position = new Vector3(b3.x + offset.x + 0.5f, b3.y + offset.y + 0.5f, b3.y + offset.y + 0.5f);
+            Vector3 position = new Vector3(v3.x + offset.x + 0.5f, v3.y + offset.y + 0.5f, v3.y + offset.y + 0.5f);
 
-            Transform level = lm.getLevel(b3.z);
+            Transform level = lm.getLevel((byte)v3.z);
 
-            Crop newCrop = instantiateCrop(position, b3.z);
+            Crop newCrop = instantiateCrop(position, (byte)v3.z);
 
             newCrop.setData(scrop, cropDataMap[scrop.getName()]);
 
-            cropMap.Add(new Vector3Int(b3.x, b3.y, b3.z), newCrop);
+            cropMap.Add(v3, newCrop);
 
         }
     }
@@ -257,18 +255,17 @@ public class Crop_Manager : MonoBehaviour
     }
 
     //TODO move to crop manager
-    public void plantSeed(string seedName, Vector3Int targetTile)
+    public bool tryplantSeed(string seedName, Vector3Int targetTile)
     {
         byte playerLevel = sm.getPlayerLevel();
         
         //check that the soil is tilled
-        if (currentTilledTilemap == null || !currentTilledTilemap.HasTile(targetTile)) return;
+        if (currentTilledTilemap == null || !currentTilledTilemap.HasTile(targetTile)) return false;
 
         Vector3Int cropHashKey = new Vector3Int(targetTile.x, targetTile.y, playerLevel);       
         
         //check if a crop already exists here
-        if (cropMap.ContainsKey(cropHashKey)) return;
-       
+        if (cropMap.ContainsKey(cropHashKey)) return false;
 
         Transform level = lm.getLevel(playerLevel);
 
@@ -277,21 +274,20 @@ public class Crop_Manager : MonoBehaviour
 
         Vector3 gamePosition = new Vector3(targetTile.x + 0.5f + (offsetXPixels / 16f), targetTile.y + 0.5f + (offsetYPixels / 16f), 0);
 
-        Vector3Int hashKey = new Vector3Int(targetTile.x, targetTile.y, playerLevel);
-
 
         Crop newCrop = instantiateCrop(gamePosition, playerLevel);
 
-        cropMap.Add(hashKey, newCrop);
-        Byte3 b3 = new Byte3(hashKey);
-        cropPersistentData.addCrop(b3, newCrop.serializeCrop(b3, offsetXPixels, offsetYPixels));
+        cropMap.Add(cropHashKey, newCrop);
 
+        cropPersistentData.addCrop(new Byte3(cropHashKey), newCrop.serializeCrop(new Byte3(cropHashKey), offsetXPixels, offsetYPixels));
+
+        return true;
     }
 
     public bool tryHarvest(Vector3Int targetTile)
     {
         byte playerLevel = sm.getPlayerLevel();
-        
+
         Vector3Int cropHashKey = new Vector3Int(targetTile.x, targetTile.y, playerLevel);
 
         if (!cropMap.ContainsKey(cropHashKey)) return false;
@@ -301,7 +297,6 @@ public class Crop_Manager : MonoBehaviour
         if (toHarvest == null || !toHarvest.isHarvestable()) return false;
 
 
-        //TODO layer shall be dynamic, crops map will be a vector 3 where z = level!!
         Transform parent = lm.getLevel(playerLevel).Find(playerLevel.ToString() + " Object");
         Vector3 position = new Vector3(targetTile.x, targetTile.y, 0);
 
@@ -309,12 +304,19 @@ public class Crop_Manager : MonoBehaviour
         lm.relayerMe(harvest.GetComponent<SpriteRenderer>(), parent.name);
         harvest.GetComponent<Pickup_Item>().pop();
 
+
+
         //check if this crop has multiple harvests
         if (!toHarvest.multiYield())
         {
-            cropPersistentData.removeCrop(new Byte3(cropHashKey));
+            cropPersistentData.removeCrop(cropHashKey);
             cropMap.Remove(cropHashKey);
             Destroy(toHarvest.gameObject);
+        }
+        else //change the age of the Serializable counterpart in realtime for save system
+        {
+            //find the the sCrop of this crop
+            cropPersistentData.getSCrop(cropHashKey).setAge(toHarvest.getAge());
         }
 
         return true;

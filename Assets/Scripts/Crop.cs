@@ -103,6 +103,11 @@ public class Crop : MonoBehaviour
         this.data = cd;
     }
 
+    public float getAge()
+    {
+        return this.age;
+    }
+
 
 }
 
@@ -126,9 +131,14 @@ public class SerializableCrop
         this.name = name;
     }
 
-    public void updateAge()
+    public void updateAge(float amount)
     {
-        this.age++;
+        this.age+= amount;
+    }
+
+    public void setAge(float age)
+    {
+        this.age = age;
     }
 
     public float getAge() { return this.age; }

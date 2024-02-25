@@ -22,7 +22,7 @@ public class Crop_Persistent_Data : ScriptableObject
     List<KeyValuePair<int, string>> test;
 
     [SerializeField]
-    Dictionary<Byte3, SerializableCrop> sCropMap;
+    Dictionary<Vector3Int, SerializableCrop> sCropMap;
 
     HashSet<Byte3> tilledTiles;
     HashSet<Byte3> wateredTiles;
@@ -47,7 +47,7 @@ public class Crop_Persistent_Data : ScriptableObject
         wateredTilesList = new List<Byte3>();
 
         sCrops = new List<SerializableCrop>();
-        sCropMap = new Dictionary<Byte3, SerializableCrop>();
+        sCropMap = new Dictionary<Vector3Int, SerializableCrop>();
     }
     
     public void init()
@@ -69,11 +69,12 @@ public class Crop_Persistent_Data : ScriptableObject
         foreach (Byte3 v3 in wateredTilesList) wateredTiles.Add(v3);
 
 
-        sCropMap = new Dictionary<Byte3, SerializableCrop>();
+        sCropMap = new Dictionary<Vector3Int, SerializableCrop>();
 
-        foreach(SerializableCrop crop in sCrops)
+        foreach(SerializableCrop sCrop in sCrops)
         {
-            sCropMap.Add(crop.getLocationKey(), crop);
+            Byte3 b3 = sCrop.getLocationKey();
+            sCropMap.Add(new Vector3Int(b3.x, b3.y, b3.z), sCrop);
         }
 
     }
@@ -104,25 +105,33 @@ public class Crop_Persistent_Data : ScriptableObject
     public void addCrop(Byte3 location, SerializableCrop sCrop)
     {
         sCrops.Add(sCrop);
-        sCropMap.Add(location, sCrop);
+        sCropMap.Add(location.toVector3Int(), sCrop);
     }
 
-    public void removeCrop(Byte3 location)
+    public void removeCrop(Vector3Int location)
     {      
         sCrops.Remove(sCropMap[location]);
         sCropMap.Remove(location);
     }
 
-    public Dictionary<Byte3, SerializableCrop> getSCrops()
+    public Dictionary<Vector3Int, SerializableCrop> getSCrops()
     {
         return this.sCropMap;
+    }
+
+    public SerializableCrop getSCrop(Vector3Int key)
+    {
+        if (sCropMap.ContainsKey(key))
+            return sCropMap[key];
+        return null;
+
     }
 
     public void ageCrops()
     {
         foreach (SerializableCrop sCrop in sCrops)
         {
-            sCrop.updateAge();
+            sCrop.updateAge(1);
         }
     }
 

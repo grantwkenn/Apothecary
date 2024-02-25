@@ -13,3 +13,27 @@ MonoBehaviour:
   m_Name: Farm Crop PD
   m_EditorClassIdentifier: 
   wipe_data: 0
+  sCrops:
+  - name: watermelon
+    age: 8
+    offsetX: 2
+    offsetY: 2
+  - name: watermelon
+    age: 8
+    offsetX: 0
+    offsetY: 0
+  - name: watermelon
+    age: 4
+    offsetX: 1
+    offsetY: 1
+  tilledTilesList:
+  - x: 155
+    y: 38
+    z: 0
+  - x: 154
+    y: 38
+    z: 0
+  - x: 153
+    y: 38
+    z: 0
+  wateredTilesList: []

@@ -169,9 +169,10 @@ public class Tile_Manager : MonoBehaviour
 
     public void water() { if (cropMan != null) cropMan.waterTile(targetTile); }
 
-    public void plant(string seedName)
+    public bool plant(string seedName)
     {
-        if (cropMan != null) cropMan.plantSeed(seedName, targetTile);
+        if (cropMan != null) return cropMan.tryplantSeed(seedName, targetTile);
+        return false;
     }
 
     // Start is called before the first frame update
