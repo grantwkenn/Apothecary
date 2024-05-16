@@ -1,0 +1,4115 @@
+fileFormatVersion: 2
+guid: 48a03a1c11a04704fbf7308fa9feb760
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 0
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_0
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 931
+        width: 66
+        height: 78
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -33, y: -28}
+        - {x: -33, y: -39}
+        - {x: 33, y: -39}
+        - {x: 33, y: -28}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16d645091eb769c439691608fbcc891e
+      internalID: 324980860
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_1
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 931
+        width: 64
+        height: 74
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -32, y: -17}
+        - {x: -32, y: -37}
+        - {x: 32, y: -37}
+        - {x: 32, y: -17}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 879d9704eedaaef4eb2058babf0a9967
+      internalID: -197137861
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_2
+      rect:
+        serializedVersion: 2
+        x: 139
+        y: 931
+        width: 50
+        height: 78
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 051a7c4bc59467247970574a77f329b8
+      internalID: 1128702264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_3
+      rect:
+        serializedVersion: 2
+        x: 194
+        y: 931
+        width: 50
+        height: 78
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb6be7ca999d525488f016ccb4debb00
+      internalID: 22421812
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_4
+      rect:
+        serializedVersion: 2
+        x: 247
+        y: 930
+        width: 50
+        height: 78
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b98c9f30f62a34d468e05d4fb23c649c
+      internalID: 1418019925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_5
+      rect:
+        serializedVersion: 2
+        x: 300
+        y: 930
+        width: 50
+        height: 78
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d440a97bd5b7ad48ad18c6e21a87848
+      internalID: -1271812921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_6
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 977
+        width: 64
+        height: 42
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -32, y: -2}
+        - {x: -32, y: -21}
+        - {x: 32, y: -21}
+        - {x: 32, y: -2}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79425111f1a1a9f40a58e2066f92ada0
+      internalID: -716694846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_7
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 931
+        width: 64
+        height: 69
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d41b097ed357ab84799b38c1ab3aac7a
+      internalID: 502703757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_8
+      rect:
+        serializedVersion: 2
+        x: 495
+        y: 943
+        width: 64
+        height: 48
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 5, y: 1, z: 4, w: 15}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 14ab240c6a1f95447ac578da05758c6b
+      internalID: 1672473848
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_9
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 953
+        width: 38
+        height: 34
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53ecdc5d88d25574abee2cd818b58e03
+      internalID: 1667230674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_10
+      rect:
+        serializedVersion: 2
+        x: 621
+        y: 955
+        width: 38
+        height: 31
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6b663f24776e564baf38849826c008b
+      internalID: 1166660684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_11
+      rect:
+        serializedVersion: 2
+        x: 673
+        y: 964
+        width: 48
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 1, y: 1, z: 1, w: 1}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6338e836562f3d349848387e387541be
+      internalID: -1667956067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_12
+      rect:
+        serializedVersion: 2
+        x: 353
+        y: 931
+        width: 64
+        height: 42
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b57a31aeb4bfba84bb024df50721e06a
+      internalID: 1684840963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_13
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 907
+        width: 64
+        height: 31
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fbbcc60719aee4e4da59e56a3ea42d1f
+      internalID: -1864294968
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_14
+      rect:
+        serializedVersion: 2
+        x: 569
+        y: 916
+        width: 38
+        height: 34
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d720a385f68328448cd06264fbb0cd9
+      internalID: -9981093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_15
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 896
+        width: 31
+        height: 37
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a5fdf73fedc04741a3f331a41df600c
+      internalID: 1879856174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_16
+      rect:
+        serializedVersion: 2
+        x: 698
+        y: 853
+        width: 92
+        height: 101
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7980cdb39e739884c93aadabf7516401
+      internalID: -1294985231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_17
+      rect:
+        serializedVersion: 2
+        x: 792
+        y: 909
+        width: 30
+        height: 42
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d76dab0a37108dd499b1fb13773a737a
+      internalID: -709436920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_18
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 849
+        width: 64
+        height: 79
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 75769c9bed0498a44810bd5c27d60f8f
+      internalID: 1193751491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_19
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 849
+        width: 64
+        height: 79
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86ae5c1034fa6264e92e86c2e951d50f
+      internalID: -864332221
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_20
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 849
+        width: 64
+        height: 79
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a3cc74b4e0962747bb29987fcbe8c8c
+      internalID: 477284352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_21
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 849
+        width: 64
+        height: 79
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62e87a74db02ee84db1a4a3621174316
+      internalID: -579240560
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_22
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 849
+        width: 64
+        height: 79
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: abf680156d3b9284a908cd534f4034a6
+      internalID: 1879773570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_23
+      rect:
+        serializedVersion: 2
+        x: 332
+        y: 849
+        width: 64
+        height: 79
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2504d926bccece54caed76c6444667f1
+      internalID: -1858524791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_24
+      rect:
+        serializedVersion: 2
+        x: 398
+        y: 849
+        width: 48
+        height: 77
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -24, y: 25.5}
+        - {x: -24, y: -38.5}
+        - {x: 24, y: -38.5}
+        - {x: 24, y: 25.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: fefe1454e36caf843ad6d769e238484f
+      internalID: 1592127036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_25
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 849
+        width: 48
+        height: 77
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape:
+      - - {x: -24, y: 25.5}
+        - {x: -24, y: -38.5}
+        - {x: 24, y: -38.5}
+        - {x: 24, y: 25.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6d924d695bf4d242bfdf54d060fe39d
+      internalID: 1376191200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_26
+      rect:
+        serializedVersion: 2
+        x: 499
+        y: 849
+        width: 64
+        height: 54
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 18, z: 0, w: 7}
+      outline: []
+      physicsShape:
+      - - {x: -32, y: 14}
+        - {x: -32, y: -27}
+        - {x: 32, y: -27}
+        - {x: 32, y: 14}
+      tessellationDetail: 0
+      bones: []
+      spriteID: db85b955a563f60478b4dff95693b9b1
+      internalID: 889681029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_27
+      rect:
+        serializedVersion: 2
+        x: 570
+        y: 852
+        width: 22
+        height: 61
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c80ed42c5fc13514c8fc583662b43b1a
+      internalID: 1039227555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_28
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 852
+        width: 22
+        height: 61
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a409b18f16fbf5743ad67792b1b5358d
+      internalID: -1018779633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_29
+      rect:
+        serializedVersion: 2
+        x: 662
+        y: 898
+        width: 27
+        height: 32
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7becdeaffbb9bc2488417d3960c82185
+      internalID: 1620990074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_30
+      rect:
+        serializedVersion: 2
+        x: 624
+        y: 852
+        width: 30
+        height: 33
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a8a0c3808751864493120b30afa0be1
+      internalID: 1907629189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_31
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 852
+        width: 30
+        height: 33
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 06c3a9905a33a524ca62fceaee8387f3
+      internalID: -834357081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_32
+      rect:
+        serializedVersion: 2
+        x: 798
+        y: 859
+        width: 12
+        height: 39
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05c4821007a6c4447a0f08ec29eb80f3
+      internalID: -253674871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_33
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 711
+        width: 56
+        height: 133
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8acbf4ee9a0b89d40b6564a92ef87163
+      internalID: -1860256869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_34
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 711
+        width: 56
+        height: 133
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6daf875f85397d49bec0f36ff81c08d
+      internalID: 1524231529
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_35
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 815
+        width: 15
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4023ef5bdcc7354eab5b7829cfecc5d
+      internalID: -1929435534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_36
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 815
+        width: 15
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ec6a0872a294f724f94bc751e70c9ab2
+      internalID: 170536297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_37
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 815
+        width: 15
+        height: 25
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b676c20c87a8c94a85f0575386e0619
+      internalID: 1973392884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_38
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 815
+        width: 16
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 30c58eb924066a1449035e1ce064cbcd
+      internalID: 1601255871
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_39
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 815
+        width: 16
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fce2448cf34ed2c4485e85a517eff86a
+      internalID: -1419341415
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_40
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 830
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 20b129dbce191d04997addcbc1131b38
+      internalID: -688747481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_41
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 829
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e34078e0d9ee69e47822d07559a1503c
+      internalID: 1957096845
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_42
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 829
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7906d965c8fe5fc40801741ef4468adb
+      internalID: -9342480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_43
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 829
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1dc0087317f46734998414b2482a5c8d
+      internalID: 1473388453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_44
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 828
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d56045789d8636d48989fa15df737f33
+      internalID: 1052654181
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_45
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 828
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29bc40b736b323b4384d1b7fc90102c2
+      internalID: 1020937570
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_46
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 829
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53fd6adf653a28245a9854310e6146b9
+      internalID: 1722340454
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_47
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 828
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 416b1250509449a40a3296a3f1fe6645
+      internalID: -175579946
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_48
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 828
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a963fcfc6fc82a4cad091c0b3435481
+      internalID: -12877728
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_49
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 817
+        width: 24
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2e58300491a81044bfe5c7fa839f0af
+      internalID: -1702734279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_50
+      rect:
+        serializedVersion: 2
+        x: 355
+        y: 822
+        width: 15
+        height: 14
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b89c1533f0b1c74a917b0e5deddd55d
+      internalID: 1659084218
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_51
+      rect:
+        serializedVersion: 2
+        x: 374
+        y: 825
+        width: 15
+        height: 9
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a133accff4083c4a830abdeffcca5f9
+      internalID: 839692052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_52
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 819
+        width: 18
+        height: 17
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ced8128ed7763d6439bd4235af5c635a
+      internalID: 875691772
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_53
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 784
+        width: 44
+        height: 53
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e8932aba15989c459272fda15e45d78
+      internalID: 1148986400
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_54
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 786
+        width: 34
+        height: 35
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b5f16c1d20de239479f859dc751ceabe
+      internalID: -1957151295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_55
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 786
+        width: 34
+        height: 35
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca8a25d3dfa72554db9b7cadb83d5edf
+      internalID: 2085645627
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_56
+      rect:
+        serializedVersion: 2
+        x: 596
+        y: 786
+        width: 34
+        height: 35
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d8bad5eb31d589543beadb0c70f04c93
+      internalID: 67723850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_57
+      rect:
+        serializedVersion: 2
+        x: 634
+        y: 786
+        width: 34
+        height: 35
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3609e61c5ccc3724eade59168f404927
+      internalID: 481859740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_58
+      rect:
+        serializedVersion: 2
+        x: 672
+        y: 786
+        width: 34
+        height: 35
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86983223f9e4f0d408695d363ffc9dba
+      internalID: -469046116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_59
+      rect:
+        serializedVersion: 2
+        x: 710
+        y: 786
+        width: 34
+        height: 35
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e19d4159401a464488fd705fa9d21bf4
+      internalID: -2121811344
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_60
+      rect:
+        serializedVersion: 2
+        x: 747
+        y: 786
+        width: 34
+        height: 35
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92ac0abf754a0894f8b34992c9c18f1b
+      internalID: 640802125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_61
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 784
+        width: 34
+        height: 53
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05bcbcb29a5eb0043b44cc238121e1a7
+      internalID: 1424123718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_62
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 814
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f126480cf634074393b7ab566d19077
+      internalID: -1118630536
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_63
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 813
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 149d7ee53068ce04b952f2a57b5ce3e2
+      internalID: 1806978878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_64
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 813
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dde9c613ec4d0134c8dbf286782289d0
+      internalID: -1187045028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_65
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 814
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56696a4669207e0449fa16470f547f1b
+      internalID: -1420839389
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_66
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 813
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b034fef498c6364891416f1b2418161
+      internalID: 558460895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_67
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 813
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 661158377d6db2b408cfdd59efb59d3d
+      internalID: -202927841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_68
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 814
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c290da3a7abb8c242b8ba6cb692e07dd
+      internalID: 1089018655
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_69
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 813
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7266ca1ab5a9c4740a481799090ac48f
+      internalID: 1546027408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_70
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 813
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e21f3d24d5790e34db17bd82f3b3e750
+      internalID: 1462010421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_71
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 801
+        width: 16
+        height: 14
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 70e5a9d263c9d4f499106586f8af9934
+      internalID: -1589108641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_72
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 800
+        width: 19
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 761536114459f954abb3d0b11ae31d59
+      internalID: 1449437204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_73
+      rect:
+        serializedVersion: 2
+        x: 385
+        y: 801
+        width: 17
+        height: 15
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45699866dce9a7b45be23ac44e7cda84
+      internalID: 207006244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_74
+      rect:
+        serializedVersion: 2
+        x: 405
+        y: 800
+        width: 19
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ceae55496c2a9934f8bb906b4b479048
+      internalID: 1086698093
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_75
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 802
+        width: 17
+        height: 16
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb89bfb5a0cf64642a331477f6b44444
+      internalID: -607557416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_76
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 783
+        width: 15
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4743a0dfd4195f6489d689db66346f8b
+      internalID: -1126679345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_77
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 783
+        width: 15
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 733f28a445cd52d4e9482d50e429a36c
+      internalID: -352781081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_78
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 783
+        width: 15
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e6a2d534d8287b24c8df4e5de9d2765b
+      internalID: -162801879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_79
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 783
+        width: 16
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32428a6c6c750b64da2f701d6d9f5125
+      internalID: -418236682
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_80
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 783
+        width: 16
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 239cf94aff16f63488056edfd1f3883d
+      internalID: -1080508104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_81
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 798
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11bb7e2547f4bce45a5f4fd3c8554b09
+      internalID: -877082628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_82
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 797
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2c72c43691e4974db3b6569b30bed39
+      internalID: 1430535550
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_83
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 797
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f614b5115020c7b40a87186c2c8b738d
+      internalID: -838582988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_84
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 798
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a160ec823321594cae341efdbf37032
+      internalID: 538767177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_85
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 797
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8f786f977518af4eb8c6e2109fba55d
+      internalID: -1390221369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_86
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 797
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 61b69155356318d4e8d1efbdf44a01f6
+      internalID: -1731941004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_87
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 798
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a48f148f03367ac4b9f62c3d7e392b25
+      internalID: 688134394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_88
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 797
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5c7b49630d273d439255f651601c425
+      internalID: -93116265
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_89
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 797
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c48d9175701b75a48b11229b854c4a0a
+      internalID: 991499811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_90
+      rect:
+        serializedVersion: 2
+        x: 327
+        y: 800
+        width: 17
+        height: 14
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2f8d2e799c11c2846aeba0c133c601aa
+      internalID: -1410930882
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_91
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 782
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8145dec54d4ae0b45b756e1119c1dff8
+      internalID: 173204132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_92
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 781
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f796d176379a6294ab6cf65f6e3bb8a7
+      internalID: 1704278548
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_93
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 781
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcf842800e00e72438a24abee9811a34
+      internalID: 1825204778
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_94
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 782
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0581b17040800fc47a6185a97fc81a40
+      internalID: 2019072304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_95
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 781
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe120895b0098fb42aee0ff26ab05c47
+      internalID: 1845452164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_96
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 781
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bae54df66416054e97c9c921b773d9f
+      internalID: 1433879286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_97
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 782
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c6936fa40220a24e805b0c487cbce89
+      internalID: 299745906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_98
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 781
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65f75ae7e292f0d4495ce458e27d72dc
+      internalID: 179383802
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_99
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 781
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e174e2e34eea0942abd07dfd6c0ea93
+      internalID: -594176375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_100
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 757
+        width: 26
+        height: 34
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1c4d424b3888a945acc62b73435e775
+      internalID: 1627912112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_101
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 751
+        width: 15
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93307ab1c5b696f4e8e45a2514f441fe
+      internalID: 734370094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_102
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 751
+        width: 15
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd67a9316b75bb24a869755568a37164
+      internalID: -1260808450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_103
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 751
+        width: 15
+        height: 22
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c573d9420e90cfc4290ca5f67a359c2c
+      internalID: 932555345
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_104
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 751
+        width: 16
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b015e231dfdd634f9cfeaeeb6f8744d
+      internalID: 1449143177
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_105
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 751
+        width: 16
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cdf3fc0ebbc323f43b0a1e19d32c7ee4
+      internalID: -406092923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_106
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 766
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e410df88cd950a349a1b895cefebc04d
+      internalID: 1567374705
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_107
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 765
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 578e160afc1459c4b8ee6093c327b4d7
+      internalID: 826672117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_108
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 765
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c4b3186f0045cdd4bb3c1f093be1d594
+      internalID: 1934243480
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_109
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 766
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc88c5eba6707b44b8496c313ed93dbf
+      internalID: -1917741695
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_110
+      rect:
+        serializedVersion: 2
+        x: 271
+        y: 765
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 141c4c8f5612fee468325a666fee82ff
+      internalID: -1472115136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_111
+      rect:
+        serializedVersion: 2
+        x: 283
+        y: 765
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e00b3ad1a844d934eb15b7581b7076b5
+      internalID: 702534843
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_112
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 766
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e4262e25a3d9d948b31c82ed9220003
+      internalID: -1817422734
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_113
+      rect:
+        serializedVersion: 2
+        x: 303
+        y: 765
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b7d4be723aee23479448377a607df90
+      internalID: -512606619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_114
+      rect:
+        serializedVersion: 2
+        x: 315
+        y: 765
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 318d4520d710a2947a1b9226a00d6f10
+      internalID: 1379050347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_115
+      rect:
+        serializedVersion: 2
+        x: 471
+        y: 730
+        width: 34
+        height: 34
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9c457d6fa1b46f4ca85c3954c9a9f1a
+      internalID: -903042034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_116
+      rect:
+        serializedVersion: 2
+        x: 519
+        y: 729
+        width: 34
+        height: 35
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6c68358d4ec945428eb6a7a3ec63065
+      internalID: -184957027
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_117
+      rect:
+        serializedVersion: 2
+        x: 558
+        y: 730
+        width: 34
+        height: 35
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a14e6f3d7b96a7747a42bf54352e34fd
+      internalID: -620167779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_118
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 738
+        width: 64
+        height: 42
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac4ab9aaf334eaf448c14f6d2b4f5a8e
+      internalID: -1085092981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_119
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 712
+        width: 64
+        height: 68
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16f13d8402e6ce245971ff7cbc079c9d
+      internalID: -801032441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_120
+      rect:
+        serializedVersion: 2
+        x: 228
+        y: 750
+        width: 9
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f0a837d92e9005c49ba4dc0eaeed35c8
+      internalID: -1557292818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_121
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 749
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 378ae8f405ae00647920d6a8f81a38cc
+      internalID: 120294483
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_122
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 749
+        width: 7
+        height: 10
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9936428aad0724148823a7ada92c9ce3
+      internalID: -649878715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_123
+      rect:
+        serializedVersion: 2
+        x: 261
+        y: 749
+        width: 11
+        height: 12
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2482fa1c86ad02e4ba96cf56f508ab3b
+      internalID: -1633162382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_124
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 748
+        width: 9
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9bd18fc4c02506f49a046162a6602817
+      internalID: 1931259558
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_125
+      rect:
+        serializedVersion: 2
+        x: 295
+        y: 748
+        width: 8
+        height: 13
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3205a616ee8e6bf4d9bd96b9e6d4f3cc
+      internalID: -192814970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_126
+      rect:
+        serializedVersion: 2
+        x: 313
+        y: 750
+        width: 7
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dddb48d99387af74b9b262cfbad89b89
+      internalID: 565982836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_127
+      rect:
+        serializedVersion: 2
+        x: 329
+        y: 750
+        width: 7
+        height: 8
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8b33900eeefcff444863e531edfa8935
+      internalID: 1099164844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_128
+      rect:
+        serializedVersion: 2
+        x: 421
+        y: 717
+        width: 26
+        height: 34
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95498cf64dffa254bb241d47ff7aa071
+      internalID: -802140271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_129
+      rect:
+        serializedVersion: 2
+        x: 133
+        y: 719
+        width: 15
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28e500061064e8b4c998d4572791713d
+      internalID: 1821209365
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_130
+      rect:
+        serializedVersion: 2
+        x: 149
+        y: 719
+        width: 15
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4daec16a908618a47b1854635efdc3fc
+      internalID: -1265930205
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_131
+      rect:
+        serializedVersion: 2
+        x: 165
+        y: 719
+        width: 15
+        height: 25
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 32602317a899f784aa5c3b8a59e7b012
+      internalID: 1874149490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_132
+      rect:
+        serializedVersion: 2
+        x: 181
+        y: 719
+        width: 16
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c058547696fc8564ba1a7af66f42f3ed
+      internalID: -1440236188
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_133
+      rect:
+        serializedVersion: 2
+        x: 198
+        y: 719
+        width: 16
+        height: 28
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0cf79e7ab6e6ffe418d1b0d41b52e4e5
+      internalID: 2021172839
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_134
+      rect:
+        serializedVersion: 2
+        x: 224
+        y: 722
+        width: 16
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4553ed3256c829469624a03830b2f94
+      internalID: -234432542
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_135
+      rect:
+        serializedVersion: 2
+        x: 241
+        y: 722
+        width: 16
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49e2c75e9a11d614b97d52d01e7d0c24
+      internalID: -1992771381
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_136
+      rect:
+        serializedVersion: 2
+        x: 258
+        y: 722
+        width: 16
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c79ad0686588c3042a4e7e5b153329fe
+      internalID: -2084731295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_137
+      rect:
+        serializedVersion: 2
+        x: 275
+        y: 722
+        width: 16
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a61a0d24a9a1b2438dc3241288b04f1
+      internalID: -1163625710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_138
+      rect:
+        serializedVersion: 2
+        x: 292
+        y: 722
+        width: 16
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49ca35559afd61f4db4414beb5039da3
+      internalID: 1935173311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_139
+      rect:
+        serializedVersion: 2
+        x: 309
+        y: 722
+        width: 16
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0835c7fb50d4c014c9b4024f1aba6d7b
+      internalID: -589796328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_140
+      rect:
+        serializedVersion: 2
+        x: 326
+        y: 722
+        width: 16
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 901f1a13fb9cc3342944684128e3358e
+      internalID: -1846899822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_141
+      rect:
+        serializedVersion: 2
+        x: 343
+        y: 722
+        width: 16
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d470b0009423db42bf100ec29a17044
+      internalID: -912344800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_142
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 722
+        width: 16
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38cb86062f09d1342b6e0cb134855db0
+      internalID: -909811900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_143
+      rect:
+        serializedVersion: 2
+        x: 377
+        y: 722
+        width: 16
+        height: 20
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0808013684605f949b7cdd71e366bb47
+      internalID: 176241635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_144
+      rect:
+        serializedVersion: 2
+        x: 597
+        y: 678
+        width: 64
+        height: 54
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9ad61b9809253a04d9b01d01a23c96eb
+      internalID: -1191300602
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_145
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 574
+        width: 56
+        height: 133
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dbb70f0c92afe644ea267fa8e855b56c
+      internalID: 1093285832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_146
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 572
+        width: 56
+        height: 133
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 62b00ceb062058a4eb595de0d6acd547
+      internalID: -436292987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_147
+      rect:
+        serializedVersion: 2
+        x: 134
+        y: 572
+        width: 56
+        height: 112
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 9, y: 8, z: 9, w: 28}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c1397c3d1c1740488aa6e2dd6049d47
+      internalID: -1284262173
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_148
+      rect:
+        serializedVersion: 2
+        x: 196
+        y: 572
+        width: 56
+        height: 133
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7582f38e9fdd654438fac7d3a7a2556c
+      internalID: -825732689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_149
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 643
+        width: 48
+        height: 61
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e66fe9160bbcd4419da8067f670142c
+      internalID: 79447693
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_150
+      rect:
+        serializedVersion: 2
+        x: 312
+        y: 661
+        width: 16
+        height: 43
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 10, z: 0, w: 6}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 784b20c1eb4bb8448a04c272171a7fa8
+      internalID: 149234948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_151
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 656
+        width: 30
+        height: 48
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae2a3d72b60892e428561a4eb52a70c3
+      internalID: 1223281232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_152
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 663
+        width: 30
+        height: 41
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf0f706409ead084e908710d201e77f6
+      internalID: -102236325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_153
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 663
+        width: 30
+        height: 41
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab10c9adc1f969540b703a2d47a63e42
+      internalID: 657669018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_154
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 663
+        width: 30
+        height: 41
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e937b7136876b904388359cd667e5717
+      internalID: 416647873
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_155
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 663
+        width: 30
+        height: 41
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eaa857dd5a8eb4347a2fba174e6b4a8f
+      internalID: -532991532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_156
+      rect:
+        serializedVersion: 2
+        x: 502
+        y: 652
+        width: 54
+        height: 68
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb3ed6d33360fd243ab917a388fbca01
+      internalID: 1267666255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_157
+      rect:
+        serializedVersion: 2
+        x: 667
+        y: 659
+        width: 64
+        height: 48
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 43cfe8ca8c6e46d4a9f6e617802c02dc
+      internalID: -1775181658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_158
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 958
+        width: 48
+        height: 64
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7936f3802eb7d394ebab6a0134382c72
+      internalID: -1242547380
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_159
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 966
+        width: 96
+        height: 56
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 12, y: 12, z: 13, w: 12}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d27fecbde923834f9b3203de676148f
+      internalID: -1827915796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_160
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 966
+        width: 96
+        height: 56
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 134e5dd534779f64bbdaec98600035bb
+      internalID: 1199952895
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_161
+      rect:
+        serializedVersion: 2
+        x: 827
+        y: 907
+        width: 96
+        height: 56
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 16, y: 11, z: 22, w: 11}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48c9cca51bf02b14f929c02a4f754ea7
+      internalID: 87459378
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_162
+      rect:
+        serializedVersion: 2
+        x: 926
+        y: 907
+        width: 96
+        height: 56
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5b9224d7053f43d4aa372b80b933e107
+      internalID: -1811728256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_163
+      rect:
+        serializedVersion: 2
+        x: 824
+        y: 752
+        width: 110
+        height: 148
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3e1e2cec35e274489264e176a77f499
+      internalID: 1834246064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_164
+      rect:
+        serializedVersion: 2
+        x: 940
+        y: 754
+        width: 48
+        height: 46
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa6ef0386560c2446b42ca808fdbd2d9
+      internalID: -920401070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_165
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 745
+        width: 80
+        height: 35
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 21, y: 0, z: 20, w: 1}
+      outline: []
+      physicsShape:
+      - - {x: 40, y: 0.5}
+        - {x: -40, y: 0.5}
+        - {x: -40, y: -17.5}
+        - {x: 40, y: -17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2ff08f974d350a40aaff004d580b200
+      internalID: -353615100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_166
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 706
+        width: 64
+        height: 35
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2113378122473841b2906bceb7a9d51
+      internalID: -1457575141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_167
+      rect:
+        serializedVersion: 2
+        x: 560
+        y: 659
+        width: 32
+        height: 61
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 8, y: 15, z: 8, w: 1}
+      outline: []
+      physicsShape:
+      - - {x: -16, y: 17.5}
+        - {x: -16, y: -30.5}
+        - {x: 16, y: -30.5}
+        - {x: 16, y: 17.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e5bb1d910390b3499ec7e1aa06bca75
+      internalID: -1020460117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_168
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 472
+        width: 56
+        height: 96
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 84, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3723c21155a811a4ba6cde2f2b9c6c8d
+      internalID: -2003786545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_169
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 472
+        width: 56
+        height: 96
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 8, z: 0, w: 11}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d89665cde5399f45949b3d0c34e6546
+      internalID: 1603956796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_170
+      rect:
+        serializedVersion: 2
+        x: 777
+        y: 1000
+        width: 37
+        height: 21
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8229fc9caabaf04468dcc0f91cc05590
+      internalID: -716617139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_171
+      rect:
+        serializedVersion: 2
+        x: 124
+        y: 506
+        width: 56
+        height: 62
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8612c886a97a4174bb898fd1cb2cac43
+      internalID: -25004319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_172
+      rect:
+        serializedVersion: 2
+        x: 183
+        y: 506
+        width: 56
+        height: 62
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d89463f05d1ab0847b014efbf985add4
+      internalID: -1099166816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_173
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 506
+        width: 56
+        height: 62
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03432404179748740968a789895b9a39
+      internalID: 810580833
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_174
+      rect:
+        serializedVersion: 2
+        x: 939
+        y: 850
+        width: 34
+        height: 53
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b98008af9ed2ba4ebd4c6a906dc6d8e
+      internalID: 1083928323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_175
+      rect:
+        serializedVersion: 2
+        x: 340
+        y: 760
+        width: 53
+        height: 36
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 8, y: 5, z: 5, w: 9}
+      outline: []
+      physicsShape:
+      - - {x: -26.5, y: -15}
+        - {x: -26.5, y: -18}
+        - {x: 26.5, y: -18}
+        - {x: 26.5, y: -15}
+      tessellationDetail: 0
+      bones: []
+      spriteID: 898b21a3d00c79d459932e6c47816575
+      internalID: 125083040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_176
+      rect:
+        serializedVersion: 2
+        x: 399
+        y: 768
+        width: 7
+        height: 23
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 2, y: 0, z: 1, w: 12}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73a6bb7c35e949a48b579b3ae3908a6b
+      internalID: 32555198
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_177
+      rect:
+        serializedVersion: 2
+        x: 409
+        y: 768
+        width: 7
+        height: 23
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 1, y: 8, z: 1, w: 8}
+      outline: []
+      physicsShape:
+      - - {x: -3.5, y: -3.5}
+        - {x: -3.5, y: -11.5}
+        - {x: 3.5, y: -11.5}
+        - {x: 3.5, y: -3.5}
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3c37dd3527a7574380c52cfe1bc0399
+      internalID: 1137404374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Indoor_Asset_Sheet_1_178
+      rect:
+        serializedVersion: 2
+        x: 736
+        y: 670
+        width: 38
+        height: 34
+      alignment: 7
+      pivot: {x: 0.5, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e1f66e6a20a65e449cfaedece550e22
+      internalID: -336306089
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures:
+    - texture: {fileID: 2800000, guid: 4ae2269a449a45b4db0c249373ac442a, type: 3}
+      name: _NormalMap
+    nameFileIdTable:
+      Indoor_Asset_Sheet_1_88: -93116265
+      Indoor_Asset_Sheet_1_96: 1433879286
+      Indoor_Asset_Sheet_1_152: -102236325
+      Indoor_Asset_Sheet_1_171: -25004319
+      Indoor_Asset_Sheet_1_36: 170536297
+      Indoor_Asset_Sheet_1_111: 702534843
+      Indoor_Asset_Sheet_1_128: -802140271
+      Indoor_Asset_Sheet_1_35: -1929435534
+      Indoor_Asset_Sheet_1_165: -353615100
+      Indoor_Asset_Sheet_1_40: -688747481
+      Indoor_Asset_Sheet_1_71: -1589108641
+      Indoor_Asset_Sheet_1_58: -469046116
+      Indoor_Asset_Sheet_1_169: 1603956796
+      Indoor_Asset_Sheet_1_101: 734370094
+      Indoor_Asset_Sheet_1_9: 1667230674
+      Indoor_Asset_Sheet_1_123: -1633162382
+      Indoor_Asset_Sheet_1_107: 826672117
+      Indoor_Asset_Sheet_1_168: -2003786545
+      Indoor_Asset_Sheet_1_13: -1864294968
+      Indoor_Asset_Sheet_1_51: 839692052
+      Indoor_Asset_Sheet_1_21: -579240560
+      Indoor_Asset_Sheet_1_42: -9342480
+      Indoor_Asset_Sheet_1_67: -202927841
+      Indoor_Asset_Sheet_1_141: -912344800
+      Indoor_Asset_Sheet_1_172: -1099166816
+      Indoor_Asset_Sheet_1_23: -1858524791
+      Indoor_Asset_Sheet_1_176: 32555198
+      Indoor_Asset_Sheet_1_92: 1704278548
+      Indoor_Asset_Sheet_1_11: -1667956067
+      Indoor_Asset_Sheet_1_39: -1419341415
+      Indoor_Asset_Sheet_1_62: -1118630536
+      Indoor_Asset_Sheet_1_113: -512606619
+      Indoor_Asset_Sheet_1_170: -716617139
+      Indoor_Asset_Sheet_1_140: -1846899822
+      Indoor_Asset_Sheet_1_124: 1931259558
+      Indoor_Asset_Sheet_1_164: -920401070
+      Indoor_Asset_Sheet_1_106: 1567374705
+      Indoor_Asset_Sheet_1_144: -1191300602
+      Indoor_Asset_Sheet_1_162: -1811728256
+      Indoor_Asset_Sheet_1_97: 299745906
+      Indoor_Asset_Sheet_1_77: -352781081
+      Indoor_Asset_Sheet_1_115: -903042034
+      Indoor_Asset_Sheet_1_8: 1672473848
+      Indoor_Asset_Sheet_1_64: -1187045028
+      Indoor_Asset_Sheet_1_63: 1806978878
+      Indoor_Asset_Sheet_1_81: -877082628
+      Indoor_Asset_Sheet_1_145: 1093285832
+      Indoor_Asset_Sheet_1_149: 79447693
+      Indoor_Asset_Sheet_1_53: 1148986400
+      Indoor_Asset_Sheet_1_157: -1775181658
+      Indoor_Asset_Sheet_1_130: -1265930205
+      Indoor_Asset_Sheet_1_1: -197137861
+      Indoor_Asset_Sheet_1_159: -1827915796
+      Indoor_Asset_Sheet_1_17: -709436920
+      Indoor_Asset_Sheet_1_98: 179383802
+      Indoor_Asset_Sheet_1_54: -1957151295
+      Indoor_Asset_Sheet_1_5: -1271812921
+      Indoor_Asset_Sheet_1_75: -607557416
+      Indoor_Asset_Sheet_1_127: 1099164844
+      Indoor_Asset_Sheet_1_175: 125083040
+      Indoor_Asset_Sheet_1_4: 1418019925
+      Indoor_Asset_Sheet_1_150: 149234948
+      Indoor_Asset_Sheet_1_20: 477284352
+      Indoor_Asset_Sheet_1_136: -2084731295
+      Indoor_Asset_Sheet_1_12: 1684840963
+      Indoor_Asset_Sheet_1_76: -1126679345
+      Indoor_Asset_Sheet_1_74: 1086698093
+      Indoor_Asset_Sheet_1_146: -436292987
+      Indoor_Asset_Sheet_1_155: -532991532
+      Indoor_Asset_Sheet_1_86: -1731941004
+      Indoor_Asset_Sheet_1_25: 1376191200
+      Indoor_Asset_Sheet_1_10: 1166660684
+      Indoor_Asset_Sheet_1_46: 1722340454
+      Indoor_Asset_Sheet_1_68: 1089018655
+      Indoor_Asset_Sheet_1_99: -594176375
+      Indoor_Asset_Sheet_1_78: -162801879
+      Indoor_Asset_Sheet_1_24: 1592127036
+      Indoor_Asset_Sheet_1_94: 2019072304
+      Indoor_Asset_Sheet_1_0: 324980860
+      Indoor_Asset_Sheet_1_138: 1935173311
+      Indoor_Asset_Sheet_1_49: -1702734279
+      Indoor_Asset_Sheet_1_139: -589796328
+      Indoor_Asset_Sheet_1_119: -801032441
+      Indoor_Asset_Sheet_1_43: 1473388453
+      Indoor_Asset_Sheet_1_104: 1449143177
+      Indoor_Asset_Sheet_1_15: 1879856174
+      Indoor_Asset_Sheet_1_44: 1052654181
+      Indoor_Asset_Sheet_1_151: 1223281232
+      Indoor_Asset_Sheet_1_69: 1546027408
+      Indoor_Asset_Sheet_1_32: -253674871
+      Indoor_Asset_Sheet_1_56: 67723850
+      Indoor_Asset_Sheet_1_147: -1284262173
+      Indoor_Asset_Sheet_1_116: -184957027
+      Indoor_Asset_Sheet_1_122: -649878715
+      Indoor_Asset_Sheet_1_27: 1039227555
+      Indoor_Asset_Sheet_1_166: -1457575141
+      Indoor_Asset_Sheet_1_174: 1083928323
+      Indoor_Asset_Sheet_1_178: -336306089
+      Indoor_Asset_Sheet_1_2: 1128702264
+      Indoor_Asset_Sheet_1_160: 1199952895
+      Indoor_Asset_Sheet_1_89: 991499811
+      Indoor_Asset_Sheet_1_22: 1879773570
+      Indoor_Asset_Sheet_1_129: 1821209365
+      Indoor_Asset_Sheet_1_83: -838582988
+      Indoor_Asset_Sheet_1_154: 416647873
+      Indoor_Asset_Sheet_1_143: 176241635
+      Indoor_Asset_Sheet_1_95: 1845452164
+      Indoor_Asset_Sheet_1_61: 1424123718
+      Indoor_Asset_Sheet_1_177: 1137404374
+      Indoor_Asset_Sheet_1_158: -1242547380
+      Indoor_Asset_Sheet_1_14: -9981093
+      Indoor_Asset_Sheet_1_153: 657669018
+      Indoor_Asset_Sheet_1_33: -1860256869
+      Indoor_Asset_Sheet_1_102: -1260808450
+      Indoor_Asset_Sheet_1_90: -1410930882
+      Indoor_Asset_Sheet_1_70: 1462010421
+      Indoor_Asset_Sheet_1_38: 1601255871
+      Indoor_Asset_Sheet_1_103: 932555345
+      Indoor_Asset_Sheet_1_121: 120294483
+      Indoor_Asset_Sheet_1_173: 810580833
+      Indoor_Asset_Sheet_1_85: -1390221369
+      Indoor_Asset_Sheet_1_82: 1430535550
+      Indoor_Asset_Sheet_1_142: -909811900
+      Indoor_Asset_Sheet_1_16: -1294985231
+      Indoor_Asset_Sheet_1_120: -1557292818
+      Indoor_Asset_Sheet_1_19: -864332221
+      Indoor_Asset_Sheet_1_118: -1085092981
+      Indoor_Asset_Sheet_1_55: 2085645627
+      Indoor_Asset_Sheet_1_114: 1379050347
+      Indoor_Asset_Sheet_1_79: -418236682
+      Indoor_Asset_Sheet_1_156: 1267666255
+      Indoor_Asset_Sheet_1_3: 22421812
+      Indoor_Asset_Sheet_1_73: 207006244
+      Indoor_Asset_Sheet_1_135: -1992771381
+      Indoor_Asset_Sheet_1_167: -1020460117
+      Indoor_Asset_Sheet_1_137: -1163625710
+      Indoor_Asset_Sheet_1_52: 875691772
+      Indoor_Asset_Sheet_1_132: -1440236188
+      Indoor_Asset_Sheet_1_126: 565982836
+      Indoor_Asset_Sheet_1_66: 558460895
+      Indoor_Asset_Sheet_1_133: 2021172839
+      Indoor_Asset_Sheet_1_125: -192814970
+      Indoor_Asset_Sheet_1_57: 481859740
+      Indoor_Asset_Sheet_1_72: 1449437204
+      Indoor_Asset_Sheet_1_93: 1825204778
+      Indoor_Asset_Sheet_1_161: 87459378
+      Indoor_Asset_Sheet_1_163: 1834246064
+      Indoor_Asset_Sheet_1_65: -1420839389
+      Indoor_Asset_Sheet_1_29: 1620990074
+      Indoor_Asset_Sheet_1_117: -620167779
+      Indoor_Asset_Sheet_1_7: 502703757
+      Indoor_Asset_Sheet_1_105: -406092923
+      Indoor_Asset_Sheet_1_84: 538767177
+      Indoor_Asset_Sheet_1_45: 1020937570
+      Indoor_Asset_Sheet_1_131: 1874149490
+      Indoor_Asset_Sheet_1_37: 1973392884
+      Indoor_Asset_Sheet_1_47: -175579946
+      Indoor_Asset_Sheet_1_59: -2121811344
+      Indoor_Asset_Sheet_1_80: -1080508104
+      Indoor_Asset_Sheet_1_28: -1018779633
+      Indoor_Asset_Sheet_1_41: 1957096845
+      Indoor_Asset_Sheet_1_31: -834357081
+      Indoor_Asset_Sheet_1_100: 1627912112
+      Indoor_Asset_Sheet_1_48: -12877728
+      Indoor_Asset_Sheet_1_91: 173204132
+      Indoor_Asset_Sheet_1_50: 1659084218
+      Indoor_Asset_Sheet_1_30: 1907629189
+      Indoor_Asset_Sheet_1_6: -716694846
+      Indoor_Asset_Sheet_1_110: -1472115136
+      Indoor_Asset_Sheet_1_108: 1934243480
+      Indoor_Asset_Sheet_1_112: -1817422734
+      Indoor_Asset_Sheet_1_148: -825732689
+      Indoor_Asset_Sheet_1_134: -234432542
+      Indoor_Asset_Sheet_1_18: 1193751491
+      Indoor_Asset_Sheet_1_26: 889681029
+      Indoor_Asset_Sheet_1_60: 640802125
+      Indoor_Asset_Sheet_1_109: -1917741695
+      Indoor_Asset_Sheet_1_87: 688134394
+      Indoor_Asset_Sheet_1_34: 1524231529
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

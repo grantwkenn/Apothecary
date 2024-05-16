@@ -5,7 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class Talk_Objective : Quest_Objective
 {
-    public Talk_Objective_Data data;
+    [SerializeField]
+    private Talk_Objective_Data data;
 
     public void dialogueComplete()
     {   
@@ -17,6 +18,9 @@ public class Talk_Objective : Quest_Objective
         this.data = tod;
     }
 
+    public Talk_Objective_Data getData() { return data; }
+
+    public void setComplete(bool val) { complete = val; }
 
 
 }

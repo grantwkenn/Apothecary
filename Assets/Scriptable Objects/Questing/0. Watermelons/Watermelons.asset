@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a9314cfa957c88449947c271dd3df2ba, type: 3}
+  m_Name: Watermelons
+  m_EditorClassIdentifier: 
+  item_data: {fileID: 11400000, guid: 80828bb4ee9bfc342b739e251f04098c, type: 2}
+  numToGather: 3
+  retroactive: 0

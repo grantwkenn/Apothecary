@@ -6,26 +6,24 @@ using UnityEngine;
 public enum State
 {
     //does shovel and sword need their own animation? can it be shared as uninteruptible?
-    idle, run, sword, shovel, interact, freeze, knockBack
+    idle, run, sword, hoe, water, interact, freeze, knockBack
 }
 
 
 public class Player : MonoBehaviour
 {
+    public bool debugMode;
 
     public static Player Instance { get; private set; }
 
-    public bool startInBed;
 
     [SerializeField]
     State currentState;
 
     GameObject gm;
-    Pause_Manager pm;
     Tile_Manager tm;
     Text_Manager textManager;
     Scene_Manager sm;
-
 
     [SerializeField]
     protected float baseSpeed;
@@ -59,6 +57,9 @@ public class Player : MonoBehaviour
     Vector2 colliderBottomLeft;
     Vector2 colliderBottomRight;
 
+    public float stairSlope;
+    Vector2 stairYcomponent;
+
 
     int MAX_HEALTH = 10;
     int MAX_MANA = 10;
@@ -72,16 +73,18 @@ public class Player : MonoBehaviour
 
     int manaBurn;
 
+
     //string[] shovel = { "Shovel_Up", "Shovel_Right", "Shovel_Down", "Shovel_Left" };
     //string[] run = { "run_up", "run_right", "run_down", "run_left" };
     //string[] idle = { "idle_up", "idle_right", "idle_down", "idle_left" };
     //string[] sword = { "sword_up", "sword_right", "sword_down", "sword_left" };
 
 
-    string[] shovel = { "Shovel_Up", "Shovel_Right", "Shovel_Down", "Shovel_Left" };
-    string[] run = { "Run_UP_V2", "Run_Right_V2", "Run_Down_V2", "Run_Left_V2" };
-    string[] idle = { "Idle_UP_V2", "Idle_Right_V2", "Idle_Down_V2", "Idle_Left_V2" };
-    string[] sword = { "sword_up", "sword_right", "sword_down", "sword_left" };
+    string[] hoe = { "hoe_U", "hoe_R", "hoe_D", "hoe_L" };
+    string[] run = { "run_U", "run_R", "run_D", "run_L" };
+    string[] idle = { "idle_U", "idle_R", "idle_D", "idle_L" };
+    string[] sword = { "sword_U", "sword_R", "sword_D", "sword_L" };
+    string[] water = { "water_U", "water_R", "water_D", "water_L" };
 
     Vector2 knockImpulse;
 
@@ -96,60 +99,61 @@ public class Player : MonoBehaviour
 
     BoxCollider2D bc;
 
-    SpriteRenderer silo;
-
     private void Awake()
     {
         if (Instance != null && Instance != this) Destroy(gameObject);
         else Instance = this;
-
     }
 
+    private void OnEnable()
+    {
+        gm = GameObject.FindGameObjectWithTag("GameManager");
+        tm = gm.GetComponent<Tile_Manager>();
+        textManager = gm.GetComponent<Text_Manager>();
+        sm = gm.GetComponent<Scene_Manager>();
+        bc = this.GetComponent<BoxCollider2D>();
+        Data_Persistence dp = sm.getDataPersistence(); //TODO remove?
 
+        animator = GetComponent<Animator>();
+        myRigidbody = GetComponent<Rigidbody2D>();
+        invManager = gm.GetComponent<Inventory_Manager>();
+        spriteRenderer = this.GetComponent<SpriteRenderer>();
+        audioSource = this.GetComponent<AudioSource>();
+
+
+
+        stairYcomponent = new Vector2(0, 0);
+
+        speed = baseSpeed;
+
+        freeze();
+    }
 
 
     // Start is called before the first frame update
     void Start()
     {
-        gm = GameObject.FindGameObjectWithTag("GameManager");
-        pm = gm.GetComponent<Pause_Manager>();
-        tm = gm.GetComponent<Tile_Manager>();
-        textManager = gm.GetComponent<Text_Manager>();
-        sm = gm.GetComponent<Scene_Manager>();
-        bc = this.GetComponent<BoxCollider2D>();
 
-        if (startInBed)
-        {
-            this.transform.position = 
-            GameObject.FindGameObjectWithTag("Bed").transform.position;
-        }
 
-        animator = GetComponent<Animator>();
-        myRigidbody = GetComponent<Rigidbody2D>();
-
-        directionFacing = Vector2.down;
-        facing = 2;
-
-        speed = baseSpeed;
-
-        invManager = gm.GetComponent<Inventory_Manager>();
-
-        health = sm.getHealth();
         mana = MAX_MANA;
         mana = 0;
         manaRegenCounter = 0;
 
-        //currentState = State.idle;
 
-        spriteRenderer = this.GetComponent<SpriteRenderer>();
 
-        audioSource = this.GetComponent<AudioSource>();
+        loadPersistenceData();
 
-        silo = this.transform.Find("silhouette").GetComponent<SpriteRenderer>();
 
     }
 
+    void loadPersistenceData()
+    {       
+        if(!debugMode)
+            this.transform.position = sm.getEntrance().transform.position;
+        this.facing = sm.getEntrance().getURDL();
+        this.health = sm.getHealth();
 
+    }
 
     public void freeze()
     {       
@@ -199,39 +203,45 @@ public class Player : MonoBehaviour
             manaRegenCounter = 0;
     }
 
-    //TODO move this functionality entirely to the inventory manager
-    public void Use()
-    {
-        string itemName = invManager.getSelectedItem().getData().getName();
-
-        if (itemName == "Sword")
-            Sword();
-        else if (itemName == "Shovel")
-            Shovel();
-
-        else if (itemName == "Red Potion" && health < MAX_HEALTH)
-        {
-            heal(3);
-
-            invManager.discardSelection();
-        }
-    }
     
+
+    public void executePlayerFn(byte code)
+    {
+        if (!interruptibleState()) return;
+        
+        if (code == 0) Sword();
+        if (code == 1) Hoe();
+        if (code == 2) Water();
+    }
+
+    public void heal(byte hp)
+    {
+        health += hp;
+        if (health > MAX_HEALTH)
+            health = MAX_HEALTH;
+    }
+
+    void Water()
+    {
+        currentState = State.water;
+    }
+
+    //used by animation
+    void waterTile()
+    {
+        tm.water();
+    }
+
     void Sword()
     {
-        if (!interruptibleState()) return;
-
         currentState = State.sword;
 
-        swordSound();
-        
+        //swordSound();       
     }
 
-    void Shovel()
-    {
-        if (!interruptibleState()) return;
-        
-        currentState = State.shovel;
+    void Hoe()
+    {        
+        currentState = State.hoe;
     }
 
     void AnimationUpdate()
@@ -247,14 +257,15 @@ public class Player : MonoBehaviour
         {
             animator.Play(run[facing]);
         }
-        else if (currentState == State.shovel)
+        else if (currentState == State.hoe)
         {
-            animator.Play(shovel[facing]);
+            animator.Play(hoe[facing]);
+        }
+        else if (currentState == State.water)
+        {
+            animator.Play(water[facing]);
         }
         else if (currentState == State.sword) animator.Play(sword[facing]);
-
-
-        silo.sprite = this.spriteRenderer.sprite;
 
 
     }
@@ -268,8 +279,12 @@ public class Player : MonoBehaviour
             myRigidbody.velocity = zero2;
         }
         else if (currentState == State.run)
-        {
+        {            
             myRigidbody.velocity = moveInput.normalized * speed;
+
+            stairYcomponent.y = myRigidbody.velocity.x * stairSlope;
+
+            myRigidbody.velocity -= stairYcomponent;
         }
         else if (currentState == State.knockBack) { }
         else if (currentState != State.run)
@@ -332,13 +347,6 @@ public class Player : MonoBehaviour
             health -= damage;
     }
 
-    void heal(int hp)
-    {
-        health += hp;
-        if (health > MAX_HEALTH)
-            health = MAX_HEALTH;
-    }
-
     public void toggleSprint(bool input)
     {
         if (input)
@@ -360,6 +368,8 @@ public class Player : MonoBehaviour
 
     public void inputUpdate(Vector2 input)
     {
+        if (currentState == State.freeze) return;
+        
         moveInput = input;
         if (interruptibleState())
         {
@@ -380,8 +390,12 @@ public class Player : MonoBehaviour
 
     bool interruptibleState()
     {
-        if (currentState == State.shovel) return false;
+        //this could use a map for increased speed?
+
+        //do we need different state for each tool? hoe, water, etc.?
+        if (currentState == State.hoe) return false;
         if (currentState == State.sword) return false;
+        if (currentState == State.water) return false;
         if (currentState == State.knockBack) return false;
         if (currentState == State.freeze) return false;
         
@@ -395,11 +409,7 @@ public class Player : MonoBehaviour
 
     public float getVelocity() { return myRigidbody.velocity.magnitude; }
 
-    public void exposeDirt()
-    {
-        tm.exposeDirt();
-    }
-
+    public void dig() { tm.till(); }
 
     public bool isFacing(Transform transform)
     {
@@ -418,32 +428,27 @@ public class Player : MonoBehaviour
     }
 
     public void swordSound()
-    {
-        
+    {       
         audioSource.clip = swordClip;
+
+        audioSource.time = audioSource.clip.length * 0.35f;
+
         audioSource.Play();
     }
 
-    public Vector2 getColliderBottomLeft()
-    {
-        colliderBottomLeft.x = this.transform.position.x - (bc.size.x / 2f) + bc.offset.x;
-        colliderBottomLeft.y = this.transform.position.y - (bc.size.y / 2f) + bc.offset.y;
-        return colliderBottomLeft;
-    }
 
-    public Vector2 getColliderBottomRight()
-    {
-        colliderBottomRight.x = this.transform.position.x + (bc.size.x / 2f) + bc.offset.x;
-        colliderBottomRight.y = this.transform.position.y + (bc.size.y / 2f) + bc.offset.y;
-        return colliderBottomRight;
-    }
+    public void setStairSlope(float co) { this.stairSlope = co; }
 
-    public void sceneInitialize(int health, Vector2 pos, byte URDL)
+    public bool isFacingPoint(Vector2 point)
     {
-        this.health = health;
-        this.transform.position = pos;
-        this.facing = URDL;
-    }
+        double angle = Mathf.Atan2((point.y - this.transform.position.y), (point.x - this.transform.position.x));
 
+        if (facing == 0) return angle < Mathf.PI / 2;
+        if(facing == 1) return angle < Mathf.PI && angle > Mathf.PI/2;
+        if (facing == 2) return angle < (3 * Mathf.PI / 2) && angle > Mathf.PI;
+        if (facing == 3) return angle > (3 * Mathf.PI / 2);
+
+        return false;
+    }
 
 }

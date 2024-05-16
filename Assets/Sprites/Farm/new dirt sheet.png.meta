@@ -507,7 +507,7 @@ TextureImporter:
       213: 7955511098925304053
     second: new dirt sheet_167
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -528,6 +528,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -566,6 +567,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -593,6 +595,30 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -4144,6 +4170,175 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      new dirt sheet_108: -3694307363707591631
+      new dirt sheet_161: -7449583532344835681
+      new dirt sheet_102: -1849498506562996650
+      new dirt sheet_51: 683803740949465120
+      new dirt sheet_29: -2336661958963085791
+      new dirt sheet_86: 8532715504689787701
+      new dirt sheet_137: 7923093295430250573
+      new dirt sheet_115: 6540125721035569003
+      new dirt sheet_54: -2690485772086678958
+      new dirt sheet_68: 6282043081102456070
+      new dirt sheet_76: 309858027099897281
+      new dirt sheet_50: -5053093225321897314
+      new dirt sheet_101: 6923961273530802467
+      new dirt sheet_80: 945926155098829919
+      new dirt sheet_96: 7767042746462390216
+      new dirt sheet_59: -1829487554048040559
+      new dirt sheet_130: 7648954741738378528
+      new dirt sheet_156: -187985999807078416
+      new dirt sheet_92: 471181272383320099
+      new dirt sheet_23: -975153737526349857
+      new dirt sheet_97: 964343305745936083
+      new dirt sheet_138: -4777331524430343706
+      new dirt sheet_52: -6582193310240984739
+      new dirt sheet_157: 3110046237458349183
+      new dirt sheet_28: 4339190964326855691
+      new dirt sheet_158: 4392654060910707096
+      new dirt sheet_136: -1929223001652101876
+      new dirt sheet_121: 3676499173675644756
+      new dirt sheet_34: -2005210024371390443
+      new dirt sheet_71: 102142038104253236
+      new dirt sheet_5: -1808911428518950571
+      new dirt sheet_44: 1386116914496978363
+      new dirt sheet_154: -575290019373444516
+      new dirt sheet_42: -4443433224473658248
+      new dirt sheet_148: 8992400244233124348
+      new dirt sheet_0: 7598038987769267688
+      new dirt sheet_155: -5782450984373689286
+      new dirt sheet_89: 107710379033352489
+      new dirt sheet_105: 8858520366815978295
+      new dirt sheet_13: 7047106183159974474
+      new dirt sheet_166: 4195458619382943172
+      new dirt sheet_159: -95818057628352238
+      new dirt sheet_58: 2967049934431971736
+      new dirt sheet_78: 6997288792196182168
+      new dirt sheet_117: 7185839849507962765
+      new dirt sheet_14: 7118958235092894359
+      new dirt sheet_142: -4427215690429460812
+      new dirt sheet_61: -3018107214129960492
+      new dirt sheet_104: 5397164872204472449
+      new dirt sheet_144: 6619953266685514026
+      new dirt sheet_10: 8917076135696361925
+      new dirt sheet_77: 4940826415704084951
+      new dirt sheet_103: 5745491872856714107
+      new dirt sheet_146: 6735907145467530312
+      new dirt sheet_45: -4742374855843700378
+      new dirt sheet_48: -5241705341400298435
+      new dirt sheet_109: -3028189758447148536
+      new dirt sheet_126: -8822260942995208921
+      new dirt sheet_37: 7076796109756929093
+      new dirt sheet_39: -705156055135003859
+      new dirt sheet_3: -2695870684304469804
+      new dirt sheet_9: -4346940500735277523
+      new dirt sheet_99: -7538780397339541546
+      new dirt sheet_140: -973270425481214216
+      new dirt sheet_41: -3522980825476901279
+      new dirt sheet_167: 7955511098925304053
+      new dirt sheet_17: -7191899389665919407
+      new dirt sheet_84: 8753735216284458637
+      new dirt sheet_75: 3552496967082809920
+      new dirt sheet_65: 7113408235194907966
+      new dirt sheet_30: -6703034586114573637
+      new dirt sheet_8: -7045340855667669423
+      new dirt sheet_12: 6641434558984335402
+      new dirt sheet_133: 6358997641047333374
+      new dirt sheet_124: -2872547274934904745
+      new dirt sheet_31: -4056289032605929204
+      new dirt sheet_19: -292828347064690836
+      new dirt sheet_70: 6940087042653435382
+      new dirt sheet_66: 5408022731731230783
+      new dirt sheet_57: 5618820711582786318
+      new dirt sheet_49: -1660957763926941609
+      new dirt sheet_1: -941713744004756804
+      new dirt sheet_88: 6063353206512641394
+      new dirt sheet_83: -920095224287502728
+      new dirt sheet_90: -952501164818656120
+      new dirt sheet_98: 2840808792471557975
+      new dirt sheet_125: 7060783847794647766
+      new dirt sheet_113: 5390285554991074050
+      new dirt sheet_35: -5946835369478014808
+      new dirt sheet_36: -698594896890493662
+      new dirt sheet_67: -801268142899072606
+      new dirt sheet_123: 3193039207886321951
+      new dirt sheet_116: 5299982714048396586
+      new dirt sheet_128: -5794210239557853655
+      new dirt sheet_38: -2012977137138407540
+      new dirt sheet_95: -420301279966039770
+      new dirt sheet_112: 1500616766902012728
+      new dirt sheet_147: -112685534767301801
+      new dirt sheet_93: 7881799124135013378
+      new dirt sheet_47: -2987562967312722218
+      new dirt sheet_7: -8826536275690250865
+      new dirt sheet_87: 8062874833265355258
+      new dirt sheet_69: -4955418282656503961
+      new dirt sheet_111: 6542996190183338630
+      new dirt sheet_55: 2365129209235367743
+      new dirt sheet_119: -5241606189777389151
+      new dirt sheet_162: -5782798417543180167
+      new dirt sheet_74: -7720280787704337648
+      new dirt sheet_139: -8477312646705565063
+      new dirt sheet_81: 1176541472585939724
+      new dirt sheet_46: 44319474660924746
+      new dirt sheet_6: 861307619971227542
+      new dirt sheet_73: -5021370960178384179
+      new dirt sheet_129: -1961180840581925171
+      new dirt sheet_22: 8287302910447780678
+      new dirt sheet_152: -4701531637902308
+      new dirt sheet_131: 3526961909449112022
+      new dirt sheet_82: -881299665108116799
+      new dirt sheet_26: -5598231901201859588
+      new dirt sheet_72: -1027108546553778408
+      new dirt sheet_145: -5234719663898283941
+      new dirt sheet_27: -6188525473598859502
+      new dirt sheet_32: 5903223722780294488
+      new dirt sheet_153: 5478422572048090845
+      new dirt sheet_60: -6587534222003160845
+      new dirt sheet_64: -1364439437734071100
+      new dirt sheet_149: -543921805022609408
+      new dirt sheet_24: -3489905016317044893
+      new dirt sheet_33: -6204420696912367704
+      new dirt sheet_40: 2903581260555290529
+      new dirt sheet_135: 4849586717025685423
+      new dirt sheet_11: 1689087428156674343
+      new dirt sheet_4: -4202792311912992339
+      new dirt sheet_62: 5319371529109806248
+      new dirt sheet_56: -8156610037306438840
+      new dirt sheet_150: -1746910313932196607
+      new dirt sheet_100: -8545878110996602089
+      new dirt sheet_25: -879651808793797893
+      new dirt sheet_53: 674579995010884464
+      new dirt sheet_63: 6274493249818882873
+      new dirt sheet_94: 5075388068430862900
+      new dirt sheet_114: 5780558395851204691
+      new dirt sheet_79: 5032332298560846982
+      new dirt sheet_118: 1059038378500109656
+      new dirt sheet_151: 3557889008829437387
+      new dirt sheet_160: -7523528082692784636
+      new dirt sheet_165: -9153906673577999608
+      new dirt sheet_163: 4055084838884750191
+      new dirt sheet_21: -5087631319857715088
+      new dirt sheet_85: 1633345564205204432
+      new dirt sheet_20: 8114224327546697991
+      new dirt sheet_2: -3404661772076110036
+      new dirt sheet_15: 9024297304149731907
+      new dirt sheet_110: -646358409164590878
+      new dirt sheet_143: -6768320330629277628
+      new dirt sheet_18: 3687115217768510993
+      new dirt sheet_164: 2409924263255104866
+      new dirt sheet_16: 1622587251821130139
+      new dirt sheet_132: -2798140560402469204
+      new dirt sheet_106: 6874699132930117880
+      new dirt sheet_134: 2623879057477926571
+      new dirt sheet_120: 6932215266911917099
+      new dirt sheet_122: 7058789460943648821
+      new dirt sheet_43: 7829055159402860153
+      new dirt sheet_141: -6235156194758319171
+      new dirt sheet_127: -6757933257385289456
+      new dirt sheet_91: 2273619522208801296
+      new dirt sheet_107: 8298392527034788039
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

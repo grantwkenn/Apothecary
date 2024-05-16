@@ -38,5 +38,8 @@ public class Gather_Objective : Quest_Objective
         return data;
     }
 
+    public int getCount() { return count; }
+
+    public void setCount(int _count) { this.count = _count; }
 
 }

@@ -5,9 +5,11 @@ using UnityEngine;
 [System.Serializable]
 public class Slay_Objective : Quest_Objective
 {
-    public Slay_Objective_Data data;
+    [SerializeField]
+    private Slay_Objective_Data data;
 
-    public int count = 0;
+    [SerializeField]
+    private int count = 0;
 
     public void countKill()
     {
@@ -22,4 +24,10 @@ public class Slay_Objective : Quest_Objective
         this.data = sod;
         this.count = 0;
     }
+
+    public Slay_Objective_Data getData() { return data; }
+
+    public void setCount(int _count) { this.count = _count; }
+
+    public int getCount() { return this.count; }
 }

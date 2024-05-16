@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9314cfa957c88449947c271dd3df2ba, type: 3}
   m_Name: gather mushroom
   m_EditorClassIdentifier: 
-  item_data: {fileID: 11400000, guid: afc1b3cc455dff94e9030751cdbc5fff, type: 2}
+  item_data: {fileID: 11400000, guid: 80828bb4ee9bfc342b739e251f04098c, type: 2}
   numToGather: 3
   retroactive: 0

@@ -63,7 +63,7 @@ TextureImporter:
       213: -3398301702864816433
     second: crab_emerge_animation_19
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -83,6 +83,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -92,8 +94,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -114,10 +116,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -145,6 +151,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -588,6 +606,27 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      crab_emerge_animation_19: -3398301702864816433
+      crab_emerge_animation_0: -1106986077527146661
+      crab_emerge_animation_3: -3918614540975352613
+      crab_emerge_animation_15: 735568094569846543
+      crab_emerge_animation_11: -4826079214022550107
+      crab_emerge_animation_18: -2998400411409894847
+      crab_emerge_animation_7: -8791928188920224115
+      crab_emerge_animation_5: -2715867641659684357
+      crab_emerge_animation_8: 5195854621345316084
+      crab_emerge_animation_13: -6672082788008808666
+      crab_emerge_animation_1: -3354406678765409638
+      crab_emerge_animation_14: 7860646228160087849
+      crab_emerge_animation_6: -7522358811232856212
+      crab_emerge_animation_9: 3618438594477208494
+      crab_emerge_animation_16: -5507822594407773969
+      crab_emerge_animation_10: 1474701194026548853
+      crab_emerge_animation_4: -567785784271493994
+      crab_emerge_animation_12: -22730873279877594
+      crab_emerge_animation_17: -9094860030890889787
+      crab_emerge_animation_2: 6597040987680955801
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b52a521f9c0e88a488fd2e130bbd04fe, type: 3}
+  m_Name: Watermelon
+  m_EditorClassIdentifier: 
+  itemName: Watermelonser
+  description: 
+  itemNo: 33
+  value: 0
+  stackLimit: 1
+  sprite: {fileID: 157536707, guid: 14fede08e61c32649913f56c2b65656d, type: 3}
+  tileSelector: 0
+  depletions: 0
+  health: 0
+  depletionSprites:
+  - {fileID: 157536707, guid: 14fede08e61c32649913f56c2b65656d, type: 3}
+  - {fileID: 155582049, guid: 14fede08e61c32649913f56c2b65656d, type: 3}
+  - {fileID: 96918424, guid: 14fede08e61c32649913f56c2b65656d, type: 3}
+  - {fileID: -546915003, guid: 14fede08e61c32649913f56c2b65656d, type: 3}
+  - {fileID: -580848839, guid: 14fede08e61c32649913f56c2b65656d, type: 3}

@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem.OnScreen;
+
 
 public class HUD_Script : MonoBehaviour
 {
@@ -15,14 +17,26 @@ public class HUD_Script : MonoBehaviour
 
     Sprite[] healthManaSprites;
 
-    
+    [SerializeField]
+    bool build;
+    Transform touchButtons;
+
+    private void OnEnable()
+    {
+        player = GameObject.FindGameObjectWithTag("Player");
+
+        touchButtons = this.transform.Find("Touch Buttons");
+        touchButtons.gameObject.SetActive(build);
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         
-        player = GameObject.FindGameObjectWithTag("Player");
 
 
+        //TODO we do not use resources any more
         // load health and mana images
 
         healthImages = new Sprite[11];

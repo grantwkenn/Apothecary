@@ -52,8 +52,8 @@ public class Being : MonoBehaviour
     CritterState prevState;
 
     int chanceEatAgain = 50;
-    int waitRangeMin = 3;
-    int waitRangeMax = 5;
+    int waitRangeMin = 1;
+    int waitRangeMax = 3;
     int chanceToMove = 50;
 
     Vector2 prevTarget;
@@ -169,7 +169,6 @@ public class Being : MonoBehaviour
 
             else
             {
-                Debug.Log("wait started");
                 StartCoroutine(wait());
             }
 

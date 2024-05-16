@@ -363,7 +363,7 @@ TextureImporter:
       213: 7515171204778938179
     second: Tide Sheet_119
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -383,6 +383,8 @@ TextureImporter:
   isReadable: 0
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -392,8 +394,8 @@ TextureImporter:
   textureSettings:
     serializedVersion: 2
     filterMode: 0
-    aniso: -1
-    mipBias: -100
+    aniso: 1
+    mipBias: 0
     wrapU: 1
     wrapV: 1
     wrapW: 1
@@ -414,10 +416,14 @@ TextureImporter:
   textureType: 8
   textureShape: 1
   singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
   maxTextureSizeSet: 0
   compressionQualitySet: 0
   textureFormatSet: 0
+  ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -445,6 +451,18 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
     buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -2988,6 +3006,127 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      Tide Sheet_117: -5777002918012834061
+      Tide Sheet_78: 1981002634957568775
+      Tide Sheet_112: -2714960206282282997
+      Tide Sheet_114: -727529539243016328
+      Tide Sheet_7: 5552644451310918078
+      Tide Sheet_6: -8718438573371489120
+      Tide Sheet_33: 1883566834499115970
+      Tide Sheet_39: 306035895618982166
+      Tide Sheet_44: 4641700459871358215
+      Tide Sheet_69: -8497496739386265743
+      Tide Sheet_21: 9143091949913051889
+      Tide Sheet_115: -9214969081135486800
+      Tide Sheet_27: -191065509835852734
+      Tide Sheet_106: -6449707202046763873
+      Tide Sheet_53: 8614069711120862244
+      Tide Sheet_64: -5204557177741148077
+      Tide Sheet_87: 8840420632036676043
+      Tide Sheet_38: -7540384689168941737
+      Tide Sheet_37: 7457610920999479979
+      Tide Sheet_9: 7145155807022589522
+      Tide Sheet_20: 7382668105743602240
+      Tide Sheet_23: 8628872114508276731
+      Tide Sheet_60: 2716193217222407384
+      Tide Sheet_65: 7370038423523496149
+      Tide Sheet_104: 3814297860604382270
+      Tide Sheet_51: 3434582784743575987
+      Tide Sheet_40: 972082057090043611
+      Tide Sheet_15: 4332293857095294567
+      Tide Sheet_79: 7296272589582148453
+      Tide Sheet_83: 9180467553795028231
+      Tide Sheet_2: 3486290148572636566
+      Tide Sheet_10: -630829810419662088
+      Tide Sheet_82: -7208015407676713734
+      Tide Sheet_118: 5536984296803988450
+      Tide Sheet_5: 1879945958515773944
+      Tide Sheet_84: 5612308501779145887
+      Tide Sheet_90: 4286139802821298637
+      Tide Sheet_17: 6784592415862551784
+      Tide Sheet_22: -4452756866039948004
+      Tide Sheet_101: -1190398742792679261
+      Tide Sheet_19: 3857212900247052655
+      Tide Sheet_88: -3430947416079417714
+      Tide Sheet_48: 6741889184791437037
+      Tide Sheet_41: 2580468881240588802
+      Tide Sheet_3: -1359062205523669904
+      Tide Sheet_108: 5387191762384714152
+      Tide Sheet_12: 7711980718221006151
+      Tide Sheet_36: 367612624790745583
+      Tide Sheet_80: 867113127202030977
+      Tide Sheet_54: 5207929798297177240
+      Tide Sheet_57: 8142287904966053604
+      Tide Sheet_68: 6801251879164080378
+      Tide Sheet_113: 2899427278606554378
+      Tide Sheet_61: 2362817090612010462
+      Tide Sheet_92: -5323739588085966457
+      Tide Sheet_72: -182847120114471435
+      Tide Sheet_11: -3102951993026435250
+      Tide Sheet_35: 8563550204530753754
+      Tide Sheet_62: -3367235263205269081
+      Tide Sheet_25: 7047876779468055302
+      Tide Sheet_28: 2977878023088233108
+      Tide Sheet_14: -4405020421236410128
+      Tide Sheet_63: 8673514832489888088
+      Tide Sheet_56: 5954499503852972371
+      Tide Sheet_24: 3528221347019194080
+      Tide Sheet_32: -5849362555711079879
+      Tide Sheet_42: 2867448453435220616
+      Tide Sheet_70: -7921411249119264576
+      Tide Sheet_102: -6937463574010958245
+      Tide Sheet_109: -5895771728666972484
+      Tide Sheet_43: 6126978094893948566
+      Tide Sheet_81: 2978504091480400765
+      Tide Sheet_45: -6638908592379599381
+      Tide Sheet_30: -3424778396134396176
+      Tide Sheet_110: -4731607999213309384
+      Tide Sheet_26: -2217836519739383251
+      Tide Sheet_85: -4214138368346690400
+      Tide Sheet_75: -8794538970928180785
+      Tide Sheet_100: -7463169065963118929
+      Tide Sheet_18: -5200834130768548252
+      Tide Sheet_97: 3437750144978423463
+      Tide Sheet_34: -8668772556512132224
+      Tide Sheet_116: -4130324760883974242
+      Tide Sheet_105: -4854091025198159858
+      Tide Sheet_58: 157632936135416798
+      Tide Sheet_59: -5791795719073419875
+      Tide Sheet_91: 9212889553422759091
+      Tide Sheet_74: -5686849664287933096
+      Tide Sheet_99: -6399201200487905432
+      Tide Sheet_29: 1221549133627266602
+      Tide Sheet_86: 2626929107339829332
+      Tide Sheet_93: -175535685532085534
+      Tide Sheet_49: 4614220921405308783
+      Tide Sheet_103: -1712149482918870440
+      Tide Sheet_16: -478917311845409530
+      Tide Sheet_107: 6565220492269081246
+      Tide Sheet_4: -4046721421307146314
+      Tide Sheet_0: -9044137412230227978
+      Tide Sheet_67: -5224393008771986013
+      Tide Sheet_89: -3052008052323471252
+      Tide Sheet_55: 3915320192763586931
+      Tide Sheet_94: -4572865458244063523
+      Tide Sheet_119: 7515171204778938179
+      Tide Sheet_46: 3773639848775465522
+      Tide Sheet_50: -9170803583679864736
+      Tide Sheet_73: 2441641308424134185
+      Tide Sheet_31: 5396259250292927608
+      Tide Sheet_98: 5145093946682338058
+      Tide Sheet_1: -7954407217623274873
+      Tide Sheet_96: -7268051907153474759
+      Tide Sheet_95: -3069638442271726876
+      Tide Sheet_77: -7422288762191425324
+      Tide Sheet_47: -3604901214309546373
+      Tide Sheet_52: 5285297052399555091
+      Tide Sheet_76: -8587223377598834307
+      Tide Sheet_13: -1916991740266353580
+      Tide Sheet_111: 472749226353860690
+      Tide Sheet_66: 5578242878530957781
+      Tide Sheet_71: 6942557843299951762
+      Tide Sheet_8: 5859279638431077619
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

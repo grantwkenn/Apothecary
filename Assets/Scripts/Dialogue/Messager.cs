@@ -8,12 +8,13 @@ using System;
 
 public class Messager : MonoBehaviour
 {
-    //
+    //TODO convert to Byte
     public int messagerID;
     
     GameObject gameManager;
     Text_Manager textManager;
     Dialogue_Manager dialogueManager;
+    Quest_Manager qm;
 
     [SerializeField]
     private Message message;
@@ -22,8 +23,13 @@ public class Messager : MonoBehaviour
     [SerializeField]
     int segmentIndex;
 
+    SpriteRenderer questIndicatorSprite;
+
     [SerializeField]
-    SpriteRenderer quest_indicator;
+    bool sign;
+
+    [SerializeField]
+    float indicatorHeight;
 
 
     private void Awake()
@@ -31,11 +37,18 @@ public class Messager : MonoBehaviour
         gameManager = GameObject.FindGameObjectWithTag("GameManager");
         textManager = gameManager.GetComponent<Text_Manager>();
         dialogueManager = gameManager.GetComponent<Dialogue_Manager>();
+        qm = gameManager.GetComponent<Quest_Manager>();
+
+
+        questIndicatorSprite = this.transform.Find("Quest Indicator").GetComponent<SpriteRenderer>();
+
     }
 
     private void OnEnable()
     {
-        
+        //TODO why do non-NPC messagers need to be indexed by the DM?
+
+
         //not all messagers have NPC. but we need a way to 
         //ID all messagers by messager ID
         // current solution is to manually ID all signs with ID not overlapping any NPCs
@@ -43,6 +56,8 @@ public class Messager : MonoBehaviour
         NPC npc = this.GetComponentInParent<NPC>();
         if (npc != null) messagerID = npc.getNPCID();
 
+        //do we need dialogue manager if a messager is not an NPC??
+        //maybe, might as well keep it for now
         dialogueManager.messagerEnable(this);
     }
 
@@ -64,7 +79,10 @@ public class Messager : MonoBehaviour
         else
             setMessage(message);
 
+
+
     }
+
 
     //maybe only load message once player has interacted,
 
@@ -74,7 +92,6 @@ public class Messager : MonoBehaviour
             dialogueManager.setCurrentMessager(this);
 
     }
-
 
 
     private void OnTriggerExit2D(Collider2D player)
@@ -146,20 +163,26 @@ public class Messager : MonoBehaviour
 
     public void setSymbol(int index)
     {
+        if (questIndicatorSprite == null) return;
         if(index < 0)
         {
-            quest_indicator.enabled = false;
+            questIndicatorSprite.enabled = false;
         }
         else
         {
-            quest_indicator.enabled = true;
-            quest_indicator.sprite = dialogueManager.getQuestSymbol(index);
-            
+            questIndicatorSprite.enabled = true;
+            questIndicatorSprite.sprite = qm.getQuestSymbol(index);           
         }
     }
 
     public void nextMessage()
     {
+        if(sign)
+        {
+            segmentIndex = 0;
+            return;
+        }
+        
         this.message = dialogueManager.nextMessage(this);
         if(this.message == null)
         {

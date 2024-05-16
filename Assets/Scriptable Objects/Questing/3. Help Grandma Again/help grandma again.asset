@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e9518cd0f26bd047b5ac71f6394cb55, type: 3}
+  m_Name: help grandma again
+  m_EditorClassIdentifier: 
+  title: Help Grandma Again
+  preQuests: 00000000
+  worldValues: 
+  relationship: 0
+  questID: 3
+  questGiverID: 0
+  turnIn_QGID: 0
+  isMainQuest: 0
+  dialogue_data: {fileID: 11400000, guid: 4d46f17823e3ba24d8ed42101aa994dd, type: 2}
+  objectives: []
+  slay_objectives:
+  - {fileID: 11400000, guid: 0a018e7b96f4ca44d915904cdfcbf6f3, type: 2}
+  talk_objectives: []
+  gather_objectives: []
+  questItems: []
+  rewards: []

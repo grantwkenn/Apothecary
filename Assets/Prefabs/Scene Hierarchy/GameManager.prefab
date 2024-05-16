@@ -1,0 +1,251 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2698974980975134958
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2698974980975134962}
+  - component: {fileID: 2698974980975134961}
+  - component: {fileID: 2698974980975134960}
+  - component: {fileID: 2698974980975134956}
+  - component: {fileID: 2698974980975134966}
+  - component: {fileID: 2698974980975134964}
+  - component: {fileID: 2698974980975134971}
+  - component: {fileID: 1883576782824874436}
+  - component: {fileID: 2698974980975134969}
+  - component: {fileID: 1117785936}
+  - component: {fileID: 808591620549776597}
+  - component: {fileID: 7290408562977958600}
+  - component: {fileID: 378725796586729882}
+  - component: {fileID: 2001381528329608711}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: GameManager
+  m_Icon: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2698974980975134962
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698974980975134958}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 2, y: 2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2698974980975134961
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698974980975134958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9492b99fc861e7746b298ec27305d661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
+--- !u!114 &2698974980975134960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698974980975134958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d82c18642ccd1e6408e331df5a85fc56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemCatalogue: {fileID: 11400000, guid: ac1e88af66f0d254b97683ae99565998, type: 2}
+  inventory: []
+--- !u!114 &2698974980975134956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698974980975134958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48894f9ad22a7fa48856ae2b50be8d3c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2698974980975134966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698974980975134958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aba4a696bc7fa4443ae0d7b1426fd853, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugMode: 0
+  selectionPrefab: {fileID: 887418551750418569, guid: b4eba8dab744dd343b3da5c0092ab861, type: 3}
+  dirtMap: {fileID: 0}
+  wateredMap: {fileID: 0}
+  tilledDirtTile: {fileID: 11400000, guid: d57c9ae424314824194d60757312ec52, type: 2}
+  wateredDirtTile: {fileID: 11400000, guid: 2f165cf16f7060d4a9eb1372e695dad4, type: 2}
+  grassTileMap: {fileID: 0}
+  grassPreFab: {fileID: 2577758115621942394, guid: 72e8052ca72f478459f2b91e5e437673, type: 3}
+  defaultGrassSprite: {fileID: -4776146301609788052, guid: dc4eebc4f0f2bda46aa6dbb171e567ff, type: 3}
+  grassLeft: {fileID: 7400000, guid: 424f6071bb333f446a985bd6b15a716a, type: 2}
+  grassRight: {fileID: 7400000, guid: 6204b438ffa2c5b428a960ba42fe4831, type: 2}
+  instantiate_Grass: 0
+  watered: {r: 0.7169812, g: 0.66625136, b: 0.66625136, a: 1}
+--- !u!114 &2698974980975134964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698974980975134958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a32caa5735ebd2b4192e4cb4c13dd9ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentMessager: {fileID: 0}
+--- !u!114 &2698974980975134971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698974980975134958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc3bd11e30fd71e448830e364943f7b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debugMode: 1
+  allQuests: {fileID: 11400000, guid: 2e96d61f818105d4992ce276c400209d, type: 2}
+  questDataByQID: []
+  questsComplete: 
+  questLog: []
+  questSymbols: []
+--- !u!114 &1883576782824874436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698974980975134958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2f2509326d621b4fb2638f78669f089, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sp: {fileID: 11400000, guid: 7cf5fe9f72de11e449240a468887e353, type: 2}
+  sceneSaveData: []
+--- !u!114 &2698974980975134969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698974980975134958}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ecdc97da2af6146b01c1af2b553a4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 16
+  run: 0
+  Hour: 12
+  PM: 1
+  freezeTime: 1
+  clockInSeconds: 540
+  daylight: {fileID: 0}
+--- !u!114 &1117785936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698974980975134958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7dd0b0ca0a049cf458dde97df5866e88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  storeMenu: {fileID: 1448704053639121768, guid: c4f8f20c621376244875953e40995576, type: 3}
+  storeMenus:
+  - {fileID: 1448704053639121768, guid: c4f8f20c621376244875953e40995576, type: 3}
+  currentMenu: {fileID: 0}
+--- !u!114 &808591620549776597
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698974980975134958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c94e3ba4a8e46a468fe584df2a08e1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  refs: {fileID: 11400000, guid: d029b8376f5da964cb09a5a00c546315, type: 2}
+--- !u!114 &7290408562977958600
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698974980975134958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74f13612d6779734793a0a0427a8be4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &378725796586729882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698974980975134958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2acbf1688aca99f44b5441aa9a8af0b2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneData:
+  - sceneName: 
+    crop_data:
+      sCrops: []
+      tilledTiles: []
+      wateredTiles: []
+--- !u!114 &2001381528329608711
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698974980975134958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11188cf37da7c93479478ffaa0eb575e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameData: {fileID: 11400000, guid: 4ed4040e4df345946800c819d7ae69ec, type: 2}
