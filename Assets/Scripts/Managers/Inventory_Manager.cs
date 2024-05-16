@@ -155,31 +155,36 @@ public class Inventory_Manager : MonoBehaviour
     //TODO refresh menus here
     private void addItem(Item item)
     {
-        int quantity = item.getQuantity();
-        //first look for this item already in stack
-        for(int i=0; i<inventorySize; i++)
+        int quantityAdded = item.getQuantity();
+        
+        if (item.getData().getStackLimit() > 1)
         {
-            Item invItem = inventory[i];
-            if(isSameItem(invItem, item))
+            //first look for this item already in stack
+            for (int i = 0; i < inventorySize; i++)
             {
-                //attempt to stack onto this item
-                int space = (invItem.getData().getStackLimit() - invItem.getQuantity());
-                if(space > quantity)
+                Item invItem = inventory[i];
+                if (isSameItem(invItem, item))
                 {
-                    invItem.addQuantity(quantity);
-                    item.subtractQuantity(quantity);
-                    break;
-                }
-                else
-                {
-                    invItem.addQuantity(space);
-                    item.subtractQuantity(space);
+                    //attempt to stack onto this item
+                    int space = (invItem.getData().getStackLimit() - invItem.getQuantity());
+                    if (space > item.getQuantity())
+                    {
+                        invItem.addQuantity(item.getQuantity());
+                        item.subtractQuantity(item.getQuantity());
+                        break;
+                    }
+                    else
+                    {
+                        invItem.addQuantity(space);
+                        item.subtractQuantity(space);
+                    }
                 }
             }
         }
 
-        if(item.getQuantity() > 0)
+        if (item.getQuantity() > 0)
         {
+            //prefer the selected slot first
             if (inventory[barSelection].isEmpty())
             {
                 inventory[barSelection] = item;
@@ -188,6 +193,7 @@ public class Inventory_Manager : MonoBehaviour
 
             else
             {
+                //find the next empty slot
                 for (int i = 0; i < inventorySize; i++)
                 {
                     if (inventory[i].isEmpty())
@@ -207,7 +213,7 @@ public class Inventory_Manager : MonoBehaviour
 
         dp.setItems(serializeInventory());
 
-        qm.itemAdded(item.getData().getItemNo(), quantity - item.getQuantity());
+        qm.itemAdded(item.getData().getItemNo(), quantityAdded);
         mm.refresh();
         
         //evaluate the selector in case we just picked up a tool. Is this neccessary?
@@ -223,15 +229,29 @@ public class Inventory_Manager : MonoBehaviour
 
     }
 
+    int countItem(Item item)
+    {
+        int count = 0;
+        for (int i = 0; i < inventorySize; i++)
+        {
+            if(isSameItem(inventory[i], item))
+            {
+                count += inventory[i].getQuantity();
+            }
+        }
+        return count;
+    }
 
 
     //TODO fix this with new stacking schema
     public void discardSelection()
     {
         Item item = inventory[barSelection];
-        qm.itemRemoved(inventory[barSelection].getItemNo(), inventory[barSelection].getQuantity());
+        int remaining = countItem(item) - item.getQuantity();
+        qm.itemRemoved(inventory[barSelection].getItemNo(), remaining);
         inventory[barSelection] = emptyItem;
         freeSlots++;
+
 
         mm.refresh();
         dp.setItems(serializeInventory());
@@ -418,9 +438,8 @@ public class Inventory_Manager : MonoBehaviour
 
         for(int i=0; i< items.Count; i++)
         {
-
             //Skip the extra manipulation for items that don't stack
-            if(items[i].getData().getStackLimit() <= 1 && slotNeededForItem(items[i]))
+            if(items[i].getData().getStackLimit() < 2 && slotNeededForItem(items[i])) // why AND slotNeeded?
             {                
                 emptySpace--;
                 continue;

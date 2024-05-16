@@ -117,6 +117,6 @@ public class Inventory_Menu : Menu
 
     public override void refresh()
     {
-        throw new System.NotImplementedException();
+        populateInvMenu();
     }
 }

@@ -67,8 +67,8 @@ public class CameraManager : MonoBehaviour
         reso_dd = r.GetComponent<TMP_Dropdown>();
         scaling_dd = s.GetComponent<TMP_Dropdown>();
 
-        min = this.transform.parent.Find("CameraMin");
-        max = this.transform.parent.Find("CameraMax");
+        min = GameObject.Find("CameraMin").transform;
+        max = GameObject.Find("CameraMax").transform;
 
     }
 

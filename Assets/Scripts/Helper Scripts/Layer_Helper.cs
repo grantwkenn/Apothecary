@@ -7,6 +7,9 @@ public class Layer_Helper : MonoBehaviour, ICustomLayer
 
     public void layer(string sortingLayerName)
     {
+        this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y, this.transform.position.y);
+        
+        
         //find all child objects
         SpriteRenderer[] srs = this.GetComponentsInChildren<SpriteRenderer>();
 

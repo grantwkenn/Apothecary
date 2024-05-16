@@ -606,7 +606,7 @@ public class Quest_Manager : MonoBehaviour
     }
 
 
-    public void itemRemoved(int itemID, int Quantity)
+    public void itemRemoved(int itemID, int remaining)
     {
         foreach(Quest quest in questLog)
         {
@@ -617,7 +617,8 @@ public class Quest_Manager : MonoBehaviour
                 //this item matches this gather objective
                 bool wasComplete = go.isComplete() && objectivesComplete(quest);
 
-                go.countUpdate(0 - Quantity);
+                if(remaining < go.getCount())
+                    go.countUpdate(0 - go.getCount() - remaining);
 
                 //if no longer complete
                 if(wasComplete && !go.isComplete())

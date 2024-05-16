@@ -90,6 +90,7 @@ public class Menu_Manager : MonoBehaviour
     public void refresh()
     {
         invBarMenu.refresh();
+        invMenu.refresh();
         questLog.refresh();
         settings.refresh();
     }
@@ -147,6 +148,8 @@ public class Menu_Manager : MonoBehaviour
         currentMenu = pauseMenuTabs[selectedTab];
         pauseMenu.SetActive(true);
         currentMenu.gameObject.SetActive(true);
+        refresh();
+
     }
 
 

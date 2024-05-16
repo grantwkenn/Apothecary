@@ -15,7 +15,7 @@ MonoBehaviour:
   title: Gather Mushrooms
   description: David needs help finding 3 mushrooms for his favorite soup. Red mushrooms
     can be found along the beach.
-  preQuests: 00000000
+  preQuests: 
   worldValues: 
   relationship: 0
   questID: 2

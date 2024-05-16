@@ -439,6 +439,16 @@ public class Player : MonoBehaviour
 
     public void setStairSlope(float co) { this.stairSlope = co; }
 
+    public bool isFacingPoint(Vector2 point)
+    {
+        double angle = Mathf.Atan2((point.y - this.transform.position.y), (point.x - this.transform.position.x));
 
+        if (facing == 0) return angle < Mathf.PI / 2;
+        if(facing == 1) return angle < Mathf.PI && angle > Mathf.PI/2;
+        if (facing == 2) return angle < (3 * Mathf.PI / 2) && angle > Mathf.PI;
+        if (facing == 3) return angle > (3 * Mathf.PI / 2);
+
+        return false;
+    }
 
 }

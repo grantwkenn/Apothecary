@@ -95,7 +95,7 @@ public class Dialogue_Manager : MonoBehaviour
     {        
         questManager.checkDialogueProgression(currentMessager);
 
-
+        inventoryManager.offerItems(currentMessager.getMessage().itemsToDeliver);
 
         //Quest_Giver QG = currentMessager.GetComponentInParent<Quest_Giver>();
         //if (QG != null && QG.getState() == QuestGiverState.available)
