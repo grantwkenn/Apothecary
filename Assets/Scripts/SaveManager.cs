@@ -13,15 +13,26 @@ public class SaveManager : MonoBehaviour
     Scene_Manager sceneMan;
     Menu_Manager mm;
     Data_Manager dm;
+
+    Event_Log eventLog;
+
+    string[] savePath;
     
-    string savePath;
+    //string[] savePath = { 
+    //    Application.persistentDataPath + "saveData1.dat",
+    //    Application.persistentDataPath + "saveData2.dat",
+    //    Application.persistentDataPath + "saveData3.dat",
+    //    Application.persistentDataPath + "saveData4.dat",
+    //    Application.persistentDataPath + "saveData5.dat"
+    //};
 
     [SerializeField]
     List<Scene_Save_Data> sceneData;
 
     private void Awake()
     {
-        savePath = Application.persistentDataPath + "saveData.dat";
+        savePath = new string[1];
+        savePath[0] = Application.persistentDataPath + "saveData1.dat";
     }
 
     private void OnEnable()
@@ -32,6 +43,7 @@ public class SaveManager : MonoBehaviour
         sceneMan = this.GetComponent<Scene_Manager>();
         mm = this.GetComponent<Menu_Manager>();
         dm = this.GetComponent<Data_Manager>();
+        eventLog = this.GetComponent<Event_Log>();
 
     }
 
@@ -48,20 +60,21 @@ public class SaveManager : MonoBehaviour
         sd.sceneSaveData = dm.getSceneSaveData();
         
         BinaryFormatter formatter = new BinaryFormatter();
-        FileStream fileStream = File.Create(savePath);
+        FileStream fileStream = File.Create(savePath[0]);
 
         formatter.Serialize(fileStream, sd);
         fileStream.Close();
 
-        Debug.Log("Saved file to: " + savePath);
+        Debug.Log("Saved file to: " + savePath[0]);
+        eventLog.logEvent("Saved file to:\n" + savePath[0]);
     }
 
     SaveData loadData()
     {
-        if(File.Exists(savePath))
+        if(File.Exists(savePath[0]))
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            FileStream fileStream = File.Open(savePath, FileMode.Open);
+            FileStream fileStream = File.Open(savePath[0], FileMode.Open);
 
             SaveData data = (SaveData)formatter.Deserialize(fileStream);
             fileStream.Close();

@@ -16,12 +16,12 @@ GameObject:
   - component: {fileID: 2698974980975134964}
   - component: {fileID: 2698974980975134971}
   - component: {fileID: 1883576782824874436}
-  - component: {fileID: 2698974980975134969}
   - component: {fileID: 1117785936}
   - component: {fileID: 808591620549776597}
   - component: {fileID: 7290408562977958600}
   - component: {fileID: 378725796586729882}
   - component: {fileID: 2001381528329608711}
+  - component: {fileID: 1955517779643666429}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -158,25 +158,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sp: {fileID: 11400000, guid: 7cf5fe9f72de11e449240a468887e353, type: 2}
   sceneSaveData: []
---- !u!114 &2698974980975134969
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2698974980975134958}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5ecdc97da2af6146b01c1af2b553a4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  multiplier: 16
-  run: 0
-  Hour: 12
-  PM: 1
-  freezeTime: 1
-  clockInSeconds: 540
-  daylight: {fileID: 0}
 --- !u!114 &1117785936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,3 +230,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameData: {fileID: 11400000, guid: 4ed4040e4df345946800c819d7ae69ec, type: 2}
+--- !u!114 &1955517779643666429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698974980975134958}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5ecdc97da2af6146b01c1af2b553a4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 90
+  run: 0
+  Hour: 10
+  PM: 0
+  freezeTime: 0
+  clockInSeconds: 450
+  daylight: {fileID: 0}

@@ -93,7 +93,7 @@ public class Quest
 
         foreach (Gather_Objective go in this.gather_objectives)
         {
-            go.setCount(objectivesProgress[objIndex]);
+            go.countUpdate(objectivesProgress[objIndex]);
             objIndex++;
         }
     }

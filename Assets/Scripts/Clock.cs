@@ -9,12 +9,12 @@ public class Clock : MonoBehaviour
     [SerializeField]
     Text text;
 
-    Day_Night_Cycle dayNightCycle;
+    Time_Manager timeMan;
 
 
     private void OnEnable()
     {
-        dayNightCycle = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Day_Night_Cycle>();
+        timeMan = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Time_Manager>();
     }
 
     // Start is called before the first frame update
@@ -26,7 +26,7 @@ public class Clock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = dayNightCycle.getTimeString();
+        text.text = timeMan.getTimeString();
     }
 
 }

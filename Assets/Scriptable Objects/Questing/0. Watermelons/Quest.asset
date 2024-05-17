@@ -19,7 +19,7 @@ MonoBehaviour:
   relationship: 0
   questID: 0
   questGiverID: 0
-  turnIn_QGID: 0
+  turnIn_QGID: 152
   isMainQuest: 0
   dialogue_data: {fileID: 11400000, guid: de6c0ae0c323858479571881998ef6e5, type: 2}
   objectives: []

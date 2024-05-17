@@ -182,7 +182,7 @@ public class Messager : MonoBehaviour
             segmentIndex = 0;
             return;
         }
-        
+         
         this.message = dialogueManager.nextMessage(this);
         if(this.message == null)
         {

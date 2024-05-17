@@ -71,6 +71,8 @@ public class Input_Manager : MonoBehaviour
         controls.Menus.Save.performed += context => saveMan.saveGame();
         controls.Menus.Load.performed += context => saveMan.loadGame();
 
+        controls.Gameplay.Save.performed += context => saveMan.saveGame();
+        controls.Gameplay.Load.performed += context => saveMan.loadGame();
 
         //Scroll / RB,LB
         //controls.Gameplay.Bumpers.performed += context => scroll = context.ReadValue<Vector2>();
@@ -92,7 +94,8 @@ public class Input_Manager : MonoBehaviour
         controls.Gameplay.CancelSprint.canceled += context => bRelease();
 
         //Q / Y Button
-        controls.Gameplay.Discard.performed += context => invManager.discardSelection();
+        controls.Gameplay.Discard.performed += context => menuManager.discardBarSelection();
+        controls.Menus.Discard.performed += context => menuManager.discardMenuSelection();
 
 
         //ENTER / START Button

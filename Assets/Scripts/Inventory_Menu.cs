@@ -119,4 +119,9 @@ public class Inventory_Menu : Menu
     {
         populateInvMenu();
     }
+
+    public int getSelection()
+    {
+        return this.menuSelection;
+    }
 }

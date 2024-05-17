@@ -142,6 +142,8 @@ public class Quest_Manager : MonoBehaviour
             Quest_Data qd = this.questDataByQID[sq.getID()];
             Quest q = new Quest(qd);
             q.setProgress(sq);
+            //check for completion here
+
             questLog.Add(q);
         }
 
@@ -406,7 +408,7 @@ public class Quest_Manager : MonoBehaviour
                 if(starterID != qd.getTurnInQGID())
                 {
                     //have different QGs
-                    if(activeQG_By_ID[starterID] != null)
+                    if(activeQG_By_ID.ContainsKey(starterID) && activeQG_By_ID[starterID] != null)
                     {
                         Quest_Giver starter = activeQG_By_ID[starterID];
                         starter.setState(evaluateQuestGiverState(starterID));

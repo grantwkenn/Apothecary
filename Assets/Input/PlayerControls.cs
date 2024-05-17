@@ -116,6 +116,24 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Save"",
+                    ""type"": ""Button"",
+                    ""id"": ""e101300b-0cdc-4565-b416-ba88723513a5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Load"",
+                    ""type"": ""Button"",
+                    ""id"": ""99c4b99b-b111-4f0f-b15a-2be4ffe48c52"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -547,6 +565,28 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Skip Day"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""79d5ae2b-47ff-4432-a532-a41d4e54a348"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Save"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8b846116-3f0c-4f62-9bee-05f03933f036"",
+                    ""path"": ""<Keyboard>/backslash"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Load"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -648,6 +688,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""name"": ""Save"",
                     ""type"": ""Button"",
                     ""id"": ""d25aa319-4f09-46b6-94e5-cbe26cd0ea20"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Discard"",
+                    ""type"": ""Button"",
+                    ""id"": ""8fff0539-a42c-4405-99da-8ccdd00f92b6"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -863,6 +912,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""action"": ""Save"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""acce0b83-d8d7-43d5-81d2-ec54cf22d47b"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Discard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -881,6 +941,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Gameplay_RB = m_Gameplay.FindAction("RB", throwIfNotFound: true);
         m_Gameplay_Discard = m_Gameplay.FindAction("Discard", throwIfNotFound: true);
         m_Gameplay_SkipDay = m_Gameplay.FindAction("Skip Day", throwIfNotFound: true);
+        m_Gameplay_Save = m_Gameplay.FindAction("Save", throwIfNotFound: true);
+        m_Gameplay_Load = m_Gameplay.FindAction("Load", throwIfNotFound: true);
         // Menus
         m_Menus = asset.FindActionMap("Menus", throwIfNotFound: true);
         m_Menus_Start = m_Menus.FindAction("Start", throwIfNotFound: true);
@@ -894,6 +956,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Menus_RB = m_Menus.FindAction("RB", throwIfNotFound: true);
         m_Menus_Load = m_Menus.FindAction("Load", throwIfNotFound: true);
         m_Menus_Save = m_Menus.FindAction("Save", throwIfNotFound: true);
+        m_Menus_Discard = m_Menus.FindAction("Discard", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -963,6 +1026,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_RB;
     private readonly InputAction m_Gameplay_Discard;
     private readonly InputAction m_Gameplay_SkipDay;
+    private readonly InputAction m_Gameplay_Save;
+    private readonly InputAction m_Gameplay_Load;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -977,6 +1042,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @RB => m_Wrapper.m_Gameplay_RB;
         public InputAction @Discard => m_Wrapper.m_Gameplay_Discard;
         public InputAction @SkipDay => m_Wrapper.m_Gameplay_SkipDay;
+        public InputAction @Save => m_Wrapper.m_Gameplay_Save;
+        public InputAction @Load => m_Wrapper.m_Gameplay_Load;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1016,6 +1083,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @SkipDay.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSkipDay;
                 @SkipDay.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSkipDay;
                 @SkipDay.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSkipDay;
+                @Save.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSave;
+                @Save.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSave;
+                @Save.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSave;
+                @Load.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLoad;
+                @Load.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLoad;
+                @Load.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnLoad;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -1050,6 +1123,12 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @SkipDay.started += instance.OnSkipDay;
                 @SkipDay.performed += instance.OnSkipDay;
                 @SkipDay.canceled += instance.OnSkipDay;
+                @Save.started += instance.OnSave;
+                @Save.performed += instance.OnSave;
+                @Save.canceled += instance.OnSave;
+                @Load.started += instance.OnLoad;
+                @Load.performed += instance.OnLoad;
+                @Load.canceled += instance.OnLoad;
             }
         }
     }
@@ -1069,6 +1148,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Menus_RB;
     private readonly InputAction m_Menus_Load;
     private readonly InputAction m_Menus_Save;
+    private readonly InputAction m_Menus_Discard;
     public struct MenusActions
     {
         private @PlayerControls m_Wrapper;
@@ -1084,6 +1164,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @RB => m_Wrapper.m_Menus_RB;
         public InputAction @Load => m_Wrapper.m_Menus_Load;
         public InputAction @Save => m_Wrapper.m_Menus_Save;
+        public InputAction @Discard => m_Wrapper.m_Menus_Discard;
         public InputActionMap Get() { return m_Wrapper.m_Menus; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1126,6 +1207,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Save.started -= m_Wrapper.m_MenusActionsCallbackInterface.OnSave;
                 @Save.performed -= m_Wrapper.m_MenusActionsCallbackInterface.OnSave;
                 @Save.canceled -= m_Wrapper.m_MenusActionsCallbackInterface.OnSave;
+                @Discard.started -= m_Wrapper.m_MenusActionsCallbackInterface.OnDiscard;
+                @Discard.performed -= m_Wrapper.m_MenusActionsCallbackInterface.OnDiscard;
+                @Discard.canceled -= m_Wrapper.m_MenusActionsCallbackInterface.OnDiscard;
             }
             m_Wrapper.m_MenusActionsCallbackInterface = instance;
             if (instance != null)
@@ -1163,6 +1247,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Save.started += instance.OnSave;
                 @Save.performed += instance.OnSave;
                 @Save.canceled += instance.OnSave;
+                @Discard.started += instance.OnDiscard;
+                @Discard.performed += instance.OnDiscard;
+                @Discard.canceled += instance.OnDiscard;
             }
         }
     }
@@ -1179,6 +1266,8 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnRB(InputAction.CallbackContext context);
         void OnDiscard(InputAction.CallbackContext context);
         void OnSkipDay(InputAction.CallbackContext context);
+        void OnSave(InputAction.CallbackContext context);
+        void OnLoad(InputAction.CallbackContext context);
     }
     public interface IMenusActions
     {
@@ -1193,5 +1282,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnRB(InputAction.CallbackContext context);
         void OnLoad(InputAction.CallbackContext context);
         void OnSave(InputAction.CallbackContext context);
+        void OnDiscard(InputAction.CallbackContext context);
     }
 }

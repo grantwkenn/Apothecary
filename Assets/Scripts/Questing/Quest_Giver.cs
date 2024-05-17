@@ -58,7 +58,7 @@ public class Quest_Giver : MonoBehaviour
         //set state, and QM will reference the current quest
         this.state = qm.evaluateQuestGiverState(this.QGID);
         /////CHECK can this be done in questGiverEnable instead???
-
+        this.GetComponentInParent<Messager>().nextMessage();
 
         //Based on State, flag ! or ? or ...
 

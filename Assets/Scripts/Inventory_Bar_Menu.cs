@@ -203,6 +203,11 @@ public class Inventory_Bar_Menu : Menu
         im.evaluateSelector();
     }
 
+    public byte getBarSelectionIndex()
+    {
+        return this.selection;
+    }
+
     public void bounceItem(int index)
     {
         //reset before allowing another bounce!

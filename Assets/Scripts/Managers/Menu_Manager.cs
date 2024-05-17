@@ -126,9 +126,25 @@ public class Menu_Manager : MonoBehaviour
 
     public void inputCloseMenu()
     {
-        im.closeMenu();
+        if(currentMenu!= null)
+            im.closeMenu();
     }
 
+    public void discardMenuSelection()
+    {
+        if(currentMenu == invMenu)
+        {
+            Inventory_Menu _invMenu = (Inventory_Menu)currentMenu;
+            int selection = _invMenu.getSelection();
+            invMan.discardMenuSelection(selection);
+        }
+        
+    }
+
+    public void discardBarSelection()
+    {
+        invMan.discardMenuSelection(invBarMenu.getBarSelectionIndex());
+    }
 
     public void handleInput(direction urdl)
     {

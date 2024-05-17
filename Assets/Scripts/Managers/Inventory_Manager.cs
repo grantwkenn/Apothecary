@@ -214,6 +214,7 @@ public class Inventory_Manager : MonoBehaviour
         dp.setItems(serializeInventory());
 
         qm.itemAdded(item.getData().getItemNo(), quantityAdded);
+
         mm.refresh();
         
         //evaluate the selector in case we just picked up a tool. Is this neccessary?
@@ -244,12 +245,28 @@ public class Inventory_Manager : MonoBehaviour
 
 
     //TODO fix this with new stacking schema
-    public void discardSelection()
+    public void discardBarSelection()
     {
         Item item = inventory[barSelection];
         int remaining = countItem(item) - item.getQuantity();
         qm.itemRemoved(inventory[barSelection].getItemNo(), remaining);
         inventory[barSelection] = emptyItem;
+        freeSlots++;
+
+
+        mm.refresh();
+        dp.setItems(serializeInventory());
+
+        //in case we just set down a tool
+        evaluateSelector();
+    }
+
+    public void discardMenuSelection(int selection)
+    {
+        Item item = inventory[selection];
+        int remaining = countItem(item) - item.getQuantity();
+        qm.itemRemoved(inventory[selection].getItemNo(), remaining);
+        inventory[selection] = emptyItem;
         freeSlots++;
 
 
