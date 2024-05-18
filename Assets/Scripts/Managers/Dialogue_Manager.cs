@@ -96,6 +96,9 @@ public class Dialogue_Manager : MonoBehaviour
         questManager.checkDialogueProgression(currentMessager);
 
         inventoryManager.offerItems(currentMessager.getMessage().itemsToDeliver);
+        inventoryManager.addCoins(currentMessager.getMessage().giveCoins);
+
+        //TODO implement a way to charge coins after dialogue, this requires a "not enough money" dialogue
 
         //Quest_Giver QG = currentMessager.GetComponentInParent<Quest_Giver>();
         //if (QG != null && QG.getState() == QuestGiverState.available)

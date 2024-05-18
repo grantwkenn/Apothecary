@@ -15,6 +15,9 @@ public class Data_Persistence : ScriptableObject
     [SerializeField]
     int health;
 
+    [SerializeField]
+    int coins;
+
 
     [SerializeField]
     List<SerializableItem> sInventory;
@@ -80,6 +83,13 @@ public class Data_Persistence : ScriptableObject
         return this.sInventory;
     }
 
+    public int getCoins()
+    {
+        return this.coins;
+    }
+
+    public void setCoins(int amt) { this.coins = amt; }
+
     public void setInvSelection(byte sel) { this.invSelection = sel; }
 
     public byte getInvSelection() { return this.invSelection; }
@@ -126,7 +136,7 @@ public class Data_Persistence : ScriptableObject
 
         this.sQuestLog = save.questLog;
         this.questsComplete = save.questsComplete;
-
+        this.coins = save.coins;
         this.sInventory = save.inventory;
         //TODO could set the inventory selection here
 

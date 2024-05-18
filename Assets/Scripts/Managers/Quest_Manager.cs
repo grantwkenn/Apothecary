@@ -19,9 +19,10 @@ public class Quest_Manager : MonoBehaviour
     Dialogue_Manager dialogueManager;
     Scene_Manager sm;
     Data_Persistence dp;
+    Reference_Manager refMan;
 
 
-    
+
     //list of all Quest Data Scriptable Objects from Assets
     public Quest_List allQuests; //from Assets
 
@@ -47,12 +48,13 @@ public class Quest_Manager : MonoBehaviour
 
     Dictionary<int, int> currentQuest_by_QGID;
 
+    Dictionary<Quest_Giver, GameObject> questMarkers;
+
 
     // QUEST LOG//////////////////////////////////
     [SerializeField]
     List<Quest> questLog;
 
-    [SerializeField]
     Sprite[] questSymbols;
 
     const int LOG_CAPACITY = 20;
@@ -64,6 +66,7 @@ public class Quest_Manager : MonoBehaviour
         inventory_Manager = this.GetComponentInParent<Inventory_Manager>();
         dialogueManager = this.GetComponentInParent<Dialogue_Manager>();
         sm = this.GetComponentInParent<Scene_Manager>();
+        refMan = this.GetComponent<Reference_Manager>();
 
         if (inventory_Manager == null) Debug.Log("Inventory Manager Null");
 
@@ -79,6 +82,8 @@ public class Quest_Manager : MonoBehaviour
         activeQG_By_ID = new Dictionary<int, Quest_Giver>();
 
         currentQuest_by_QGID = new Dictionary<int, int>();
+
+        questMarkers = new Dictionary<Quest_Giver, GameObject>();
 
         //populate Quests_by_QGID
         //map all quests to their Quest Givers
@@ -110,11 +115,10 @@ public class Quest_Manager : MonoBehaviour
             questList.Value.Sort();
         }
 
-        Reference_Manager resoMan;
+        
         //get the quest indicator prefab from the Resource Manager
-        resoMan = this.GetComponent<Reference_Manager>();
 
-        questSymbols = resoMan.getQuestSymbols();
+        questSymbols = refMan.getQuestSymbols();
 
     }
 
@@ -175,6 +179,26 @@ public class Quest_Manager : MonoBehaviour
             activeQG_By_ID.Remove(QG.QGID);
     }
 
+    void instantiateQuestMarker(Quest_Giver qg, int mark)
+    {
+        GameObject questMarker = GameObject.Instantiate(refMan.getPrefab("Quest Marker"), new Vector3(), Quaternion.identity);
+        questMarker.GetComponent<Quest_Marker>().init(qg, questSymbols[mark]);
+
+        DestroyMarker(qg);
+        questMarkers.Add(qg, questMarker);
+    }
+
+    //Remove the quest marker on this quest giver and destroy prefab
+    void DestroyMarker(Quest_Giver qg)
+    {
+        if (questMarkers.ContainsKey(qg))
+        {
+            GameObject qm = questMarkers[qg];
+            questMarkers.Remove(qg);
+            Destroy(qm);
+        }
+    }
+
     //DM uses to populate messager with relevant quest message
     public Message getQuestMessage(Messager messager)
     {
@@ -188,7 +212,10 @@ public class Quest_Manager : MonoBehaviour
                 //return the talk objective message
                 if (!to.isComplete())
                 {
-                    messager.setSymbol(2);
+                    //TODO we replaced the quest marker system, it used to 
+                    // work on messagers, currently only for QGs, 
+                    // maybe change this in the future to indicate talk objectives,
+                    // or use a different kind of mark
                     return to.getData().getResponse();
                     
                 }
@@ -204,7 +231,7 @@ public class Quest_Manager : MonoBehaviour
         QuestGiverState state = QG.getState();
         if (state == QuestGiverState.none)
         {
-            messager.setSymbol(-1);
+            DestroyMarker(QG);
             return null;
         }
 
@@ -214,20 +241,21 @@ public class Quest_Manager : MonoBehaviour
 
         if (state == QuestGiverState.active)
         {
-            messager.setSymbol(2);
+            instantiateQuestMarker(QG, 2);
+
             return data.getOngoingMessage();
         }
 
         if (state == QuestGiverState.available)
         {
-            messager.setSymbol(0);
+            instantiateQuestMarker(QG, 0);
             return data.pitch;
         }
 
         //This state is shared by inventory full and quest log full
         if (state == QuestGiverState.availableFull)
         {
-            messager.setSymbol(1);
+            instantiateQuestMarker(QG, 1);
             
             if (questLog.Count >= LOG_CAPACITY)
                 return data.questLogFull;
@@ -237,13 +265,15 @@ public class Quest_Manager : MonoBehaviour
 
         if (state == QuestGiverState.turnIn)
         {
-            messager.setSymbol(1);
+            instantiateQuestMarker(QG, 1);
+
             return data.turnIn;
         }
 
         if (state == QuestGiverState.turnInFull)
         {
-            messager.setSymbol(1);
+            instantiateQuestMarker(QG, 1);
+
             return data.turnInFull;
         }
 
@@ -319,10 +349,8 @@ public class Quest_Manager : MonoBehaviour
         //check if no active quests for this QG
         if (!currentQuest_by_QGID.TryGetValue(QG.QGID, out QID)) return;
 
-
         // QID is the current quest for this Giver
         QuestGiverState state = QG.getState();
-        Debug.Log(state.ToString());
         
         //check progression from available to active or full
         if(state == QuestGiverState.available)

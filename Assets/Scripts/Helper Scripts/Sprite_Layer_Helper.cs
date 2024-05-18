@@ -21,7 +21,7 @@ public class Sprite_Layer_Helper : MonoBehaviour
         Auto, Object, Above, Ground
     }
 
-    public string getName() { return this.customLevel.ToString(); }
+    public string getLevelName() { return this.customLevel.ToString(); }
 
     public float getOffset()
     {

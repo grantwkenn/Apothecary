@@ -23,13 +23,8 @@ public class Messager : MonoBehaviour
     [SerializeField]
     int segmentIndex;
 
-    SpriteRenderer questIndicatorSprite;
-
     [SerializeField]
     bool sign;
-
-    [SerializeField]
-    float indicatorHeight;
 
 
     private void Awake()
@@ -38,9 +33,6 @@ public class Messager : MonoBehaviour
         textManager = gameManager.GetComponent<Text_Manager>();
         dialogueManager = gameManager.GetComponent<Dialogue_Manager>();
         qm = gameManager.GetComponent<Quest_Manager>();
-
-
-        questIndicatorSprite = this.transform.Find("Quest Indicator").GetComponent<SpriteRenderer>();
 
     }
 
@@ -161,19 +153,6 @@ public class Messager : MonoBehaviour
         return this.GetComponentInParent<Quest_Giver>() != null;
     }
 
-    public void setSymbol(int index)
-    {
-        if (questIndicatorSprite == null) return;
-        if(index < 0)
-        {
-            questIndicatorSprite.enabled = false;
-        }
-        else
-        {
-            questIndicatorSprite.enabled = true;
-            questIndicatorSprite.sprite = qm.getQuestSymbol(index);           
-        }
-    }
 
     public void nextMessage()
     {

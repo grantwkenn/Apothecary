@@ -10,6 +10,7 @@ public class SaveData
     
     public int health;
     public List<SerializableItem> inventory;
+    public int coins;
 
     public bool[] questsComplete;
     public List<SerializableQuest> questLog;

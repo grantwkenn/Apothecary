@@ -10,6 +10,7 @@ using System;
 //Redo the offer item schema in favor of the quantity stacking schema
 
 
+
 public class Inventory_Manager : MonoBehaviour
 {
     Quest_Manager qm;
@@ -26,6 +27,9 @@ public class Inventory_Manager : MonoBehaviour
 
     [SerializeField]
     Item_Catalogue itemCatalogue;
+
+    private int coins;
+    const int maxCoins = 9999999;
 
     //items may not neccessarilly be in index order in the catalogue collection
     Dictionary<int, Item_Data> itemData_by_ID;
@@ -126,6 +130,7 @@ public class Inventory_Manager : MonoBehaviour
     {
         //get serializedInventory from PP
         List<SerializableItem> sInv = dp.getSerializableInventory();
+        coins = dp.getCoins();
 
         //set inventory from pp data
 
@@ -145,6 +150,7 @@ public class Inventory_Manager : MonoBehaviour
         //pp.setItems(inventory);
         dp.setItems(serializeInventory());
         dp.setInvSelection(barSelection);
+        dp.setCoins(coins);
     }
     /// <summary>
     /// /////////////////////////////////////////////////////////////////
@@ -567,6 +573,26 @@ public class Inventory_Manager : MonoBehaviour
         return list;
     }
 
+    public void addCoins(int amt)
+    {
+        coins += amt;
+        if (coins > maxCoins)
+            coins = maxCoins;
+    }
+
+    public void subtractCoins(int amt)
+    {
+        coins -= amt;
+        if (coins < 0) coins = 0;
+    }
+
+    public bool enoughCoins(int amt)
+    {
+        return coins >= amt;
+    }
+
+    public int getCoinAmount() { return this.coins; }
+
 }
 
 [System.Serializable]
@@ -601,6 +627,7 @@ public class SerializableItem
     }
 
 }
+
 
 
 

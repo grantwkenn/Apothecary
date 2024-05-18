@@ -9,4 +9,6 @@ public class Message : ScriptableObject
 
     public Message[] nextMessage;
     public List<Item> itemsToDeliver;
+
+    public int giveCoins;
 }

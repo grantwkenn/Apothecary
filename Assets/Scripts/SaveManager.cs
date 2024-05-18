@@ -58,6 +58,7 @@ public class SaveManager : MonoBehaviour
         sd.sceneName = sceneMan.getSceneName();
         sd.entranceNo = sceneMan.getEntrance().getEntranceNo();
         sd.sceneSaveData = dm.getSceneSaveData();
+        sd.coins = invMan.getCoinAmount();
         
         BinaryFormatter formatter = new BinaryFormatter();
         FileStream fileStream = File.Create(savePath[0]);

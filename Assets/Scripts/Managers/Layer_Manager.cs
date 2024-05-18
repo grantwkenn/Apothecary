@@ -112,7 +112,6 @@ public class Layer_Manager : MonoBehaviour
 
     public void relayer()
     {
-        
         for (int i = 0; i < levels.Count; i++)
         {
             if (GameObject.Find(levelNames[i]) != null)

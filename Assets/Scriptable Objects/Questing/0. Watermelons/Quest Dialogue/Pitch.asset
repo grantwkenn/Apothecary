@@ -13,9 +13,12 @@ MonoBehaviour:
   m_Name: Pitch
   m_EditorClassIdentifier: 
   messageSegments:
-  - I need you to plant some Watermelon seeds
-  - Come back when you've harvested 3 of them!
+  - I need you to plant these Watermelon seeds
+  - When they're ready to harvest, deliver them to the owner of the tavern in town
+  - Remember, the Watering Can and the Hoe are sitting outside of the small shed
+  - Thank you! Here are the seeds
   nextMessage: []
   itemsToDeliver:
-  - data: {fileID: 11400000, guid: d6a054bb83a846144b4601ab7bb075e8, type: 2}
-    stackQuantity: 1
+  - data: {fileID: 11400000, guid: 37a61f218b61ee24fb6a9e4447b4d0f7, type: 2}
+    stackQuantity: 0
+  giveCoins: 9999991

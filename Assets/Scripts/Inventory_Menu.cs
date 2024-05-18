@@ -11,6 +11,8 @@ public class Inventory_Menu : Menu
 
     RectTransform spriteGrid;
 
+    Text coinCounter;
+
     int numRows = 4;
     int numCols = 11;
     int selectedRow = 0;
@@ -32,6 +34,8 @@ public class Inventory_Menu : Menu
         spriteGrid = (RectTransform) this.transform.Find("Sprite Grid");
         spritePositions = new Vector3[numSlots];
         Selector = this.transform.Find("Selector");
+
+        coinCounter = this.transform.Find("Coin Counter").GetComponent<Text>();
 
     }
 
@@ -74,6 +78,8 @@ public class Inventory_Menu : Menu
 
     public void populateInvMenu()
     {
+        coinCounter.text = commaSeparatedAmount(im.getCoinAmount());
+        
         Item[] items = im.getItems();
 
         for (int i = 0; i < items.Length; i++)
@@ -87,6 +93,37 @@ public class Inventory_Menu : Menu
             else
                 itemImages[i].enabled = false;
         }
+    }
+
+    public string commaSeparatedAmount2(int amt)
+    {
+        string result = amt.ToString("NO");
+        return result;
+    }
+
+    public string commaSeparatedAmount(int amt)
+    {
+        if (amt == 0) return "0";
+        
+        string reverse = "";
+        while(amt > 0)
+        {
+            for(int i = 0; i<3; i++)
+            {
+                if (amt <= 0) break;
+                int digit = amt % 10;
+                amt = amt / 10;
+                reverse += digit;
+            }
+
+            if (amt > 0) reverse += ",";
+        }
+        string result = "";
+        for(int i = reverse.Length-1; i>=0; i--)
+        {
+            result += reverse[i];
+        }
+        return result;
     }
 
 
