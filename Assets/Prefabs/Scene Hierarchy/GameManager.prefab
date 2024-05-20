@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 378725796586729882}
   - component: {fileID: 2001381528329608711}
   - component: {fileID: 1955517779643666429}
+  - component: {fileID: 199216090}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: GameManager
@@ -143,7 +144,6 @@ MonoBehaviour:
   questDataByQID: []
   questsComplete: 
   questLog: []
-  questSymbols: []
 --- !u!114 &1883576782824874436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,3 +249,15 @@ MonoBehaviour:
   freezeTime: 0
   clockInSeconds: 450
   daylight: {fileID: 0}
+--- !u!114 &199216090
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2698974980975134958}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41ef3d9b44379304d84a56b487775270, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

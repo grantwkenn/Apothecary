@@ -23,27 +23,9 @@ MonoBehaviour:
     sceneSaveData: []
   health: 0
   coins: 0
-  sInventory:
-  - index: 0
-    itemID: 12
-    quantity: 1
-  - index: 1
-    itemID: 12
-    quantity: 1
-  - index: 2
-    itemID: 12
-    quantity: 1
-  - index: 3
-    itemID: 1
-    quantity: 0
-  - index: 4
-    itemID: 83
-    quantity: 13
-  - index: 7
-    itemID: 83
-    quantity: 10
-  entranceNo: 17
-  questsComplete: 01000000
+  sInventory: []
+  entranceNo: 1
+  questsComplete: 00000000
   sQuestLog: []
   allSceneData:
   - {fileID: 11400000, guid: e78b141ee7555374f9db7fa7c0498432, type: 2}

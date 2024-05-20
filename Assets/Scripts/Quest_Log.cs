@@ -13,6 +13,9 @@ public class Quest_Log : Menu
     public Transform[] slots;
 
     public Transform selection;
+    Transform coinImage;
+
+    Text coinRewardContainer;
 
     int currentSelection = 0;
 
@@ -25,6 +28,7 @@ public class Quest_Log : Menu
     Transform description;
 
     Transform objectiveContainer;
+
 
 
     // Start is called before the first frame update
@@ -40,6 +44,8 @@ public class Quest_Log : Menu
         currentSelection = 0;
         objectiveContainer = this.transform.Find("Quest Panel").transform.Find("Objectives");
         description = this.transform.Find("Quest Panel").transform.Find("Quest Description");
+        coinRewardContainer = this.transform.Find("Quest Panel").transform.Find("Coin Reward").GetComponent<Text>();
+        coinImage = this.transform.Find("Quest Panel").transform.Find("Coin Image");
         counter = this.transform.Find("Counter");
 
 
@@ -115,6 +121,8 @@ public class Quest_Log : Menu
             slots[0].gameObject.SetActive(true);
             slots[0].GetComponent<Text>().text = "Quest Log is Empty";
             counter.GetComponent<Text>().text = "0/0";
+            coinImage.gameObject.SetActive(false);
+            coinRewardContainer.gameObject.SetActive(false);
         }
 
         else
@@ -138,6 +146,21 @@ public class Quest_Log : Menu
             description.GetComponent<Text>().text = quests[currentSelection].getData().getDescription();
             
             objectiveContainer.GetComponent<Text>().text = quests[currentSelection].getObjectiveStatus();
+
+            int coinReward = quests[currentSelection].getData().getCoinReward();
+            if(coinReward > 0)
+            {
+                coinRewardContainer.gameObject.SetActive(true);
+                coinRewardContainer.text = "Reward: " + coinReward;
+                coinImage.gameObject.SetActive(true);
+            }
+            else
+            {
+                coinImage.gameObject.SetActive(false);
+                coinRewardContainer.gameObject.SetActive(false);
+            }
+                
+
         }
 
         

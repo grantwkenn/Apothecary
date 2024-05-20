@@ -471,6 +471,8 @@ public class Quest_Manager : MonoBehaviour
                 
                 //add rewards
                 inventory_Manager.offerItems(rewards);
+
+                inventory_Manager.addCoins(quest.getData().getCoinReward());
             }
 
         }

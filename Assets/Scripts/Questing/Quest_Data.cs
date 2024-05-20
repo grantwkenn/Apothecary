@@ -47,6 +47,9 @@ public class Quest_Data : ScriptableObject
     [SerializeField]
     List<Item> rewards;
 
+    [SerializeField]
+    int coinReward;
+
     public int[] getPreQuests() { return preQuests; }
 
     public Quest_Dialogue_Data getDialogueData() { return dialogue_data; }
@@ -79,7 +82,7 @@ public class Quest_Data : ScriptableObject
 
     public string getDescription() { return this.description; }
 
-
+    public int getCoinReward() { return this.coinReward; }
 
     //what else is a reward for a quest? Unlock new parts of the map?
     /*

@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e9518cd0f26bd047b5ac71f6394cb55, type: 3}
   m_Name: Quest
   m_EditorClassIdentifier: 
-  title: Your very first Quest
-  description: This is your first quest yay!
+  title: Harvest Watermelons
+  description: Go to the garden and plant watermelon seeds. When they are harvested,
+    bring 3 of them to the Tavern and sell them to the Tavern Keeper.  Remember,
+    you can find the Hoe and the Watering Can outside of the Garden Shed.
   preQuests: 
   worldValues: 
   relationship: 0
@@ -29,3 +31,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e8db92c55250e0548bc1b7e34c47f695, type: 2}
   questItems: []
   rewards: []
+  coinReward: 300

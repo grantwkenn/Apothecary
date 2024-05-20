@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: gather mushroom
   m_EditorClassIdentifier: 
   item_data: {fileID: 11400000, guid: afc1b3cc455dff94e9030751cdbc5fff, type: 2}
-  numToGather: 3
+  numToGather: 1
   retroactive: 0

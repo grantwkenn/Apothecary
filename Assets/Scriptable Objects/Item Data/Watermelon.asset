@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b52a521f9c0e88a488fd2e130bbd04fe, type: 3}
   m_Name: Watermelon
   m_EditorClassIdentifier: 
-  itemName: Watermelonser
+  itemName: Watermelon
   description: 
   itemNo: 33
   value: 0

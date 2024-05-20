@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6e9518cd0f26bd047b5ac71f6394cb55, type: 3}
-  m_Name: Grab 3 Mushrooms
+  m_Name: Grab 1 Mushroom
   m_EditorClassIdentifier: 
   title: Gather Mushrooms
-  description: David needs help finding 3 mushrooms for his favorite soup. Red mushrooms
-    can be found along the beach.
+  description: David needs help finding a mushroom for his favorite soup. Red mushrooms
+    can be found in the forest to the West.
   preQuests: 
   worldValues: 
   relationship: 0
@@ -30,3 +30,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5611fa7459b9cef429b1f83018fa7ab4, type: 2}
   questItems: []
   rewards: []
+  coinReward: 50

@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   messageSegments:
   - Hey can you help me?
-  - I need you to gather 3 Red Mushrooms for me
-  - They should be all over the place.
+  - I need you to gather a Red Mushroom, don't ask me what it's for!
+  - Let me know when you've found them.
   nextMessage: []
   itemsToDeliver: []
+  giveCoins: 0
